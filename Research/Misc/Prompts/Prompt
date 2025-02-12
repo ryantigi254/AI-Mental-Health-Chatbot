@@ -1,0 +1,75 @@
+Context:
+I am working on my university group project about making an ai mental chatbot, here are more details:
+TOPIC: Mental Health chatbot
+SUMMARY: You will work in a team (3 or 4 students) to design, develop and evaluate an AI chatbot to provide a selected mental health service to UON students.
+Project details:
+
+It can be a chatbot to provide consultation, general advice, guided therapies, useful information, etc. You, as a team, must define the scope and features of the chatbot.
+The project must be user-centred, which means that the design, prototyping, and testing must involve targeted users and not just the project team members.
+The project will be assessed based on requirement analysis, technical development, evaluation study, and project management/teamwork.
+Project deliverables include Technical Report, Software solution including all source code, and Team Presentation.
+Grades are given to individuals based on their contributions to the project.
+
+
+Main Goal:
+********************************************************************************************
+We were tasked with doing background research in the field to basically learn and find everything and anything we can find about this topic, article, blog, paper, report, conference etc to basically learn and understand the industry, what is being done/has been done/is to be done/is being pursued.
+********************************************************************************************
+
+
+
+********************************************************************************************
+My approach involves the following:
+Plan for research,
+
+Understand topic and what it means what we need to create
+
+Search for sources:
+	- Perplexity (papers, articles, blogs etc) [Arxiv, IEEE, Google Scholar, Nelson etc]
+	- NotebookLM
+	- Storm
+	- Deep Research Google
+	- Deep Research Open AI
+
+Workflow:
+Use o3 mini high and come up with a roadmap to follow to do this, the roadmap should lead into the sections we need as well for the background research report:
+
+Search for papers, articles and blogs in Perplexity, save them locally; then use Claude 3.5 Sonnet to create a detailed report start in latex.
+
+With the saved sources add them to NotebookLM, generate summaries, and the podcast listen to them in the meeting. Also ask multiple round of questions to get answers based on the papers. Continue and add on to the report based on this.
+
+Use o3 mini high to generate topics for STORM to do research on, make at least two different variations, maybe looking at AI side of things and the other on the mental health industry side of things. Continue and add on to the report based on this.
+
+Use o3 mini high to make a prompt to use in Deep Research Google. Continue and add on to the report based on this.
+
+Use o1 pro to review the report content thus far and then make a really good research prompt for Deep Research Open AI. 
+
+
+
+********************************************************************************************
+I have since done the research on perplexity and got about 127 sources total across mostly research papers, conferences, and articles/blogs. I used these questions that you created to do the searches: 
+
+What are the key challenges in using AI chatbots for mental health support, and how have researchers addressed these issues?
+Search for peer-reviewed papers, case studies, and whitepapers published in reputable journals (e.g., IEEE, Journal of Medical Internet Research, Psychiatric Clinics of North America). Look for research discussing barriers to AI integration in mental health, such as privacy concerns, technological limitations, and user engagement challenges
+
+
+----------------------------------------------------------------------------
+
+Search for a wide range of resources—including peer-reviewed papers, clinical studies, government reports, technical articles, whitepapers, case studies, and reputable blogs—from sources such as IEEE, arXiv, Google Scholar, NHS, WHO, and other relevant institutional websites. Investigate the following aspects regarding AI-based mental health chatbots:
+
+How mental health institutions and healthcare systems have implemented AI-based chatbots for patient support and therapy, including real-world pilot programmes and detailed case studies.
+The evidence on the effectiveness of these chatbots in delivering mental health advice and therapeutic interventions, with a focus on outcome measurements such as user satisfaction, therapeutic outcomes, and user retention.
+The measures employed by mental health chatbots to ensure privacy and confidentiality, and the ethical considerations surrounding their use as discussed in academic and policy sources.
+The latest advancements in natural language processing (NLP) specific to mental health applications, such as innovations in sentiment analysis, emotional intelligence, and therapeutic conversation models.
+The role of chatbots in reducing the stigma associated with mental health care and improving accessibility to mental health services, particularly for underserved or stigmatised populations.
+How various governments and health institutions are incorporating AI chatbots into public health strategies for mental well-being, as reflected in policy documents and strategic reports.
+The technical frameworks and architectures used in developing these chatbots, detailing the AI development tools, design best practices, and successful implementation strategies
+
+
+
+********************************************************************************************
+What I need you to help with now is to review the feedback we got thus far from perplexity and NotebookLM, then suggest questions I should ask either to see what we might have missed or where we may need more feedback. Also note that perplexity mostly offers direct answers based on the searches it does while notebooklm uses the sources we downloaded thanks to perplexity searches and can answer our questions specifically by referencing the study citing in depth, it can give us more insight based on the papers that we might not get even if we read them. 
+
+Current Task:
+********************************************************************************************
+We will start asking the questions and reviewing what we have done so far in the next prompt, just acknowledge this for now

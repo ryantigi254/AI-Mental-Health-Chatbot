@@ -1,0 +1,24 @@
+Plan for research,
+
+Understand topic and what it means what we need to create
+
+Search for sources:
+	- Perplexity (papers, articles, blogs etc) [Arxiv, IEEE, Google Scholar, Nelson etc]
+	- NotebookLM
+	- Storm
+	- Deep Research Google
+	- Deep Research Open AI
+
+Workflow:
+Use o3 mini high and come up with a roadmap to follow to do this, the roadmap should lead into the sections we need as well for the background research report:
+
+Search for papers, articles and blogs in Perplexity, save them locally; then use Claude 3.5 Sonnet to create a detailed report start in latex.
+
+With the saved sources add them to NotebookLM, generate summaries, and the podcast listen to them in the/ meeting. Also ask multiple round of questions to get answers based on the papers. Continue and add on to the report based on this.
+
+Use o3 mini high to generate topics for STORM to do research on, make at least two different variations, maybe looking at AI side of things and the other on the mental health industry side of things. Continue and add on to the report based on this.
+
+Use o3 mini high to make a prompt to use in Deep Research Google. Continue and add on to the report based on this.
+
+Use o1 pro to review the report content thus far and then make a really good research prompt for Deep Research Open AI. 
+

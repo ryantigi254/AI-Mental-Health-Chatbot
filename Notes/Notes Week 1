@@ -1,0 +1,117 @@
+Ideas
+————————————————————————————————————
+
+Characters- Nurse, Therapist, Doctors
+Tones- Friendly, Theraputic, calm etc
+
+
+Memory
+LSTM’s - Long term memory of patients information
+
+Learn on the go- similar to how Chatgpt stores memories
+
+Knowledgebase of On hand resources per institution or country then apply RAG- separate from the base model’s training data
+
+
+
+Questions:
+————————————————————————————————————
+
+
+
+
+
+
+Notes from Podcasts:
+————————————————————————————————————
+
+2006 England has been recommending computerized CBT programs
+
+National insitutute of HEALTH 
+
+
+Helps tackle STIGMA of seeking help
+
+People prefer chatbots as they can share information without fear of judgement
+
+
+CHatbots were not emotionally intelligent can it understand all the nuances of our emotions
+
+Bias from the models 
+
+Multimodal data for training
+
+
+Mental health data could be biased itself
+
+different chatbot personalities had prefrred for consioncious
+
+privacy has to be adhered ethics, data prote tion, on device compute, anonymization 
+
+
+Adress model bias and add in ways to notice this 
+
+Diverse datasets,
+ fairness metrics and more to tackle bias
+
+
+Minder
+
+balance of
+
+mental health chatbot for young adults with depressive symptoms in covid
+
+
+people formed bonds with the chatbots
+
+
+Validated assessment tools that mental health professionals use to validate the chatbot like benchmarks
+
+chatbots to be used to alleviate stress and pressure on caregivers as they take on the burden of assisting and caring for mental health patients
+
+
+AI could pick uo in subtle signs of distress in cases 
+
+
+chatbots can be used by the thrapist as a precursor to the actual thrapy session like an assistant
+
+CHatbots can also alleviate simpler cases while refferrring 
+
+
+tone changes, sleep patterns, heart rate changes, stress etc
+
+This can be early indicators and suggest someone to get help and start addressing it early
+
+
+phq9 assessment tool
+
+
+1960 WYSA, 1972 Perry, Jabberwacky 1981 early approaches that were built back then more like exploring
+
+These are being improved on 
+
+woebot, WYSA, Youper, 
+
+WOEBOT LED TO A DECREASE IN SEVERITY IN TWO WEEKS 
+
+
+CBT has been there since 2006 but AI could enhance this, 
+
+AI enhanced Cognintive behavioural therapy
+
+therapist on your pocket
+
+marvin mental health chatbot
+
+Sanvello custom cbt excercises, and tracks mood 
+
+moodmission gives mood related missions
+
+metrics to evaluate trustworthiness of a chatbot
+grounded, safe, privacy, reliability and upto date
+
+Use of more powerful models to evaluate them, human evaluations, benchmark evaluations
+
+Use LLM’s to create custom eval tools
+
+

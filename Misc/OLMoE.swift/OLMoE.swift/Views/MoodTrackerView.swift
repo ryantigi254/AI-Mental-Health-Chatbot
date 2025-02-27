@@ -1,5 +1,6 @@
 import SwiftUI
 import Charts
+import CoreData
 
 // Mood data model
 struct MoodEntry: Identifiable, Codable {
@@ -69,64 +70,16 @@ enum TimePeriod: String, CaseIterable {
     }
 }
 
-// Mood data manager
-class MoodDataManager: ObservableObject {
-    @Published var moodEntries: [MoodEntry] = []
-    @Published var hasAnsweredToday = false
-    
-    private let saveKey = "moodEntries"
-    
-    init() {
-        loadMoodEntries()
-        checkIfAnsweredToday()
-    }
-    
-    func saveMood(_ mood: MoodType, note: String? = nil) {
-        let newEntry = MoodEntry(date: Date(), mood: mood, note: note)
-        moodEntries.append(newEntry)
-        hasAnsweredToday = true
-        saveMoodEntries()
-    }
-    
-    func getMoodEntries(for period: TimePeriod) -> [MoodEntry] {
-        let calendar = Calendar.current
-        let startDate = calendar.date(byAdding: .day, value: -period.days, to: Date()) ?? Date()
-        
-        return moodEntries.filter { $0.date >= startDate }
-    }
-    
-    private func checkIfAnsweredToday() {
-        let calendar = Calendar.current
-        hasAnsweredToday = moodEntries.contains { entry in
-            calendar.isDateInToday(entry.date)
-        }
-    }
-    
-    private func saveMoodEntries() {
-        if let encoded = try? JSONEncoder().encode(moodEntries) {
-            UserDefaults.standard.set(encoded, forKey: saveKey)
-        }
-    }
-    
-    private func loadMoodEntries() {
-        if let data = UserDefaults.standard.data(forKey: saveKey) {
-            if let decoded = try? JSONDecoder().decode([MoodEntry].self, from: data) {
-                moodEntries = decoded
-                return
-            }
-        }
-        
-        moodEntries = []
-    }
-}
-
 struct MoodTrackerView: View {
-    @StateObject private var dataManager = MoodDataManager()
     @State private var selectedMood: MoodType?
     @State private var showingMetrics = false
     @State private var selectedPeriod: TimePeriod = .week
     @State private var moodNote: String = ""
     @State private var showEntryView = false
+    @State private var showResetConfirmation = false
+    
+    // Access the mood database manager
+    @EnvironmentObject var moodDatabase: MoodDatabaseManager
     
     var body: some View {
         VStack {
@@ -140,6 +93,11 @@ struct MoodTrackerView: View {
         }
         .padding()
         .navigationTitle("Mood Tracker")
+        .onAppear {
+            // Update state when view appears
+            moodDatabase.checkIfAnsweredToday()
+            moodDatabase.loadMoodEntries()
+        }
     }
     
     // View that asks for today's mood
@@ -147,32 +105,53 @@ struct MoodTrackerView: View {
         VStack(spacing: 40) {
             Spacer()
             
-            Text("How are you feeling today?")
-                .font(.system(size: 32, weight: .bold))
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 40)
-            
-            // Display mood options in a horizontal row
-            HStack(spacing: 15) {
-                ForEach(MoodType.allCases, id: \.self) { mood in
-                    Button(action: {
-                        selectedMood = mood
-                        showEntryView = true
-                    }) {
-                        Text(mood.rawValue)
-                            .font(.system(size: 40))
-                            .frame(width: 70, height: 70)
-                            .background(
-                                Circle()
-                                    .fill(Color.black.opacity(0.03))
-                            )
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .contentShape(Circle())
+            if moodDatabase.hasAnsweredToday {
+                Text("You've already recorded your mood today")
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 20)
+                
+                Button(action: {
+                    showingMetrics = true
+                    showEntryView = true
+                }) {
+                    Text("View Mood History")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
                 }
+                .padding(.horizontal, 30)
+            } else {
+                Text("How are you feeling today?")
+                    .font(.system(size: 32, weight: .bold))
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 40)
+                
+                // Display mood options in a horizontal row
+                HStack(spacing: 15) {
+                    ForEach(MoodType.allCases, id: \.self) { mood in
+                        Button(action: {
+                            selectedMood = mood
+                            showEntryView = true
+                        }) {
+                            Text(mood.rawValue)
+                                .font(.system(size: 40))
+                                .frame(width: 70, height: 70)
+                                .background(
+                                    Circle()
+                                        .fill(Color.black.opacity(0.03))
+                                )
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .contentShape(Circle())
+                    }
+                }
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
             }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity)
             
             Spacer()
             Spacer()
@@ -212,7 +191,7 @@ struct MoodTrackerView: View {
             HStack(spacing: 15) {
                 Button(action: {
                     if let mood = selectedMood {
-                        dataManager.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
+                        moodDatabase.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
                         showingMetrics = true
                     }
                 }) {
@@ -272,7 +251,7 @@ struct MoodTrackerView: View {
                     showingMetrics = false
                     showEntryView = false
                 }) {
-                    Text("Back")
+                    Text("Done")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .padding()
@@ -281,6 +260,30 @@ struct MoodTrackerView: View {
                         .cornerRadius(10)
                 }
                 .padding(.vertical)
+                
+                // Add reset button
+                Button(action: {
+                    showResetConfirmation = true
+                }) {
+                    Text("Reset All Entries")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+                .padding(.bottom)
+                .alert(isPresented: $showResetConfirmation) {
+                    Alert(
+                        title: Text("Reset All Entries"),
+                        message: Text("Are you sure you want to delete all mood entries? This action cannot be undone."),
+                        primaryButton: .destructive(Text("Reset")) {
+                            moodDatabase.clearAllEntries()
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
             }
             .padding(.horizontal)
         }
@@ -288,13 +291,13 @@ struct MoodTrackerView: View {
     
     // Chart showing mood over time
     private var moodChart: some View {
-        let entries = dataManager.getMoodEntries(for: selectedPeriod)
+        let entries = moodDatabase.getMoodEntries(for: selectedPeriod)
         
         return Chart {
             ForEach(entries) { entry in
                 PointMark(
-                    x: .value("Date", entry.date),
-                    y: .value("Mood", entry.mood.value)
+                    x: .value("Date", entry.date ?? Date()),
+                    y: .value("Mood", Int(entry.moodValue))
                 )
                 .foregroundStyle(Color.blue)
                 .symbolSize(CGSize(width: 15, height: 15))
@@ -303,8 +306,8 @@ struct MoodTrackerView: View {
             if !entries.isEmpty {
                 ForEach(entries) { entry in
                     LineMark(
-                        x: .value("Date", entry.date),
-                        y: .value("Mood", entry.mood.value)
+                        x: .value("Date", entry.date ?? Date()),
+                        y: .value("Mood", Int(entry.moodValue))
                     )
                     .foregroundStyle(Color.blue.opacity(0.5))
                     .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 5]))
@@ -330,9 +333,11 @@ struct MoodTrackerView: View {
     
     // Mood distribution visualization
     private var moodDistribution: some View {
-        let entries = dataManager.getMoodEntries(for: selectedPeriod)
-        let moodCounts = Dictionary(grouping: entries, by: { $0.mood })
-            .mapValues { $0.count }
+        let entries = moodDatabase.getMoodEntries(for: selectedPeriod)
+        let moodCounts = Dictionary(grouping: entries) { entry -> MoodType? in
+            guard let emoji = entry.moodEmoji else { return nil }
+            return MoodType.allCases.first { $0.rawValue == emoji }
+        }.mapValues { $0.count }
         
         return VStack(alignment: .leading, spacing: 15) {
             Text("Mood Distribution")
@@ -355,7 +360,36 @@ struct MoodTrackerView: View {
                 .padding(.vertical, 5)
             }
             
-            // Recent Notes section removed until database implementation
+            if !entries.isEmpty {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Recent Notes")
+                        .font(.headline)
+                        .padding(.top, 20)
+                        .padding(.bottom, 5)
+                    
+                    ForEach(entries.prefix(3)) { entry in
+                        if let note = entry.note, !note.isEmpty, let date = entry.date {
+                            VStack(alignment: .leading, spacing: 5) {
+                                HStack {
+                                    Text(entry.moodEmoji ?? "")
+                                    Text(formatDate(date))
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                
+                                Text(note)
+                                    .font(.body)
+                                    .padding(.leading, 5)
+                            }
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 10)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color.gray.opacity(0.1))
+                            .cornerRadius(8)
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -370,4 +404,6 @@ struct MoodTrackerView: View {
 
 #Preview {
     MoodTrackerView()
+        .environmentObject(MoodDatabaseManager.preview)
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 } 

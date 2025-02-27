@@ -145,34 +145,39 @@ struct MoodTrackerView: View {
     // View that asks for today's mood
     private var moodQuestionView: some View {
         VStack(spacing: 40) {
+            Spacer()
+            
             Text("How are you feeling today?")
                 .font(.system(size: 32, weight: .bold))
                 .multilineTextAlignment(.center)
-                .padding(.top, 40)
+                .padding(.bottom, 40)
             
             // Display mood options in a horizontal row
-            HStack(spacing: 25) {
+            HStack(spacing: 15) {
                 ForEach(MoodType.allCases, id: \.self) { mood in
                     Button(action: {
                         selectedMood = mood
                         showEntryView = true
                     }) {
                         Text(mood.rawValue)
-                            .font(.system(size: 46))
-                            .frame(width: 80, height: 80)
+                            .font(.system(size: 40))
+                            .frame(width: 70, height: 70)
                             .background(
                                 Circle()
                                     .fill(Color.black.opacity(0.03))
                             )
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .contentShape(Circle()) // Keep circular hit area
+                    .contentShape(Circle())
                 }
             }
             .padding(.horizontal)
+            .frame(maxWidth: .infinity)
             
             Spacer()
+            Spacer()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     // View shown after recording mood

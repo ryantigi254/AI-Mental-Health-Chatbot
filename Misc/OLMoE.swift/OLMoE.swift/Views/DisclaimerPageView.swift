@@ -118,28 +118,93 @@ struct DisclaimerPage: View {
 
     /// The configuration for the optional cancel button.
     let cancel: PageButton?
+    
+    // Track scroll position to enable the confirm button only when scrolled to bottom
+    @State private var hasScrolledToBottom = false
+    @State private var scrollViewHeight: CGFloat = 0
+    @State private var scrollContentHeight: CGFloat = 0
+    @State private var scrollOffset: CGFloat = 0
 
     public var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                if !title.isEmpty {
-                    Text(title)
-                        .font(.title())
-                        .multilineTextAlignment(.center)
-                }
+        VStack(spacing: 0) {
+            // Welcome header (always visible)
+            VStack(spacing: 16) {
+                Image("Ai2Icon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80)
+                
+                Text("Welcome to OLMoE")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                
+                Text("Please accept the terms to continue")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 8)
+                
+                Divider()
+            }
+            .padding([.horizontal, .top], 24)
+            
+            // Scrollable disclaimer content
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(spacing: 20) {
+                        if !title.isEmpty {
+                            Text(title)
+                                .font(.title())
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                                .padding(.top, 24)
+                        }
 
-                if !message.isEmpty {
-                    Text(.init(message))
-                        .font(.body())
-                        .multilineTextAlignment(.leading)
-                }
+                        if !message.isEmpty {
+                            Text(.init(message))
+                                .font(.body())
+                                .multilineTextAlignment(.leading)
+                        }
 
-                VStack(alignment: .leading, spacing: 20) {
-                    ForEach(titleText) { t in
-                        HeaderTextPairView(header: t.header, text: t.text)
+                        VStack(alignment: .leading, spacing: 20) {
+                            ForEach(titleText) { t in
+                                HeaderTextPairView(header: t.header, text: t.text)
+                            }
+                        }
+                        
+                        // Invisible marker at the bottom
+                        Color.clear
+                            .frame(height: 1)
+                            .id("bottom")
                     }
+                    .padding([.horizontal], 24)
+                    .padding(.bottom, 100) // Add space at bottom for buttons
+                    .background(GeometryReader { geo in
+                        Color.clear.preference(
+                            key: ViewHeightKey.self, 
+                            value: geo.frame(in: .named("scrollView")).size.height
+                        )
+                    })
                 }
-
+                .background(GeometryReader { geo in
+                    Color.clear.onAppear {
+                        scrollViewHeight = geo.size.height
+                    }
+                })
+                .coordinateSpace(name: "scrollView")
+                .onPreferenceChange(ViewHeightKey.self) { contentHeight in
+                    scrollContentHeight = contentHeight
+                }
+                .onScrollPositionChange { offset in
+                    scrollOffset = offset.y
+                    // Check if scrolled to bottom (with a small margin)
+                    hasScrolledToBottom = (scrollOffset + scrollViewHeight) >= (scrollContentHeight - 50)
+                }
+            }
+            
+            // Fixed buttons at bottom
+            VStack {
                 HStack(spacing: 12) {
                     if let cancel = cancel {
                         Button(cancel.text) {
@@ -152,11 +217,79 @@ struct DisclaimerPage: View {
                         confirm.onTap()
                     }
                     .buttonStyle(.PrimaryButton)
+                    .opacity(hasScrolledToBottom ? 1.0 : 0.5)
+                    .disabled(!hasScrolledToBottom)
+                }
+                .padding(.horizontal, 24)
+                .padding(.vertical, 16)
+                
+                if !hasScrolledToBottom {
+                    Text("Please scroll to read the full terms")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
                 }
             }
-            .padding([.horizontal], 12)
-            .padding([.vertical], 24)
+            .frame(maxWidth: .infinity)
+            .background(
+                Rectangle()
+                    .fill(Color(.systemBackground))
+                    .shadow(radius: 2, y: -2)
+            )
         }
+    }
+}
+
+// Helper to track scroll position
+struct ScrollOffsetPreferenceKey: PreferenceKey {
+    static var defaultValue: CGPoint = .zero
+    static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {
+        value = nextValue()
+    }
+}
+
+extension View {
+    func onScrollPositionChange(perform action: @escaping (CGPoint) -> Void) -> some View {
+        self.background(
+            GeometryReader { geo in
+                Color.clear.preference(
+                    key: ScrollOffsetPreferenceKey.self,
+                    value: geo.frame(in: .named("scrollView")).origin
+                )
+            }
+        )
+        .onPreferenceChange(ScrollOffsetPreferenceKey.self, perform: action)
+    }
+}
+
+struct DisclaimerPageView: View {
+    let disclaimer: Disclaimer
+    let allowOutsideTapDismiss: Bool
+    let onCancel: (() -> Void)?
+    let onConfirm: (() -> Void)?
+    
+    @State private var isPresented = true
+    
+    var body: some View {
+        DisclaimerPage(
+            allowOutsideTapDismiss: allowOutsideTapDismiss,
+            isPresented: $isPresented,
+            message: disclaimer.text,
+            title: disclaimer.title,
+            titleText: disclaimer.headerTextContent,
+            confirm: (text: disclaimer.buttonText, onTap: {
+                if let onConfirm = onConfirm {
+                    onConfirm()
+                }
+            }),
+            cancel: onCancel != nil ? (text: "Cancel", onTap: {
+                if let onCancel = onCancel {
+                    onCancel()
+                }
+            }) : nil
+        )
+        .edgesIgnoringSafeArea(.all)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.systemBackground))
     }
 }
 

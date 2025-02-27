@@ -5,6 +5,7 @@ struct MainView: View {
     @State private var isMenuOpen = false
     @StateObject private var disclaimerState = DisclaimerState()
     @State private var bot: Bot?
+    @State private var hasAcceptedDisclaimer = false
     
     var body: some View {
         ZStack {
@@ -30,11 +31,17 @@ struct MainView: View {
                     
                     Spacer()
                     
-                    // Empty view for balance
-                    Image(systemName: "line.horizontal.3")
-                        .font(.title)
-                        .foregroundColor(.clear)
-                        .padding()
+                    // Crisis button in the top bar - only show after disclaimer is accepted
+                    if hasAcceptedDisclaimer {
+                        CrisisButtonView(isHeaderStyle: true)
+                            .padding(.trailing, 8)
+                    } else {
+                        // Empty spacer for balance when crisis button is not shown
+                        Image(systemName: "line.horizontal.3")
+                            .font(.title)
+                            .foregroundColor(.clear)
+                            .padding()
+                    }
                 }
                 .background(Color(.systemBackground))
                 .shadow(radius: 1)
@@ -44,13 +51,19 @@ struct MainView: View {
                     switch selectedTab {
                     case .home:
                         if let bot = bot {
-                            BotView(bot, disclaimerHandlers: DisclaimerHandlers(
-                                setActiveDisclaimer: { disclaimerState.activeDisclaimer = $0 },
-                                setAllowOutsideTapDismiss: { disclaimerState.allowOutsideTapDismiss = $0 },
-                                setCancelAction: { disclaimerState.onCancel = $0 },
-                                setConfirmAction: { disclaimerState.onConfirm = $0 },
-                                setShowDisclaimerPage: { disclaimerState.showDisclaimerPage = $0 }
-                            ))
+                            if hasAcceptedDisclaimer {
+                                // Only show BotView with full functionality if disclaimer is accepted
+                                BotView(bot, disclaimerHandlers: DisclaimerHandlers(
+                                    setActiveDisclaimer: { disclaimerState.activeDisclaimer = $0 },
+                                    setAllowOutsideTapDismiss: { disclaimerState.allowOutsideTapDismiss = $0 },
+                                    setCancelAction: { disclaimerState.onCancel = $0 },
+                                    setConfirmAction: { disclaimerState.onConfirm = $0 },
+                                    setShowDisclaimerPage: { disclaimerState.showDisclaimerPage = $0 }
+                                ))
+                            } else {
+                                // Show empty view until terms are accepted
+                                Color(.systemBackground)
+                            }
                         } else {
                             ProgressView("Loading model...")
                         }
@@ -63,16 +76,6 @@ struct MainView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-            
-            // Crisis button overlay
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    CrisisButtonView()
-                        .padding()
-                }
             }
             
             // Hamburger menu
@@ -98,13 +101,27 @@ struct MainView: View {
                     disclaimer: disclaimerState.activeDisclaimer!,
                     allowOutsideTapDismiss: disclaimerState.allowOutsideTapDismiss,
                     onCancel: disclaimerState.onCancel,
-                    onConfirm: disclaimerState.onConfirm
+                    onConfirm: {
+                        // When disclaimer is confirmed/accepted, set our flag
+                        hasAcceptedDisclaimer = true
+                        if let onConfirm = disclaimerState.onConfirm {
+                            onConfirm()
+                        }
+                    }
                 )
             }
         }
         .onAppear {
             disclaimerState.showInitialDisclaimer()
             bot = Bot()
+            
+            // Check if disclaimer has been previously accepted
+            #if DEBUG
+            // For debug, we can set this to true for easier testing
+            hasAcceptedDisclaimer = false 
+            #else
+            hasAcceptedDisclaimer = UserDefaults.standard.bool(forKey: "hasSeenDisclaimer")
+            #endif
         }
     }
 }

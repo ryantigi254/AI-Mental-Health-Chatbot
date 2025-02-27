@@ -183,29 +183,61 @@ struct MoodTrackerView: View {
     // View shown after recording mood
     private var moodConfirmationView: some View {
         VStack(spacing: 20) {
-            Image(systemName: "checkmark.circle.fill")
-                .font(.system(size: 60))
-                .foregroundColor(.green)
+            if let selectedMood = selectedMood {
+                Text(selectedMood.rawValue)
+                    .font(.system(size: 70))
+                    .padding(.bottom, 10)
+                
+                Text("You're feeling \(selectedMood.description.lowercased()) today")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .multilineTextAlignment(.center)
+            }
             
-            Text("Thank you for sharing your mood today!")
-                .font(.title2)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Would you like to add a note about how you're feeling?")
+                    .font(.headline)
+                    .padding(.top, 20)
+                
+                TextEditor(text: $moodNote)
+                    .frame(height: 120)
+                    .padding(4)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                    )
+            }
+            .padding(.vertical)
             
-            Text("Taking a moment to check in with yourself is an important step for mental wellbeing.")
-                .multilineTextAlignment(.center)
-                .padding()
-            
-            Button(action: {
-                showingMetrics = true
-            }) {
-                Text("View Your Mood Metrics")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+            HStack(spacing: 15) {
+                Button(action: {
+                    if let mood = selectedMood {
+                        dataManager.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
+                        showingMetrics = true
+                    }
+                }) {
+                    Text("Save")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                
+                Button(action: {
+                    showEntryView = false
+                    selectedMood = nil
+                    moodNote = ""
+                }) {
+                    Text("Cancel")
+                        .fontWeight(.medium)
+                        .foregroundColor(.blue)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.opacity(0.1))
+                        .cornerRadius(10)
+                }
             }
         }
         .padding()
@@ -318,7 +350,48 @@ struct MoodTrackerView: View {
                 }
                 .padding(.vertical, 5)
             }
+            
+            if !entries.isEmpty {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Recent Notes")
+                        .font(.headline)
+                        .padding(.top, 20)
+                    
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 15) {
+                            ForEach(entries.filter { $0.note != nil }.prefix(5), id: \.id) { entry in
+                                VStack(alignment: .leading, spacing: 5) {
+                                    HStack {
+                                        Text(entry.mood.rawValue)
+                                        Text(formatDate(entry.date))
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                        Spacer()
+                                    }
+                                    
+                                    Text(entry.note ?? "")
+                                        .font(.body)
+                                        .padding(10)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color.gray.opacity(0.1))
+                                        )
+                                }
+                            }
+                        }
+                    }
+                    .frame(height: 200)
+                }
+            }
         }
+    }
+    
+    // Helper function to format dates
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
     }
 }
 

@@ -14,16 +14,37 @@
         }
       }
     },
+    "%lld" : {
+
+    },
     "%lld%%" : {
 
     },
     "⚠️ Running on AI2's servers - not on your device" : {
 
     },
+    "5-4-3-2-1 Grounding" : {
+
+    },
+    "5-4-3-2-1 Grounding Technique" : {
+
+    },
     "allenai.org" : {
 
     },
+    "Breathing Exercises" : {
+
+    },
     "Cancel" : {
+
+    },
+    "Choose a Breathing Technique" : {
+
+    },
+    "Crisis Help" : {
+
+    },
+    "Crisis Resources" : {
 
     },
     "Delete" : {
@@ -49,6 +70,12 @@
     "Downloading..." : {
 
     },
+    "Emergency Services" : {
+
+    },
+    "Emergency Services (999)" : {
+
+    },
     "Empty Input Prompt" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -63,10 +90,25 @@
     "Flush Model" : {
 
     },
+    "Follow the circle" : {
+
+    },
+    "Grounding Exercise" : {
+
+    },
+    "Guided Breathing" : {
+
+    },
     "However, you can try using OLMoE at the Ai2 Playground. This option does not download the model file to your device, but instead submits user input to a hosted version of OLMoE to remotely generate responses." : {
 
     },
+    "Mental Health Support" : {
+
+    },
     "Model is ready to use!" : {
+
+    },
+    "NHS Urgent Mental Health" : {
 
     },
     "OLMoE can run locally on iPhone 15 Pro/Max, iPhone 16 models, iPad Pro 4th Gen and newer, or iPad Air 5th Gen and newer." : {
@@ -81,7 +123,19 @@
     "Proceed With Mocked Model" : {
 
     },
+    "SafeZone App" : {
+
+    },
+    "Samaritans Support" : {
+
+    },
+    "Self-Help Tools" : {
+
+    },
     "Start Download" : {
+
+    },
+    "Stop Exercise" : {
 
     },
     "The model requires 4.21GB of storage space. Would you like to proceed with the download?" : {

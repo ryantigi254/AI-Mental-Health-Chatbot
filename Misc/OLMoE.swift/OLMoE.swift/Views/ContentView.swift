@@ -430,13 +430,18 @@ struct ContentView: View {
                             }
                         )
                     } else if let bot = bot {
-                        BotView(bot, disclaimerHandlers: DisclaimerHandlers(
-                            setActiveDisclaimer: { self.disclaimerState.activeDisclaimer = $0 },
-                            setAllowOutsideTapDismiss: { self.disclaimerState.allowOutsideTapDismiss = $0 },
-                            setCancelAction: { self.disclaimerState.onCancel = $0 },
-                            setConfirmAction: { self.disclaimerState.onConfirm = $0 },
-                            setShowDisclaimerPage: { self.disclaimerState.showDisclaimerPage = $0 }
-                        ))
+                        VStack(spacing: 0) {
+                            CrisisButtonView()
+                                .padding()
+                            
+                            BotView(bot, disclaimerHandlers: DisclaimerHandlers(
+                                setActiveDisclaimer: { disclaimerState.activeDisclaimer = $0 },
+                                setAllowOutsideTapDismiss: { disclaimerState.allowOutsideTapDismiss = $0 },
+                                setCancelAction: { disclaimerState.onCancel = $0 },
+                                setConfirmAction: { disclaimerState.onConfirm = $0 },
+                                setShowDisclaimerPage: { disclaimerState.showDisclaimerPage = $0 }
+                            ))
+                        }
                     } else {
                         ModelDownloadView()
                     }

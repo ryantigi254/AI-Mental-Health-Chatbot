@@ -15,6 +15,7 @@ struct WebView: UIViewRepresentable {
         uiView.load(request)
     }
 
+    @preconcurrency
     class Coordinator: NSObject, WKNavigationDelegate {
         var parent: WebView
 

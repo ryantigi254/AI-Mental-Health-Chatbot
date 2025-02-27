@@ -126,10 +126,11 @@ struct MoodTrackerView: View {
     @State private var showingMetrics = false
     @State private var selectedPeriod: TimePeriod = .week
     @State private var moodNote: String = ""
+    @State private var showEntryView = false
     
     var body: some View {
         VStack {
-            if !dataManager.hasAnsweredToday {
+            if !showEntryView {
                 moodQuestionView
             } else if !showingMetrics {
                 moodConfirmationView
@@ -143,55 +144,35 @@ struct MoodTrackerView: View {
     
     // View that asks for today's mood
     private var moodQuestionView: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 40) {
             Text("How are you feeling today?")
-                .font(.title)
-                .fontWeight(.bold)
+                .font(.system(size: 32, weight: .bold))
                 .multilineTextAlignment(.center)
+                .padding(.top, 40)
             
-            HStack(spacing: 15) {
+            // Display mood options in a horizontal row
+            HStack(spacing: 25) {
                 ForEach(MoodType.allCases, id: \.self) { mood in
                     Button(action: {
                         selectedMood = mood
+                        showEntryView = true
                     }) {
                         Text(mood.rawValue)
-                            .font(.system(size: 40))
-                            .padding()
+                            .font(.system(size: 46))
+                            .frame(width: 80, height: 80)
                             .background(
                                 Circle()
-                                    .fill(selectedMood == mood ? mood.color.opacity(0.3) : Color.gray.opacity(0.1))
+                                    .fill(Color.black.opacity(0.03))
                             )
                     }
+                    .buttonStyle(PlainButtonStyle())
+                    .contentShape(Circle()) // Keep circular hit area
                 }
             }
-            .padding(.vertical)
+            .padding(.horizontal)
             
-            if selectedMood != nil {
-                TextField("Add a note (optional)", text: $moodNote)
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(10)
-                    .padding(.bottom)
-                
-                Button(action: {
-                    if let mood = selectedMood {
-                        dataManager.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
-                    }
-                }) {
-                    Text("Save")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-            }
+            Spacer()
         }
-        .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(15)
-        .shadow(radius: 5)
     }
     
     // View shown after recording mood
@@ -279,12 +260,14 @@ struct MoodTrackerView: View {
             }
             
             if !entries.isEmpty {
-                LineMark(
-                    x: .value("Date", entries.map { $0.date }),
-                    y: .value("Mood", entries.map { $0.mood.value })
-                )
-                .foregroundStyle(.gray.opacity(0.5))
-                .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 5]))
+                ForEach(entries) { entry in
+                    LineMark(
+                        x: .value("Date", entry.date),
+                        y: .value("Mood", entry.mood.value)
+                    )
+                    .foregroundStyle(.gray.opacity(0.5))
+                    .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 5]))
+                }
             }
         }
         .chartYScale(domain: 1...5)

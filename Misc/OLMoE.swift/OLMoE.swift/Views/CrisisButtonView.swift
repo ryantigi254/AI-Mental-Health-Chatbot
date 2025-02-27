@@ -2,12 +2,23 @@ import SwiftUI
 
 struct CrisisButtonView: View {
     @State private var showingOptions = false
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
+    // Allow customizing the style
+    var isHeaderStyle: Bool = false
     
     var body: some View {
-        VStack {
-            Button(action: {
-                showingOptions.toggle()
-            }) {
+        Button(action: {
+            showingOptions.toggle()
+        }) {
+            if isHeaderStyle {
+                // Compact version for header
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .font(.title2)
+                    .foregroundColor(.red)
+                    .padding(8)
+            } else {
+                // Standard version
                 Text("Crisis Help")
                     .font(.headline)
                     .foregroundColor(.white)
@@ -15,41 +26,41 @@ struct CrisisButtonView: View {
                     .background(Color.red)
                     .cornerRadius(10)
             }
-            .sheet(isPresented: $showingOptions) {
-                NavigationView {
-                    List {
-                        Section(header: Text("Emergency Services")) {
-                            Link(destination: URL(string: "tel:999")!) {
-                                Label("Emergency Services (999)", systemImage: "phone.fill")
-                            }
-                            
-                            Link(destination: URL(string: "https://www.safezoneapp.com")!) {
-                                Label("SafeZone App", systemImage: "shield.fill")
-                            }
+        }
+        .sheet(isPresented: $showingOptions) {
+            NavigationView {
+                List {
+                    Section(header: Text("Emergency Services")) {
+                        Link(destination: URL(string: "tel:999")!) {
+                            Label("Emergency Services (999)", systemImage: "phone.fill")
                         }
                         
-                        Section(header: Text("Mental Health Support")) {
-                            Link(destination: URL(string: "https://www.samaritans.org/how-we-can-help/contact-samaritan/")!) {
-                                Label("Samaritans Support", systemImage: "person.fill.questionmark")
-                            }
-                            
-                            Link(destination: URL(string: "https://www.nhs.uk/service-search/mental-health/find-an-urgent-mental-health-helpline")!) {
-                                Label("NHS Urgent Mental Health", systemImage: "cross.fill")
-                            }
-                        }
-                        
-                        Section(header: Text("Self-Help Tools")) {
-                            NavigationLink(destination: GroundingTechniqueView()) {
-                                Label("5-4-3-2-1 Grounding", systemImage: "hand.raised.fill")
-                            }
-                            
-                            NavigationLink(destination: BreathingExerciseView()) {
-                                Label("Guided Breathing", systemImage: "lungs.fill")
-                            }
+                        Link(destination: URL(string: "https://www.safezoneapp.com")!) {
+                            Label("SafeZone App", systemImage: "shield.fill")
                         }
                     }
-                    .navigationTitle("Crisis Resources")
+                    
+                    Section(header: Text("Mental Health Support")) {
+                        Link(destination: URL(string: "https://www.samaritans.org/how-we-can-help/contact-samaritan/")!) {
+                            Label("Samaritans Support", systemImage: "person.fill.questionmark")
+                        }
+                        
+                        Link(destination: URL(string: "https://www.nhs.uk/service-search/mental-health/find-an-urgent-mental-health-helpline")!) {
+                            Label("NHS Urgent Mental Health", systemImage: "cross.fill")
+                        }
+                    }
+                    
+                    Section(header: Text("Self-Help Tools")) {
+                        NavigationLink(destination: GroundingTechniqueView()) {
+                            Label("5-4-3-2-1 Grounding", systemImage: "hand.raised.fill")
+                        }
+                        
+                        NavigationLink(destination: BreathingExerciseView()) {
+                            Label("Guided Breathing", systemImage: "lungs.fill")
+                        }
+                    }
                 }
+                .navigationTitle("Crisis Resources")
             }
         }
     }

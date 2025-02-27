@@ -126,44 +126,66 @@ struct DisclaimerPage: View {
     @State private var scrollOffset: CGFloat = 0
 
     public var body: some View {
-        VStack(spacing: 0) {
-            // Welcome header (always visible)
-            VStack(spacing: 16) {
-                Image("Ai2Icon")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80)
-                
-                Text("Welcome to OLMoE")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                
-                Text("Please accept the terms to continue")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 8)
-                
-                Divider()
-            }
-            .padding([.horizontal, .top], 24)
-            
-            // Scrollable disclaimer content
-            ScrollViewReader { proxy in
-                ScrollView {
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(spacing: 0) {
+                    // Welcome header - takes full screen initially
+                    VStack(spacing: 24) {
+                        // Much more space above the logo to center it vertically
+                        Spacer()
+                            .frame(minHeight: UIScreen.main.bounds.height * 0.25)
+                            
+                        Image("Ai2Icon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 120)
+                        
+                        Text("Welcome to OLMoE")
+                            .font(.system(size: 32, weight: .bold))
+                            .multilineTextAlignment(.center)
+                        
+                        Text("Please accept the terms to continue")
+                            .font(.system(size: 18))
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, 16)
+                        
+                        // Visual indicator to scroll down
+                        VStack {
+                            Text("Scroll to view terms")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                            
+                            Image(systemName: "chevron.down")
+                                .font(.title3)
+                                .foregroundColor(.secondary)
+                                .padding(.top, 4)
+                        }
+                        .padding(.top, 40)
+                        
+                        Spacer()
+                            .frame(minHeight: UIScreen.main.bounds.height * 0.15)
+                    }
+                    .frame(minHeight: UIScreen.main.bounds.height)
+                    .padding(.horizontal, 24)
+                    
+                    // Divider between welcome and terms
+                    Divider()
+                        .padding(.vertical, 24)
+                    
+                    // Disclaimer content
                     VStack(spacing: 20) {
                         if !title.isEmpty {
                             Text(title)
-                                .font(.title())
+                                .font(.title)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
-                                .padding(.top, 24)
+                                .padding(.top, 8)
                         }
 
                         if !message.isEmpty {
                             Text(.init(message))
-                                .font(.body())
+                                .font(.body)
                                 .multilineTextAlignment(.leading)
                         }
 
@@ -173,68 +195,72 @@ struct DisclaimerPage: View {
                             }
                         }
                         
-                        // Invisible marker at the bottom
+                        // Add space before the button
+                        Spacer()
+                            .frame(height: 50)
+                        
+                        // Now add the buttons as part of the scrollable content
+                        VStack {
+                            HStack(spacing: 12) {
+                                if let cancel = cancel {
+                                    Button(cancel.text) {
+                                        cancel.onTap()
+                                    }
+                                    .buttonStyle(.SecondaryButton)
+                                }
+
+                                Button(confirm.text) {
+                                    confirm.onTap()
+                                }
+                                .buttonStyle(.PrimaryButton)
+                                .opacity(hasScrolledToBottom ? 1.0 : 0.5)
+                                .disabled(!hasScrolledToBottom)
+                            }
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 16)
+                            
+                            if !hasScrolledToBottom {
+                                Text("Please scroll to read the full terms")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .padding(.bottom, 8)
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            Rectangle()
+                                .fill(Color(.systemBackground))
+                        )
+                        
+                        // Invisible marker at the bottom for scrolling detection
                         Color.clear
                             .frame(height: 1)
                             .id("bottom")
                     }
-                    .padding([.horizontal], 24)
-                    .padding(.bottom, 100) // Add space at bottom for buttons
-                    .background(GeometryReader { geo in
-                        Color.clear.preference(
-                            key: ViewHeightKey.self, 
-                            value: geo.frame(in: .named("scrollView")).size.height
-                        )
-                    })
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 50) // Add some space at the bottom after the button
                 }
                 .background(GeometryReader { geo in
-                    Color.clear.onAppear {
-                        scrollViewHeight = geo.size.height
-                    }
+                    Color.clear.preference(
+                        key: ViewHeightKey.self, 
+                        value: geo.frame(in: .named("scrollView")).size.height
+                    )
                 })
-                .coordinateSpace(name: "scrollView")
-                .onPreferenceChange(ViewHeightKey.self) { contentHeight in
-                    scrollContentHeight = contentHeight
-                }
-                .onScrollPositionChange { offset in
-                    scrollOffset = offset.y
-                    // Check if scrolled to bottom (with a small margin)
-                    hasScrolledToBottom = (scrollOffset + scrollViewHeight) >= (scrollContentHeight - 50)
-                }
             }
-            
-            // Fixed buttons at bottom
-            VStack {
-                HStack(spacing: 12) {
-                    if let cancel = cancel {
-                        Button(cancel.text) {
-                            cancel.onTap()
-                        }
-                        .buttonStyle(.SecondaryButton)
-                    }
-
-                    Button(confirm.text) {
-                        confirm.onTap()
-                    }
-                    .buttonStyle(.PrimaryButton)
-                    .opacity(hasScrolledToBottom ? 1.0 : 0.5)
-                    .disabled(!hasScrolledToBottom)
+            .background(GeometryReader { geo in
+                Color.clear.onAppear {
+                    scrollViewHeight = geo.size.height
                 }
-                .padding(.horizontal, 24)
-                .padding(.vertical, 16)
-                
-                if !hasScrolledToBottom {
-                    Text("Please scroll to read the full terms")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
+            })
+            .coordinateSpace(name: "scrollView")
+            .onPreferenceChange(ViewHeightKey.self) { contentHeight in
+                scrollContentHeight = contentHeight
             }
-            .frame(maxWidth: .infinity)
-            .background(
-                Rectangle()
-                    .fill(Color(.systemBackground))
-                    .shadow(radius: 2, y: -2)
-            )
+            .onScrollPositionChange { offset in
+                scrollOffset = offset.y
+                // Require scrolling all the way to the bottom (with a smaller margin)
+                hasScrolledToBottom = (scrollOffset + scrollViewHeight) >= (scrollContentHeight - 20)
+            }
         }
     }
 }
@@ -257,7 +283,9 @@ extension View {
                 )
             }
         )
-        .onPreferenceChange(ScrollOffsetPreferenceKey.self, perform: action)
+        .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
+            action(value)
+        }
     }
 }
 

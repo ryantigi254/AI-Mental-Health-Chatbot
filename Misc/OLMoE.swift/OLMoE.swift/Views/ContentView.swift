@@ -13,22 +13,10 @@ class Bot: LLM {
     static let modelFileURL = URL.modelsDirectory.appendingPathComponent(AppConstants.Model.filename).appendingPathExtension("gguf")
 
     convenience init() {
-        let deviceName = UIDevice.current.model
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy"
-        let currentDate = dateFormatter.string(from: Date())
-
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "h:mm a"
-        let currentTime = timeFormatter.string(from: Date())
-
-        let systemPrompt = "You are OLMoE (Open Language Mixture of Expert), a small language model running on \(deviceName). You have been developed at the Allen Institute for AI (Ai2) in Seattle, WA, USA. Today is \(currentDate). The time is \(currentTime)."
-
         guard FileManager.default.fileExists(atPath: Bot.modelFileURL.path) else {
             fatalError("Model file not found. Please download it first.")
         }
 
-//        self.init(from: Bot.modelFileURL, template: .OLMoE(systemPrompt))
         self.init(from: Bot.modelFileURL, template: .OLMoE())
     }
 }
@@ -97,7 +85,9 @@ struct BotView: View {
 
     func stop() {
         self.stopSubmitted = true
-        bot.stop()
+        Task {
+            await bot.stop()
+        }
     }
 
     func deleteHistory() {
@@ -305,7 +295,7 @@ struct BotView: View {
                                 isScrolledToBottom: $isScrolledToBottom,
                                 stopSubmitted: $stopSubmitted
                             )
-                                .onChange(of: scrollToBottom) { _, newValue in
+                                .onChange(of: scrollToBottom) { newValue in
                                     if newValue {
                                         withAnimation {
                                             proxy.scrollTo(ChatView.BottomID, anchor: .bottom)
@@ -430,24 +420,19 @@ struct ContentView: View {
                             }
                         )
                     } else if let bot = bot {
-                        VStack(spacing: 0) {
-                            CrisisButtonView()
-                                .padding()
-                            
-                            BotView(bot, disclaimerHandlers: DisclaimerHandlers(
-                                setActiveDisclaimer: { disclaimerState.activeDisclaimer = $0 },
-                                setAllowOutsideTapDismiss: { disclaimerState.allowOutsideTapDismiss = $0 },
-                                setCancelAction: { disclaimerState.onCancel = $0 },
-                                setConfirmAction: { disclaimerState.onConfirm = $0 },
-                                setShowDisclaimerPage: { disclaimerState.showDisclaimerPage = $0 }
-                            ))
-                        }
+                        BotView(bot, disclaimerHandlers: DisclaimerHandlers(
+                            setActiveDisclaimer: { disclaimerState.activeDisclaimer = $0 },
+                            setAllowOutsideTapDismiss: { disclaimerState.allowOutsideTapDismiss = $0 },
+                            setCancelAction: { disclaimerState.onCancel = $0 },
+                            setConfirmAction: { disclaimerState.onConfirm = $0 },
+                            setShowDisclaimerPage: { disclaimerState.showDisclaimerPage = $0 }
+                        ))
                     } else {
                         ModelDownloadView()
                     }
                 }
-                .onChange(of: downloadManager.isModelReady) { newValue in
-                    if newValue && bot == nil {
+                .onChange(of: downloadManager.isModelReady) { value in
+                    if value && bot == nil {
                         initializeBot()
                     }
                 }

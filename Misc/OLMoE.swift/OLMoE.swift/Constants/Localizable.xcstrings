@@ -150,10 +150,16 @@
     "Proceed With Mocked Model" : {
 
     },
+    "Recent Notes" : {
+
+    },
     "SafeZone App" : {
 
     },
     "Samaritans Support" : {
+
+    },
+    "Save" : {
 
     },
     "Scroll to view terms" : {
@@ -171,12 +177,6 @@
     "Stop Exercise" : {
 
     },
-    "Taking a moment to check in with yourself is an important step for mental wellbeing." : {
-
-    },
-    "Thank you for sharing your mood today!" : {
-
-    },
     "The model requires 4.21GB of storage space. Would you like to proceed with the download?" : {
 
     },
@@ -187,9 +187,6 @@
 
     },
     "Try OLMoE at the Ai2 Playground" : {
-
-    },
-    "View Your Mood Metrics" : {
 
     },
     "Welcome" : {
@@ -207,6 +204,12 @@
       }
     },
     "Welcome to OLMoE" : {
+
+    },
+    "Would you like to add a note about how you're feeling?" : {
+
+    },
+    "You're feeling %@ today" : {
 
     }
   },

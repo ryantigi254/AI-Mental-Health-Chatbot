@@ -248,37 +248,41 @@ struct MoodTrackerView: View {
     
     // View for displaying mood metrics
     private var moodMetricsView: some View {
-        VStack {
-            // Period selector
-            Picker("Time Period", selection: $selectedPeriod) {
-                ForEach(TimePeriod.allCases, id: \.self) { period in
-                    Text(period.rawValue).tag(period)
+        ScrollView {
+            VStack {
+                // Period selector
+                Picker("Time Period", selection: $selectedPeriod) {
+                    ForEach(TimePeriod.allCases, id: \.self) { period in
+                        Text(period.rawValue).tag(period)
+                    }
                 }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(.bottom)
-            
-            // Mood chart
-            moodChart
-                .frame(height: 250)
-                .padding()
-            
-            // Mood distribution
-            moodDistribution
-                .padding()
-            
-            Button(action: {
-                showingMetrics = false
-            }) {
-                Text("Back")
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.bottom)
+                
+                // Mood chart
+                moodChart
+                    .frame(height: 250)
                     .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+                
+                // Mood distribution
+                moodDistribution
+                    .padding()
+                
+                Button(action: {
+                    showingMetrics = false
+                    showEntryView = false
+                }) {
+                    Text("Back")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                .padding(.vertical)
             }
-            .padding(.top)
+            .padding(.horizontal)
         }
     }
     
@@ -292,7 +296,7 @@ struct MoodTrackerView: View {
                     x: .value("Date", entry.date),
                     y: .value("Mood", entry.mood.value)
                 )
-                .foregroundStyle(entry.mood.color)
+                .foregroundStyle(Color.blue)
                 .symbolSize(CGSize(width: 15, height: 15))
             }
             
@@ -302,7 +306,7 @@ struct MoodTrackerView: View {
                         x: .value("Date", entry.date),
                         y: .value("Mood", entry.mood.value)
                     )
-                    .foregroundStyle(.gray.opacity(0.5))
+                    .foregroundStyle(Color.blue.opacity(0.5))
                     .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 5]))
                 }
             }
@@ -351,38 +355,7 @@ struct MoodTrackerView: View {
                 .padding(.vertical, 5)
             }
             
-            if !entries.isEmpty {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Recent Notes")
-                        .font(.headline)
-                        .padding(.top, 20)
-                    
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 15) {
-                            ForEach(entries.filter { $0.note != nil }.prefix(5), id: \.id) { entry in
-                                VStack(alignment: .leading, spacing: 5) {
-                                    HStack {
-                                        Text(entry.mood.rawValue)
-                                        Text(formatDate(entry.date))
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                        Spacer()
-                                    }
-                                    
-                                    Text(entry.note ?? "")
-                                        .font(.body)
-                                        .padding(10)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .fill(Color.gray.opacity(0.1))
-                                        )
-                                }
-                            }
-                        }
-                    }
-                    .frame(height: 200)
-                }
-            }
+            // Recent Notes section removed until database implementation
         }
     }
     

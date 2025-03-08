@@ -6,6 +6,7 @@ struct MainView: View {
     @StateObject private var disclaimerState = DisclaimerState()
     @State private var bot: Bot?
     @State private var hasAcceptedDisclaimer = false
+    @EnvironmentObject private var moodDatabaseManager: MoodDatabaseManager
     
     var body: some View {
         ZStack {
@@ -65,10 +66,16 @@ struct MainView: View {
                                 Color(.systemBackground)
                             }
                         } else {
-                            ProgressView("Loading model...")
+                            // Check if model file exists
+                            if FileManager.default.fileExists(atPath: Bot.modelFileURL.path) {
+                                ProgressView("Loading model...")
+                            } else {
+                                ModelDownloadView()
+                            }
                         }
                     case .moodTracker:
                         MoodTrackerView()
+                            .environmentObject(moodDatabaseManager)
                     case .settings:
                         Text("Settings")
                             .font(.largeTitle)
@@ -113,7 +120,20 @@ struct MainView: View {
         }
         .onAppear {
             disclaimerState.showInitialDisclaimer()
-            bot = Bot()
+            
+            // Check if model file exists before trying to initialize bot
+            if FileManager.default.fileExists(atPath: Bot.modelFileURL.path) {
+                print("Model file exists at: \(Bot.modelFileURL.path)")
+                do {
+                    bot = try Bot()
+                    print("Bot initialized successfully")
+                } catch {
+                    print("Failed to initialize bot: \(error.localizedDescription)")
+                }
+            } else {
+                print("Model file does not exist at: \(Bot.modelFileURL.path)")
+                // Don't try to initialize bot if model file doesn't exist
+            }
             
             // Check if disclaimer has been previously accepted
             #if DEBUG
@@ -123,9 +143,23 @@ struct MainView: View {
             hasAcceptedDisclaimer = UserDefaults.standard.bool(forKey: "hasSeenDisclaimer")
             #endif
         }
+        // Monitor when the model download is complete
+        .environmentObject(BackgroundDownloadManager.shared)
+        .onChange(of: BackgroundDownloadManager.shared.isModelReady) { oldValue, newValue in
+            if newValue && bot == nil {
+                // Model download is complete, try to initialize the bot
+                do {
+                    bot = try Bot()
+                    print("Bot initialized after model download")
+                } catch {
+                    print("Failed to initialize bot after model download: \(error.localizedDescription)")
+                }
+            }
+        }
     }
 }
 
 #Preview {
     MainView()
+        .environmentObject(MoodDatabaseManager(context: PersistenceController.preview.container.viewContext))
 } 

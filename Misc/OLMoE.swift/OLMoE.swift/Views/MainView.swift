@@ -7,6 +7,7 @@ struct MainView: View {
     @State private var bot: Bot?
     @State private var hasAcceptedDisclaimer = false
     @EnvironmentObject private var moodDatabaseManager: MoodDatabaseManager
+    @EnvironmentObject private var themeManager: ThemeManager
     
     // Fallback database manager as a backup
     @StateObject private var localMoodDatabaseManager = MoodDatabaseManager(context: PersistenceController.shared.container.viewContext)
@@ -90,9 +91,7 @@ struct MainView: View {
                         MoodTrackerView()
                             .environmentObject(localMoodDatabaseManager)
                     case .settings:
-                        Text("Settings")
-                            .font(.largeTitle)
-                            .padding()
+                        SettingsView()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -169,6 +168,10 @@ struct MainView: View {
                 }
             }
         }
+        .onChange(of: themeManager.currentTheme) { oldValue, newValue in
+            // This will trigger UI updates when the theme changes
+            print("Theme changed from \(oldValue.rawValue) to \(newValue.rawValue)")
+        }
     }
 }
 
@@ -179,4 +182,5 @@ struct MainView: View {
     return MainView()
         .environment(\.managedObjectContext, previewContext)
         .environmentObject(previewMoodManager)
+        .environmentObject(ThemeManager())
 } 

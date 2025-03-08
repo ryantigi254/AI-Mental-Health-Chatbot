@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A6BB71F2D7C1A19001FE7AE /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BB71E2D7C1A19001FE7AE /* ThemeManager.swift */; };
 		3ABC4C712D7BB90C00ED0853 /* MoodEntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC4C6F2D7BB90C00ED0853 /* MoodEntryEntity.swift */; };
 		3ABC4C722D7BB90C00ED0853 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC4C702D7BB90C00ED0853 /* PersistenceController.swift */; };
 		3ABC4C782D7BBC0C00ED0853 /* MoodDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC4C762D7BBC0C00ED0853 /* MoodDatabaseManager.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A6BB71E2D7C1A19001FE7AE /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThemeManager.swift; path = OLMoE.swift/Model/ThemeManager.swift; sourceTree = "<group>"; };
 		3ABC4C6F2D7BB90C00ED0853 /* MoodEntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoodEntryEntity.swift; path = OLMoE.swift/Model/MoodEntryEntity.swift; sourceTree = "<group>"; };
 		3ABC4C702D7BB90C00ED0853 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = OLMoE.swift/Model/PersistenceController.swift; sourceTree = "<group>"; };
 		3ABC4C752D7BBC0C00ED0853 /* MoodEntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoodEntryEntity.swift; path = OLMoE.swift/Model/MoodEntryEntity.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		A0117FDF2C990EAB00035007 = {
 			isa = PBXGroup;
 			children = (
+				3A6BB71E2D7C1A19001FE7AE /* ThemeManager.swift */,
 				3ABC4C762D7BBC0C00ED0853 /* MoodDatabaseManager.swift */,
 				3ABC4C6F2D7BB90C00ED0853 /* MoodEntryEntity.swift */,
 				3ABC4C702D7BB90C00ED0853 /* PersistenceController.swift */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6BB71F2D7C1A19001FE7AE /* ThemeManager.swift in Sources */,
 				3ABC4C712D7BB90C00ED0853 /* MoodEntryEntity.swift in Sources */,
 				3ABC4C782D7BBC0C00ED0853 /* MoodDatabaseManager.swift in Sources */,
 				3ABC4C722D7BB90C00ED0853 /* PersistenceController.swift in Sources */,

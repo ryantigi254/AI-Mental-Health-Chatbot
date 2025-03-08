@@ -23,6 +23,7 @@ struct HamburgerMenuView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
+            // Main navigation options
             ForEach(TabSelection.allCases, id: \.self) { tab in
                 Button(action: {
                     selectedTab = tab
@@ -47,6 +48,7 @@ struct HamburgerMenuView: View {
         }
         .padding(.top, 80)
         .padding(.horizontal, 24)
+        .padding(.bottom, 24)
         .frame(width: UIScreen.main.bounds.width * 0.7)
         .background(Color(.systemBackground))
         .edgesIgnoringSafeArea(.vertical)
@@ -54,5 +56,13 @@ struct HamburgerMenuView: View {
 }
 
 #Preview {
-    HamburgerMenuView(selectedTab: .constant(.home), isMenuOpen: .constant(true))
+    Group {
+        HamburgerMenuView(selectedTab: .constant(.home), isMenuOpen: .constant(true))
+            .preferredColorScheme(.light)
+            .previewDisplayName("Light Mode")
+        
+        HamburgerMenuView(selectedTab: .constant(.home), isMenuOpen: .constant(true))
+            .preferredColorScheme(.dark)
+            .previewDisplayName("Dark Mode")
+    }
 } 

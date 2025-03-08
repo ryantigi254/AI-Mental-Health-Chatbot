@@ -2,6 +2,16 @@ import Foundation
 import CoreData
 import SwiftUI
 
+/**
+ MoodDatabaseManager is responsible for providing secure storage of mood tracking data
+ using Apple's CoreData framework with data protection enabled.
+ 
+ This class handles:
+ - Database initialization and setup
+ - Secure storage with iOS data protection
+ - CRUD operations for mood entries
+ - Database maintenance
+ */
 class MoodDatabaseManager: ObservableObject {
     private let context: NSManagedObjectContext
     @Published private(set) var hasAnsweredToday: Bool = false
@@ -35,6 +45,14 @@ class MoodDatabaseManager: ObservableObject {
             guard let date = entry.date else { return false }
             return date >= cutoffDate
         }.sorted { ($0.date ?? Date()) > ($1.date ?? Date()) }
+    }
+    
+    /// Delete a specific mood entry
+    func deleteMoodEntry(_ entry: MoodEntryEntity) {
+        context.delete(entry)
+        saveContext()
+        loadMoodEntries()
+        checkIfAnsweredToday()
     }
     
     func clearAllEntries() {
@@ -91,4 +109,4 @@ class MoodDatabaseManager: ObservableObject {
     static var preview: MoodDatabaseManager {
         MoodDatabaseManager(context: PersistenceController.preview.container.viewContext)
     }
-} 
+}

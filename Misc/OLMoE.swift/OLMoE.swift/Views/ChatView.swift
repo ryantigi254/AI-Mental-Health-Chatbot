@@ -89,34 +89,6 @@ public struct TypingIndicator: View {
     }
 }
 
-struct ScrollState {
-    static let BottomScrollThreshold = 40.0
-    static let ScrollSpaceName: String = "scrollSpace"
-
-    public var contentHeight: CGFloat = 0
-    public var isAtBottom: Bool = true
-    public var scrollOffset: CGFloat = 0
-    public var scrollViewHeight: CGFloat = 0
-
-    mutating func onContentResized(contentHeight: CGFloat) {
-        self.contentHeight = contentHeight
-        updateState()
-    }
-
-    mutating func onScroll(scrollOffset: CGFloat) {
-        self.scrollOffset = scrollOffset
-        updateState()
-    }
-
-    private mutating func updateState() {
-        let needsScroll = contentHeight > scrollViewHeight
-        let sizeDelta = contentHeight - scrollViewHeight
-        let offsetDelta = abs(sizeDelta) + scrollOffset
-        let isAtBottom = !needsScroll || offsetDelta < ScrollState.BottomScrollThreshold
-        self.isAtBottom = isAtBottom
-    }
-}
-
 public struct ChatView: View {
     /// A unique identifier for the bottom of the chat view.
     public static let BottomID = "bottomID"
@@ -159,14 +131,14 @@ public struct ChatView: View {
                 }
                 .background(scrollHeightTracker())
                 .coordinateSpace(name: ScrollState.ScrollSpaceName)
-                .onChange(of: history) { _, newHistory in
-                    handleHistoryChange(newHistory, proxy)
+                .onChange(of: history, initial: false) { oldValue, newValue in
+                    handleHistoryChange(newValue, proxy)
                 }
-                .onChange(of: stopSubmitted) { _, _ in
+                .onChange(of: stopSubmitted, initial: false) { oldValue, newValue in
                     self.newHeight = scrollState.contentHeight
                 }
-                .onChange(of: keyboardResponder.keyboardHeight) { _, newHeight in
-                    handleKeyboardChange(newHeight, proxy)
+                .onChange(of: keyboardResponder.keyboardHeight, initial: false) { oldValue, newValue in
+                    handleKeyboardChange(newValue, proxy)
                 }
                 .preferredColorScheme(.dark)
             }
@@ -237,8 +209,8 @@ public struct ChatView: View {
                 .onAppear {
                     scrollState.scrollViewHeight = proxy.size.height
                 }
-                .onChange(of: proxy.size.height) { _, newHeight in
-                    scrollState.scrollViewHeight = newHeight
+                .onChange(of: proxy.size.height, initial: false) { oldValue, newHeight in
+                    scrollState.onContentResized(contentHeight: newHeight)
                 }
         }
     }
@@ -249,14 +221,11 @@ public struct ChatView: View {
     private func scrollTracker() -> some View {
         GeometryReader { geo in
             Color.clear
-                .onChange(of: geo.frame(in: .named(ScrollState.ScrollSpaceName)).origin.y) { _, offset in
+                .onChange(of: geo.frame(in: .named(ScrollState.ScrollSpaceName)).origin.y, initial: false) { oldValue, offset in
                     scrollState.onScroll(scrollOffset: offset)
                     isScrolledToBottom = scrollState.isAtBottom
                 }
-                .onAppear {
-                    scrollState.onContentResized(contentHeight: geo.size.height)
-                }
-                .onChange(of: geo.size.height) { _, newHeight in
+                .onChange(of: geo.size.height, initial: false) { oldValue, newHeight in
                     scrollState.onContentResized(contentHeight: newHeight)
                     isScrolledToBottom = scrollState.isAtBottom
                 }

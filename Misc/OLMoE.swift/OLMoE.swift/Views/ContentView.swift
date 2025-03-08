@@ -12,9 +12,9 @@ import os
 class Bot: LLM {
     static let modelFileURL = URL.modelsDirectory.appendingPathComponent(AppConstants.Model.filename).appendingPathExtension("gguf")
 
-    convenience init() {
+    convenience init() throws {
         guard FileManager.default.fileExists(atPath: Bot.modelFileURL.path) else {
-            fatalError("Model file not found. Please download it first.")
+            throw NSError(domain: "Bot", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file not found. Please download it first."])
         }
 
         self.init(from: Bot.modelFileURL, template: .OLMoE())
@@ -99,11 +99,6 @@ struct BotView: View {
     }
 
     private func formatConversationForSharing() -> String {
-        let deviceName = UIDevice.current.model
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, yyyy 'at' h:mm a"
-        let timestamp = dateFormatter.string(from: Date())
-
         let header = """
         Conversation with OLMoE (Open Language Mixture of Expert)
         ----------------------------------------
@@ -428,11 +423,13 @@ struct ContentView: View {
                             setShowDisclaimerPage: { disclaimerState.showDisclaimerPage = $0 }
                         ))
                     } else {
-                        ModelDownloadView()
+                        if !downloadManager.isModelReady {
+                            ModelDownloadView()
+                        }
                     }
                 }
-                .onChange(of: downloadManager.isModelReady) { value in
-                    if value && bot == nil {
+                .onChange(of: downloadManager.isModelReady, initial: false) { oldValue, newValue in
+                    if newValue && bot == nil {
                         initializeBot()
                     }
                 }
@@ -483,17 +480,17 @@ struct ContentView: View {
         }
     }
 
-    /// Checks if the model is ready and initializes the bot if it is.
-    private func checkModelAndInitializeBot() {
-        if FileManager.default.fileExists(atPath: Bot.modelFileURL.path) {
-            downloadManager.isModelReady = true
-            initializeBot()
-        }
-    }
-
     /// Initializes the bot instance and sets the loopback test response flag.
     private func initializeBot() {
-        bot = Bot()
-        bot?.loopBackTestResponse = useMockedModelResponse
+        do {
+            logger.info("Model file URL: \(Bot.modelFileURL.path)")
+            logger.info("Model file exists: \(FileManager.default.fileExists(atPath: Bot.modelFileURL.path))")
+            bot = try Bot()
+            bot?.loopBackTestResponse = useMockedModelResponse
+        } catch {
+            logger.error("Failed to initialize bot: \(error.localizedDescription)")
+            // Reset model ready state to trigger re-download
+            downloadManager.isModelReady = false
+        }
     }
 }

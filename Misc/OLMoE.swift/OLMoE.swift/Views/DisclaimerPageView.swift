@@ -124,6 +124,8 @@ struct DisclaimerPage: View {
     @State private var scrollViewHeight: CGFloat = 0
     @State private var scrollContentHeight: CGFloat = 0
     @State private var scrollOffset: CGFloat = 0
+    @State private var scrollState = ScrollState()
+    @State private var isScrolledToBottom = false
 
     public var body: some View {
         ScrollViewReader { proxy in
@@ -248,9 +250,18 @@ struct DisclaimerPage: View {
                 })
             }
             .background(GeometryReader { geo in
-                Color.clear.onAppear {
-                    scrollViewHeight = geo.size.height
-                }
+                Color.clear
+                    .onChange(of: geo.frame(in: .named(ScrollState.ScrollSpaceName)).origin.y, initial: false) { oldValue, offset in
+                        scrollState.onScroll(scrollOffset: offset)
+                        isScrolledToBottom = scrollState.isAtBottom
+                    }
+                    .onAppear {
+                        scrollState.onContentResized(contentHeight: geo.size.height)
+                    }
+                    .onChange(of: geo.size.height, initial: false) { oldValue, newHeight in
+                        scrollState.onContentResized(contentHeight: newHeight)
+                        isScrolledToBottom = scrollState.isAtBottom
+                    }
             })
             .coordinateSpace(name: "scrollView")
             .onPreferenceChange(ViewHeightKey.self) { contentHeight in

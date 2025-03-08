@@ -29,7 +29,13 @@
     "5-4-3-2-1 Grounding Technique" : {
 
     },
+    "About" : {
+
+    },
     "allenai.org" : {
+
+    },
+    "Appearance" : {
 
     },
     "Are you sure you want to delete all mood entries? This action cannot be undone." : {
@@ -189,6 +195,9 @@
     "The model requires 4.21GB of storage space. Would you like to proceed with the download?" : {
 
     },
+    "Theme" : {
+
+    },
     "This device does not have the 8GB physical RAM required to run OLMoE locally." : {
 
     },
@@ -196,6 +205,9 @@
 
     },
     "Try OLMoE at the Ai2 Playground" : {
+
+    },
+    "Version" : {
 
     },
     "View Mood History" : {

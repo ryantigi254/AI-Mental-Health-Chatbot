@@ -68,7 +68,11 @@ class BackgroundDownloadManager: NSObject, ObservableObject, URLSessionDownloadD
             return
         }
 
-        guard let url = URL(string: AppConstants.Model.downloadURL) else { return }
+        guard let url = URL(string: AppConstants.Model.downloadURL) else {
+            print("Invalid download URL: \(AppConstants.Model.downloadURL)")
+            return
+        }
+        print("Starting download from URL: \(url.absoluteString)")
 
         isDownloading = true
         downloadError = nil
@@ -89,15 +93,21 @@ class BackgroundDownloadManager: NSObject, ObservableObject, URLSessionDownloadD
         let destination = Bot.modelFileURL
 
         do {
+            print("Download completed. Temporary location: \(location.path)")
+            print("Destination: \(destination.path)")
             if FileManager.default.fileExists(atPath: destination.path) {
+                print("Removing existing file at destination")
                 try FileManager.default.removeItem(at: destination)
             }
+            print("Moving downloaded file to destination")
             try FileManager.default.moveItem(at: location, to: destination)
+            print("File successfully moved to destination")
             DispatchQueue.main.async {
                 self.isModelReady = true
                 self.isDownloading = false
             }
         } catch {
+            print("Error during file move: \(error)")
             DispatchQueue.main.async {
                 self.downloadError = "Failed to save file: \(error.localizedDescription)"
                 self.isDownloading = false
@@ -205,7 +215,7 @@ struct Ai2Logo: View {
 struct ModelDownloadView: View {
     @StateObject private var downloadManager = BackgroundDownloadManager.shared
     @State private var showDownloadConfirmation = false
-
+    
     public var body: some View {
         ZStack {
             Color("BackgroundColor")
@@ -301,6 +311,10 @@ struct ModelDownloadView: View {
         .onAppear {
             if FileManager.default.fileExists(atPath: Bot.modelFileURL.path) {
                 downloadManager.isModelReady = true
+            }
+            // Automatically start download if not already downloading or completed
+            if !downloadManager.isDownloading && !downloadManager.isModelReady {
+                downloadManager.startDownload()
             }
         }
     }

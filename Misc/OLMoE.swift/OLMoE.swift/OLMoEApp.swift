@@ -2,19 +2,22 @@ import SwiftUI
 
 @main
 struct OLMoEApp: App {
-    // Initialize the persistent controller for Core Data
-    @StateObject private var dataController = MoodDatabaseManager.shared
-    
-    // Initialize Core Data persistence
+    // Initialize Core Data stack
     let persistenceController = PersistenceController.shared
+    
+    // Initialize mood database manager
+    @StateObject private var moodDatabaseManager: MoodDatabaseManager
+    
+    init() {
+        let context = persistenceController.container.viewContext
+        _moodDatabaseManager = StateObject(wrappedValue: MoodDatabaseManager(context: context))
+    }
     
     var body: some Scene {
         WindowGroup {
             MainView()
-                // Inject Core Data context into the environment
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                // Make the mood data manager available throughout the app
-                .environmentObject(dataController)
+                .environmentObject(moodDatabaseManager)
         }
     }
 } 

@@ -6,7 +6,7 @@ import CoreData
  This replaces the plain struct MoodEntry with a persistent Core Data entity.
  */
 @objc(MoodEntryEntity)
-public class MoodEntryEntity: NSManagedObject {
+public class MoodEntryEntity: NSManagedObject, Identifiable {
     @NSManaged public var id: UUID?
     @NSManaged public var date: Date?
     @NSManaged public var moodValue: Int16

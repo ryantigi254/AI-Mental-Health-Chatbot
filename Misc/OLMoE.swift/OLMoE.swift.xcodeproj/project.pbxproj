@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3ABC4C712D7BB90C00ED0853 /* MoodEntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC4C6F2D7BB90C00ED0853 /* MoodEntryEntity.swift */; };
+		3ABC4C722D7BB90C00ED0853 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC4C702D7BB90C00ED0853 /* PersistenceController.swift */; };
+		3ABC4C782D7BBC0C00ED0853 /* MoodDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC4C762D7BBC0C00ED0853 /* MoodDatabaseManager.swift */; };
 		48952DF02D4D69D400476373 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 48952DEF2D4D69D400476373 /* MarkdownUI */; };
 		489710A22D14D22600F0DB43 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 489710A12D14D22600F0DB43 /* README.md */; };
 		489FD75C2CF13E4E0011E908 /* AttestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489FD75B2CF13E4E0011E908 /* AttestManager.swift */; };
@@ -30,6 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3ABC4C6F2D7BB90C00ED0853 /* MoodEntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoodEntryEntity.swift; path = OLMoE.swift/Model/MoodEntryEntity.swift; sourceTree = "<group>"; };
+		3ABC4C702D7BB90C00ED0853 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = OLMoE.swift/Model/PersistenceController.swift; sourceTree = "<group>"; };
+		3ABC4C752D7BBC0C00ED0853 /* MoodEntryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoodEntryEntity.swift; path = OLMoE.swift/Model/MoodEntryEntity.swift; sourceTree = "<group>"; };
+		3ABC4C762D7BBC0C00ED0853 /* MoodDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoodDatabaseManager.swift; path = OLMoE.swift/Model/MoodDatabaseManager.swift; sourceTree = "<group>"; };
+		3ABC4C772D7BBC0C00ED0853 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = OLMoE.swift/Model/PersistenceController.swift; sourceTree = "<group>"; };
 		48194C372D14D7C500E76532 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		489710A12D14D22600F0DB43 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		489FD75B2CF13E4E0011E908 /* AttestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttestManager.swift; sourceTree = "<group>"; };
@@ -92,6 +100,11 @@
 		A0117FDF2C990EAB00035007 = {
 			isa = PBXGroup;
 			children = (
+				3ABC4C762D7BBC0C00ED0853 /* MoodDatabaseManager.swift */,
+				3ABC4C6F2D7BB90C00ED0853 /* MoodEntryEntity.swift */,
+				3ABC4C702D7BB90C00ED0853 /* PersistenceController.swift */,
+				3ABC4C752D7BBC0C00ED0853 /* MoodEntryEntity.swift */,
+				3ABC4C772D7BBC0C00ED0853 /* PersistenceController.swift */,
 				48194C372D14D7C500E76532 /* README.md */,
 				48194C362D14D69300E76532 /* doc_assets */,
 				48971DFB2D14D5E300F0DB43 /* aws-lambda */,
@@ -248,6 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ABC4C712D7BB90C00ED0853 /* MoodEntryEntity.swift in Sources */,
+				3ABC4C782D7BBC0C00ED0853 /* MoodDatabaseManager.swift in Sources */,
+				3ABC4C722D7BB90C00ED0853 /* PersistenceController.swift in Sources */,
 				489FD75C2CF13E4E0011E908 /* AttestManager.swift in Sources */,
 				B26FDB4C2CEAD53700E1D57C /* HuggingFaceError.swift in Sources */,
 				B26FDB522CEAD54C00E1D57C /* Role.swift in Sources */,
@@ -400,13 +416,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OLMoE.swift/OLMoE_swift.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "${BUNDLE_VERSION}";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OLMoE.swift/Preview Content\"";
-				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM_ID}";
+				DEVELOPMENT_TEAM = SNB2Q2H9RQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -455,7 +471,7 @@
 				CURRENT_PROJECT_VERSION = "${BUNDLE_VERSION}";
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"OLMoE.swift/Preview Content\"";
-				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM_ID}";
+				DEVELOPMENT_TEAM = SNB2Q2H9RQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

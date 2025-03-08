@@ -1,6 +1,7 @@
 import SwiftUI
 import WebKit
 
+@preconcurrency
 struct WebView: UIViewRepresentable {
     let url: URL
 
@@ -60,6 +61,7 @@ struct WebView: UIViewRepresentable {
     }
 }
 
+@preconcurrency
 struct WebViewWithBanner: View {
     let url: URL
     let onDismiss: () -> Void

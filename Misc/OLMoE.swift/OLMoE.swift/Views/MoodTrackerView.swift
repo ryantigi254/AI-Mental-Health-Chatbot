@@ -77,6 +77,7 @@ struct MoodTrackerView: View {
     @State private var moodNote: String = ""
     @State private var showEntryView = false
     @State private var showResetConfirmation = false
+    @State private var showConfirmation = false
     
     // Access the mood database manager
     @EnvironmentObject var moodDatabase: MoodDatabaseManager
@@ -97,6 +98,13 @@ struct MoodTrackerView: View {
             // Update state when view appears
             moodDatabase.checkIfAnsweredToday()
             moodDatabase.loadMoodEntries()
+        }
+        .onChange(of: selectedMood, initial: false) { oldValue, newValue in
+            if newValue != nil {
+                withAnimation {
+                    showConfirmation = true
+                }
+            }
         }
     }
     

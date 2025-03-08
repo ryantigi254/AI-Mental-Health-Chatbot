@@ -18,7 +18,13 @@ extension URL {
     public static var modelsDirectory: URL {
         let paths = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
         let url = paths[0].appendingPathComponent("Models")
-        try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
+        print("Models directory path: \(url.path)")
+        do {
+            try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+            print("Models directory created successfully")
+        } catch {
+            print("Error creating Models directory: \(error)")
+        }
 
         // Exclude from backup
         do {
@@ -26,6 +32,7 @@ extension URL {
             var resourceValues = URLResourceValues()
             resourceValues.isExcludedFromBackup = true
             try mutableURL.setResourceValues(resourceValues)
+            print("Models directory excluded from backup")
         } catch {
             print("Error excluding from backup: \(error)")
         }

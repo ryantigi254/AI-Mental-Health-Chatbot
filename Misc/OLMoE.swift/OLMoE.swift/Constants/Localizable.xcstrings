@@ -32,7 +32,7 @@
     "allenai.org" : {
 
     },
-    "Back" : {
+    "Are you sure you want to delete all mood entries? This action cannot be undone." : {
 
     },
     "Breathing Exercises" : {
@@ -57,6 +57,9 @@
 
     },
     "Delete history?" : {
+
+    },
+    "Done" : {
 
     },
     "Download Model" : {
@@ -153,6 +156,12 @@
     "Recent Notes" : {
 
     },
+    "Reset" : {
+
+    },
+    "Reset All Entries" : {
+
+    },
     "SafeZone App" : {
 
     },
@@ -189,6 +198,9 @@
     "Try OLMoE at the Ai2 Playground" : {
 
     },
+    "View Mood History" : {
+
+    },
     "Welcome" : {
 
     },
@@ -210,6 +222,9 @@
 
     },
     "You're feeling %@ today" : {
+
+    },
+    "You've already recorded your mood today" : {
 
     }
   },

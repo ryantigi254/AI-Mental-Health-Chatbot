@@ -6,6 +6,16 @@ struct MainView: View {
     @StateObject private var disclaimerState = DisclaimerState()
     @State private var bot: Bot?
     @State private var hasAcceptedDisclaimer = false
+    @EnvironmentObject private var moodDatabaseManager: MoodDatabaseManager
+    
+    // Fallback database manager as a backup
+    @StateObject private var localMoodDatabaseManager = MoodDatabaseManager(context: PersistenceController.shared.container.viewContext)
+    
+    // Safely access mood database manager
+    private var dbManager: MoodDatabaseManager {
+        // Use the environment object if it's available, otherwise fall back to the local instance
+        return localMoodDatabaseManager
+    }
     
     var body: some View {
         ZStack {
@@ -23,11 +33,13 @@ struct MainView: View {
                             .foregroundColor(.primary)
                     }
                     .padding()
+                    .frame(width: 50) // Fixed width for hamburger menu button
                     
                     Spacer()
                     
                     Text(selectedTab.rawValue)
                         .font(.headline)
+                        .lineLimit(1)
                     
                     Spacer()
                     
@@ -35,12 +47,14 @@ struct MainView: View {
                     if hasAcceptedDisclaimer {
                         CrisisButtonView(isHeaderStyle: true)
                             .padding(.trailing, 8)
+                            .frame(width: 50) // Fixed width for crisis button
                     } else {
                         // Empty spacer for balance when crisis button is not shown
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
                             .foregroundColor(.clear)
                             .padding()
+                            .frame(width: 50) // Fixed width to match hamburger menu
                     }
                 }
                 .background(Color(.systemBackground))
@@ -74,6 +88,7 @@ struct MainView: View {
                         }
                     case .moodTracker:
                         MoodTrackerView()
+                            .environmentObject(localMoodDatabaseManager)
                     case .settings:
                         Text("Settings")
                             .font(.largeTitle)
@@ -158,5 +173,10 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    let previewContext = PersistenceController.preview.container.viewContext
+    let previewMoodManager = MoodDatabaseManager(context: previewContext)
+    
+    return MainView()
+        .environment(\.managedObjectContext, previewContext)
+        .environmentObject(previewMoodManager)
 } 

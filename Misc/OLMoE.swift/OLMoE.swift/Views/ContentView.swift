@@ -290,7 +290,7 @@ struct BotView: View {
                                 isScrolledToBottom: $isScrolledToBottom,
                                 stopSubmitted: $stopSubmitted
                             )
-                                .onChange(of: scrollToBottom) { newValue in
+                                .onChange(of: scrollToBottom, initial: false) { oldValue, newValue in
                                     if newValue {
                                         withAnimation {
                                             proxy.scrollTo(ChatView.BottomID, anchor: .bottom)

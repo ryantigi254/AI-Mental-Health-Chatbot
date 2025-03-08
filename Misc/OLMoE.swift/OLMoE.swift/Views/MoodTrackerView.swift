@@ -80,14 +80,19 @@ struct MoodTrackerView: View {
     @State private var showConfirmation = false
     
     // Access the mood database manager
-    @StateObject private var localMoodDatabaseManager = MoodDatabaseManager(context: PersistenceController.shared.container.viewContext)
     @EnvironmentObject var moodDatabaseManager: MoodDatabaseManager
+    
+    // Initializer to make the view constructible
+    init() {
+        print("MoodTrackerView init called")
+    }
     
     // Computed property to safely access the mood database manager
     private var dbManager: MoodDatabaseManager {
-        // If the environment object is not initialized yet (which would cause a crash), use the local one
-        DispatchQueue.main.async {
-            print("Accessing moodDatabaseManager")
+        // For safety, provide a fallback if somehow the environment object is not available
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+            print("Creating fallback MoodDatabaseManager for preview")
+            return MoodDatabaseManager(context: PersistenceController.preview.container.viewContext)
         }
         return moodDatabaseManager
     }
@@ -109,8 +114,8 @@ struct MoodTrackerView: View {
             print("MoodTrackerView appeared, attempting to use moodDatabaseManager")
             
             // Update state when view appears
-            localMoodDatabaseManager.checkIfAnsweredToday()
-            localMoodDatabaseManager.loadMoodEntries()
+            dbManager.checkIfAnsweredToday()
+            dbManager.loadMoodEntries()
         }
         .onChange(of: selectedMood, initial: false) { oldValue, newValue in
             if newValue != nil {
@@ -123,14 +128,14 @@ struct MoodTrackerView: View {
     
     // View that asks for today's mood
     private var moodQuestionView: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 30) {
             Spacer()
             
-            if localMoodDatabaseManager.hasAnsweredToday {
+            if dbManager.hasAnsweredToday {
                 Text("You've already recorded your mood today")
-                    .font(.title2)
+                    .font(.title3)
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 15)
                 
                 Button(action: {
                     showingMetrics = true
@@ -147,20 +152,20 @@ struct MoodTrackerView: View {
                 .padding(.horizontal, 30)
             } else {
                 Text("How are you feeling today?")
-                    .font(.system(size: 32, weight: .bold))
+                    .font(.system(size: 26, weight: .bold))
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 30)
                 
                 // Display mood options in a horizontal row
-                HStack(spacing: 15) {
+                HStack(spacing: 12) {
                     ForEach(MoodType.allCases, id: \.self) { mood in
                         Button(action: {
                             selectedMood = mood
                             showEntryView = true
                         }) {
                             Text(mood.rawValue)
-                                .font(.system(size: 40))
-                                .frame(width: 70, height: 70)
+                                .font(.system(size: 32))
+                                .frame(width: 60, height: 60)
                                 .background(
                                     Circle()
                                         .fill(Color.black.opacity(0.03))
@@ -182,14 +187,14 @@ struct MoodTrackerView: View {
     
     // View shown after recording mood
     private var moodConfirmationView: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             if let selectedMood = selectedMood {
                 Text(selectedMood.rawValue)
-                    .font(.system(size: 70))
-                    .padding(.bottom, 10)
+                    .font(.system(size: 60))
+                    .padding(.bottom, 8)
                 
                 Text("You're feeling \(selectedMood.description.lowercased()) today")
-                    .font(.title2)
+                    .font(.title3)
                     .fontWeight(.medium)
                     .multilineTextAlignment(.center)
             }
@@ -212,7 +217,7 @@ struct MoodTrackerView: View {
             HStack(spacing: 15) {
                 Button(action: {
                     if let mood = selectedMood {
-                        localMoodDatabaseManager.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
+                        dbManager.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
                         showingMetrics = true
                     }
                 }) {
@@ -300,7 +305,7 @@ struct MoodTrackerView: View {
                         title: Text("Reset All Entries"),
                         message: Text("Are you sure you want to delete all mood entries? This action cannot be undone."),
                         primaryButton: .destructive(Text("Reset")) {
-                            localMoodDatabaseManager.clearAllEntries()
+                            dbManager.clearAllEntries()
                         },
                         secondaryButton: .cancel()
                     )
@@ -312,27 +317,23 @@ struct MoodTrackerView: View {
     
     // Chart showing mood over time
     private var moodChart: some View {
-        let entries = localMoodDatabaseManager.getMoodEntries(for: selectedPeriod)
+        let entries = dbManager.getMoodEntries(for: selectedPeriod)
         
-        return Chart {
-            ForEach(entries) { entry in
-                PointMark(
+        return Chart(entries) { entry in
+            PointMark(
+                x: .value("Date", entry.date ?? Date()),
+                y: .value("Mood", Int(entry.moodValue))
+            )
+            .foregroundStyle(Color.blue)
+            .symbolSize(CGSize(width: 15, height: 15))
+            
+            if !entries.isEmpty {
+                LineMark(
                     x: .value("Date", entry.date ?? Date()),
                     y: .value("Mood", Int(entry.moodValue))
                 )
-                .foregroundStyle(Color.blue)
-                .symbolSize(CGSize(width: 15, height: 15))
-            }
-            
-            if !entries.isEmpty {
-                ForEach(entries) { entry in
-                    LineMark(
-                        x: .value("Date", entry.date ?? Date()),
-                        y: .value("Mood", Int(entry.moodValue))
-                    )
-                    .foregroundStyle(Color.blue.opacity(0.5))
-                    .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 5]))
-                }
+                .foregroundStyle(Color.blue.opacity(0.5))
+                .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 5]))
             }
         }
         .chartYScale(domain: 1...5)
@@ -354,7 +355,7 @@ struct MoodTrackerView: View {
     
     // Mood distribution visualization
     private var moodDistribution: some View {
-        let entries = localMoodDatabaseManager.getMoodEntries(for: selectedPeriod)
+        let entries = dbManager.getMoodEntries(for: selectedPeriod)
         let moodCounts = Dictionary(grouping: entries) { entry -> MoodType? in
             guard let emoji = entry.moodEmoji else { return nil }
             return MoodType.allCases.first { $0.rawValue == emoji }
@@ -421,9 +422,11 @@ struct MoodTrackerView: View {
         formatter.timeStyle = .short
         return formatter.string(from: date)
     }
-}
-
-#Preview {
-    MoodTrackerView()
-        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    
+    // Preview for SwiftUI Canvas
+    #Preview {
+        MoodTrackerView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(MoodDatabaseManager(context: PersistenceController.preview.container.viewContext))
+    }
 } 

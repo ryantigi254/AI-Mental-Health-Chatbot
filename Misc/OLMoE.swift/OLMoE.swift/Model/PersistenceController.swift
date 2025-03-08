@@ -14,9 +14,9 @@ struct PersistenceController {
     
     // Initialize the Core Data stack
     init(inMemory: Bool = false) {
-        // Create custom model and register the MoodEntryEntity
-        let managedObjectModel = NSManagedObjectModel.createMoodTrackerModel()
-        container = NSPersistentContainer(name: "MoodTrackerModel", managedObjectModel: managedObjectModel)
+        // Create custom model with entities
+        let managedObjectModel = Self.createCoreDataModel()
+        container = NSPersistentContainer(name: "MentalHealthApp", managedObjectModel: managedObjectModel)
         
         // Configure persistence with security options
         let description = inMemory 
@@ -68,6 +68,111 @@ struct PersistenceController {
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     }
     
+    // Create the Core Data model programmatically
+    static func createCoreDataModel() -> NSManagedObjectModel {
+        // Create a new model
+        let model = NSManagedObjectModel()
+        
+        // Create the MoodEntryEntity
+        let moodEntryEntity = NSEntityDescription()
+        moodEntryEntity.name = "MoodEntryEntity"
+        moodEntryEntity.managedObjectClassName = "MoodEntryEntity"
+        
+        // Define attributes for MoodEntryEntity
+        let idAttribute = NSAttributeDescription()
+        idAttribute.name = "id"
+        idAttribute.attributeType = .UUIDAttributeType
+        idAttribute.isOptional = true
+        
+        let dateAttribute = NSAttributeDescription()
+        dateAttribute.name = "date"
+        dateAttribute.attributeType = .dateAttributeType
+        dateAttribute.isOptional = true
+        
+        let moodValueAttribute = NSAttributeDescription()
+        moodValueAttribute.name = "moodValue"
+        moodValueAttribute.attributeType = .integer16AttributeType
+        moodValueAttribute.isOptional = false
+        moodValueAttribute.defaultValue = 3
+        
+        let moodEmojiAttribute = NSAttributeDescription()
+        moodEmojiAttribute.name = "moodEmoji"
+        moodEmojiAttribute.attributeType = .stringAttributeType
+        moodEmojiAttribute.isOptional = true
+        
+        let moodDescriptionAttribute = NSAttributeDescription()
+        moodDescriptionAttribute.name = "moodDescription"
+        moodDescriptionAttribute.attributeType = .stringAttributeType
+        moodDescriptionAttribute.isOptional = true
+        
+        let noteAttribute = NSAttributeDescription()
+        noteAttribute.name = "note"
+        noteAttribute.attributeType = .stringAttributeType
+        noteAttribute.isOptional = true
+        
+        // Add attributes to MoodEntryEntity
+        moodEntryEntity.properties = [
+            idAttribute,
+            dateAttribute,
+            moodValueAttribute,
+            moodEmojiAttribute,
+            moodDescriptionAttribute,
+            noteAttribute
+        ]
+        
+        // Create the JournalEntryEntity
+        let journalEntryEntity = NSEntityDescription()
+        journalEntryEntity.name = "JournalEntryEntity"
+        journalEntryEntity.managedObjectClassName = NSStringFromClass(JournalEntryEntity.self)
+        
+        // Define attributes for JournalEntryEntity
+        let journalIdAttribute = NSAttributeDescription()
+        journalIdAttribute.name = "id"
+        journalIdAttribute.attributeType = .UUIDAttributeType
+        journalIdAttribute.isOptional = false
+        
+        let journalDateAttribute = NSAttributeDescription()
+        journalDateAttribute.name = "date"
+        journalDateAttribute.attributeType = .dateAttributeType
+        journalDateAttribute.isOptional = false
+        
+        let titleAttribute = NSAttributeDescription()
+        titleAttribute.name = "title"
+        titleAttribute.attributeType = .stringAttributeType
+        titleAttribute.isOptional = false
+        
+        let contentAttribute = NSAttributeDescription()
+        contentAttribute.name = "content"
+        contentAttribute.attributeType = .stringAttributeType
+        contentAttribute.isOptional = false
+        
+        let moodAttribute = NSAttributeDescription()
+        moodAttribute.name = "mood"
+        moodAttribute.attributeType = .stringAttributeType
+        moodAttribute.isOptional = true
+        
+        let tagsArrayAttribute = NSAttributeDescription()
+        tagsArrayAttribute.name = "tagsArray"
+        tagsArrayAttribute.attributeType = .transformableAttributeType
+        tagsArrayAttribute.valueTransformerName = NSValueTransformerName.secureUnarchiveFromDataTransformerName.rawValue
+        tagsArrayAttribute.isOptional = true
+        
+        // Add attributes to JournalEntryEntity
+        journalEntryEntity.properties = [
+            journalIdAttribute,
+            journalDateAttribute,
+            titleAttribute,
+            contentAttribute,
+            moodAttribute,
+            tagsArrayAttribute
+        ]
+        
+        // Add entities to model
+        model.entities = [moodEntryEntity, journalEntryEntity]
+        
+        return model
+    }
+    
     // MARK: - Test Support
     
     // A test store for SwiftUI previews
@@ -93,6 +198,23 @@ struct PersistenceController {
             newEntry.moodDescription = entry.description
             newEntry.note = entry.note
         }
+        
+        // Create sample journal entries
+        let journalEntry1 = JournalEntryEntity(context: viewContext)
+        journalEntry1.id = UUID()
+        journalEntry1.date = Date().addingTimeInterval(-86400) // Yesterday
+        journalEntry1.title = "First day of therapy"
+        journalEntry1.content = "Today I had my first therapy session. It went better than expected, and I feel hopeful about the process."
+        journalEntry1.mood = "😊"
+        journalEntry1.tags = ["therapy", "hope"]
+        
+        let journalEntry2 = JournalEntryEntity(context: viewContext)
+        journalEntry2.id = UUID()
+        journalEntry2.date = Date().addingTimeInterval(-172800) // 2 days ago
+        journalEntry2.title = "Feeling anxious"
+        journalEntry2.content = "Work has been stressful lately. I need to practice more mindfulness techniques to manage my anxiety."
+        journalEntry2.mood = "😟"
+        journalEntry2.tags = ["work", "anxiety", "mindfulness"]
         
         do {
             try viewContext.save()

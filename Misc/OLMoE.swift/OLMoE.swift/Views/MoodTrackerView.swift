@@ -89,11 +89,6 @@ struct MoodTrackerView: View {
     
     // Computed property to safely access the mood database manager
     private var dbManager: MoodDatabaseManager {
-        // For safety, provide a fallback if somehow the environment object is not available
-        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
-            print("Creating fallback MoodDatabaseManager for preview")
-            return MoodDatabaseManager(context: PersistenceController.preview.container.viewContext)
-        }
         return moodDatabaseManager
     }
     
@@ -424,7 +419,7 @@ struct MoodTrackerView: View {
     }
     
     // Preview for SwiftUI Canvas
-    #Preview {
+    #Preview("Mood Tracker") {
         MoodTrackerView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(MoodDatabaseManager(context: PersistenceController.preview.container.viewContext))

@@ -1,8 +1,9 @@
 import SwiftUI
 
-enum TabSelection: String, CaseIterable {
+enum TabSelection: String, CaseIterable, Hashable {
     case home = "Home"
     case moodTracker = "Mood Tracker"
+    case journal = "Journal"
     case settings = "Settings"
     
     var icon: String {
@@ -11,6 +12,8 @@ enum TabSelection: String, CaseIterable {
             return "bubble.left.fill"
         case .moodTracker:
             return "heart.fill"
+        case .journal:
+            return "book.fill"
         case .settings:
             return "gear"
         }
@@ -55,7 +58,7 @@ struct HamburgerMenuView: View {
     }
 }
 
-#Preview {
+#Preview("Hamburger Menu") {
     Group {
         HamburgerMenuView(selectedTab: .constant(.home), isMenuOpen: .constant(true))
             .preferredColorScheme(.light)

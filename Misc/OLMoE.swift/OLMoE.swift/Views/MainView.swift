@@ -6,17 +6,10 @@ struct MainView: View {
     @StateObject private var disclaimerState = DisclaimerState()
     @State private var bot: Bot?
     @State private var hasAcceptedDisclaimer = false
-    @EnvironmentObject private var moodDatabaseManager: MoodDatabaseManager
-    @EnvironmentObject private var themeManager: ThemeManager
+    @StateObject private var themeManager = ThemeManager()
     
-    // Fallback database manager as a backup
-    @StateObject private var localMoodDatabaseManager = MoodDatabaseManager(context: PersistenceController.shared.container.viewContext)
-    
-    // Safely access mood database manager
-    private var dbManager: MoodDatabaseManager {
-        // Use the environment object if it's available, otherwise fall back to the local instance
-        return localMoodDatabaseManager
-    }
+    // Access the mood database manager from the environment
+    @EnvironmentObject var moodDatabaseManager: MoodDatabaseManager
     
     var body: some View {
         ZStack {
@@ -89,9 +82,12 @@ struct MainView: View {
                         }
                     case .moodTracker:
                         MoodTrackerView()
-                            .environmentObject(localMoodDatabaseManager)
+                            .environmentObject(moodDatabaseManager)
+                    case .journal:
+                        JournalView()
                     case .settings:
                         SettingsView()
+                            .environmentObject(themeManager)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -172,15 +168,14 @@ struct MainView: View {
             // This will trigger UI updates when the theme changes
             print("Theme changed from \(oldValue.rawValue) to \(newValue.rawValue)")
         }
+        .environmentObject(themeManager)
     }
 }
 
-#Preview {
+#Preview("Main View") {
     let previewContext = PersistenceController.preview.container.viewContext
-    let previewMoodManager = MoodDatabaseManager(context: previewContext)
     
     return MainView()
         .environment(\.managedObjectContext, previewContext)
-        .environmentObject(previewMoodManager)
         .environmentObject(ThemeManager())
 } 

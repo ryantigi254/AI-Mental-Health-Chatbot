@@ -65,16 +65,7 @@ struct SettingsView: View {
     }
 }
 
-#Preview {
-    Group {
-        SettingsView()
-            .environmentObject(ThemeManager())
-            .preferredColorScheme(.light)
-            .previewDisplayName("Light Mode")
-        
-        SettingsView()
-            .environmentObject(ThemeManager())
-            .preferredColorScheme(.dark)
-            .previewDisplayName("Dark Mode")
-    }
+#Preview("Settings View") {
+    SettingsView()
+        .environmentObject(ThemeManager())
 } 

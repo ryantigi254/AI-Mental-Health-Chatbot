@@ -1,17 +1,11 @@
 import SwiftUI
 
-@main
 struct OLMoEApp: App {
     // Initialize Core Data stack
     let persistenceController = PersistenceController.shared
     
-    // Initialize mood database manager
-    @StateObject private var moodDatabaseManager: MoodDatabaseManager
-    
-    init() {
-        let context = persistenceController.container.viewContext
-        _moodDatabaseManager = StateObject(wrappedValue: MoodDatabaseManager(context: context))
-    }
+    // Initialize mood database manager for the app
+    @StateObject private var moodDatabaseManager = MoodDatabaseManager(context: PersistenceController.shared.container.viewContext)
     
     var body: some Scene {
         WindowGroup {

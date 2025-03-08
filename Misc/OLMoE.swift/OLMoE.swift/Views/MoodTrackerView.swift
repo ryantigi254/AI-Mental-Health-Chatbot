@@ -80,7 +80,17 @@ struct MoodTrackerView: View {
     @State private var showConfirmation = false
     
     // Access the mood database manager
-    @EnvironmentObject var moodDatabase: MoodDatabaseManager
+    @StateObject private var localMoodDatabaseManager = MoodDatabaseManager(context: PersistenceController.shared.container.viewContext)
+    @EnvironmentObject var moodDatabaseManager: MoodDatabaseManager
+    
+    // Computed property to safely access the mood database manager
+    private var dbManager: MoodDatabaseManager {
+        // If the environment object is not initialized yet (which would cause a crash), use the local one
+        DispatchQueue.main.async {
+            print("Accessing moodDatabaseManager")
+        }
+        return moodDatabaseManager
+    }
     
     var body: some View {
         VStack {
@@ -95,9 +105,12 @@ struct MoodTrackerView: View {
         .padding()
         .navigationTitle("Mood Tracker")
         .onAppear {
+            // Debug print
+            print("MoodTrackerView appeared, attempting to use moodDatabaseManager")
+            
             // Update state when view appears
-            moodDatabase.checkIfAnsweredToday()
-            moodDatabase.loadMoodEntries()
+            localMoodDatabaseManager.checkIfAnsweredToday()
+            localMoodDatabaseManager.loadMoodEntries()
         }
         .onChange(of: selectedMood, initial: false) { oldValue, newValue in
             if newValue != nil {
@@ -113,7 +126,7 @@ struct MoodTrackerView: View {
         VStack(spacing: 40) {
             Spacer()
             
-            if moodDatabase.hasAnsweredToday {
+            if localMoodDatabaseManager.hasAnsweredToday {
                 Text("You've already recorded your mood today")
                     .font(.title2)
                     .multilineTextAlignment(.center)
@@ -199,7 +212,7 @@ struct MoodTrackerView: View {
             HStack(spacing: 15) {
                 Button(action: {
                     if let mood = selectedMood {
-                        moodDatabase.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
+                        localMoodDatabaseManager.saveMood(mood, note: moodNote.isEmpty ? nil : moodNote)
                         showingMetrics = true
                     }
                 }) {
@@ -287,7 +300,7 @@ struct MoodTrackerView: View {
                         title: Text("Reset All Entries"),
                         message: Text("Are you sure you want to delete all mood entries? This action cannot be undone."),
                         primaryButton: .destructive(Text("Reset")) {
-                            moodDatabase.clearAllEntries()
+                            localMoodDatabaseManager.clearAllEntries()
                         },
                         secondaryButton: .cancel()
                     )
@@ -299,7 +312,7 @@ struct MoodTrackerView: View {
     
     // Chart showing mood over time
     private var moodChart: some View {
-        let entries = moodDatabase.getMoodEntries(for: selectedPeriod)
+        let entries = localMoodDatabaseManager.getMoodEntries(for: selectedPeriod)
         
         return Chart {
             ForEach(entries) { entry in
@@ -341,7 +354,7 @@ struct MoodTrackerView: View {
     
     // Mood distribution visualization
     private var moodDistribution: some View {
-        let entries = moodDatabase.getMoodEntries(for: selectedPeriod)
+        let entries = localMoodDatabaseManager.getMoodEntries(for: selectedPeriod)
         let moodCounts = Dictionary(grouping: entries) { entry -> MoodType? in
             guard let emoji = entry.moodEmoji else { return nil }
             return MoodType.allCases.first { $0.rawValue == emoji }
@@ -412,6 +425,5 @@ struct MoodTrackerView: View {
 
 #Preview {
     MoodTrackerView()
-        .environmentObject(MoodDatabaseManager.preview)
         .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 } 

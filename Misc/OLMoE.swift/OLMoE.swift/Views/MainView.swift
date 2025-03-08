@@ -6,7 +6,6 @@ struct MainView: View {
     @StateObject private var disclaimerState = DisclaimerState()
     @State private var bot: Bot?
     @State private var hasAcceptedDisclaimer = false
-    @EnvironmentObject private var moodDatabaseManager: MoodDatabaseManager
     
     var body: some View {
         ZStack {
@@ -75,7 +74,6 @@ struct MainView: View {
                         }
                     case .moodTracker:
                         MoodTrackerView()
-                            .environmentObject(moodDatabaseManager)
                     case .settings:
                         Text("Settings")
                             .font(.largeTitle)
@@ -161,5 +159,4 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        .environmentObject(MoodDatabaseManager(context: PersistenceController.preview.container.viewContext))
 } 

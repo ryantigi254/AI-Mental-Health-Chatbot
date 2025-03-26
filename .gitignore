@@ -31,3 +31,12 @@ Research/Articles.zip
 Research/Misc/audios/*.wav
 Research/NotebookLM/**/*.wav
 >>>>>>> 800cefc0 (Initial commit- Research was already conducted for more info refer to the research structure file)
+
+# Problematic embedded repositories
+
+Misc/AI-Mental-Health-Chatbot/
+
+Misc/OLMoE.swift/
+
+**/NetworkImage-30fb7cbe/
+

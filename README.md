@@ -30,8 +30,8 @@ Our project aims to develop a mental wellbeing chatbot that supports UON student
 ## Team Members
 
 - **Ryan Gichuru** – Project Lead & Primary Developer  
-- [**Shazab Hassan** – Research, System Design & Documentation](https://github.com/shazabhassan)  
-- [**Akida Legend** – Frontend Development & UI/UX Design](https://github.com/akidalegend)
+- [**Shazab Hassan** – Frontend Development & UI/UX Design](https://github.com/shazabhassan)  
+- [**Akida Legend** – Backend Development and Model Integration](https://github.com/akidalegend)
 ---
 
 ## Key Components

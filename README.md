@@ -45,10 +45,7 @@ Our project aims to develop a mental wellbeing chatbot that supports UON student
 - **Backend:** Implement dialogue management with RASA and a custom action server.
 - **Model Building:** Create and fine-tune a dataset for both NLU and a generative LLM.
 - **Frontend:** Develop a user-friendly interface that emphasizes accessibility, crisis management, and ease-of-use.
-- **OLMoE.swift Xcode Project:**  
-  Within the `OLMoE.swift` folder, there is an Xcode project located at:  
-  `/Users/ryangichuru/Documents/SSD-K/Uni/2nd year/2nd Semester/AI Group Project/Misc/OLMoE.swift/OLMoE.swift.xcodeproj`  
-  Open this project in Xcode, build, and run the app.
+
 
 ### 3. Evaluation & Testing
 - Evaluate the chatbot with at least 10 external participants.

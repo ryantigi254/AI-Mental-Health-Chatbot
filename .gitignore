@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 # Build directories and embedded repositories
 
 **/.build/
@@ -24,3 +25,9 @@
 **/*.zip
 
 **/*.wav
+=======
+# Large files
+Research/Articles.zip
+Research/Misc/audios/*.wav
+Research/NotebookLM/**/*.wav
+>>>>>>> 800cefc0 (Initial commit- Research was already conducted for more info refer to the research structure file)

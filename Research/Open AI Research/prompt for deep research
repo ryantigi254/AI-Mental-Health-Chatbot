@@ -1,0 +1,25 @@
+Super Detailed Research Prompt:
+
+Conduct an exhaustive literature review and deep-dive research across academic papers, reputable journals, and authoritative websites on the application of AI in mental healthcare. Your analysis must comprehensively cover the following areas:
+
+Evaluate ethical and regulatory frameworks governing AI in mental health—address privacy, informed consent, data security, transparency, and relevant regulations (e.g. GDPR, HIPAA).
+Compare clinical effectiveness of AI chatbots and AI-enhanced CBT apps versus traditional face-to-face therapy by analysing reductions in PHQ‑9 depression scores, long-term outcomes, and patient satisfaction.
+Investigate integration of wearable devices (e.g. Spire Health Tag, Moodmetric) with AI chatbots to monitor physiological and emotional signals in real time for early mental health detection and intervention.
+Explore multimodal data integration methods that combine text, audio, visual, and physiological data to achieve comprehensive mental health assessments, including the technical challenges of data fusion.
+Identify sources and impacts of bias in mental health AI—from training data through algorithm design—and review strategies (diverse datasets, algorithmic audits, federated learning) for bias mitigation and fairness enhancement.
+Analyse the role of prompt engineering in mental health AI, examining how tailored prompts improve clinical relevance, empathy, and nuanced therapeutic interactions, and propose methods for refining prompts.
+Compare large language models (e.g. GPT‑4, Mistral, Claude3) with traditional ML models (e.g. LSTMs, CNNs) in capturing the subtleties of mental health narratives, focusing on contextual understanding, interpretability, and potential biases.
+Assess factors influencing user engagement and trust in AI-based mental health chatbots, including the effects of affect, social influence, and compatibility, and their impact on overall care-seeking behaviour.
+Evaluate privacy-preserving techniques—such as data anonymisation, synthetic data generation, differential privacy, and federated learning—for safeguarding sensitive mental health data during collection, model training, and deployment.
+Research AI-driven methods for causal analysis and perception mining on social media to identify early indicators of mental health crises while ensuring robust user privacy.
+Examine the impact of biases in speech data, including transcription errors and accent variations, on the accuracy of mental health assessments, and evaluate strategies to mitigate these issues.
+Investigate how AI personalises cognitive behavioural therapy interventions for individual needs, comparing personalised approaches to standardised ones and analysing clinical outcome improvements.
+Analyse hybrid models that integrate AI tools with human mental health professionals to support clinical decision-making while maintaining essential human empathy and oversight.
+Design frameworks for long-term studies (e.g. randomised controlled trials, longitudinal research) and define evaluation metrics to measure the sustainability, clinical outcomes, and cost-effectiveness of AI mental health interventions.
+Explore challenges and strategies for overcoming the digital divide, ensuring equitable access to AI-driven mental healthcare for underserved and marginalised populations.
+Investigate the role of user-centred design and continuous feedback loops in refining AI mental health tools to enhance usability, engagement, and overall effectiveness.
+Examine the influence of socio-cultural factors on the adoption and efficacy of AI chatbots in mental health, and propose adaptive strategies to address cultural, linguistic, and social diversity.
+Review methods and metrics used to evaluate the safety, reliability, and interpretability of AI chatbots, highlighting the contributions of large language models in automated and human-based assessments.
+Identify organisational, technological, and financial barriers to implementing AI in mental health services and propose change management strategies to facilitate successful adoption and stakeholder engagement.
+Survey emerging trends and future directions in AI for mental healthcare, including adaptive systems, human-in-the-loop models, multimodal fusion, real-time monitoring, and explainable AI, and assess their potential transformative impacts.
+Provide a detailed synthesis of key findings, current limitations, ethical implications, and future research directions. Ensure your final report is well-structured, uses British English, and is comprehensive enough to serve as an extensive background research document for our project in AI mental healthcare.

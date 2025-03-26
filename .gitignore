@@ -1,0 +1,14 @@
+# Build directories
+**/.build/
+**/OLMoE.swift/.build/
+**/.DS_Store
+Misc/OLMoE.swift/ResolvedPackages/
+Misc/clone/
+Misc/test-repo-*/
+Misc/AI-Mental-Health-Chatbot/
+Misc/project-backup/
+
+# Large files
+**/*.wav
+**/*.zip
+**/*.docx

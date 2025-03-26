@@ -1,0 +1,572 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey
+      - good morning
+      - good afternoon
+      - good evening
+      - start
+      - begin
+      - hi there
+      - hello there
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+      - thanks for your help
+      - that's all
+      - end
+      - that's it
+      - thank you
+      - thanks
+  - intent: affirm
+    examples: |
+      - yes
+      - yeah
+      - indeed
+      - that's right
+      - okay
+      - great
+      - cool
+      - amazing
+      - wonderful
+      - absolutely
+      - definitely
+      - for sure
+      - you bet
+      - uh-huh
+      - yep
+  - intent: deny
+    examples: |
+      - no
+      - no way
+      - not really
+      - not at all
+      - definitely not
+      - nah
+      - nope
+      - never
+      - not really
+      - not a chance
+      - no thanks
+      - no way jose
+  - intent: mood_great
+    examples: |
+      - perfect
+      - very good
+      - great
+      - amazing
+      - wonderful
+      - awesome
+      - good
+      - nice
+      - happy
+      - fantastic
+      - excellent
+      - thrilled
+      - elated
+      - overjoyed
+      - delighted
+  - intent: mood_unhappy
+    examples: |
+      - sad
+      - unhappy
+      - miserable
+      - awful
+      - bad
+      - down
+      - terrible
+      - depressed
+      - upset
+      - stressed
+      - gloomy
+      - down in the dumps
+      - blue
+      - glum
+      - disheartened
+  - intent: feeling_anxious
+    examples: |
+      - I feel anxious
+      - I'm worried
+      - I'm feeling nervous
+      - I have anxiety
+      - I'm stressed out
+      - I'm feeling overwhelmed
+      - I'm having panic attacks
+      - I'm feeling tense
+      - I'm feeling uneasy
+      - I'm feeling unsettled
+      - I'm having anxiety attacks
+      - I'm feeling keyed up
+      - I'm feeling on edge
+      - I'm feeling jittery
+      - I'm feeling antsy
+  - intent: feeling_depressed
+    examples: |
+      - I feel depressed
+      - I'm feeling down
+      - I'm sad
+      - I'm feeling hopeless
+      - I'm feeling worthless
+      - I'm feeling empty
+      - I'm feeling numb
+      - I'm feeling lost
+      - I'm feeling alone
+      - I'm feeling isolated
+      - I'm feeling down in the dumps
+      - I'm feeling blue
+      - I'm feeling gloomy
+      - I'm feeling disheartened
+      - I'm feeling discouraged
+  - intent: feeling_stressed
+    examples: |
+      - I feel stressed
+      - I'm under pressure
+      - I'm feeling overwhelmed
+      - I'm feeling burnt out
+      - I'm feeling exhausted
+      - I'm feeling drained
+      - I'm feeling tired
+      - I'm feeling fatigued
+      - I'm feeling run down
+      - I'm feeling overworked
+      - I'm feeling frazzled
+      - I'm feeling frazzled
+      - I'm feeling frazzled
+      - I'm feeling frazzled
+  - intent: ask_for_help
+    examples: |
+      - Can you help me?
+      - I need help
+      - I'm struggling
+      - I need support
+      - I need assistance
+      - I need guidance
+      - I need advice
+      - Can you assist me?
+      - I need someone to talk to
+      - I need someone to listen
+      - I need help with...
+      - I'm having trouble with...
+      - I need some help with...
+      - I'm struggling with...
+  - intent: ask_coping_strategies
+    examples: |
+      - How can I cope with this?
+      - What can I do to feel better?
+      - How can I manage this?
+      - What strategies can help?
+      - How can I deal with this?
+      - What can I do to help myself?
+      - How can I improve my situation?
+      - What techniques can I use?
+      - How can I handle this?
+      - What methods can help?
+      - What coping mechanisms can I use?
+      - How can I manage my stress?
+      - What strategies work for...
+      - How can I deal with...
+  - intent: thank
+    examples: |
+      - thanks
+      - thank you
+      - thanks a lot
+      - thank you so much
+      - I appreciate it
+      - I'm grateful
+      - thanks for your help
+      - thanks for everything
+      - thanks a bunch
+      - thanks a million
+      - I really appreciate it
+      - I'm so grateful
+      - thank you very much
+      - thanks for your support
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you human?
+      - what are you?
+      - who are you?
+      - what can you do?
+      - what's your purpose?
+      - are you real?
+      - can you think?
+      - do you have feelings?
+      - are you alive?
+      - what are you capable of?
+      - how do you work?
+      - what's your function?
+      - are you a person?
+  # Academic-related
+  - intent: academic_stress
+    examples: |
+      - I'm feeling stressed about my studies
+      - My academic workload is overwhelming
+      - I'm struggling with my coursework
+      - I feel like I can't keep up with my classes
+      - My academic pressure is too much
+      - I'm having trouble with my studies
+      - I'm feeling academic burnout
+      - My academic responsibilities are too heavy
+      - I'm feeling academic anxiety
+      - I'm having academic stress
+      - I'm overwhelmed with coursework
+      - I can't handle the academic pressure
+      - My workload is too much
+      - I'm drowning in assignments
+      - I feel like I'm falling behind
+      - I can't keep up with the pace
+      - I'm struggling to keep up
+      - I'm having trouble coping with the workload
+      - I'm overwhelmed with academic demands
+  - intent: exam_anxiety
+    examples: |
+      - I'm worried about my exams
+      - I have exam anxiety
+      - I'm nervous about my tests
+      - I'm stressed about upcoming exams
+      - I'm feeling anxious about my assessments
+      - I'm panicking about my exams
+      - I'm having trouble with exam preparation
+      - I'm feeling test anxiety
+      - I'm worried about my exam performance
+      - I'm feeling exam pressure
+      - I'm nervous about my upcoming exams
+      - I'm stressed about my upcoming tests
+      - I'm having exam anxiety
+      - I'm worried about my assessment
+      - I'm feeling anxious about my upcoming exams
+      - I'm having trouble preparing for exams
+      - I'm stressed about my upcoming assessments
+  - intent: coursework_falling_behind
+    examples: |
+      - I'm falling behind in my coursework
+      - I can't keep up with my assignments
+      - I'm struggling to complete my work
+      - I'm behind on my coursework
+      - I'm having trouble keeping up
+      - I'm lagging behind
+      - I'm not meeting deadlines
+      - I'm struggling to catch up
+      - I'm behind schedule
+      - I'm having trouble staying on track
+      - I'm falling behind in my studies
+      - I can't keep up with the workload
+      - I'm struggling to complete assignments
+      - I'm behind on my work
+      - I'm having trouble keeping up with assignments
+      - I'm falling behind in my classes
+      - I can't keep up with the pace
+      - I'm struggling to stay on track
+      - I'm having trouble completing assignments
+      - I'm falling behind in my coursework
+  - intent: assignment_deadlines
+    examples: |
+      - I have multiple assignments due
+      - I'm overwhelmed by deadlines
+      - I need to manage my deadlines
+      - I'm having trouble with deadlines
+      - I need help with assignment due dates
+      - I'm juggling multiple deadlines
+      - I'm struggling with deadlines
+      - I need to prioritize my deadlines
+      - I'm having deadline stress
+      - I'm managing multiple deadlines
+      - I have assignments due this week
+      - I need to organize my deadlines
+      - I'm having trouble meeting deadlines
+      - I need help managing my deadlines
+      - I'm overwhelmed with due dates
+      - I'm having trouble keeping track of deadlines
+      - I need to prioritize my assignments
+      - I'm having trouble meeting assignment deadlines
+      - I'm overwhelmed with due dates
+      - I need help organizing my deadlines
+  - intent: submission_deadline_miss
+    examples: |
+      - I might miss a submission deadline
+      - I'm worried about missing a deadline
+      - I can't submit on time
+      - I need an extension
+      - I'm going to be late
+      - I won't meet the deadline
+      - I need more time
+      - I'm running late
+      - I'm going to miss the deadline
+      - I can't submit by the due date
+      - I might not make the deadline
+      - I'm going to be late with my submission
+      - I need an extension on the deadline
+      - I can't meet the deadline
+      - I'm going to miss the submission deadline
+      - I need more time to complete this
+      - I might not make the due date
+      - I need an extension on the submission
+      - I can't submit on time
+      - I'm going to be late with my work
+  - intent: study_concentration
+    examples: |
+      - I can't concentrate while studying
+      - I have trouble focusing
+      - I'm having difficulty concentrating
+      - I can't stay focused
+      - I'm easily distracted
+      - I need help concentrating
+      - I can't maintain focus
+      - I'm having trouble concentrating
+      - I need to improve my concentration
+      - I'm struggling to focus
+      - I can't stay focused while studying
+      - I have trouble maintaining focus
+      - I'm easily distracted while studying
+      - I need help with concentration
+      - I can't focus on my studies
+      - I'm having trouble staying focused
+      - I need to improve my study focus
+      - I'm struggling to concentrate
+      - I can't stay focused during study
+      - I have trouble maintaining concentration
+  - intent: course_failure_worry
+    examples: |
+      - I'm worried about failing
+      - I'm scared of failing
+      - I'm feeling down
+      - I'm feeling hopeless
+      - I'm feeling worthless
+      - I'm feeling empty
+      - I'm feeling lost
+      - I'm feeling alone
+      - I'm feeling isolated
+      - I'm feeling down in the dumps
+      - I'm feeling blue
+      - I'm feeling gloomy
+      - I'm feeling disheartened
+      - I'm feeling discouraged
+      - I'm feeling down in the dumps
+      - I'm feeling blue
+      - I'm feeling gloomy
+      - I'm feeling disheartened
+      - I'm feeling discouraged
+  - intent: academic_support_resources
+    examples: |
+      - What academic support is available?
+      - Where can I get academic help?
+      - What resources are there for students?
+      - What academic assistance is available?
+      - Where can I find academic support?
+      - What academic services are available?
+      - What academic resources are there?
+      - Where can I get academic guidance?
+      - What academic help is available?
+      - Where can I find academic assistance?
+      - What academic support options do I have?
+      - Where can I get academic support services?
+      - What academic resources are available to me?
+      - Where can I find academic help resources?
+      - What academic support options are available?
+      - Where can I get academic support services?
+      - What academic resources are available to me?
+      - Where can I find academic help resources?
+  - intent: multiple_assignments_balance
+    examples: |
+      - How do I balance multiple assignments?
+      - I have too many assignments
+      - I need to manage my assignments
+      - I'm juggling multiple assignments
+      - I'm overwhelmed with assignments
+      - I need to prioritize my assignments
+      - I'm managing multiple assignments
+      - I have too many tasks
+      - I need to organize my assignments
+      - I'm struggling with multiple assignments
+      - I need help balancing my assignments
+      - I'm having trouble managing multiple assignments
+      - I need help prioritizing my assignments
+      - I'm overwhelmed with coursework
+      - I need help organizing my assignments
+      - I'm having trouble balancing my workload
+      - I need help managing my coursework
+      - I'm struggling to balance my assignments
+      - I need help organizing my coursework
+      - I'm having trouble managing my workload
+  - intent: plagiarism
+    examples: |
+      - What is plagiarism?
+      - How do I avoid plagiarism?
+      - What counts as plagiarism?
+      - How can I prevent plagiarism?
+      - What are the rules about plagiarism?
+      - How do I check for plagiarism?
+      - What's considered plagiarism?
+      - How do I cite sources correctly?
+      - What's the policy on plagiarism?
+      - How do I reference properly?
+      - What's the definition of plagiarism?
+      - How can I avoid accidental plagiarism?
+      - What are the consequences of plagiarism?
+      - How do I properly cite sources?
+      - What's the university's policy on plagiarism?
+      - How do I avoid unintentional plagiarism?
+      - What are the penalties for plagiarism?
+      - How do I properly reference sources?
+      - What's considered academic dishonesty?
+      - How do I avoid academic misconduct?
+  - intent: mental_health_registration
+    examples: |
+      - How do I register for mental health services?
+      - How do I access mental health support?
+      - How do I sign up for counseling?
+      - How do I get mental health help?
+      - How do I register for counseling?
+      - How do I access mental health resources?
+      - How do I sign up for mental health services?
+      - How do I get mental health support?
+      - How do I register for counseling services?
+      - How do I access mental health assistance?
+      - What's the process for mental health registration?
+      - How do I sign up for counseling services?
+      - What's the procedure for mental health registration?
+      - How do I access mental health support services?
+      - What's the process for getting mental health help?
+      - How do I sign up for mental health support?
+      - What's the procedure for getting counseling?
+      - How do I access mental health services?
+      - What's the process for getting mental health support?
+      - How do I sign up for mental health assistance?
+  - intent: counseling_services
+    examples: |
+      - How do I access counseling services?
+      - Where can I get counseling?
+      - What counseling services are available?
+      - How do I book a counseling appointment?
+      - Where can I find counseling support?
+      - What counseling options are there?
+      - How do I get counseling help?
+      - Where can I get counseling assistance?
+      - What counseling resources are available?
+      - How do I access counseling support?
+      - What counseling services are available to me?
+      - Where can I find counseling services?
+      - What counseling options do I have?
+      - How do I get counseling services?
+      - Where can I find counseling support services?
+      - What counseling resources are available to me?
+      - How do I access counseling support services?
+      - What counseling services are available to students?
+      - Where can I find counseling services for students?
+      - What counseling options are available to students?
+  - intent: impostor_syndrome
+    examples: |
+      - I feel like an impostor
+      - I don't belong here
+      - I feel like a fraud
+      - I feel inadequate
+      - I feel like I'm not good enough
+      - I feel like I don't deserve to be here
+      - I feel like I'm not smart enough
+      - I feel like I'm not qualified
+      - I feel like I'm not good enough
+      - I feel like I'm not capable
+      - I feel like I don't belong
+      - I feel like I'm not worthy
+      - I feel like I'm not deserving
+      - I feel like I'm not qualified enough
+      - I feel like I'm not smart enough
+      - I feel like I'm not good enough
+      - I feel like I'm not capable enough
+      - I feel like I don't belong here
+      - I feel like I'm not worthy enough
+      - I feel like I'm not deserving enough
+  - intent: student_parent_balance
+    examples: |
+      - How do I balance parenting and studies?
+      - I'm a student parent
+      - I need to manage childcare and studies
+      - I have children and am studying
+      - I'm balancing parenting and education
+      - I'm a parent and student
+      - I need to balance childcare and coursework
+      - I'm managing parenting and studies
+      - I'm juggling parenting and education
+      - I'm balancing parenting and academic responsibilities
+      - How do I manage being a parent and student?
+      - I need help balancing my role as a parent and student
+      - I'm struggling to balance parenting and studying
+      - I need help managing my responsibilities as a parent and student
+      - I'm having trouble balancing my role as a parent and student
+      - How do I manage my responsibilities as a parent and student?
+      - I need help balancing my role as a parent and learner
+      - I'm struggling to balance my responsibilities as a parent and student
+      - I need help managing my role as a parent and learner
+      - I'm having trouble balancing my responsibilities as a parent and learner
+  - intent: test_anxiety_management
+    examples: |
+      - How do I manage test anxiety?
+      - I have exam anxiety
+      - I need help with test anxiety
+      - I'm worried about my exam
+      - I'm nervous about my test
+      - I need to manage my exam stress
+      - I have test day anxiety
+      - I need help with exam anxiety
+      - I'm stressed about my assessment
+      - I need to cope with test anxiety
+      - How do I handle test anxiety?
+      - I need help managing test anxiety
+      - I'm having trouble with test anxiety
+      - I need help coping with exam anxiety
+      - How do I deal with test anxiety?
+      - I need help managing exam anxiety
+      - I'm having trouble with exam anxiety
+      - I need help coping with test day anxiety
+      - How do I handle exam anxiety?
+      - I need help managing test day anxiety
+  - intent: depression_class_attendance
+    examples: |
+      - I can't attend classes because of depression
+      - My depression is affecting my attendance
+      - I'm too depressed to go to class
+      - I'm struggling to attend lectures
+      - I'm having trouble with attendance
+      - I'm having attendance issues
+      - I'm having trouble attending classes
+      - I'm struggling with class attendance
+      - I'm having trouble with lecture attendance
+      - I'm having trouble attending seminars
+      - I can't go to class because of depression
+      - My depression is impacting my attendance
+      - I'm too depressed to attend lectures
+      - I'm struggling to attend seminars
+      - I'm having trouble with seminar attendance
+      - I can't attend lectures because of depression
+      - My depression is affecting my seminar attendance
+      - I'm too depressed to attend classes
+      - I'm struggling to attend seminars
+      - I'm having trouble with class attendance
+  - intent: chronic_conditions_policy
+    examples: |
+      - What's the policy on chronic conditions?
+      - How do I get support for my chronic condition?
+      - What accommodations are available for chronic conditions?
+      - How do I access support for my chronic condition?
+      - What's the policy on chronic illness?
+      - How do I get academic support for my chronic condition?
+      - What accommodations are available for chronic illness?
+      - How do I access chronic condition support?
+      - What's the policy on chronic health conditions?
+      - How do I get support for my chronic health condition?
+      - What's the university's policy on chronic conditions?
+      - How do I access support for my chronic illness?
+      - What accommodations are available for chronic health conditions?
+      - How do I access chronic health condition support?
+      - What's the university's policy on chronic health conditions?
+      - How do I get support for my chronic illness?
+      - What accommodations are available for chronic conditions?
+      - How do I access chronic condition support?
+      - What's the policy on chronic health conditions?

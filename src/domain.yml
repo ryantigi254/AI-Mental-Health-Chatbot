@@ -1,0 +1,301 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - feeling_anxious
+  - feeling_depressed
+  - feeling_stressed
+  - ask_for_help
+  - ask_coping_strategies
+  - thank
+  - bot_challenge
+  # Academic-related
+  - academic_stress
+  - exam_anxiety
+  - coursework_falling_behind
+  - assignment_deadlines
+  - submission_deadline_miss
+  - study_concentration
+  - course_failure_worry
+  - academic_support_resources
+  - multiple_assignments_balance
+  - plagiarism
+  - accidental_plagiarism
+  - academic_misconduct
+  - proper_citation
+  - cheating_accusation
+  - group_work_policy
+  # Financial-related
+  - student_loan_management
+  - emergency_funds
+  - student_budgeting
+  - financial_support_options
+  - financial_struggle
+  - campus_part_time_jobs
+  - hardship_funds_application
+  - student_debt
+  # Social-related
+  - making_friends_difficulty
+  - roommate_conflicts
+  - loneliness
+  - support_network_building
+  - homesickness
+  - socializing_balance
+  - relationship_breakup
+  - relationship_boundaries
+  # Mental Health-related
+  - depression_suspicion
+  - anxiety_normality
+  - stress_sleep_problems
+  - campus_mental_health_services
+  - tutor_mental_health_discussion
+  - panic_attacks
+  - self_esteem_improvement
+  - student_self_care
+  # Special Conditions
+  - adhd_management
+  - anxiety_accommodations
+  - ocd_coping
+  - eating_disorder_help
+  - attendance_issues
+  # University Services
+  - mental_health_registration
+  - assignment_extensions
+  - mitigating_circumstances
+  - immediate_mental_health_support
+  - counseling_services
+  - peer_support_groups
+  # Identity and Diversity
+  - identity_questioning
+  - campus_discrimination
+  - international_student_support
+  - confidence_building
+  - impostor_syndrome
+  # Substance Use
+  - drinking_habits_concern
+  - friend_substance_use_help
+  - addiction_resources
+  - socializing_without_drinking
+  # Career and Future
+  - graduation_anxiety
+  - future_decision_pressure
+  - dropping_out_consideration
+  - academic_transition
+  - placement_preparation
+  # Emergency Situations
+  - suicidal_thoughts
+  - self_harm_concern
+  - grief_coping
+  - sexual_harassment
+  - healthy_routine_maintenance
+  - burnout_management
+  - perfectionism_coping
+  - student_parent_balance
+  - test_anxiety_management
+  - lecture_motivation
+  - affordable_therapy
+  - mindfulness_techniques
+  - homesickness_adjustment
+  - work_life_balance
+  - mental_health_crisis_help
+  - student_comparison
+  - culture_shock
+  - seasonal_affective_disorder
+  # Attendance-related
+  - morning_lecture_attendance
+  - lecture_absence_impact
+  - mental_health_attendance
+  - large_lecture_anxiety
+  - missed_classes_catchup
+  - absence_explanation
+  - attendance_accommodations
+  - depression_class_attendance
+  - absence_reporting
+  - panic_attack_seminar
+  - medical_appointments_balance
+  - chronic_conditions_policy
+
+entities:
+  - mood
+  - symptom
+  - severity
+  - academic_subject
+  - time_frame
+  - financial_amount
+  - personality_type
+  - university_resource
+  - lecture_type
+  - health_condition
+  - support_type
+  - assignment_type
+  - deadline_type
+  - accommodation_type
+  - support_service
+  - campus_location
+  - mental_health_condition
+  - academic_level
+  - study_habit
+  - social_situation
+  - relationship_type
+  - support_preference
+  - crisis_type
+  - attendance_reason
+  - accommodation_need
+
+slots:
+  mood:
+    type: text
+    influence_conversation: true
+  symptom:
+    type: text
+    influence_conversation: true
+  severity:
+    type: float
+    influence_conversation: true
+  academic_subject:
+    type: text
+    influence_conversation: true
+  time_frame:
+    type: text
+    influence_conversation: true
+  financial_amount:
+    type: float
+    influence_conversation: true
+  personality_type:
+    type: categorical
+    values:
+      - empathetic
+      - direct
+      - motivational
+      - analytical
+      - balanced
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        intent: select_personality
+      - type: from_text
+        intent: change_personality
+      - type: from_text
+        intent: personality_preference
+
+responses:
+  utter_greet:
+    - text: "Hi there! I'm here to help with any mental health concerns. How can I assist you today?"
+  utter_goodbye:
+    - text: "Take care! Remember, you're not alone in this journey."
+  utter_ask_personality:
+    - text: "I can adapt my responses to your preferred style. Would you like me to be empathetic, direct, motivational, analytical, or balanced?"
+  utter_select_empathetic:
+    - text: "I'll respond with warmth and understanding. How can I help you today?"
+  utter_select_direct:
+    - text: "I'll give you straightforward, practical advice. What's on your mind?"
+  utter_select_motivational:
+    - text: "I'll help you find the motivation to overcome challenges. What's holding you back?"
+  utter_select_analytical:
+    - text: "I'll provide structured, logical responses. What would you like to explore?"
+  utter_select_balanced:
+    - text: "I'll balance empathy with practical advice. What's troubling you?"
+  utter_academic_stress:
+    - text: "I understand academic stress can be overwhelming. Let's explore some strategies to manage it."
+    - text: "Managing academic stress is important. Would you like to discuss time management or study techniques?"
+    - text: "I can help you create a plan to handle academic pressure. What's your biggest concern?"
+  utter_exam_anxiety:
+    - text: "Exam anxiety is common. Would you like to discuss study techniques or relaxation methods?"
+    - text: "I can help you manage exam anxiety. Would you like strategies for preparation or test day?"
+    - text: "Let's explore ways to reduce exam stress. What aspect worries you most?"
+  utter_coursework_falling_behind:
+    - text: "I understand you're feeling behind. Let's look at some strategies to catch up and manage your workload."
+    - text: "Falling behind can be stressful. Would you like help creating a catch-up plan?"
+    - text: "I can help you prioritize your coursework. What subjects are you most concerned about?"
+  utter_assignment_deadlines:
+    - text: "I can help you create a plan to manage your deadlines. Would you like some time management tips?"
+    - text: "Managing multiple deadlines can be challenging. Would you like help organizing your priorities?"
+    - text: "I can help you create a schedule for your assignments. What's your biggest concern?"
+  utter_submission_deadline_miss:
+    - text: "I understand missing deadlines can be stressful. Let's explore your options and next steps."
+    - text: "Missing a deadline can be concerning. Would you like to discuss extensions or other options?"
+    - text: "I can help you understand the consequences and next steps after missing a deadline."
+  utter_study_concentration:
+    - text: "I can help you improve your study focus. Would you like some concentration techniques?"
+    - text: "Struggling with concentration is common. Would you like to explore study techniques?"
+    - text: "I can help you create a study environment that works for you. What's your biggest distraction?"
+  utter_course_failure_worry:
+    - text: "I understand you're worried about your course. Let's look at support options and next steps."
+    - text: "Worrying about course performance is understandable. Would you like to discuss support options?"
+    - text: "I can help you understand your options if you're concerned about failing."
+  utter_academic_support_resources:
+    - text: "I can help you find academic support resources. What specific area do you need help with?"
+    - text: "There are many resources available. Would you like information about tutoring or study groups?"
+    - text: "I can help you access academic support services. What's your main concern?"
+  utter_multiple_assignments_balance:
+    - text: "I can help you create a plan to manage multiple assignments. Would you like some prioritization strategies?"
+    - text: "Managing multiple tasks can be challenging. Would you like help organizing your priorities?"
+    - text: "I can help you create a schedule for your assignments. What's your biggest concern?"
+  utter_plagiarism:
+    - text: "I can help explain plagiarism and how to avoid it. Would you like to learn about proper citation?"
+    - text: "Understanding plagiarism is important. Would you like examples of what to avoid?"
+    - text: "I can help you understand academic integrity. Would you like to learn about proper referencing?"
+  utter_mental_health_registration:
+    - text: "I can guide you through registering with mental health services. Would you like information on the process?"
+    - text: "I can help you understand the registration process for mental health services. What's your main concern?"
+    - text: "I can help you access mental health support. Would you like to know about the registration process?"
+  utter_counseling_services:
+    - text: "I can help you access counseling services. Would you like information on how to make an appointment?"
+    - text: "I can help you understand the counseling services available. What's your main concern?"
+    - text: "I can help you access mental health support. Would you like information about counseling options?"
+  utter_impostor_syndrome:
+    - text: "I can help you understand and cope with impostor syndrome. Would you like some strategies to build confidence?"
+    - text: "Impostor syndrome is common. Would you like to explore strategies to overcome these feelings?"
+    - text: "I can help you understand impostor syndrome. Would you like to discuss ways to build confidence?"
+  utter_student_parent_balance:
+    - text: "I can help you balance childcare and studies. Would you like some time management tips?"
+    - text: "Balancing parenting and education can be challenging. Would you like to discuss strategies?"
+    - text: "I can help you create a schedule that works for both your studies and parenting."
+  utter_test_anxiety_management:
+    - text: "I can help you manage test anxiety. Would you like some relaxation techniques?"
+    - text: "Test anxiety can be overwhelming. Would you like to explore coping strategies?"
+    - text: "I can help you manage test day anxiety. What aspect worries you most?"
+  utter_depression_class_attendance:
+    - text: "I understand depression can affect attendance. Let's explore your options for support and accommodations."
+    - text: "Missing classes due to depression is common. Would you like to discuss support options?"
+    - text: "I can help you understand your options for academic accommodations due to depression."
+  utter_chronic_conditions_policy:
+    - text: "I can help you understand the university's policy on chronic conditions. Would you like information on accommodations?"
+    - text: "I can help you understand your rights and support options for chronic conditions."
+    - text: "I can help you access support for your chronic condition. What's your main concern?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_ask_personality
+  - utter_select_empathetic
+  - utter_select_direct
+  - utter_select_motivational
+  - utter_select_analytical
+  - utter_select_balanced
+  - utter_academic_stress
+  - utter_exam_anxiety
+  - utter_coursework_falling_behind
+  - utter_assignment_deadlines
+  - utter_submission_deadline_miss
+  - utter_study_concentration
+  - utter_course_failure_worry
+  - utter_academic_support_resources
+  - utter_multiple_assignments_balance
+  - utter_plagiarism
+  - utter_mental_health_registration
+  - utter_counseling_services
+  - utter_impostor_syndrome
+  - utter_student_parent_balance
+  - utter_test_anxiety_management
+  - utter_depression_class_attendance
+  - utter_chronic_conditions_policy

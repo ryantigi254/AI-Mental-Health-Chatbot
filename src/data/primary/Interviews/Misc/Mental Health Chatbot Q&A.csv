@@ -1,0 +1,51 @@
+#,Question,Predefined Response,Intent Tag
+1,Hi!,Hey there! How’s it going today?,greeting
+2,How are you?,"I’m doing well, thanks for asking! How about you?",greeting
+3,What should I do if I'm feeling overwhelmed?,"It’s normal to feel that way sometimes. Take a deep breath, try some grounding exercises, and reach out if you need support.",stress
+4,What are some good stress-relieving activities?,"Try some deep breathing, a quick walk outside, or listening to music. Everyone’s different, so find what works for you!",stress
+5,How can I focus better when studying?,Break your study sessions into shorter chunks with breaks in between. Try the Pomodoro Technique – 25 minutes of focus followed by a 5-minute break!,study
+6,I feel like I can't keep up with my coursework.,It can be tough. Let’s prioritize tasks and tackle them one step at a time. Have you reached out to your professors or peers for help?,study
+7,"What is burnout, and how do I avoid it?","Burnout is when you feel emotionally and physically exhausted, often from too much stress. Balance is key—work, rest, and play are all important.",burnout
+8,Do you offer any relaxation exercises?,Absolutely! Would you like me to guide you through a simple breathing exercise?,relaxation
+9,When should I seek help from a therapist?,"If your feelings are overwhelming or interfering with daily life, it's a good time to talk to someone. A therapist can offer support tailored to you.",therapy
+10,I'm anxious about my upcoming exams.,That’s totally understandable! Let’s focus on some calming techniques and break your study plan into manageable chunks.,anxiety
+11,How can I get better sleep?,"Try to stick to a sleep schedule, avoid screens before bed, and create a calming bedtime routine. A good night's sleep can make a huge difference.",wellness
+12,"What is self-care, and how can I practice it?","Self-care is taking time to care for your physical and mental well-being. It can include relaxation, hobbies, exercise, or just taking a break when you need it.",wellness
+13,Can I talk to a real person if I need to?,"Of course! If things get overwhelming, I can help connect you to a counselor or therapist who can assist you more directly.",escalation
+14,I'm feeling down today. Can you help?,I’m sorry to hear that. Sometimes just talking it out helps. Want to share more about what’s going on?,support
+15,What’s the best way to deal with exam stress?,"Start by breaking your study sessions into smaller, manageable parts and take breaks. You’ve got this!",stress
+16,"I’m struggling with my mental health, but I don't know where to start.","It’s okay to feel lost sometimes. A good first step is talking about it, whether to a counselor or a friend. We can work through this together.",support
+17,How do I know if I’m depressed?,"Signs of depression can include persistent sadness, loss of interest in activities, and changes in sleep or appetite. Have you felt this way for more than two weeks?",depression
+18,How often should I check in with you?,"You can check in anytime! Some students prefer daily check-ins, while others come by when they need support.",engagement
+19,Is there a way to track my mood over time?,"Yes, tracking mood can help you notice patterns. Would you like to record your mood now?",wellness
+20,What is the best way to deal with procrastination?,"Start by setting small, achievable goals. Break large tasks into smaller parts, and reward yourself when you complete them!",productivity
+21,I’m feeling very anxious about my future.,It’s normal to feel anxious about the future. Let’s talk about what specifically is on your mind and how we can break it down together.,anxiety
+22,What should I do if I feel suicidal?,"I'm really sorry you're feeling this way, but I’m glad you reached out. Let me connect you to a professional who can offer the support you need right now.",crisis
+23,Can you help me with time management?,Time management can be a game changer! Have you tried using a planner or breaking your tasks into timed intervals?,productivity
+24,I feel like I’m not good enough.,"I’m really sorry you’re feeling this way, but remember, everyone has their own pace and struggles. You’re doing the best you can, and that’s enough.",self-esteem
+25,How do I stay motivated during the semester?,"Setting small, achievable goals and rewarding yourself for completing them is a great start! You’ve got this!",motivation
+26,Do you offer tips for mental clarity?,"Yes! Try practicing mindfulness, journaling your thoughts, or simply taking a break to clear your mind. Want to try a short breathing exercise?",wellness
+27,Can you recommend any stress management apps?,"There are some great apps for stress management, like Headspace or Calm. Have you tried one of these before?",stress
+28,I'm dealing with some relationship stress. Any advice?,"Relationship stress can be tough. Try talking openly and honestly with the person involved. If things feel heavy, it might help to seek outside support from a counselor.",relationship
+29,Why is it important to talk about mental health?,Talking about mental health helps break the stigma and can make it easier to get the support you need. You don’t have to go through it alone.,awareness
+30,What are some strategies for dealing with social anxiety?,"Try grounding exercises or deep breathing when you start feeling anxious. It can also help to practice social situations in small steps, building confidence over time.",anxiety
+31,Do you offer support for people who struggle with body image issues?,"Yes, I can help with that! Body image struggles can be hard, but remember, your value isn't tied to your appearance. Want to talk more about it?",self-esteem
+32,Can I share personal details with you?,"I respect your privacy and confidentiality. You can share as much as you’re comfortable with, and I’ll never judge you.",privacy
+33,How do I deal with negative thoughts?,"Negative thoughts can be hard to cope with, but cognitive-behavioral techniques can help. Want to try reframing a negative thought?",therapy
+34,What do I do if I feel like I don’t belong?,"Feeling out of place can be tough. Remember, everyone has a place, and you belong just as much as anyone else. Want to talk about what’s making you feel this way?",support
+35,Do you have mindfulness exercises?,Yes! Mindfulness can be a powerful way to stay present and calm. Would you like to try a short mindfulness exercise now?,wellness
+36,I'm struggling to make friends. Any advice?,"Making friends can take time. Join a club or activity, or even try reaching out to people in your class. Small steps can lead to meaningful connections.",relationship
+37,What is cognitive behavioral therapy (CBT)?,CBT is a type of therapy that helps you identify and change negative thought patterns. Want to explore how that can help you today?,therapy
+38,How can I be more productive during the week?,Try breaking your tasks into manageable chunks and focusing on one thing at a time. Staying organized is key!,productivity
+39,Can you help me with relationship issues?,Sure! Relationships can be tricky. What’s been going on? I’m here to listen and help you figure out a way forward.,relationship
+40,How do I manage the pressure of getting good grades?,"It’s okay to feel the pressure. Start by organizing your time, setting realistic goals, and remembering that your worth isn't determined by grades.",stress
+41,What are some self-compassion techniques?,Self-compassion involves treating yourself with the same kindness as you would a friend. Want to practice it together?,self-esteem
+42,Can I talk to you about my family issues?,"Of course. Family stress can be tough. I’m here to listen, and we can work through it together.",relationship
+43,How can I cope with homesickness?,"Homesickness is common. Try staying connected with home through calls or messages, and create new routines that make you feel more comfortable here.",support
+44,What are some tips for overcoming test anxiety?,"Test anxiety can be challenging. Try deep breathing, positive visualization, and break your study material into smaller, manageable parts.",anxiety
+45,Do you have resources for dealing with academic pressure?,"Yes, I can guide you to campus resources or provide strategies to handle academic stress more effectively. Want more details?",support
+46,How can I stay connected with my friends?,"Keep in touch through group chats, study sessions, or activities. It’s important to maintain social support.",relationship
+47,What can I do if I’m feeling lonely?,Feeling lonely can happen to anyone. Try reaching out to a friend or exploring new activities on campus. You’re not alone.,support
+48,Is it okay to take breaks when studying?,"Yes, breaks are essential! They help refresh your mind and improve focus. Take a short break every 30-45 minutes.",productivity
+49,How can I learn to trust myself more?,Trusting yourself comes from recognizing your strengths. Start by acknowledging your achievements and practicing self-compassion.,self-esteem
+50,What should I do if I need immediate mental health support?,"If you're in immediate need of help, please contact a counselor or call a mental health hotline. I can help connect you to the right support.",crisis

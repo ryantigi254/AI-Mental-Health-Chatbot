@@ -1,0 +1,71 @@
+version: "3.1"
+
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - intent: affirm
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - intent: deny
+  - action: utter_goodbye
+
+- story: anxiety help
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: feeling_anxious
+  - action: utter_anxiety_help
+  - intent: affirm
+  - action: utter_professional_help
+  - intent: thank
+  - action: utter_thanks
+
+- story: depression help
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: feeling_depressed
+  - action: utter_depression_help
+  - intent: affirm
+  - action: utter_professional_help
+  - intent: thank
+  - action: utter_thanks
+
+- story: stress management
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: feeling_stressed
+  - action: utter_stress_management
+  - intent: affirm
+  - action: utter_professional_help
+  - intent: thank
+  - action: utter_thanks
+
+- story: direct ask for coping strategies
+  steps:
+  - intent: ask_coping_strategies
+  - action: utter_anxiety_help
+  - intent: thank
+  - action: utter_thanks

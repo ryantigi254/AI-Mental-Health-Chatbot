@@ -1,0 +1,44 @@
+language: en
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 30
+  constrain_similarities: true
+  model_confidence: softmax
+  hidden_layers_sizes:
+    text: [256, 128]
+    label: [256, 128]
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 30
+  retrieval_intent: faq
+  scale_loss: true
+- name: FallbackClassifier
+  threshold: 0.7
+  ambiguity_threshold: 0.1
+
+policies:
+- name: MemoizationPolicy
+- name: TEDPolicy
+  max_history: 3  # Reduce from 5 to 3
+  epochs: 30  # Reduce from 100 to 50
+- name: RulePolicy
+- name: UnexpecTEDIntentPolicy
+  max_history: 3
+  epochs: 30
+  tolerance: 0.3
+
+assistant_id: 20250327-133050-khaki-limit
+
+training:
+  batch_size: 16
+  validation_split: 0.2
+  evaluation_interval: 1
+  cache_featurizer: true

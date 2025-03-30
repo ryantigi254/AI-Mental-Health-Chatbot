@@ -1,0 +1,33 @@
+version: "3.1"
+
+rules:
+# Basic conversation rules
+- rule: Say hello anytime the user greets
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Respond to bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+# Emergency rules (high priority)
+- rule: Respond to general emergency
+  priority: 10
+  steps:
+  - intent: emergency_general
+  - action: utter_emergency_general
+  - action: action_emergency_resources
+
+- rule: Respond to crisis emergency
+  priority: 10
+  steps:
+  - intent: emergency_crisis
+  - action: utter_emergency_crisis
+  - action: action_emergency_resources 

@@ -1,0 +1,101 @@
+version: "3.1"
+
+stories:
+# Basic conversation patterns
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+# Mental health stories
+- story: mental health general
+  steps:
+  - intent: mental_health_general
+  - action: utter_mental_health_general
+  - action: action_provide_resources_by_category
+
+- story: anxiety help
+  steps:
+  - intent: mental_health_anxiety
+  - action: utter_mental_health_anxiety
+  - action: action_provide_resources_by_category
+
+- story: depression help
+  steps:
+  - intent: mental_health_depression
+  - action: utter_mental_health_depression
+  - action: action_provide_resources_by_category
+
+# Emergency stories
+- story: general emergency
+  steps:
+  - intent: emergency_general
+  - action: utter_emergency_general
+  - action: action_emergency_resources
+
+- story: mental health crisis
+  steps:
+  - intent: emergency_crisis
+  - action: utter_emergency_crisis
+  - action: action_emergency_resources
+
+# Relationship stories
+- story: relationship general
+  steps:
+  - intent: relationship_general
+  - action: utter_relationship_general
+  - action: action_provide_resources_by_category
+
+- story: relationship conflict
+  steps:
+  - intent: relationship_conflict
+  - action: utter_relationship_conflict
+  - action: action_provide_resources_by_category
+
+# Financial stories
+- story: financial general
+  steps:
+  - intent: financial_general
+  - action: utter_financial_general
+  - action: action_provide_resources_by_category
+
+- story: financial aid
+  steps:
+  - intent: financial_aid
+  - action: utter_financial_aid
+  - action: action_provide_resources_by_category
+
+# Identity stories
+- story: identity general
+  steps:
+  - intent: identity_general
+  - action: utter_identity_general
+  - action: action_provide_resources_by_category
+
+- story: gender identity
+  steps:
+  - intent: identity_gender
+  - action: utter_identity_gender
+  - action: action_provide_resources_by_category 

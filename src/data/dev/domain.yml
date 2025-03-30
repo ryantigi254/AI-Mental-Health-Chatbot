@@ -1,0 +1,162 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  # Mental health intents
+  - mental_health_general
+  - mental_health_anxiety
+  - mental_health_depression
+  # Emergency intents
+  - emergency_general
+  - emergency_crisis
+  # Relationship intents
+  - relationship_general
+  - relationship_conflict
+  # Financial intents
+  - financial_general
+  - financial_aid
+  # Identity intents
+  - identity_general
+  - identity_gender
+
+entities:
+  - mental_health_type
+  - emergency_type
+  - relationship_type
+  - financial_type
+  - identity_type
+
+slots:
+  mental_health_type:
+    type: categorical
+    values:
+      - anxiety
+      - depression
+      - stress
+      - general
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: mental_health_type
+  
+  emergency_type:
+    type: categorical
+    values:
+      - crisis
+      - medical
+      - safety
+      - general
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: emergency_type
+
+  relationship_type:
+    type: categorical
+    values:
+      - conflict
+      - romantic
+      - family
+      - friends
+      - general
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: relationship_type
+
+  financial_type:
+    type: categorical
+    values:
+      - aid
+      - budgeting
+      - loans
+      - general
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: financial_type
+
+  identity_type:
+    type: categorical
+    values:
+      - gender
+      - sexual_orientation
+      - race
+      - religion
+      - general
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: identity_type
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  # Mental health responses
+  utter_mental_health_general:
+  - text: "I understand you're looking for mental health support. I can provide some general resources that might help."
+
+  utter_mental_health_anxiety:
+  - text: "I understand you're dealing with anxiety. There are resources available to help you manage anxiety."
+
+  utter_mental_health_depression:
+  - text: "I understand you're dealing with depression. There are resources available to help with depression."
+
+  # Emergency responses
+  utter_emergency_general:
+  - text: "I understand this is an emergency. Here are some immediate resources that can help."
+
+  utter_emergency_crisis:
+  - text: "I understand you're experiencing a mental health crisis. Help is available right now."
+
+  # Relationship responses
+  utter_relationship_general:
+  - text: "I understand you're looking for help with relationships. Here are some resources that might help."
+
+  utter_relationship_conflict:
+  - text: "I understand you're dealing with relationship conflict. Here are some resources for conflict resolution."
+
+  # Financial responses
+  utter_financial_general:
+  - text: "I understand you're looking for financial support. Here are some general financial resources."
+
+  utter_financial_aid:
+  - text: "I understand you're looking for information about financial aid. Here are some financial aid resources."
+
+  # Identity responses
+  utter_identity_general:
+  - text: "I understand you're looking for identity-related support. Here are some resources that might help."
+
+  utter_identity_gender:
+  - text: "I understand you're looking for gender identity support. Here are some resources specifically for gender identity."
+
+actions:
+  - action_provide_resources_by_category
+  - action_emergency_resources
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true 

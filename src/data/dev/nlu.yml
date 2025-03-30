@@ -1,0 +1,168 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - very good
+    - great
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+
+- intent: mood_unhappy
+  examples: |
+    - sad
+    - very sad
+    - unhappy
+    - bad
+    - very bad
+    - awful
+    - terrible
+    - not very good
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    
+# Core mental health intents
+- intent: mental_health_general
+  examples: |
+    - I need help with my mental health
+    - What mental health resources are available?
+    - Where can I get mental health support?
+    - I'm struggling with my mental health
+    - Need someone to talk to about mental issues
+    - Mental health services on campus
+    - Help for mental wellbeing
+
+- intent: mental_health_anxiety
+  examples: |
+    - I'm feeling anxious all the time
+    - How do I deal with anxiety?
+    - My anxiety is getting worse
+    - I have panic attacks
+    - Tips for managing anxiety
+    - Anxiety coping strategies
+
+- intent: mental_health_depression
+  examples: |
+    - I think I'm depressed
+    - How to cope with depression
+    - I'm feeling depressed
+    - Depression resources
+    - I feel really down lately
+    - Can't get out of bed some days
+
+# Core emergency intents
+- intent: emergency_general
+  examples: |
+    - I need help right now
+    - This is an emergency
+    - I need immediate assistance
+    - Emergency help
+    - Urgent situation
+    - I'm in trouble and need help
+
+- intent: emergency_crisis
+  examples: |
+    - I'm having a mental health crisis
+    - I'm in crisis
+    - Mental health emergency
+    - I need crisis resources
+    - Having a breakdown
+    - Mental crisis help
+
+# Core relationship intents
+- intent: relationship_general
+  examples: |
+    - Relationship advice
+    - Having problems with my relationships
+    - Need help with my relationship
+    - How to improve my relationships
+    - Struggling with personal relationships
+    - Relationship support
+
+- intent: relationship_conflict
+  examples: |
+    - I'm fighting with my partner
+    - How to resolve conflict
+    - Arguments with roommate
+    - Dealing with disagreements
+    - Conflict resolution help
+    - We keep arguing
+
+# Core financial intents
+- intent: financial_general
+  examples: |
+    - I need financial help
+    - Financial support options
+    - Money problems
+    - Financial resources
+    - Help with finances
+    - Financial advice
+
+- intent: financial_aid
+  examples: |
+    - Information about financial aid
+    - How do I apply for financial aid?
+    - Financial aid options
+    - Scholarship information
+    - Grants for students
+    - Student loans help
+
+# Core identity intents
+- intent: identity_general
+  examples: |
+    - Resources for identity support
+    - I'm exploring my identity
+    - Identity-related services
+    - Support for my identity
+    - Help with identity issues
+    - Identity resources on campus
+
+- intent: identity_gender
+  examples: |
+    - Resources for transgender students
+    - Gender identity support
+    - Trans-friendly resources
+    - Support for gender questioning
+    - Gender transition resources
+    - Non-binary support services 

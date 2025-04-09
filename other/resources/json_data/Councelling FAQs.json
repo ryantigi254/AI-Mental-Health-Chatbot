@@ -1,0 +1,308 @@
+[
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "Counselling",
+        "type": "Service",
+        "properties": {
+          "description": "A talking therapy providing a safe and confidential space to discuss issues with a trained professional."
+        }
+      },
+      {
+        "id": "Uon Counselling Service",
+        "type": "Service",
+        "properties": {
+          "website": "https://mynorthamptonac.sharepoint.com/sites/student/Pages/counselling-service.aspx"
+        }
+      },
+      {
+        "id": "Bacp",
+        "type": "Organization",
+        "properties": {
+          "description": "British Association for Counselling & Psychotherapy."
+        }
+      },
+      {
+        "id": "Student",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Counsellor",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Therapist",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Psychotherapist",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Psychoanalyst",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Clinical Psychologist",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Psychiatrist",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Uon",
+        "type": "Organization",
+        "properties": {
+          "description": "University of Northampton."
+        }
+      },
+      {
+        "id": "Mind",
+        "type": "Organization",
+        "properties": {
+          "description": "A mental health charity providing information and support."
+        }
+      },
+      {
+        "id": "Counselling & Mental Health Team",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Northamptonshire Nhft",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.nhft.nhs.uk/help"
+        }
+      },
+      {
+        "id": "Student Union",
+        "type": "Organization",
+        "properties": {
+          "email": "su.advice@northampton.ac.uk"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "Counselling",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Counsellor",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counselling",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Therapist",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Uon Counselling Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Uon Counselling Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Bacp",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "REFERENCES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Uon Counselling Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Uon",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PART_OF",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Uon Counselling Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Counselling & Mental Health Team",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PART_OF",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counselling & Mental Health Team",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counselling & Mental Health Team",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Northamptonshire Nhft",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "REFERENCES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Counsellor",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Therapist",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Psychotherapist",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Psychoanalyst",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Clinical Psychologist",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Psychiatrist",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Student Union",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/general
+  examples: |
+    - I'm questioning my identity
+    - Confused about who I am
+    - Issues related to my identity
+    - Need help understanding my identity
+    - General identity concerns
+    - How does my identity affect my mental health?
+    - I want to discuss mental health and identity
+    - How does identity impact mental health?
+    - I need help with mental health and identity
+    - How do identity and mental health connect?
+    - I want to explore mental health and identity
+    - How does my identity influence mental health?
+    - I need support with mental health and identity
+    - How do I handle mental health and identity?
+    - I want to understand mental health and identity 

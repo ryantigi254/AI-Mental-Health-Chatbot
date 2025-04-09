@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/general
+  examples: |
+    - I'm having relationship problems
+    - Need advice about my relationships
+    - General relationship issues
+    - Struggling with connections with people
+    - How to maintain healthy relationships? 

@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/cultural
+  examples: |
+    - How can I join cultural groups?
+    - I want to find cultural activities
+    - Tell me about cultural events
+    - How do I find cultural groups?
+    - What cultural activities are there?
+    - I'm interested in cultural exchange
+    - Where can I find cultural information?
+    - How do I get involved in cultural groups?
+    - What types of cultural activities exist?
+    - I want to explore different cultures
+    - Are there international student societies?
+    - Events celebrating different cultures?
+    - How to join the French cultural club?
+    - Information on cultural festivals on campus?
+    - Where can I learn about other cultures? 

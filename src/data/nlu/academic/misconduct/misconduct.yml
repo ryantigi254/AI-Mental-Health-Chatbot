@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/misconduct
+  examples: |
+    - What is considered academic misconduct?
+    - Accused of academic misconduct, what do I do?
+    - Need information on the academic integrity policy
+    - Consequences of academic misconduct?
+    - How to appeal an academic misconduct charge?
+    - Examples of academic misconduct besides plagiarism?
+    - Cheating on an exam is misconduct, right?
+    - What happens during an academic misconduct investigation?
+    - Can I get expelled for academic misconduct?
+    - Need guidance on academic rules and regulations 

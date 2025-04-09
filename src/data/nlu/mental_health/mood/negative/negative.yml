@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/mood/negative
+  examples: |
+    - I feel down
+    - I'm not feeling well
+    - I feel terrible
+    - I'm having a bad day
+    - I feel awful
+    - I'm not doing well
+    - I feel horrible
+    - I'm feeling low
+    - I feel miserable
+    - I'm having a rough time
+    - I feel depressed
+    - I'm feeling sad
+    - Everything feels hopeless
+    - I'm really struggling today
+    - I can't seem to shake this feeling
+    - I've been feeling down for days
+    - Nothing seems to make me happy
+    - I feel like giving up
+    - My mood is really low right now
+    - I'm just not myself lately 

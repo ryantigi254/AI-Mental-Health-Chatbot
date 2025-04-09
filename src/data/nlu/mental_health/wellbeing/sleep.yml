@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/wellbeing/sleep
+  examples: |
+    - I can't sleep at night
+    - I'm having trouble sleeping
+    - I have insomnia
+    - I keep waking up early
+    - I have trouble falling asleep
+    - I have sleep problems
+    - I'm not sleeping well
+    - I have difficulty sleeping
+    - I wake up frequently at night
+    - I have poor sleep quality 

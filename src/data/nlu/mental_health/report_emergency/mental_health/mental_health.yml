@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/emergency/mental_health
+  examples: |
+    - I'm having a mental health emergency
+    - I need immediate mental health help
+    - This is a mental health crisis
+    - I need urgent mental health support
+    - I'm experiencing a mental health emergency
+    - I need emergency mental health assistance
+    - This is a critical mental health situation
+    - I need immediate mental health intervention
+    - I'm in a mental health crisis
+    - I need emergency mental health help
+    - I'm feeling completely overwhelmed
+    - I don't think I can handle this anymore
+    - I'm on the verge of a breakdown
+    - I need immediate help with my mental state
+    - I'm experiencing severe psychological distress
+    - My mental health is deteriorating rapidly
+    - I need to talk to a professional right now
+    - I'm in a mental health emergency situation
+    - I fear I might hurt myself
+    - I'm in severe emotional distress and need help 

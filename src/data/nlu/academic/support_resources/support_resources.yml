@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/support_resources
+  examples: |
+    - Where can I find academic support resources?
+    - Need help with my studies, what resources are there?
+    - What academic support does the university offer?
+    - Looking for tutoring or academic advising
+    - Information on study skills workshops?
+    - How to access academic support services?
+    - Are there resources for students struggling academically?
+    - Where is the academic success center?
+    - Need help with writing assignments, any resources?
+    - What support is available for specific subjects? 

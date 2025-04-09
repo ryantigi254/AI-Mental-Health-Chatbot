@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/international
+  examples: |
+    - Challenges as an international student
+    - Feeling homesick or isolated as international student
+    - Need support adjusting to a new country/culture
+    - International student identity issues
+    - Cultural adjustment difficulties 

@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/academic/work_life_balance
+  examples: |
+    - How do I balance work and mental health?
+    - I need help with work-life mental health
+    - How can I manage work and mental health?
+    - I want to improve work-life mental health
+    - How do I handle work and mental health?
+    - I need support with work-life mental health
+    - How can I balance work and mental health?
+    - I want to maintain work-life mental health
+    - How do I manage work-life mental health?
+    - I need help balancing work and mental health 

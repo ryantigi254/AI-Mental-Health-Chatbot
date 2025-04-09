@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/networking
+  examples: |
+    - How can I network with other students?
+    - I want to build professional connections
+    - Tell me about networking opportunities
+    - How do I find networking events?
+    - What networking activities are there?
+    - I'm interested in student networking
+    - Where can I find networking information?
+    - How do I get involved in networking?
+    - What types of networking events exist?
+    - I want to expand my network
+    - Are there alumni networking events?
+    - Tips for networking effectively?
+    - How to connect with people in my major?
+    - Are there industry-specific networking events?
+    - Networking opportunities for internships? 

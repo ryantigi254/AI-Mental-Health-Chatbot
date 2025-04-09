@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/emergency/physical_health
+  examples: |
+    - I'm having a physical health emergency
+    - I need immediate medical help
+    - This is a medical emergency
+    - I need urgent medical attention
+    - I'm experiencing a health crisis
+    - I need emergency medical assistance
+    - This is a critical health situation
+    - I need immediate medical intervention
+    - I'm in a health emergency
+    - I need emergency medical support
+    - I'm experiencing severe pain
+    - I think I might need an ambulance
+    - I have a medical emergency on campus
+    - I need immediate medical attention
+    - I've injured myself badly
+    - I'm having trouble breathing
+    - I'm experiencing symptoms that need urgent care
+    - I need to get to the emergency room
+    - I need information about emergency medical services
+    - I need to know where the nearest medical facility is 

@@ -1,572 +1,1587 @@
-version: "3.1"
+version: "3.2"
 
 nlu:
-  - intent: greet
+  # Keep any other important intents that aren't part of the hierarchical structure
+
+  - intent: mental_health_concern
     examples: |
-      - hi
-      - hello
-      - hey
-      - good morning
-      - good afternoon
-      - good evening
-      - start
-      - begin
-      - hi there
-      - hello there
-  - intent: goodbye
+      - I'm worried about my mental health
+      - I think I might have [depression](mental_health_condition)
+      - I'm experiencing [anxiety](mental_health_condition)
+      - I feel like I need help with my mental health
+      - I'm struggling with my mental health
+      - I'm concerned about my mental well-being
+      - I think I have [stress](mental_health_condition) issues
+      - I'm having [burnout](mental_health_condition) problems
+      - I need help with my mental health
+
+  - intent: sleep_issues
     examples: |
-      - bye
-      - goodbye
-      - see you later
-      - thanks for your help
-      - that's all
-      - end
-      - that's it
-      - thank you
-      - thanks
-  - intent: affirm
+      - I can't sleep at night
+      - I'm having trouble sleeping
+      - I have insomnia
+      - I keep waking up early
+      - I have trouble falling asleep
+      - I have sleep problems
+      - I'm not sleeping well
+      - I have difficulty sleeping
+      - I wake up frequently at night
+      - I have poor sleep quality
+
+  - intent: panic_attack
     examples: |
-      - yes
-      - yeah
-      - indeed
-      - that's right
-      - okay
-      - great
-      - cool
-      - amazing
-      - wonderful
-      - absolutely
-      - definitely
-      - for sure
-      - you bet
-      - uh-huh
-      - yep
-  - intent: deny
-    examples: |
-      - no
-      - no way
-      - not really
-      - not at all
-      - definitely not
-      - nah
-      - nope
-      - never
-      - not really
-      - not a chance
-      - no thanks
-      - no way jose
-  - intent: mood_great
-    examples: |
-      - perfect
-      - very good
-      - great
-      - amazing
-      - wonderful
-      - awesome
-      - good
-      - nice
-      - happy
-      - fantastic
-      - excellent
-      - thrilled
-      - elated
-      - overjoyed
-      - delighted
-  - intent: mood_unhappy
-    examples: |
-      - sad
-      - unhappy
-      - miserable
-      - awful
-      - bad
-      - down
-      - terrible
-      - depressed
-      - upset
-      - stressed
-      - gloomy
-      - down in the dumps
-      - blue
-      - glum
-      - disheartened
-  - intent: feeling_anxious
-    examples: |
-      - I feel anxious
-      - I'm worried
-      - I'm feeling nervous
-      - I have anxiety
-      - I'm stressed out
-      - I'm feeling overwhelmed
+      - I had a panic attack
       - I'm having panic attacks
-      - I'm feeling tense
-      - I'm feeling uneasy
-      - I'm feeling unsettled
-      - I'm having anxiety attacks
-      - I'm feeling keyed up
-      - I'm feeling on edge
-      - I'm feeling jittery
-      - I'm feeling antsy
-  - intent: feeling_depressed
+      - I feel like I'm having a panic attack
+      - I get panic attacks
+      - I experience panic attacks
+      - I had a panic attack during [class](trigger)
+      - I get panic attacks when [studying](trigger)
+      - I had a panic attack at [high](mental_health_severity) intensity
+      - I get panic attacks [frequently](duration)
+      - I need help with panic attacks
+
+  - intent: self_care
     examples: |
-      - I feel depressed
-      - I'm feeling down
-      - I'm sad
-      - I'm feeling hopeless
-      - I'm feeling worthless
-      - I'm feeling empty
-      - I'm feeling numb
-      - I'm feeling lost
-      - I'm feeling alone
-      - I'm feeling isolated
-      - I'm feeling down in the dumps
-      - I'm feeling blue
-      - I'm feeling gloomy
-      - I'm feeling disheartened
-      - I'm feeling discouraged
-  - intent: feeling_stressed
+      - How can I take better care of myself?
+      - I need help with self-care
+      - What are some self-care strategies?
+      - How do I practice self-care?
+      - I want to improve my self-care routine
+      - I need self-care tips
+      - How can I look after myself better?
+      - What self-care activities would help?
+      - I want to learn about self-care
+      - How do I maintain good self-care?
+
+  - intent: mental_health_wellness
     examples: |
-      - I feel stressed
-      - I'm under pressure
-      - I'm feeling overwhelmed
-      - I'm feeling burnt out
-      - I'm feeling exhausted
-      - I'm feeling drained
-      - I'm feeling tired
-      - I'm feeling fatigued
-      - I'm feeling run down
-      - I'm feeling overworked
-      - I'm feeling frazzled
-      - I'm feeling frazzled
-      - I'm feeling frazzled
-      - I'm feeling frazzled
-  - intent: ask_for_help
+      - How can I maintain mental wellness?
+      - I want to improve my mental wellness
+      - What are mental wellness strategies?
+      - How do I promote mental wellness?
+      - I need help with mental wellness
+      - What can I do for mental wellness?
+      - How can I enhance my mental wellness?
+      - I want to focus on mental wellness
+      - What promotes mental wellness?
+      - How do I maintain good mental wellness?
+
+  - intent: mental_health_stigma
     examples: |
-      - Can you help me?
-      - I need help
-      - I'm struggling
-      - I need support
-      - I need assistance
-      - I need guidance
-      - I need advice
-      - Can you assist me?
-      - I need someone to talk to
-      - I need someone to listen
-      - I need help with...
-      - I'm having trouble with...
-      - I need some help with...
-      - I'm struggling with...
-  - intent: ask_coping_strategies
+      - I'm worried about mental health stigma
+      - How do I deal with mental health stigma?
+      - I feel stigmatized for my mental health
+      - I'm concerned about mental health stigma
+      - How can I handle mental health stigma?
+      - I experience mental health stigma
+      - I want to overcome mental health stigma
+      - How do I address mental health stigma?
+      - I'm afraid of mental health stigma
+      - I need help with mental health stigma
+
+  - intent: mental_health_identity
     examples: |
-      - How can I cope with this?
-      - What can I do to feel better?
-      - How can I manage this?
-      - What strategies can help?
-      - How can I deal with this?
-      - What can I do to help myself?
-      - How can I improve my situation?
-      - What techniques can I use?
-      - How can I handle this?
-      - What methods can help?
-      - What coping mechanisms can I use?
-      - How can I manage my stress?
-      - What strategies work for...
-      - How can I deal with...
-  - intent: thank
+      - How does my identity affect my mental health?
+      - I want to discuss mental health and identity
+      - How does identity impact mental health?
+      - I need help with mental health and identity
+      - How do identity and mental health connect?
+      - I want to explore mental health and identity
+      - How does my identity influence mental health?
+      - I need support with mental health and identity
+      - How do I handle mental health and identity?
+      - I want to understand mental health and identity
+
+  - intent: mental_health_culture
     examples: |
-      - thanks
-      - thank you
-      - thanks a lot
-      - thank you so much
-      - I appreciate it
-      - I'm grateful
-      - thanks for your help
-      - thanks for everything
-      - thanks a bunch
-      - thanks a million
-      - I really appreciate it
-      - I'm so grateful
-      - thank you very much
-      - thanks for your support
-  - intent: bot_challenge
+      - How does culture affect mental health?
+      - I want to discuss cultural aspects of mental health
+      - How does my culture influence mental health?
+      - I need help with cultural mental health issues
+      - How do cultural factors impact mental health?
+      - I want to explore cultural mental health
+      - How does culture shape mental health?
+      - I need support with cultural mental health
+      - How do I handle cultural mental health?
+      - I want to understand cultural mental health
+
+  - intent: mental_health_seasonal
     examples: |
-      - are you a bot?
-      - are you human?
-      - what are you?
-      - who are you?
-      - what can you do?
-      - what's your purpose?
-      - are you real?
-      - can you think?
-      - do you have feelings?
-      - are you alive?
-      - what are you capable of?
-      - how do you work?
-      - what's your function?
-      - are you a person?
-  # Academic-related
-  - intent: academic_stress
+      - I have seasonal mental health issues
+      - How do I handle seasonal mental health?
+      - I experience seasonal mental health problems
+      - I need help with seasonal mental health
+      - How does season affect mental health?
+      - I want to manage seasonal mental health
+      - I get seasonal mental health changes
+      - How can I cope with seasonal mental health?
+      - I need support for seasonal mental health
+      - I want to understand seasonal mental health
+
+  - intent: mental_health_work_life
     examples: |
-      - I'm feeling stressed about my studies
-      - My academic workload is overwhelming
-      - I'm struggling with my coursework
-      - I feel like I can't keep up with my classes
-      - My academic pressure is too much
-      - I'm having trouble with my studies
-      - I'm feeling academic burnout
-      - My academic responsibilities are too heavy
-      - I'm feeling academic anxiety
-      - I'm having academic stress
-      - I'm overwhelmed with coursework
-      - I can't handle the academic pressure
-      - My workload is too much
-      - I'm drowning in assignments
-      - I feel like I'm falling behind
-      - I can't keep up with the pace
-      - I'm struggling to keep up
-      - I'm having trouble coping with the workload
-      - I'm overwhelmed with academic demands
-  - intent: exam_anxiety
+      - How do I balance work and mental health?
+      - I need help with work-life mental health
+      - How can I manage work and mental health?
+      - I want to improve work-life mental health
+      - How do I handle work and mental health?
+      - I need support with work-life mental health
+      - How can I balance work and mental health?
+      - I want to maintain work-life mental health
+      - How do I manage work-life mental health?
+      - I need help balancing work and mental health
+
+  - intent: mental_health_comparison
     examples: |
-      - I'm worried about my exams
-      - I have exam anxiety
-      - I'm nervous about my tests
-      - I'm stressed about upcoming exams
-      - I'm feeling anxious about my assessments
-      - I'm panicking about my exams
-      - I'm having trouble with exam preparation
-      - I'm feeling test anxiety
-      - I'm worried about my exam performance
-      - I'm feeling exam pressure
-      - I'm nervous about my upcoming exams
-      - I'm stressed about my upcoming tests
-      - I'm having exam anxiety
-      - I'm worried about my assessment
-      - I'm feeling anxious about my upcoming exams
-      - I'm having trouble preparing for exams
-      - I'm stressed about my upcoming assessments
-  - intent: coursework_falling_behind
+      - I compare myself to others with mental health
+      - How do I stop comparing mental health?
+      - I feel inferior due to mental health comparison
+      - I need help with mental health comparison
+      - How can I avoid mental health comparison?
+      - I want to stop comparing mental health
+      - I struggle with mental health comparison
+      - How do I handle mental health comparison?
+      - I need support with mental health comparison
+      - I want to overcome mental health comparison
+
+  - intent: relationship_general
     examples: |
-      - I'm falling behind in my coursework
-      - I can't keep up with my assignments
-      - I'm struggling to complete my work
-      - I'm behind on my coursework
-      - I'm having trouble keeping up
-      - I'm lagging behind
-      - I'm not meeting deadlines
-      - I'm struggling to catch up
-      - I'm behind schedule
-      - I'm having trouble staying on track
-      - I'm falling behind in my studies
-      - I can't keep up with the workload
-      - I'm struggling to complete assignments
-      - I'm behind on my work
-      - I'm having trouble keeping up with assignments
-      - I'm falling behind in my classes
-      - I can't keep up with the pace
-      - I'm struggling to stay on track
-      - I'm having trouble completing assignments
-      - I'm falling behind in my coursework
-  - intent: assignment_deadlines
+      - I'm having relationship problems
+      - I need help with my relationship
+      - I'm struggling in my relationship
+      - I want to talk about my relationship
+      - I need relationship advice
+      - I'm having issues in my relationship
+      - I want to improve my relationship
+      - I need help understanding my relationship
+      - I'm confused about my relationship
+      - I want to discuss my relationship
+
+  - intent: relationship_romantic
     examples: |
-      - I have multiple assignments due
-      - I'm overwhelmed by deadlines
-      - I need to manage my deadlines
-      - I'm having trouble with deadlines
-      - I need help with assignment due dates
-      - I'm juggling multiple deadlines
-      - I'm struggling with deadlines
-      - I need to prioritize my deadlines
-      - I'm having deadline stress
-      - I'm managing multiple deadlines
-      - I have assignments due this week
-      - I need to organize my deadlines
-      - I'm having trouble meeting deadlines
-      - I need help managing my deadlines
-      - I'm overwhelmed with due dates
-      - I'm having trouble keeping track of deadlines
-      - I need to prioritize my assignments
-      - I'm having trouble meeting assignment deadlines
-      - I'm overwhelmed with due dates
-      - I need help organizing my deadlines
-  - intent: submission_deadline_miss
+      - I'm having issues with my romantic relationship
+      - I need help with my dating life
+      - I'm struggling in my romantic relationship
+      - I want to improve my romantic relationship
+      - I need advice about my romantic relationship
+      - I'm having problems with my partner
+      - I want to talk about my romantic relationship
+      - I need help understanding my romantic relationship
+      - I'm confused about my romantic relationship
+      - I want to discuss my romantic relationship
+
+  - intent: relationship_friendship
     examples: |
-      - I might miss a submission deadline
-      - I'm worried about missing a deadline
-      - I can't submit on time
-      - I need an extension
-      - I'm going to be late
-      - I won't meet the deadline
-      - I need more time
-      - I'm running late
-      - I'm going to miss the deadline
-      - I can't submit by the due date
-      - I might not make the deadline
-      - I'm going to be late with my submission
-      - I need an extension on the deadline
-      - I can't meet the deadline
-      - I'm going to miss the submission deadline
-      - I need more time to complete this
-      - I might not make the due date
-      - I need an extension on the submission
-      - I can't submit on time
-      - I'm going to be late with my work
-  - intent: study_concentration
+      - I'm having friendship problems
+      - I need help with my friendships
+      - I'm struggling with my friends
+      - I want to improve my friendships
+      - I need advice about my friendships
+      - I'm having issues with my friends
+      - I want to talk about my friendships
+      - I need help understanding my friendships
+      - I'm confused about my friendships
+      - I want to discuss my friendships
+
+  - intent: relationship_family
     examples: |
-      - I can't concentrate while studying
-      - I have trouble focusing
-      - I'm having difficulty concentrating
-      - I can't stay focused
-      - I'm easily distracted
-      - I need help concentrating
-      - I can't maintain focus
-      - I'm having trouble concentrating
-      - I need to improve my concentration
-      - I'm struggling to focus
-      - I can't stay focused while studying
-      - I have trouble maintaining focus
-      - I'm easily distracted while studying
-      - I need help with concentration
-      - I can't focus on my studies
-      - I'm having trouble staying focused
-      - I need to improve my study focus
-      - I'm struggling to concentrate
-      - I can't stay focused during study
-      - I have trouble maintaining concentration
-  - intent: course_failure_worry
+      - I'm having family relationship problems
+      - I need help with my family relationships
+      - I'm struggling with my family
+      - I want to improve my family relationships
+      - I need advice about my family
+      - I'm having issues with my family
+      - I want to talk about my family relationships
+      - I need help understanding my family dynamics
+      - I'm confused about my family relationships
+      - I want to discuss my family issues
+
+  - intent: relationship_roommate
     examples: |
-      - I'm worried about failing
-      - I'm scared of failing
-      - I'm feeling down
-      - I'm feeling hopeless
-      - I'm feeling worthless
-      - I'm feeling empty
-      - I'm feeling lost
-      - I'm feeling alone
-      - I'm feeling isolated
-      - I'm feeling down in the dumps
-      - I'm feeling blue
-      - I'm feeling gloomy
-      - I'm feeling disheartened
-      - I'm feeling discouraged
-      - I'm feeling down in the dumps
-      - I'm feeling blue
-      - I'm feeling gloomy
-      - I'm feeling disheartened
-      - I'm feeling discouraged
-  - intent: academic_support_resources
+      - I'm having roommate problems
+      - I need help with my roommate relationship
+      - I'm struggling with my roommate
+      - I want to improve my roommate relationship
+      - I need advice about my roommate situation
+      - I'm having issues with my roommate
+      - I want to talk about my roommate problems
+      - I need help understanding my roommate situation
+      - I'm confused about my roommate relationship
+      - I want to discuss my roommate issues
+
+  - intent: relationship_boundaries
     examples: |
-      - What academic support is available?
-      - Where can I get academic help?
-      - What resources are there for students?
-      - What academic assistance is available?
-      - Where can I find academic support?
-      - What academic services are available?
-      - What academic resources are there?
-      - Where can I get academic guidance?
-      - What academic help is available?
-      - Where can I find academic assistance?
-      - What academic support options do I have?
-      - Where can I get academic support services?
-      - What academic resources are available to me?
-      - Where can I find academic help resources?
-      - What academic support options are available?
-      - Where can I get academic support services?
-      - What academic resources are available to me?
-      - Where can I find academic help resources?
-  - intent: multiple_assignments_balance
+      - I need help setting boundaries
+      - I'm having trouble with relationship boundaries
+      - I want to establish better boundaries
+      - I need advice about setting boundaries
+      - I'm struggling with boundary issues
+      - I want to talk about relationship boundaries
+      - I need help understanding boundaries
+      - I'm confused about setting boundaries
+      - I want to discuss boundary issues
+      - I need help maintaining boundaries
+
+  - intent: relationship_conflict
     examples: |
-      - How do I balance multiple assignments?
-      - I have too many assignments
-      - I need to manage my assignments
-      - I'm juggling multiple assignments
-      - I'm overwhelmed with assignments
-      - I need to prioritize my assignments
-      - I'm managing multiple assignments
-      - I have too many tasks
-      - I need to organize my assignments
-      - I'm struggling with multiple assignments
-      - I need help balancing my assignments
-      - I'm having trouble managing multiple assignments
-      - I need help prioritizing my assignments
-      - I'm overwhelmed with coursework
-      - I need help organizing my assignments
-      - I'm having trouble balancing my workload
-      - I need help managing my coursework
-      - I'm struggling to balance my assignments
-      - I need help organizing my coursework
-      - I'm having trouble managing my workload
-  - intent: plagiarism
+      - I'm having relationship conflicts
+      - I need help resolving conflicts
+      - I'm struggling with relationship arguments
+      - I want to improve conflict resolution
+      - I need advice about handling conflicts
+      - I'm having trouble resolving issues
+      - I want to talk about relationship conflicts
+      - I need help understanding conflicts
+      - I'm confused about handling conflicts
+      - I want to discuss conflict resolution
+
+  - intent: relationship_breakup
     examples: |
-      - What is plagiarism?
-      - How do I avoid plagiarism?
-      - What counts as plagiarism?
-      - How can I prevent plagiarism?
-      - What are the rules about plagiarism?
-      - How do I check for plagiarism?
-      - What's considered plagiarism?
-      - How do I cite sources correctly?
-      - What's the policy on plagiarism?
-      - How do I reference properly?
-      - What's the definition of plagiarism?
-      - How can I avoid accidental plagiarism?
-      - What are the consequences of plagiarism?
-      - How do I properly cite sources?
-      - What's the university's policy on plagiarism?
-      - How do I avoid unintentional plagiarism?
-      - What are the penalties for plagiarism?
-      - How do I properly reference sources?
-      - What's considered academic dishonesty?
-      - How do I avoid academic misconduct?
-  - intent: mental_health_registration
+      - I'm going through a breakup
+      - I need help coping with a breakup
+      - I'm struggling after a breakup
+      - I want to talk about my breakup
+      - I need advice about breakups
+      - I'm having trouble moving on
+      - I want to discuss my breakup
+      - I need help understanding my breakup
+      - I'm confused about my breakup
+      - I want to process my breakup
+
+  - intent: relationship_abuse
     examples: |
-      - How do I register for mental health services?
-      - How do I access mental health support?
-      - How do I sign up for counseling?
-      - How do I get mental health help?
-      - How do I register for counseling?
-      - How do I access mental health resources?
-      - How do I sign up for mental health services?
-      - How do I get mental health support?
-      - How do I register for counseling services?
-      - How do I access mental health assistance?
-      - What's the process for mental health registration?
-      - How do I sign up for counseling services?
-      - What's the procedure for mental health registration?
-      - How do I access mental health support services?
-      - What's the process for getting mental health help?
-      - How do I sign up for mental health support?
-      - What's the procedure for getting counseling?
-      - How do I access mental health services?
-      - What's the process for getting mental health support?
-      - How do I sign up for mental health assistance?
-  - intent: counseling_services
+      - I'm experiencing relationship abuse
+      - I need help with abusive relationships
+      - I'm in an abusive relationship
+      - I want to talk about relationship abuse
+      - I need advice about abusive situations
+      - I'm having trouble with abuse
+      - I want to discuss relationship abuse
+      - I need help understanding abuse
+      - I'm confused about abusive behavior
+      - I want to address relationship abuse
+
+  - intent: relationship_support
     examples: |
-      - How do I access counseling services?
-      - Where can I get counseling?
-      - What counseling services are available?
-      - How do I book a counseling appointment?
-      - Where can I find counseling support?
-      - What counseling options are there?
-      - How do I get counseling help?
-      - Where can I get counseling assistance?
-      - What counseling resources are available?
-      - How do I access counseling support?
-      - What counseling services are available to me?
-      - Where can I find counseling services?
-      - What counseling options do I have?
-      - How do I get counseling services?
-      - Where can I find counseling support services?
-      - What counseling resources are available to me?
-      - How do I access counseling support services?
-      - What counseling services are available to students?
-      - Where can I find counseling services for students?
-      - What counseling options are available to students?
-  - intent: impostor_syndrome
+      - I need relationship support
+      - I'm looking for relationship help
+      - I need support in my relationship
+      - I want to find relationship support
+      - I need advice about getting support
+      - I'm having trouble finding support
+      - I want to talk about relationship support
+      - I need help finding support
+      - I'm confused about getting support
+      - I want to discuss support options
+
+  - intent: relationship_communication
     examples: |
-      - I feel like an impostor
-      - I don't belong here
-      - I feel like a fraud
-      - I feel inadequate
-      - I feel like I'm not good enough
-      - I feel like I don't deserve to be here
-      - I feel like I'm not smart enough
-      - I feel like I'm not qualified
-      - I feel like I'm not good enough
-      - I feel like I'm not capable
-      - I feel like I don't belong
-      - I feel like I'm not worthy
-      - I feel like I'm not deserving
-      - I feel like I'm not qualified enough
-      - I feel like I'm not smart enough
-      - I feel like I'm not good enough
-      - I feel like I'm not capable enough
-      - I feel like I don't belong here
-      - I feel like I'm not worthy enough
-      - I feel like I'm not deserving enough
-  - intent: student_parent_balance
+      - I need help with relationship communication
+      - I'm having communication problems
+      - I want to improve communication
+      - I need advice about communication
+      - I'm struggling with communication
+      - I want to talk about communication issues
+      - I need help understanding communication
+      - I'm confused about communication
+      - I want to discuss communication problems
+      - I need help with communication skills
+
+  - intent: relationship_trust
     examples: |
-      - How do I balance parenting and studies?
-      - I'm a student parent
-      - I need to manage childcare and studies
-      - I have children and am studying
-      - I'm balancing parenting and education
-      - I'm a parent and student
-      - I need to balance childcare and coursework
-      - I'm managing parenting and studies
-      - I'm juggling parenting and education
-      - I'm balancing parenting and academic responsibilities
-      - How do I manage being a parent and student?
-      - I need help balancing my role as a parent and student
-      - I'm struggling to balance parenting and studying
-      - I need help managing my responsibilities as a parent and student
-      - I'm having trouble balancing my role as a parent and student
-      - How do I manage my responsibilities as a parent and student?
-      - I need help balancing my role as a parent and learner
-      - I'm struggling to balance my responsibilities as a parent and student
-      - I need help managing my role as a parent and learner
-      - I'm having trouble balancing my responsibilities as a parent and learner
-  - intent: test_anxiety_management
+      - I'm having trust issues
+      - I need help with trust in relationships
+      - I'm struggling with trust
+      - I want to improve trust
+      - I need advice about trust
+      - I'm having trouble trusting
+      - I want to talk about trust issues
+      - I need help understanding trust
+      - I'm confused about trust
+      - I want to discuss trust problems
+
+  - intent: relationship_jealousy
     examples: |
-      - How do I manage test anxiety?
-      - I have exam anxiety
-      - I need help with test anxiety
-      - I'm worried about my exam
-      - I'm nervous about my test
-      - I need to manage my exam stress
-      - I have test day anxiety
-      - I need help with exam anxiety
-      - I'm stressed about my assessment
-      - I need to cope with test anxiety
-      - How do I handle test anxiety?
-      - I need help managing test anxiety
-      - I'm having trouble with test anxiety
-      - I need help coping with exam anxiety
-      - How do I deal with test anxiety?
-      - I need help managing exam anxiety
-      - I'm having trouble with exam anxiety
-      - I need help coping with test day anxiety
-      - How do I handle exam anxiety?
-      - I need help managing test day anxiety
-  - intent: depression_class_attendance
+      - I'm dealing with jealousy
+      - I need help with relationship jealousy
+      - I'm struggling with jealousy
+      - I want to overcome jealousy
+      - I need advice about jealousy
+      - I'm having trouble with jealousy
+      - I want to talk about jealousy
+      - I need help understanding jealousy
+      - I'm confused about jealousy
+      - I want to discuss jealousy issues
+
+  - intent: relationship_commitment
     examples: |
-      - I can't attend classes because of depression
-      - My depression is affecting my attendance
-      - I'm too depressed to go to class
-      - I'm struggling to attend lectures
-      - I'm having trouble with attendance
-      - I'm having attendance issues
-      - I'm having trouble attending classes
-      - I'm struggling with class attendance
-      - I'm having trouble with lecture attendance
-      - I'm having trouble attending seminars
-      - I can't go to class because of depression
-      - My depression is impacting my attendance
-      - I'm too depressed to attend lectures
-      - I'm struggling to attend seminars
-      - I'm having trouble with seminar attendance
-      - I can't attend lectures because of depression
-      - My depression is affecting my seminar attendance
-      - I'm too depressed to attend classes
-      - I'm struggling to attend seminars
-      - I'm having trouble with class attendance
-  - intent: chronic_conditions_policy
+      - I'm having commitment issues
+      - I need help with relationship commitment
+      - I'm struggling with commitment
+      - I want to discuss commitment
+      - I need advice about commitment
+      - I'm having trouble with commitment
+      - I want to talk about commitment
+      - I need help understanding commitment
+      - I'm confused about commitment
+      - I want to address commitment issues
+
+  - intent: relationship_identity
     examples: |
-      - What's the policy on chronic conditions?
-      - How do I get support for my chronic condition?
-      - What accommodations are available for chronic conditions?
-      - How do I access support for my chronic condition?
-      - What's the policy on chronic illness?
-      - How do I get academic support for my chronic condition?
-      - What accommodations are available for chronic illness?
-      - How do I access chronic condition support?
-      - What's the policy on chronic health conditions?
-      - How do I get support for my chronic health condition?
-      - What's the university's policy on chronic conditions?
-      - How do I access support for my chronic illness?
-      - What accommodations are available for chronic health conditions?
-      - How do I access chronic health condition support?
-      - What's the university's policy on chronic health conditions?
-      - How do I get support for my chronic illness?
-      - What accommodations are available for chronic conditions?
-      - How do I access chronic condition support?
-      - What's the policy on chronic health conditions?
+      - I'm questioning my relationship identity
+      - I need help with relationship identity
+      - I'm struggling with identity in relationships
+      - I want to explore my relationship identity
+      - I need advice about relationship identity
+      - I'm having trouble with identity
+      - I want to talk about relationship identity
+      - I need help understanding identity
+      - I'm confused about my identity
+      - I want to discuss identity issues
+
+  - intent: relationship_culture
+    examples: |
+      - I'm having cultural relationship issues
+      - I need help with cultural differences
+      - I'm struggling with cultural relationships
+      - I want to understand cultural relationships
+      - I need advice about cultural differences
+      - I'm having trouble with cultural issues
+      - I want to talk about cultural relationships
+      - I need help understanding cultural differences
+      - I'm confused about cultural relationships
+      - I want to discuss cultural issues
+
+  - intent: relationship_online
+    examples: |
+      - I'm having online relationship issues
+      - I need help with online relationships
+      - I'm struggling with online dating
+      - I want to improve online relationships
+      - I need advice about online dating
+      - I'm having trouble with online relationships
+      - I want to talk about online dating
+      - I need help understanding online relationships
+      - I'm confused about online dating
+      - I want to discuss online relationship issues
+
+  - intent: relationship_long_distance
+    examples: |
+      - I'm in a long-distance relationship
+      - I need help with long-distance relationships
+      - I'm struggling with distance
+      - I want to improve my long-distance relationship
+      - I need advice about long-distance relationships
+      - I'm having trouble with distance
+      - I want to talk about long-distance relationships
+      - I need help understanding long-distance relationships
+      - I'm confused about long-distance relationships
+      - I want to discuss distance issues
+
+  - intent: relationship_work_study
+    examples: |
+      - I'm having trouble balancing relationships with work/study
+      - I need help balancing relationships and work
+      - I'm struggling with work/study relationships
+      - I want to improve work/study balance
+      - I need advice about balancing relationships
+      - I'm having trouble with work/study balance
+      - I want to talk about work/study relationships
+      - I need help understanding work/study balance
+      - I'm confused about balancing relationships
+      - I want to discuss work/study balance
+
+  - intent: relationship_balance
+    examples: |
+      - I need help balancing my relationships
+      - I'm having trouble with relationship balance
+      - I want to improve relationship balance
+      - I need advice about balancing relationships
+      - I'm struggling with balance
+      - I want to talk about relationship balance
+      - I need help understanding balance
+      - I'm confused about relationship balance
+      - I want to discuss balance issues
+      - I need help maintaining balance
+
+  - intent: special_conditions_general
+    examples: |
+      - I have a special condition
+      - I need help with my condition
+      - I'm dealing with a special condition
+      - I need support for my condition
+      - I want to talk about my condition
+      - I need help understanding my condition
+      - I'm struggling with my condition
+      - I need advice about my condition
+      - I want to discuss my condition
+      - I need help managing my condition
+
+  - intent: special_conditions_adhd
+    examples: |
+      - I have ADHD
+      - I need help with ADHD
+      - I'm struggling with ADHD
+      - I need ADHD support
+      - I want to talk about my ADHD
+      - I need help managing ADHD
+      - I'm having trouble with ADHD
+      - I need ADHD accommodations
+      - I want to discuss ADHD
+      - I need help understanding ADHD
+
+  - intent: special_conditions_anxiety
+    examples: |
+      - I have anxiety
+      - I need help with anxiety
+      - I'm struggling with anxiety
+      - I need anxiety support
+      - I want to talk about my anxiety
+      - I need help managing anxiety
+      - I'm having trouble with anxiety
+      - I need anxiety accommodations
+      - I want to discuss anxiety
+      - I need help understanding anxiety
+
+  - intent: special_conditions_ocd
+    examples: |
+      - I have OCD
+      - I need help with OCD
+      - I'm struggling with OCD
+      - I need OCD support
+      - I want to talk about my OCD
+      - I need help managing OCD
+      - I'm having trouble with OCD
+      - I need OCD accommodations
+      - I want to discuss OCD
+      - I need help understanding OCD
+
+  - intent: special_conditions_eating
+    examples: |
+      - I have an eating disorder
+      - I need help with my eating disorder
+      - I'm struggling with an eating disorder
+      - I need eating disorder support
+      - I want to talk about my eating disorder
+      - I need help managing my eating disorder
+      - I'm having trouble with my eating disorder
+      - I need eating disorder accommodations
+      - I want to discuss my eating disorder
+      - I need help understanding my eating disorder
+
+  - intent: special_conditions_depression
+    examples: |
+      - I have depression
+      - I need help with depression
+      - I'm struggling with depression
+      - I need depression support
+      - I want to talk about my depression
+      - I need help managing depression
+      - I'm having trouble with depression
+      - I need depression accommodations
+      - I want to discuss depression
+      - I need help understanding depression
+
+  - intent: special_conditions_bipolar
+    examples: |
+      - I have bipolar disorder
+      - I need help with bipolar disorder
+      - I'm struggling with bipolar disorder
+      - I need bipolar support
+      - I want to talk about my bipolar disorder
+      - I need help managing bipolar disorder
+      - I'm having trouble with bipolar disorder
+      - I need bipolar accommodations
+      - I want to discuss bipolar disorder
+      - I need help understanding bipolar disorder
+
+  - intent: special_conditions_ptsd
+    examples: |
+      - I have PTSD
+      - I need help with PTSD
+      - I'm struggling with PTSD
+      - I need PTSD support
+      - I want to talk about my PTSD
+      - I need help managing PTSD
+      - I'm having trouble with PTSD
+      - I need PTSD accommodations
+      - I want to discuss PTSD
+      - I need help understanding PTSD
+
+  - intent: special_conditions_autism
+    examples: |
+      - I have autism
+      - I need help with autism
+      - I'm struggling with autism
+      - I need autism support
+      - I want to talk about my autism
+      - I need help managing autism
+      - I'm having trouble with autism
+      - I need autism accommodations
+      - I want to discuss autism
+      - I need help understanding autism
+
+  - intent: special_conditions_dyslexia
+    examples: |
+      - I have dyslexia
+      - I need help with dyslexia
+      - I'm struggling with dyslexia
+      - I need dyslexia support
+      - I want to talk about my dyslexia
+      - I need help managing dyslexia
+      - I'm having trouble with dyslexia
+      - I need dyslexia accommodations
+      - I want to discuss dyslexia
+      - I need help understanding dyslexia
+
+  - intent: special_conditions_chronic_pain
+    examples: |
+      - I have chronic pain
+      - I need help with chronic pain
+      - I'm struggling with chronic pain
+      - I need chronic pain support
+      - I want to talk about my chronic pain
+      - I need help managing chronic pain
+      - I'm having trouble with chronic pain
+      - I need chronic pain accommodations
+      - I want to discuss chronic pain
+      - I need help understanding chronic pain
+
+  - intent: special_conditions_physical_disability
+    examples: |
+      - I have a physical disability
+      - I need help with my physical disability
+      - I'm struggling with my physical disability
+      - I need physical disability support
+      - I want to talk about my physical disability
+      - I need help managing my physical disability
+      - I'm having trouble with my physical disability
+      - I need physical disability accommodations
+      - I want to discuss my physical disability
+      - I need help understanding my physical disability
+
+  - intent: special_conditions_visual_impairment
+    examples: |
+      - I have a visual impairment
+      - I need help with my visual impairment
+      - I'm struggling with my visual impairment
+      - I need visual impairment support
+      - I want to talk about my visual impairment
+      - I need help managing my visual impairment
+      - I'm having trouble with my visual impairment
+      - I need visual impairment accommodations
+      - I want to discuss my visual impairment
+      - I need help understanding my visual impairment
+
+  - intent: special_conditions_hearing_impairment
+    examples: |
+      - I have a hearing impairment
+      - I need help with my hearing impairment
+      - I'm struggling with my hearing impairment
+      - I need hearing impairment support
+      - I want to talk about my hearing impairment
+      - I need help managing my hearing impairment
+      - I'm having trouble with my hearing impairment
+      - I need hearing impairment accommodations
+      - I want to discuss my hearing impairment
+      - I need help understanding my hearing impairment
+
+  - intent: special_conditions_mobility
+    examples: |
+      - I have mobility issues
+      - I need help with mobility
+      - I'm struggling with mobility
+      - I need mobility support
+      - I want to talk about my mobility issues
+      - I need help managing mobility
+      - I'm having trouble with mobility
+      - I need mobility accommodations
+      - I want to discuss mobility
+      - I need help understanding mobility issues
+
+  - intent: special_conditions_medical
+    examples: |
+      - I have a medical condition
+      - I need help with my medical condition
+      - I'm struggling with my medical condition
+      - I need medical condition support
+      - I want to talk about my medical condition
+      - I need help managing my medical condition
+      - I'm having trouble with my medical condition
+      - I need medical condition accommodations
+      - I want to discuss my medical condition
+      - I need help understanding my medical condition
+
+  - intent: special_conditions_learning
+    examples: |
+      - I have a learning disability
+      - I need help with my learning disability
+      - I'm struggling with my learning disability
+      - I need learning disability support
+      - I want to talk about my learning disability
+      - I need help managing my learning disability
+      - I'm having trouble with my learning disability
+      - I need learning disability accommodations
+      - I want to discuss my learning disability
+      - I need help understanding my learning disability
+
+  - intent: special_conditions_sensory
+    examples: |
+      - I have sensory processing issues
+      - I need help with sensory processing
+      - I'm struggling with sensory processing
+      - I need sensory processing support
+      - I want to talk about my sensory processing
+      - I need help managing sensory processing
+      - I'm having trouble with sensory processing
+      - I need sensory processing accommodations
+      - I want to discuss sensory processing
+      - I need help understanding sensory processing
+
+  - intent: special_conditions_developmental
+    examples: |
+      - I have a developmental condition
+      - I need help with my developmental condition
+      - I'm struggling with my developmental condition
+      - I need developmental condition support
+      - I want to talk about my developmental condition
+      - I need help managing my developmental condition
+      - I'm having trouble with my developmental condition
+      - I need developmental condition accommodations
+      - I want to discuss my developmental condition
+      - I need help understanding my developmental condition
+
+  - intent: special_conditions_mental_health
+    examples: |
+      - I have a mental health condition
+      - I need help with my mental health condition
+      - I'm struggling with my mental health condition
+      - I need mental health condition support
+      - I want to talk about my mental health condition
+      - I need help managing my mental health condition
+      - I'm having trouble with my mental health condition
+      - I need mental health condition accommodations
+      - I want to discuss my mental health condition
+      - I need help understanding my mental health condition
+
+  - intent: identity_general
+    examples: |
+      - I'm exploring my identity
+      - I need help with my identity
+      - I'm questioning my identity
+      - I want to talk about my identity
+      - I need support with my identity
+      - I'm struggling with my identity
+      - I want to understand my identity
+      - I need help understanding my identity
+      - I want to discuss my identity
+      - I need guidance with my identity
+
+  - intent: identity_sexual_orientation
+    examples: |
+      - I'm questioning my sexual orientation
+      - I need help with my sexual orientation
+      - I want to talk about my sexual orientation
+      - I need support with my sexual orientation
+      - I'm struggling with my sexual orientation
+      - I want to understand my sexual orientation
+      - I need help understanding my sexual orientation
+      - I want to discuss my sexual orientation
+      - I need guidance with my sexual orientation
+      - I'm exploring my sexual orientation
+
+  - intent: identity_gender
+    examples: |
+      - I'm questioning my gender identity
+      - I need help with my gender identity
+      - I want to talk about my gender identity
+      - I need support with my gender identity
+      - I'm struggling with my gender identity
+      - I want to understand my gender identity
+      - I need help understanding my gender identity
+      - I want to discuss my gender identity
+      - I need guidance with my gender identity
+      - I'm exploring my gender identity
+
+  - intent: identity_race_ethnicity
+    examples: |
+      - I'm exploring my racial identity
+      - I need help with my racial identity
+      - I want to talk about my racial identity
+      - I need support with my racial identity
+      - I'm struggling with my racial identity
+      - I want to understand my racial identity
+      - I need help understanding my racial identity
+      - I want to discuss my racial identity
+      - I need guidance with my racial identity
+      - I'm questioning my racial identity
+
+  - intent: identity_culture
+    examples: |
+      - I'm exploring my cultural identity
+      - I need help with my cultural identity
+      - I want to talk about my cultural identity
+      - I need support with my cultural identity
+      - I'm struggling with my cultural identity
+      - I want to understand my cultural identity
+      - I need help understanding my cultural identity
+      - I want to discuss my cultural identity
+      - I need guidance with my cultural identity
+      - I'm questioning my cultural identity
+
+  - intent: identity_religion
+    examples: |
+      - I'm exploring my religious identity
+      - I need help with my religious identity
+      - I want to talk about my religious identity
+      - I need support with my religious identity
+      - I'm struggling with my religious identity
+      - I want to understand my religious identity
+      - I need help understanding my religious identity
+      - I want to discuss my religious identity
+      - I need guidance with my religious identity
+      - I'm questioning my religious identity
+
+  - intent: identity_disability
+    examples: |
+      - I'm exploring my disability identity
+      - I need help with my disability identity
+      - I want to talk about my disability identity
+      - I need support with my disability identity
+      - I'm struggling with my disability identity
+      - I want to understand my disability identity
+      - I need help understanding my disability identity
+      - I want to discuss my disability identity
+      - I need guidance with my disability identity
+      - I'm questioning my disability identity
+
+  - intent: identity_age
+    examples: |
+      - I'm exploring my age identity
+      - I need help with my age identity
+      - I want to talk about my age identity
+      - I need support with my age identity
+      - I'm struggling with my age identity
+      - I want to understand my age identity
+      - I need help understanding my age identity
+      - I want to discuss my age identity
+      - I need guidance with my age identity
+      - I'm questioning my age identity
+
+  - intent: identity_socioeconomic
+    examples: |
+      - I'm exploring my socioeconomic identity
+      - I need help with my socioeconomic identity
+      - I want to talk about my socioeconomic identity
+      - I need support with my socioeconomic identity
+      - I'm struggling with my socioeconomic identity
+      - I want to understand my socioeconomic identity
+      - I need help understanding my socioeconomic identity
+      - I want to discuss my socioeconomic identity
+      - I need guidance with my socioeconomic identity
+      - I'm questioning my socioeconomic identity
+
+  - intent: identity_first_generation
+    examples: |
+      - I'm a first-generation student
+      - I need help as a first-generation student
+      - I want to talk about being first-generation
+      - I need support as a first-generation student
+      - I'm struggling as a first-generation student
+      - I want to understand my first-generation identity
+      - I need help understanding first-generation status
+      - I want to discuss being first-generation
+      - I need guidance as a first-generation student
+      - I'm exploring my first-generation identity
+
+  - intent: identity_international
+    examples: |
+      - I'm an international student
+      - I need help as an international student
+      - I want to talk about being international
+      - I need support as an international student
+      - I'm struggling as an international student
+      - I want to understand my international identity
+      - I need help understanding international status
+      - I want to discuss being international
+      - I need guidance as an international student
+      - I'm exploring my international identity
+
+  - intent: identity_transfer
+    examples: |
+      - I'm a transfer student
+      - I need help as a transfer student
+      - I want to talk about being a transfer student
+      - I need support as a transfer student
+      - I'm struggling as a transfer student
+      - I want to understand my transfer student identity
+      - I need help understanding transfer status
+      - I want to discuss being a transfer student
+      - I need guidance as a transfer student
+      - I'm exploring my transfer student identity
+
+  - intent: identity_non_traditional
+    examples: |
+      - I'm a non-traditional student
+      - I need help as a non-traditional student
+      - I want to talk about being non-traditional
+      - I need support as a non-traditional student
+      - I'm struggling as a non-traditional student
+      - I want to understand my non-traditional identity
+      - I need help understanding non-traditional status
+      - I want to discuss being non-traditional
+      - I need guidance as a non-traditional student
+      - I'm exploring my non-traditional identity
+
+  - intent: identity_veteran
+    examples: |
+      - I'm a veteran student
+      - I need help as a veteran student
+      - I want to talk about being a veteran
+      - I need support as a veteran student
+      - I'm struggling as a veteran student
+      - I want to understand my veteran identity
+      - I need help understanding veteran status
+      - I want to discuss being a veteran
+      - I need guidance as a veteran student
+      - I'm exploring my veteran identity
+
+  - intent: identity_parent
+    examples: |
+      - I'm a parent student
+      - I need help as a parent student
+      - I want to talk about being a parent student
+      - I need support as a parent student
+      - I'm struggling as a parent student
+      - I want to understand my parent student identity
+      - I need help understanding parent student status
+      - I want to discuss being a parent student
+      - I need guidance as a parent student
+      - I'm exploring my parent student identity
+
+  - intent: identity_caregiver
+    examples: |
+      - I'm a caregiver student
+      - I need help as a caregiver student
+      - I want to talk about being a caregiver
+      - I need support as a caregiver student
+      - I'm struggling as a caregiver student
+      - I want to understand my caregiver identity
+      - I need help understanding caregiver status
+      - I want to discuss being a caregiver
+      - I need guidance as a caregiver student
+      - I'm exploring my caregiver identity
+
+  - intent: identity_immigrant
+    examples: |
+      - I'm an immigrant student
+      - I need help as an immigrant student
+      - I want to talk about being an immigrant
+      - I need support as an immigrant student
+      - I'm struggling as an immigrant student
+      - I want to understand my immigrant identity
+      - I need help understanding immigrant status
+      - I want to discuss being an immigrant
+      - I need guidance as an immigrant student
+      - I'm exploring my immigrant identity
+
+  - intent: identity_refugee
+    examples: |
+      - I'm a refugee student
+      - I need help as a refugee student
+      - I want to talk about being a refugee
+      - I need support as a refugee student
+      - I'm struggling as a refugee student
+      - I want to understand my refugee identity
+      - I need help understanding refugee status
+      - I want to discuss being a refugee
+      - I need guidance as a refugee student
+      - I'm exploring my refugee identity
+
+  - intent: identity_intersectional
+    examples: |
+      - I have multiple identities
+      - I need help with my intersectional identity
+      - I want to talk about my multiple identities
+      - I need support with my intersectional identity
+      - I'm struggling with my intersectional identity
+      - I want to understand my intersectional identity
+      - I need help understanding my multiple identities
+      - I want to discuss my intersectional identity
+      - I need guidance with my intersectional identity
+      - I'm exploring my intersectional identity
+
+  - intent: identity_expression
+    examples: |
+      - I'm exploring my identity expression
+      - I need help with my identity expression
+      - I want to talk about my identity expression
+      - I need support with my identity expression
+      - I'm struggling with my identity expression
+      - I want to understand my identity expression
+      - I need help understanding my identity expression
+      - I want to discuss my identity expression
+      - I need guidance with my identity expression
+      - I'm questioning my identity expression
+
+  - intent: financial_general
+    examples: |
+      - I need help with my finances
+      - I'm having financial problems
+      - I need financial advice
+      - I want to talk about my finances
+      - I need help managing my money
+      - I'm struggling financially
+      - I need financial guidance
+      - I want to discuss my financial situation
+      - I need help with money management
+      - I'm concerned about my finances
+
+  - intent: financial_budgeting
+    examples: |
+      - I need help creating a budget
+      - I want to learn about budgeting
+      - I'm struggling with my budget
+      - I need budgeting advice
+      - I want to improve my budget
+      - I need help managing my budget
+      - I'm having trouble with budgeting
+      - I need budgeting tips
+      - I want to discuss my budget
+      - I need help with budget planning
+
+  - intent: financial_loans
+    examples: |
+      - I need help with student loans
+      - I want to understand my loan options
+      - I'm struggling with loan payments
+      - I need loan advice
+      - I want to learn about student loans
+      - I need help managing my loans
+      - I'm having trouble with loans
+      - I need loan information
+      - I want to discuss my loans
+      - I need help with loan applications
+
+  - intent: financial_emergency
+    examples: |
+      - I'm having a financial emergency
+      - I need emergency financial help
+      - I'm in a financial crisis
+      - I need emergency funds
+      - I'm facing financial hardship
+      - I need emergency financial support
+      - I'm experiencing financial difficulties
+      - I need help with financial emergencies
+      - I want to discuss my financial emergency
+      - I need emergency financial assistance
+
+  - intent: financial_employment
+    examples: |
+      - I need help finding a job
+      - I want to learn about work-study
+      - I'm looking for part-time work
+      - I need employment advice
+      - I want to understand employment options
+      - I need help with job applications
+      - I'm having trouble finding work
+      - I need employment information
+      - I want to discuss employment options
+      - I need help with work opportunities
+
+  - intent: financial_scholarships
+    examples: |
+      - I need help finding scholarships
+      - I want to learn about scholarship opportunities
+      - I'm looking for financial aid
+      - I need scholarship advice
+      - I want to understand scholarship options
+      - I need help with scholarship applications
+      - I'm having trouble finding scholarships
+      - I need scholarship information
+      - I want to discuss scholarship options
+      - I need help with financial aid
+
+  - intent: financial_housing
+    examples: |
+      - I need help with housing costs
+      - I'm struggling with rent payments
+      - I need housing financial advice
+      - I want to understand housing costs
+      - I need help managing housing expenses
+      - I'm having trouble with housing costs
+      - I need housing financial information
+      - I want to discuss housing finances
+      - I need help with housing expenses
+      - I'm concerned about housing costs
+
+  - intent: financial_utilities
+    examples: |
+      - I need help with utility bills
+      - I'm struggling with utility costs
+      - I need utility payment advice
+      - I want to understand utility expenses
+      - I need help managing utility bills
+      - I'm having trouble with utilities
+      - I need utility cost information
+      - I want to discuss utility expenses
+      - I need help with utility payments
+      - I'm concerned about utility costs
+
+  - intent: financial_healthcare
+    examples: |
+      - I need help with healthcare costs
+      - I'm struggling with medical expenses
+      - I need healthcare financial advice
+      - I want to understand healthcare costs
+      - I need help managing medical bills
+      - I'm having trouble with healthcare expenses
+      - I need healthcare cost information
+      - I want to discuss healthcare finances
+      - I need help with medical costs
+      - I'm concerned about healthcare expenses
+
+  - intent: financial_transportation
+    examples: |
+      - I need help with transportation costs
+      - I'm struggling with travel expenses
+      - I need transportation financial advice
+      - I want to understand transportation costs
+      - I need help managing travel expenses
+      - I'm having trouble with transportation
+      - I need transportation cost information
+      - I want to discuss transportation expenses
+      - I need help with travel costs
+      - I'm concerned about transportation expenses
+
+  - intent: financial_books_supplies
+    examples: |
+      - I need help with textbook costs
+      - I'm struggling with school supplies
+      - I need book cost advice
+      - I want to understand material expenses
+      - I need help managing supply costs
+      - I'm having trouble with textbook expenses
+      - I need book cost information
+      - I want to discuss material costs
+      - I need help with supply expenses
+      - I'm concerned about textbook costs
+
+  - intent: financial_technology
+    examples: |
+      - I need help with technology costs
+      - I'm struggling with computer expenses
+      - I need tech financial advice
+      - I want to understand technology costs
+      - I need help managing tech expenses
+      - I'm having trouble with technology costs
+      - I need technology cost information
+      - I want to discuss tech expenses
+      - I need help with computer costs
+      - I'm concerned about technology expenses
+
+  - intent: financial_food
+    examples: |
+      - I need help with food costs
+      - I'm struggling with meal expenses
+      - I need food financial advice
+      - I want to understand food costs
+      - I need help managing food expenses
+      - I'm having trouble with meal costs
+      - I need food cost information
+      - I want to discuss food expenses
+      - I need help with meal planning
+      - I'm concerned about food costs
+
+  - intent: financial_entertainment
+    examples: |
+      - I need help with entertainment costs
+      - I'm struggling with leisure expenses
+      - I need entertainment financial advice
+      - I want to understand entertainment costs
+      - I need help managing leisure expenses
+      - I'm having trouble with entertainment costs
+      - I need entertainment cost information
+      - I want to discuss leisure expenses
+      - I need help with entertainment expenses
+      - I'm concerned about leisure costs
+
+  - intent: financial_insurance
+    examples: |
+      - I need help with insurance costs
+      - I'm struggling with insurance payments
+      - I need insurance financial advice
+      - I want to understand insurance costs
+      - I need help managing insurance expenses
+      - I'm having trouble with insurance
+      - I need insurance cost information
+      - I want to discuss insurance expenses
+      - I need help with insurance payments
+      - I'm concerned about insurance costs
+
+  - intent: financial_debt
+    examples: |
+      - I need help with debt management
+      - I'm struggling with debt payments
+      - I need debt advice
+      - I want to understand debt options
+      - I need help managing my debt
+      - I'm having trouble with debt
+      - I need debt information
+      - I want to discuss my debt
+      - I need help with debt repayment
+      - I'm concerned about my debt
+
+  - intent: financial_savings
+    examples: |
+      - I need help with saving money
+      - I want to learn about saving strategies
+      - I'm struggling to save
+      - I need savings advice
+      - I want to improve my savings
+      - I need help with saving plans
+      - I'm having trouble saving
+      - I need savings tips
+      - I want to discuss my savings
+      - I need help with saving goals
+
+  - intent: financial_investment
+    examples: |
+      - I need help with investments
+      - I want to learn about investing
+      - I'm interested in investment options
+      - I need investment advice
+      - I want to understand investments
+      - I need help with investment planning
+      - I'm having trouble with investments
+      - I need investment information
+      - I want to discuss investment options
+      - I need help with investment strategies
+
+  - intent: financial_tax
+    examples: |
+      - I need help with taxes
+      - I want to understand tax obligations
+      - I'm struggling with tax filing
+      - I need tax advice
+      - I want to learn about student taxes
+      - I need help with tax planning
+      - I'm having trouble with taxes
+      - I need tax information
+      - I want to discuss tax options
+      - I need help with tax preparation
+
+  - intent: financial_planning
+    examples: |
+      - I need help with financial planning
+      - I want to create a financial plan
+      - I'm struggling with financial goals
+      - I need planning advice
+      - I want to understand financial planning
+      - I need help with financial goals
+      - I'm having trouble planning
+      - I need planning information
+      - I want to discuss financial planning
+      - I need help with financial strategies
+
+  - intent: emergency_general
+    examples: |
+      - I need emergency help
+      - This is an emergency
+      - I'm in an emergency situation
+      - I need immediate assistance
+      - This is urgent
+      - I need emergency support
+      - I'm experiencing an emergency
+      - I need emergency intervention
+      - This is a critical situation
+      - I need immediate help
+
+  - intent: emergency_mental_health
+    examples: |
+      - I'm having a mental health emergency
+      - I need immediate mental health help
+      - This is a mental health crisis
+      - I need urgent mental health support
+      - I'm experiencing a mental health emergency
+      - I need emergency mental health assistance
+      - This is a critical mental health situation
+      - I need immediate mental health intervention
+      - I'm in a mental health crisis
+      - I need emergency mental health help
+
+  - intent: emergency_physical_health
+    examples: |
+      - I'm having a physical health emergency
+      - I need immediate medical help
+      - This is a medical emergency
+      - I need urgent medical attention
+      - I'm experiencing a health crisis
+      - I need emergency medical assistance
+      - This is a critical health situation
+      - I need immediate medical intervention
+      - I'm in a health emergency
+      - I need emergency medical support
+
+  - intent: emergency_safety
+    examples: |
+      - I'm in an unsafe situation
+      - I need immediate safety assistance
+      - This is a safety emergency
+      - I need urgent safety support
+      - I'm experiencing a safety crisis
+      - I need emergency safety help
+      - This is a critical safety situation
+      - I need immediate safety intervention
+      - I'm in a safety emergency
+      - I need emergency safety assistance
+
+  - intent: emergency_sexual_assault
+    examples: |
+      - I've been sexually assaulted
+      - I need help after sexual assault
+      - This is a sexual assault emergency
+      - I need urgent sexual assault support
+      - I'm experiencing sexual assault trauma
+      - I need emergency sexual assault help
+      - This is a critical sexual assault situation
+      - I need immediate sexual assault assistance
+      - I'm reporting a sexual assault
+      - I need emergency sexual assault support
+
+  - intent: emergency_substance_abuse
+    examples: |
+      - I'm having a substance abuse emergency
+      - I need immediate substance abuse help
+      - This is a substance abuse crisis
+      - I need urgent substance abuse support
+      - I'm experiencing substance abuse issues
+      - I need emergency substance abuse assistance
+      - This is a critical substance abuse situation
+      - I need immediate substance abuse intervention
+      - I'm in a substance abuse emergency
+      - I need emergency substance abuse help
+
+  - intent: emergency_suicide
+    examples: |
+      - I'm having thoughts of suicide
+      - I need immediate suicide prevention help
+      - This is a suicide crisis
+      - I need urgent suicide prevention support
+      - I'm experiencing suicidal thoughts
+      - I need emergency suicide prevention assistance
+      - This is a critical suicide situation
+      - I need immediate suicide prevention intervention
+      - I'm in a suicide crisis
+      - I need emergency suicide prevention help
+
+  - intent: emergency_violence
+    examples: |
+      - I'm experiencing violence
+      - I need immediate violence prevention help
+      - This is a violence emergency
+      - I need urgent violence prevention support
+      - I'm experiencing violent behavior
+      - I need emergency violence prevention assistance
+      - This is a critical violence situation
+      - I need immediate violence prevention intervention
+      - I'm in a violence emergency
+      - I need emergency violence prevention help
+
+  - intent: emergency_natural_disaster
+    examples: |
+      - I'm experiencing a natural disaster
+      - I need immediate disaster assistance
+      - This is a natural disaster emergency
+      - I need urgent disaster support
+      - I'm in a disaster situation
+      - I need emergency disaster help
+      - This is a critical disaster situation
+      - I need immediate disaster intervention
+      - I'm in a natural disaster
+      - I need emergency disaster assistance
+
+  - intent: emergency_medical
+    examples: |
+      - I'm having a medical emergency
+      - I need immediate medical attention
+      - This is a medical crisis
+      - I need urgent medical help
+      - I'm experiencing a medical emergency
+      - I need emergency medical assistance
+      - This is a critical medical situation
+      - I need immediate medical intervention
+      - I'm in a medical emergency
+      - I need emergency medical support
+
+  - intent: emergency_accident
+    examples: |
+      - I've been in an accident
+      - I need immediate accident assistance
+      - This is an accident emergency
+      - I need urgent accident support
+      - I'm experiencing an accident
+      - I need emergency accident help
+      - This is a critical accident situation
+      - I need immediate accident intervention
+      - I'm reporting an accident
+      - I need emergency accident assistance
+
+  - intent: emergency_crime
+    examples: |
+      - I'm experiencing a crime
+      - I need immediate crime assistance
+      - This is a crime emergency
+      - I need urgent crime support
+      - I'm reporting a crime
+      - I need emergency crime help
+      - This is a critical crime situation
+      - I need immediate crime intervention
+      - I'm in a crime emergency
+      - I need emergency crime assistance
+
+  - intent: emergency_fire
+    examples: |
+      - I'm experiencing a fire
+      - I need immediate fire assistance
+      - This is a fire emergency
+      - I need urgent fire support
+      - I'm reporting a fire
+      - I need emergency fire help
+      - This is a critical fire situation
+      - I need immediate fire intervention
+      - I'm in a fire emergency
+      - I need emergency fire assistance
+
+  - intent: emergency_weather
+    examples: |
+      - I'm experiencing a weather emergency
+      - I need immediate weather assistance
+      - This is a weather crisis
+      - I need urgent weather support
+      - I'm in a weather emergency
+      - I need emergency weather help
+      - This is a critical weather situation
+      - I need immediate weather intervention
+      - I'm experiencing severe weather
+      - I need emergency weather assistance
+
+  - intent: emergency_evacuation
+    examples: |
+      - I need evacuation assistance
+      - I need immediate evacuation help
+      - This is an evacuation emergency
+      - I need urgent evacuation support
+      - I need to evacuate
+      - I need emergency evacuation help
+      - This is a critical evacuation situation
+      - I need immediate evacuation intervention
+      - I'm in an evacuation emergency
+      - I need emergency evacuation assistance
+
+  - intent: emergency_communication
+    examples: |
+      - I need emergency communication help
+      - I need immediate communication assistance
+      - This is a communication emergency
+      - I need urgent communication support
+      - I need to communicate in an emergency
+      - I need emergency communication assistance
+      - This is a critical communication situation
+      - I need immediate communication intervention
+      - I'm in a communication emergency
+      - I need emergency communication help
+
+  - intent: emergency_contact
+    examples: |
+      - I need emergency contact information
+      - I need immediate contact assistance
+      - This is a contact emergency
+      - I need urgent contact support
+      - I need emergency contacts
+      - I need emergency contact help
+      - This is a critical contact situation
+      - I need immediate contact intervention
+      - I'm in a contact emergency
+      - I need emergency contact assistance
+
+  - intent: emergency_location
+    examples: |
+      - I need to report my location
+      - I need immediate location assistance
+      - This is a location emergency
+      - I need urgent location support
+      - I need to share my location
+      - I need emergency location help
+      - This is a critical location situation
+      - I need immediate location intervention
+      - I'm in a location emergency
+      - I need emergency location assistance
+
+  - intent: emergency_procedure
+    examples: |
+      - I need emergency procedures
+      - I need immediate procedure assistance
+      - This is a procedure emergency
+      - I need urgent procedure support
+      - I need emergency procedure information
+      - I need emergency procedure help
+      - This is a critical procedure situation
+      - I need immediate procedure intervention
+      - I'm in a procedure emergency
+      - I need emergency procedure assistance
+
+  - intent: emergency_follow_up
+    examples: |
+      - I need emergency follow-up help
+      - I need immediate follow-up assistance
+      - This is a follow-up emergency
+      - I need urgent follow-up support
+      - I need emergency follow-up care
+      - I need emergency follow-up help
+      - This is a critical follow-up situation
+      - I need immediate follow-up intervention
+      - I'm in a follow-up emergency
+      - I need emergency follow-up assistance
+
+  - intent: orientation_services
+    examples: |
+      - I'm looking for orientation services
+      - What orientation support is available?
+      - I need campus tour help
+      - Where can I find orientation resources?
+      - I want orientation assistance
+      - How do I access orientation support?
+      - I need welcome event help
+      - Where are the orientation services?
+
+  - intent: social_connection_general
+    examples: |
+      - How can I make friends at university?
+      - I want to meet new people
+      - I need help making connections
+      - How do I socialize at university?
+      - I want to build my social network
+      - Where can I meet other students?
+      - I'm looking to make new friends
+      - How can I be more social?
+      - I want to connect with other students
+      - What social opportunities are there?
+
+  - intent: social_connection_clubs
+    examples: |
+      - What clubs can I join?
+      - I want to join a student club
+      - Tell me about university clubs
+      - How do I find clubs to join?
+      - What student societies are there?
+      - I'm interested in joining clubs
+      - Where can I find club information?
+      - How do I get involved in clubs?
+      - What types of clubs are available?
+      - I want to join student societies
+
+  - intent: social_connection_sports
+    examples: |
+      - How can I join sports teams?
+      - What sports activities are available?
+      - I want to play university sports
+      - Tell me about sports clubs
+      - How do I get involved in sports?
+      - What recreational sports are there?
+      - I'm interested in joining a sports team
+      - Where can I find sports information?
+      - What types of sports can I play?
+      - I want to do sports activities
+
+  - intent: social_connection_events
+    examples: |
+      - What events are happening on campus?
+      - I want to attend university events
+      - Tell me about student events
+      - How do I find out about events?
+      - What social events are coming up?
+      - I'm interested in campus events
+      - Where can I find event information?
+      - How do I get involved in events?
+      - What types of events are there?
+      - I want to go to student events
+
+  - intent: social_connection_networking
+    examples: |
+      - How can I network with other students?
+      - I want to build professional connections
+      - Tell me about networking opportunities
+      - How do I find networking events?
+      - What networking activities are there?
+      - I'm interested in student networking
+      - Where can I find networking information?
+      - How do I get involved in networking?
+      - What types of networking events exist?
+      - I want to expand my network
+
+  - intent: social_connection_mentorship
+    examples: |
+      - How can I find a mentor?
+      - I want to join a mentorship program
+      - Tell me about mentoring opportunities
+      - How do I get a student mentor?
+      - What mentorship programs exist?
+      - I'm interested in being mentored
+      - Where can I find mentorship information?
+      - How do I get involved in mentoring?
+      - What types of mentorship are available?
+      - I want to connect with a mentor
+
+  - intent: social_connection_volunteering
+    examples: |
+      - How can I volunteer at university?
+      - I want to do volunteer work
+      - Tell me about volunteering opportunities
+      - How do I find volunteer positions?
+      - What volunteer activities are there?
+      - I'm interested in volunteering
+      - Where can I find volunteering information?
+      - How do I get involved in volunteering?
+      - What types of volunteering exist?
+      - I want to help in the community
+
+  - intent: social_connection_workshops
+    examples: |
+      - What workshops are available?
+      - I want to attend student workshops
+      - Tell me about workshop opportunities
+      - How do I find workshops?
+      - What skill-building workshops exist?
+      - I'm interested in workshops
+      - Where can I find workshop information?
+      - How do I get involved in workshops?
+      - What types of workshops are there?
+      - I want to develop new skills
+
+  - intent: social_connection_peer_groups
+    examples: |
+      - How can I join peer groups?
+      - I want to find study groups
+      - Tell me about peer support groups
+      - How do I find peer groups?
+      - What peer groups are available?
+      - I'm interested in group activities
+      - Where can I find peer group information?
+      - How do I get involved in peer groups?
+      - What types of peer groups exist?
+      - I want to join student groups
+
+  - intent: social_connection_cultural
+    examples: |
+      - How can I join cultural groups?
+      - I want to find cultural activities
+      - Tell me about cultural events
+      - How do I find cultural groups?
+      - What cultural activities are there?
+      - I'm interested in cultural exchange
+      - Where can I find cultural information?
+      - How do I get involved in cultural groups?
+      - What types of cultural activities exist?
+      - I want to explore different cultures 

@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/wellbeing/wellness
+  examples: |
+    - How can I maintain mental wellness?
+    - I want to improve my mental wellness
+    - What are mental wellness strategies?
+    - How do I promote mental wellness?
+    - I need help with mental wellness
+    - What can I do for mental wellness?
+    - How can I enhance my mental wellness?
+    - I want to focus on mental wellness
+    - What promotes mental wellness?
+    - How do I maintain good mental wellness? 

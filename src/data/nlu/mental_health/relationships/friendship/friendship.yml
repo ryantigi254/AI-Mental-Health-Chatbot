@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/friendship
+  examples: |
+    - I'm having friendship problems
+    - I need help with my friendships
+    - I'm struggling with my friends
+    - I want to improve my friendships
+    - I need advice about my friendships
+    - I'm having issues with my friends
+    - I want to talk about my friendships
+    - I need help understanding my friendships
+    - I'm confused about my friendships
+    - I want to discuss my friendships
+    - I don't have many friends
+    - I'm having trouble making friends
+    - My friend group is toxic
+    - I feel left out by my friends
+    - I'm worried about losing friends
+    - My best friend and I had a fight
+    - I feel like my friends don't understand me
+    - I need help rebuilding a friendship
+    - I'm not sure if this friendship is healthy
+    - I'm struggling to maintain friendships in college 

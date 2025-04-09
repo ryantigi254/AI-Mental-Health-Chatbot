@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/clubs
+  examples: |
+    - What clubs can I join?
+    - I want to join a student club
+    - Tell me about university clubs
+    - How do I find clubs to join?
+    - What student societies are there?
+    - I'm interested in joining clubs
+    - Where can I find club information?
+    - How do I get involved in clubs?
+    - What types of clubs are available?
+    - I want to join student societies
+    - Is there a list of all student clubs?
+    - How to sign up for the debate club?
+    - What are the most popular clubs?
+    - Where do clubs usually meet?
+    - Are there any academic clubs? 

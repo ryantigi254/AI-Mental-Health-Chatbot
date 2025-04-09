@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/multiple_assignments_balance
+  examples: |
+    - How to balance multiple assignments?
+    - Struggling to juggle several assignments at once
+    - Tips for managing workload with many assignments?
+    - Feeling overwhelmed by the number of assignments
+    - Need help prioritizing different assignments
+    - How to stay organized with multiple projects?
+    - Strategies for handling concurrent assignment deadlines?
+    - It's hard to give equal attention to all assignments
+    - How to avoid getting swamped by coursework?
+    - Advice on managing time effectively for assignments? 

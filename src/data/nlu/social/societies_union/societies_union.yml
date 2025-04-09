@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: social/societies_union
+  examples: |
+    - Tell me about the Students Union
+    - How do I join a society?
+    - What societies are there at the uni?
+    - Information about the SU
+    - What does the Students Union do?
+    - List of student societies
+    - Getting involved with the SU
+    - How to start a new society?
+    - SU events and activities
+    - Where is the Students Union building? 

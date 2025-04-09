@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/financial/budgeting
+  examples: |
+    - I need help creating a budget
+    - I want to learn about budgeting
+    - I'm struggling with my budget
+    - I need budgeting advice
+    - I want to improve my budget
+    - I need help managing my budget
+    - I'm having trouble with budgeting
+    - I need budgeting tips
+    - I want to discuss my budget
+    - I need help with budget planning
+    - I don't know how to budget properly
+    - I can't stick to my budget
+    - I need a system for tracking expenses
+    - I want to create a monthly spending plan
+    - How do I prioritize expenses in my budget
+    - I need help with budgeting for school expenses
+    - I'm overspending and need to budget better
+    - I want to learn budgeting tools for students
+    - I need help categorizing my expenses
+    - I want to create an emergency fund in my budget 

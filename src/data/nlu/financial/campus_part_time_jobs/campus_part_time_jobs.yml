@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: financial/campus_part_time_jobs
+  examples: |
+    - How can I find part-time jobs on campus?
+    - Are there job opportunities available at the university?
+    - Looking for work-study positions
+    - Where to search for campus employment?
+    - Need a part-time job to help with expenses
+    - What types of jobs are available for students on campus?
+    - How to apply for jobs within the university?
+    - Balancing studies with a part-time campus job?
+    - Pay rates for student jobs on campus?
+    - University career center job listings? 

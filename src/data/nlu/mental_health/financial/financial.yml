@@ -1,0 +1,11 @@
+version: "3.1"
+
+nlu:
+  # This file imports the hierarchical financial intents
+  
+  # Import the financial category intents
+  - import: mental_health/financial/general/general.yml
+  - import: mental_health/financial/budgeting/budgeting.yml
+  - import: mental_health/financial/loans/loans.yml
+  - import: mental_health/financial/emergency/emergency.yml
+  - import: mental_health/financial/aid/aid.yml 

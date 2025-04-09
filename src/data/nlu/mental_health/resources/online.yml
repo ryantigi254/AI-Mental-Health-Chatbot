@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/resources/online
+  examples: |
+    - What online mental health resources are available
+    - Are there any mental health apps you recommend
+    - Tell me about online therapy options
+    - What websites offer mental health support
+    - Are there free online mental health resources
+    - How can I access virtual counseling
+    - What telemedicine options exist for mental health
+    - Are there online support groups
+    - What digital mental health tools are available
+    - How can I find an online therapist
+    - Are there mental health forums I can join
+    - What self-guided therapy resources exist online
+    - Tell me about mental health chatbots
+    - How can I access mental health webinars
+    - What online courses address mental health
+    - Are there meditation apps for mental health
+    - What online resources can help with anxiety
+    - How can I find virtual therapy that takes my insurance
+    - Are there online screening tools for mental health
+    - What digital resources exist for stress management 

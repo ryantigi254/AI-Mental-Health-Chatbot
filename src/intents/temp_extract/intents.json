@@ -44,9 +44,9 @@
         "responses": ["I can provide general advice regarding anxiety and depression, answer questions related to mental health and make daily conversations. Do not consider me as a subsitute for an actual mental healthcare worker. Please seek help if you don't feel satisfied with me."]
     },
     {"tag": "creation",
-        "patterns": ["Who created you?", "How were you made?", "How were you created?"],
-        "responses": ["I was created by >.", "I was trained on a text dataset using Deep Learning & Natural Language Processing techniques", "The real question is: Who created you?"]
-    },
+    "patterns": ["Who created you?", "How were you made?", "How were you created?"],
+    "responses": ["I was created by a team of students, from the University of Northampton, as a part of their second year project.", "I was trained on a text dataset using Deep Learning & Natural Language Processing techniques", "The real question is: Who created you?"]
+   },
     {"tag": "name",
         "patterns": ["My name is ", "I am name.", "I go by "],
         "responses": ["Oh nice to meet you. Tell me how was your week?", "Nice to meet you. So tell me. How do you feel today?", "That's a great name. Tell me more about yourself."]

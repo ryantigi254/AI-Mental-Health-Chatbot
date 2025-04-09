@@ -1,0 +1,398 @@
+[
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "University Mental Health Day",
+        "type": "Event",
+        "properties": {
+          "date": "2024-03-14",
+          "location": "Learning Hub, Waterside Campus"
+        }
+      },
+      {
+        "id": "Ark Farm",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Take A Break Café",
+        "type": "Service",
+        "properties": {}
+      },
+      {
+        "id": "Student Information Desk",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Chaplain Stuart",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Feel Good Communities",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Manspace",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Counselling & Mental Health",
+        "type": "Service",
+        "properties": {}
+      },
+      {
+        "id": "Uon Spectrum Life",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Pets As Therapy (Pat)",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Vr Team",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Student Union",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Creative Black Voices",
+        "type": "Event",
+        "properties": {}
+      },
+      {
+        "id": "Dave Askew",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Northamptonshire Walks",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Artlysing",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Engine Shed",
+        "type": "Location",
+        "properties": {}
+      },
+      {
+        "id": "Changing Minds Iapt",
+        "type": "Service",
+        "properties": {
+          "youtube_link": "https://www.youtube.com/watch?v=yz5BSvH0PLk"
+        }
+      },
+      {
+        "id": "Mind",
+        "type": "Organization",
+        "properties": {
+          "youtube_link": "https://www.youtube.com/watch?v=_y97VF5UJcc"
+        }
+      },
+      {
+        "id": "Young Adult Carers Service",
+        "type": "Service",
+        "properties": {
+          "youtube_link": "https://www.youtube.com/watch?v=9I-g0pY0id8"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Ark Farm",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "activity": "petting zoo"
+        }
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Take A Break Café",
+          "type": "Service",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Take A Break Café",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Student Information Desk",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Take A Break Café",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Chaplain Stuart",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Feel Good Communities",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Manspace",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "activity": "Games Table"
+        }
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Counselling & Mental Health",
+          "type": "Service",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "activity": "Meditation sessions"
+        }
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Uon Spectrum Life",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "activity": "Connect with nature"
+        }
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Pets As Therapy (Pat)",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Vr Team",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "activity": "Virtual Reality Relaxation"
+        }
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Student Union",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "activity": "Wellbeing Hamper competition"
+        }
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Creative Black Voices",
+          "type": "Event",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Dave Askew",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Northamptonshire Walks",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Artlysing",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "activity": "Creativity for Mental Health"
+        }
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Engine Shed",
+          "type": "Location",
+          "properties": {}
+        },
+        "type": "LOCATED_IN",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Changing Minds Iapt",
+          "type": "Service",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Mind",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "target": {
+          "id": "Young Adult Carers Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      }
+    ]
+  }
+]

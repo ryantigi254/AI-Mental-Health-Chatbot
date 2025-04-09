@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/crisis/panic
+  examples: |
+    - I'm having a panic attack
+    - I can't breathe
+    - My heart is racing
+    - I feel like I'm dying
+    - I'm hyperventilating
+    - I'm having a severe anxiety attack
+    - I feel lightheaded and dizzy
+    - My chest feels tight
+    - I'm sweating and shaking
+    - I think I'm having a heart attack
+    - I can't control my breathing
+    - I'm having a panic episode right now
+    - I feel detached from reality
+    - I'm experiencing intense fear
+    - I can't calm myself down
+    - My body is trembling
+    - I feel like I'm going to pass out
+    - I'm having a panic attack in public
+    - I feel paralyzed with anxiety
+    - I'm experiencing extreme terror 

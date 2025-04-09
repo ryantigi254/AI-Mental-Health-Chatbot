@@ -1,5 +1,3 @@
-
-<<<<<<< HEAD
 # Build directories and embedded repositories
 
 **/.build/
@@ -25,12 +23,6 @@
 **/*.zip
 
 **/*.wav
-=======
-# Large files
-Research/Articles.zip
-Research/Misc/audios/*.wav
-Research/NotebookLM/**/*.wav
->>>>>>> 800cefc0 (Initial commit- Research was already conducted for more info refer to the research structure file)
 
 # Problematic embedded repositories
 
@@ -39,4 +31,45 @@ Misc/AI-Mental-Health-Chatbot/
 Misc/OLMoE.swift/
 
 **/NetworkImage-30fb7cbe/
+
+.DS_Store
+.env
+
+# Environment variables
+.env
+
+# Python cache/compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# PyCharm files
+.idea/
+
+# VSCode files
+.vscode/
+
+# Rasa files
+.rasa/
+models/*.tar.gz
+results/
+*.db
+
+# Other
+.DS_Store
+*.log
 

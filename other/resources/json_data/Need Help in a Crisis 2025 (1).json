@@ -1,0 +1,444 @@
+[
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "Crisis",
+        "type": "Condition",
+        "properties": {}
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "999",
+        "type": "Service",
+        "properties": {
+          "phone_number": "999"
+        }
+      },
+      {
+        "id": "Accident & Emergency (A&E)",
+        "type": "Location",
+        "properties": {}
+      },
+      {
+        "id": "Nhs 111",
+        "type": "Service",
+        "properties": {
+          "availability": "24/7"
+        }
+      },
+      {
+        "id": "Northamptonshire Nhs",
+        "type": "Organization",
+        "properties": {
+          "phone_number": "0800 448 0828"
+        }
+      },
+      {
+        "id": "Spectrum Life",
+        "type": "Service",
+        "properties": {
+          "phone_number": "0800 031 8277",
+          "international_number": "0035 1518 0277",
+          "sms_whatsapp": "07418 360 780"
+        }
+      },
+      {
+        "id": "Samaritans",
+        "type": "Service",
+        "properties": {
+          "phone_number": "116 123",
+          "email": "jo@samaritans.org"
+        }
+      },
+      {
+        "id": "Shout Crisis Messenger",
+        "type": "Service",
+        "properties": {
+          "text": "85258"
+        }
+      },
+      {
+        "id": "Hopeline Uk",
+        "type": "Service",
+        "properties": {
+          "phone_number": "0800 068 4141",
+          "text": "07786 209 697",
+          "email": "pat@papyrus-uk.org",
+          "hours": "Mon-Fri 10am-10pm, Sat-Sun 2pm-10pm, Bank Holidays 2pm-10pm"
+        }
+      },
+      {
+        "id": "Crisis Cafes",
+        "type": "Service",
+        "properties": {
+          "website": "nhft.nhs.uk/crisis-cafe/"
+        }
+      },
+      {
+        "id": "Uon",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Multi Faith Centre",
+        "type": "Location",
+        "properties": {
+          "location": "Waterside Campus"
+        }
+      },
+      {
+        "id": "Student Support & Advice Team",
+        "type": "Service",
+        "properties": {
+          "email": "studentsupportofficers@northampton.ac.uk"
+        }
+      },
+      {
+        "id": "Northamptonshire Healthcare",
+        "type": "Organization",
+        "properties": {
+          "text_service": "07480635531"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "999",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Accident & Emergency (A&E)",
+          "type": "Location",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Nhs 111",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Northamptonshire Nhs",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Spectrum Life",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Uon",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "OFFERS",
+        "properties": {
+          "organization_code": "UONWELL"
+        }
+      },
+      {
+        "source": {
+          "id": "Samaritans",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Anonymous Listening",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Shout Crisis Messenger",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Young People Under 25",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Hopeline Uk",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Crisis Support",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Crisis Cafes",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Mental Health Support",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Multi Faith Centre",
+          "type": "Location",
+          "properties": {}
+        },
+        "target": {
+          "id": "Pastoral Care",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student Support & Advice Team",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Course Related Worries",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "HELPS_WITH",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Northamptonshire Healthcare",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Nhs Mental Health Hub",
+          "type": "Service",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      }
+    ]
+  },
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "Self-Care",
+        "type": "Guidance",
+        "properties": {}
+      },
+      {
+        "id": "Safety",
+        "type": "Concept",
+        "properties": {}
+      },
+      {
+        "id": "Impulsivity",
+        "type": "Condition",
+        "properties": {}
+      },
+      {
+        "id": "Isolation",
+        "type": "Condition",
+        "properties": {}
+      },
+      {
+        "id": "Student Union Society",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Studentsagainstdepression.Org",
+        "type": "Resource",
+        "properties": {
+          "website": "studentsagainstdepression.org"
+        }
+      },
+      {
+        "id": "Support Network",
+        "type": "Concept",
+        "properties": {}
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "Self-Care",
+          "type": "Guidance",
+          "properties": {}
+        },
+        "target": {
+          "id": "Safety",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "HELPS_WITH",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Self-Care",
+          "type": "Guidance",
+          "properties": {}
+        },
+        "target": {
+          "id": "Impulsivity",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "HELPS_WITH",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Self-Care",
+          "type": "Guidance",
+          "properties": {}
+        },
+        "target": {
+          "id": "Isolation",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "HELPS_WITH",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Self-Care",
+          "type": "Guidance",
+          "properties": {}
+        },
+        "target": {
+          "id": "Support Network",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Self-Care",
+          "type": "Guidance",
+          "properties": {}
+        },
+        "target": {
+          "id": "Studentsagainstdepression.Org",
+          "type": "Resource",
+          "properties": {}
+        },
+        "type": "REFERENCES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Self-Care",
+          "type": "Guidance",
+          "properties": {}
+        },
+        "target": {
+          "id": "Student Union Society",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      }
+    ]
+  },
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "Counselling And Mental Health Team",
+        "type": "Organization",
+        "properties": {}
+      },
+      {
+        "id": "Mental Health Service",
+        "type": "Service",
+        "properties": {
+          "email": "mha@northampton.ac.uk"
+        }
+      },
+      {
+        "id": "Counsellors",
+        "type": "Service",
+        "properties": {
+          "email": "counsellors@northampton.ac.uk"
+        }
+      },
+      {
+        "id": "University Drive Northampton",
+        "type": "Location",
+        "properties": {
+          "address": "NN1 5PH"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "Mental Health Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Drive Northampton",
+          "type": "Location",
+          "properties": {}
+        },
+        "type": "LOCATED_IN",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Drive Northampton",
+          "type": "Location",
+          "properties": {}
+        },
+        "type": "LOCATED_IN",
+        "properties": {}
+      }
+    ]
+  }
+]

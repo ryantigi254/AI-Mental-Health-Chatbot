@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/mood/neutral
+  examples: |
+    - I feel okay
+    - I'm alright
+    - I'm doing okay
+    - I feel neutral
+    - I'm fine
+    - I'm managing
+    - I'm getting by
+    - I feel so-so
+    - I'm hanging in there
+    - I'm doing alright
+    - I'm neither good nor bad
+    - I'm just okay
+    - I feel average today
+    - Not great, not terrible
+    - I'm functioning
+    - Just another day
+    - I'm surviving
+    - Nothing special to report
+    - I'm going through the motions
+    - Could be better, could be worse 

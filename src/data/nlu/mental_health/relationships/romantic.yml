@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/romantic
+  examples: |
+    - Problems with my boyfriend/girlfriend/partner
+    - Romantic relationship difficulties
+    - My love life is stressful
+    - Issues in my romantic relationship
+    - Need advice about my partner 

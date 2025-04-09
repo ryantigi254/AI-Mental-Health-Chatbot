@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: career/placement_prep
+  examples: |
+    - Help preparing for a work placement
+    - Tips for finding an internship
+    - How to make the most of a placement?
+    - Preparing for placement interviews
+    - What support is there for placements?
+    - Information about university placement schemes
+    - Need help securing a placement
+    - Making a good impression on placement
+    - Placement application assistance
+    - Resources for finding internships/placements 

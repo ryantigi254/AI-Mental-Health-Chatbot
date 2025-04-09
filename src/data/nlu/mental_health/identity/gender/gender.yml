@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/gender
+  examples: |
+    - I'm questioning my gender identity
+    - I need help with my gender identity
+    - I want to talk about my gender identity
+    - I need support with my gender identity
+    - I'm struggling with my gender identity
+    - I want to understand my gender identity
+    - I need help understanding my gender identity
+    - I want to discuss my gender identity
+    - I need guidance with my gender identity
+    - I'm exploring my gender identity
+    - I think I might be transgender
+    - I'm not sure if I'm non-binary
+    - I don't identify with my assigned gender
+    - I'm questioning if I'm genderfluid
+    - I don't know how to tell others about my gender identity
+    - I'm afraid of coming out as transgender
+    - I recently realized I might be gender non-conforming
+    - I'm having trouble accepting my gender identity
+    - I need resources about gender identity
+    - I want to understand different gender identities 

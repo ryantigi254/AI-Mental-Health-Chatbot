@@ -1,0 +1,415 @@
+[
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "Anxiety",
+        "type": "Condition",
+        "properties": {
+          "description": "A normal feeling experienced in difficult situations, can lead to fight, flight, or freeze mode."
+        }
+      },
+      {
+        "id": "Panic Attack",
+        "type": "Condition",
+        "properties": {
+          "description": "Experienced by one in three people, symptoms include sweating, racing heart, and fear of losing control."
+        }
+      },
+      {
+        "id": "Counselling And Mental Health Team",
+        "type": "Service",
+        "properties": {
+          "drop-inSessions": "Monday - Friday in the Learning Hub."
+        }
+      },
+      {
+        "id": "Mental Health Adviser Service",
+        "type": "Service",
+        "properties": {
+          "email": "mha@northampton.ac.uk"
+        }
+      },
+      {
+        "id": "Nhs",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.nhs.uk"
+        }
+      },
+      {
+        "id": "No Panic",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.nopanic.org.uk"
+        }
+      },
+      {
+        "id": "Changing Minds Iapt Service",
+        "type": "Service",
+        "properties": {
+          "website": "https://www.nhft.nhs.uk/iapt"
+        }
+      },
+      {
+        "id": "Gp",
+        "type": "Contact",
+        "properties": {
+          "website": "https://www.nhs.uk/Service-Search/GP/LocationSearch/4"
+        }
+      },
+      {
+        "id": "Students Against Depression",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.studentsagainstdepression.org/"
+        }
+      },
+      {
+        "id": "Mind Uk",
+        "type": "Organization",
+        "properties": {
+          "website": "http://www.mind.org.uk/"
+        }
+      },
+      {
+        "id": "Time To Change",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.mind.org.uk/news-campaigns/campaigns/time-to-change/"
+        }
+      },
+      {
+        "id": "Moodgym",
+        "type": "Service",
+        "properties": {
+          "website": "https://www.moodgym.com.au/"
+        }
+      },
+      {
+        "id": "Silvercloud",
+        "type": "Service",
+        "properties": {
+          "description": "An eight week course to help manage stress and depression."
+        }
+      },
+      {
+        "id": "The Lowdown",
+        "type": "Service",
+        "properties": {
+          "address": "3 Kingswell Street, Northampton, NN1"
+        }
+      },
+      {
+        "id": "Crisis Cafes",
+        "type": "Service",
+        "properties": {
+          "address": "Anchor House, Northampton Mind, 6/7 Regent Square, Northampton, NN1 2NQ"
+        }
+      },
+      {
+        "id": "Moodpath",
+        "type": "Service",
+        "properties": {
+          "website": "https://minddoc.com/us/en"
+        }
+      },
+      {
+        "id": "Calm",
+        "type": "Service",
+        "properties": {
+          "website": "https://www.calm.com/"
+        }
+      },
+      {
+        "id": "Headspace",
+        "type": "Service",
+        "properties": {
+          "website": "https://www.headspace.com/"
+        }
+      },
+      {
+        "id": "Youper",
+        "type": "Service",
+        "properties": {
+          "website": "https://www.youper.ai/"
+        }
+      },
+      {
+        "id": "Culture Shock",
+        "type": "Condition",
+        "properties": {
+          "description": "A common experience for people moving to a different cultural environment."
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "Anxiety",
+          "type": "Condition",
+          "properties": {}
+        },
+        "target": {
+          "id": "Panic Attack",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "RELATED_TO",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counselling And Mental Health Team",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Anxiety",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "HELPS_WITH",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Mental Health Adviser Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Panic Attack",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "HELPS_WITH",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Nhs",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Anxiety",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "No Panic",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Anxiety",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Changing Minds Iapt Service",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Anxiety",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Gp",
+          "type": "Contact",
+          "properties": {}
+        },
+        "target": {
+          "id": "Anxiety",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "CONTACT_FOR",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Students Against Depression",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Mind Uk",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Time To Change",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Moodgym",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Silvercloud",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "The Lowdown",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Crisis Cafes",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Moodpath",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Calm",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Headspace",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Youper",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "Depression",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Culture Shock",
+          "type": "Condition",
+          "properties": {}
+        },
+        "target": {
+          "id": "Anxiety",
+          "type": "Condition",
+          "properties": {}
+        },
+        "type": "RELATED_TO",
+        "properties": {}
+      }
+    ]
+  }
+]

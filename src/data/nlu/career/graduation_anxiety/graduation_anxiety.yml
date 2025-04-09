@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: career/graduation_anxiety
+  examples: |
+    - I'm anxious about graduating
+    - Worried about life after university
+    - Feeling stressed about finishing my degree
+    - What happens after graduation?
+    - Scared about finding a job after uni
+    - Anxiety about the future
+    - Pressure to have it all figured out after graduation
+    - Coping with post-graduation uncertainty
+    - Fear of the unknown after finishing studies
+    - Help managing graduation anxiety 

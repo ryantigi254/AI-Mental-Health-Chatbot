@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/boundaries
+  examples: |
+    - Need help setting boundaries
+    - People aren't respecting my boundaries
+    - How to say no to people?
+    - Struggling with personal boundaries
+    - Setting healthy limits in relationships 

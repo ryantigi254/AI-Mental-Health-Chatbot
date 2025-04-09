@@ -1,0 +1,47 @@
+version: "3.1"
+nlu:
+- intent: emergency_mental_health
+  examples: |
+    - I need immediate mental health crisis support
+    - I'm having thoughts of harming myself
+    - I'm having a mental health emergency and need immediate assistance
+    - I'm having thoughts of suicide
+    - I'm in a crisis situation right now
+    - I need help immediately for a mental health emergency
+    - I'm experiencing a severe mental health episode
+    - I need urgent psychiatric help
+    - I'm struggling with serious thoughts of self-harm
+    - I'm going through a mental breakdown
+    - I need urgent support for my mental health
+    - I'm experiencing a severe emotional crisis
+    - I'm having a psychological emergency
+    - This is a mental health emergency
+    - I need immediate help for thoughts of suicide
+    - I'm in urgent need of mental health support
+    - I'm going through a serious mental health situation
+    - I need emergency psychological assistance
+    - My mental state is critical
+    - I need emergency intervention for my mental health
+
+- intent: emergency_physical_health
+  examples: |
+    - I'm having a medical emergency
+    - I think I'm having a heart attack
+    - I can't breathe
+    - I'm bleeding heavily
+    - I've been seriously injured
+    - I need an ambulance
+    - I'm experiencing severe chest pain
+    - I may have broken a bone
+    - I'm having severe abdominal pain
+    - I'm having a severe allergic reaction
+    - I'm experiencing stroke symptoms
+    - I'm having a seizure
+    - I've fallen and can't get up
+    - I'm coughing up blood
+    - I have a serious head injury
+    - I've been in an accident and need medical help
+    - I'm experiencing severe dizziness and disorientation
+    - I have a very high fever
+    - I'm having severe pain
+    - I need urgent medical attention 

@@ -1,0 +1,9 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/issues # Legacy merge
+  examples: |
+    - I have relationship issues
+    - Relationship problems need solving
+    - General trouble with relationships
+    # Add more examples if this intent is kept long-term 

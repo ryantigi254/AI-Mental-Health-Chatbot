@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: career/cv_review
+  examples: |
+    - Can someone check my CV?
+    - Need help writing my CV
+    - Does Student Futures offer CV reviews?
+    - Feedback on my curriculum vitae
+    - Tips for improving my CV
+    - Help with tailoring my CV for a job
+    - CV writing workshops?
+    - Where can I get my CV checked?
+    - Assistance with resume writing
+    - Making my CV stand out 

@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/special_conditions/depression
+  examples: |
+    - I have depression
+    - I need help with depression
+    - I'm struggling with depression
+    - I need depression support
+    - I want to talk about my depression
+    - I need help managing depression
+    - I'm having trouble with depression
+    - I need depression accommodations
+    - I want to discuss depression
+    - I need help understanding depression
+    - I feel depressed all the time
+    - I've been diagnosed with clinical depression
+    - I think I might be depressed
+    - My depression is affecting my academic performance
+    - I need resources for depression treatment
+    - I'm looking for therapy options for depression
+    - I've been feeling down for weeks
+    - I'm having trouble getting out of bed because of depression
+    - I need help with medication for depression
+    - I want to know about self-care strategies for depression 

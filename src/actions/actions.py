@@ -216,3 +216,316 @@ class ActionGenerateResponse(Action):
         }
         
         return responses.get(intent, responses["default"])
+
+
+class ActionProvideResourcesByCategory(Action):
+    def name(self) -> Text:
+        return "action_provide_resources_by_category"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get the latest intent
+        latest_intent = tracker.latest_message.get("intent", {}).get("name", "")
+        
+        # Determine category based on intent prefix
+        if latest_intent.startswith("mental_health"):
+            self._provide_mental_health_resources(dispatcher)
+        elif latest_intent.startswith("relationship"):
+            self._provide_relationship_resources(dispatcher)
+        elif latest_intent.startswith("support_services"):
+            self._provide_support_services_resources(dispatcher)
+        elif latest_intent.startswith("social_connection"):
+            self._provide_social_connection_resources(dispatcher)
+        elif latest_intent.startswith("special_conditions"):
+            self._provide_special_conditions_resources(dispatcher, latest_intent)
+        elif latest_intent.startswith("identity"):
+            self._provide_identity_resources(dispatcher, latest_intent)
+        elif latest_intent.startswith("financial"):
+            self._provide_financial_resources(dispatcher, latest_intent)
+        elif latest_intent.startswith("emergency"):
+            self._provide_emergency_resources(dispatcher, latest_intent)
+        else:
+            # Default to general resources
+            self._provide_general_resources(dispatcher)
+        
+        return []
+    
+    def _provide_mental_health_resources(self, dispatcher: CollectingDispatcher):
+        dispatcher.utter_message(text="Here are helpful mental health resources:\n\n"
+                                     "🏥 Campus Resources:\n"
+                                     "- Counseling Center: [Contact details]\n"
+                                     "- Student Health Services: [Contact details]\n"
+                                     "- After-hours crisis line: [Contact details]\n\n"
+                                     "📱 Apps & Online Resources:\n"
+                                     "- Headspace (meditation)\n"
+                                     "- Calm (sleep, meditation)\n"
+                                     "- Student Wellness Portal: [Website]\n\n"
+                                     "🌐 External Resources:\n"
+                                     "- National Crisis Line: 988\n"
+                                     "- Crisis Text Line: Text HOME to 741741")
+    
+    def _provide_relationship_resources(self, dispatcher: CollectingDispatcher):
+        dispatcher.utter_message(text="Here are helpful relationship resources:\n\n"
+                                     "🏥 Campus Resources:\n"
+                                     "- Student Counseling Center: [Contact details]\n"
+                                     "- Peer Support Program: [Contact details]\n"
+                                     "- Relationship Workshops: [Schedule link]\n\n"
+                                     "📚 Online Resources:\n"
+                                     "- Relationship Skills Modules: [Website]\n"
+                                     "- Healthy Relationships Guide: [Website]\n\n"
+                                     "🌐 External Resources:\n"
+                                     "- Relationship Helpline: [Contact details]\n"
+                                     "- LoveIsRespect.org: Information on healthy relationships")
+    
+    def _provide_support_services_resources(self, dispatcher: CollectingDispatcher):
+        dispatcher.utter_message(text="Here are campus support services resources:\n\n"
+                                     "🏥 Academic Support:\n"
+                                     "- Academic Advising: [Contact details]\n"
+                                     "- Tutoring Center: [Contact details]\n"
+                                     "- Writing Center: [Contact details]\n\n"
+                                     "🛠️ Student Services:\n"
+                                     "- One-Stop Student Services: [Contact details]\n"
+                                     "- Disability Resources: [Contact details]\n"
+                                     "- International Student Office: [Contact details]\n\n"
+                                     "💼 Career Services:\n"
+                                     "- Career Center: [Contact details]\n"
+                                     "- Internship Office: [Contact details]\n"
+                                     "- Alumni Network: [Website]")
+    
+    def _provide_social_connection_resources(self, dispatcher: CollectingDispatcher):
+        dispatcher.utter_message(text="Here are resources for making social connections:\n\n"
+                                     "🏫 Campus Organizations:\n"
+                                     "- Student Union Website: [Website]\n"
+                                     "- Club Directory: [Website]\n"
+                                     "- Student Activities Office: [Contact details]\n\n"
+                                     "🏆 Sports & Recreation:\n"
+                                     "- Intramural Sports: [Website]\n"
+                                     "- Recreation Center: [Contact details]\n"
+                                     "- Fitness Classes: [Schedule]\n\n"
+                                     "🎭 Events & Activities:\n"
+                                     "- Campus Events Calendar: [Website]\n"
+                                     "- Welcome Week Activities: [Schedule]\n"
+                                     "- Residence Hall Programs: [Information]")
+    
+    def _provide_special_conditions_resources(self, dispatcher: CollectingDispatcher, intent: str):
+        # Extract the condition from the intent name (after "special_conditions_")
+        condition = intent.replace("special_conditions_", "")
+        
+        if condition == "adhd" or condition == "learning":
+            dispatcher.utter_message(text="Here are resources for ADHD and learning disabilities:\n\n"
+                                         "🏥 Campus Resources:\n"
+                                         "- Disability Resources Center: [Contact details]\n"
+                                         "- Academic Accommodations: [Information]\n"
+                                         "- Learning Strategies Center: [Contact details]\n\n"
+                                         "📚 Learning Support:\n"
+                                         "- ADHD Coaching: [Information]\n"
+                                         "- Study Skills Workshops: [Schedule]\n"
+                                         "- Assistive Technology: [Resources]")
+        elif condition in ["anxiety", "depression", "bipolar", "ocd", "ptsd", "mental_health"]:
+            dispatcher.utter_message(text="Here are resources for mental health conditions:\n\n"
+                                         "🏥 Campus Resources:\n"
+                                         "- Counseling Center: [Contact details]\n"
+                                         "- Psychiatric Services: [Contact details]\n"
+                                         "- Mental Health Peer Support: [Information]\n\n"
+                                         "🧠 Treatment Options:\n"
+                                         "- Therapy Services: [Information]\n"
+                                         "- Medication Management: [Information]\n"
+                                         "- Support Groups: [Schedule]")
+        elif condition in ["physical_disability", "mobility", "visual_impairment", "hearing_impairment", "chronic_pain"]:
+            dispatcher.utter_message(text="Here are resources for physical disabilities:\n\n"
+                                         "🏥 Campus Resources:\n"
+                                         "- Disability Resources Center: [Contact details]\n"
+                                         "- Accessible Transportation: [Information]\n"
+                                         "- Adaptive Technology Center: [Contact details]\n\n"
+                                         "🛠️ Accommodations:\n"
+                                         "- Classroom Accommodations: [Information]\n"
+                                         "- Housing Accommodations: [Information]\n"
+                                         "- Exam Accommodations: [Procedures]")
+        else:
+            dispatcher.utter_message(text="Here are resources for your specific condition:\n\n"
+                                         "🏥 Campus Resources:\n"
+                                         "- Disability Resources Center: [Contact details]\n"
+                                         "- Student Health Center: [Contact details]\n"
+                                         "- Counseling Services: [Contact details]\n\n"
+                                         "🛠️ Support Options:\n"
+                                         "- Personalized Accommodations: [Information]\n"
+                                         "- Peer Support Groups: [Schedule]\n"
+                                         "- Academic Adjustments: [Information]")
+    
+    def _provide_identity_resources(self, dispatcher: CollectingDispatcher, intent: str):
+        # Extract the identity aspect from the intent name (after "identity_")
+        identity_aspect = intent.replace("identity_", "")
+        
+        if identity_aspect in ["sexual_orientation", "gender"]:
+            dispatcher.utter_message(text="Here are LGBTQ+ resources:\n\n"
+                                         "🏥 Campus Resources:\n"
+                                         "- LGBTQ+ Resource Center: [Contact details]\n"
+                                         "- Gender Inclusive Housing: [Information]\n"
+                                         "- Pride Alliance: [Contact details]\n\n"
+                                         "🧠 Support Services:\n"
+                                         "- Coming Out Support: [Information]\n"
+                                         "- Gender Affirming Services: [Information]\n"
+                                         "- LGBTQ+ Mentoring: [Information]")
+        elif identity_aspect in ["race_ethnicity", "culture", "international", "immigrant", "refugee"]:
+            dispatcher.utter_message(text="Here are cultural and identity resources:\n\n"
+                                         "🏥 Campus Resources:\n"
+                                         "- Multicultural Center: [Contact details]\n"
+                                         "- International Student Services: [Contact details]\n"
+                                         "- Cultural Student Organizations: [Directory]\n\n"
+                                         "🌍 Support Services:\n"
+                                         "- Cultural Adjustment Support: [Information]\n"
+                                         "- Intercultural Programs: [Schedule]\n"
+                                         "- Language Support: [Resources]")
+        else:
+            dispatcher.utter_message(text="Here are identity-related resources:\n\n"
+                                         "🏥 Campus Resources:\n"
+                                         "- Diversity & Inclusion Office: [Contact details]\n"
+                                         "- Student Support Services: [Contact details]\n"
+                                         "- Identity-Based Organizations: [Directory]\n\n"
+                                         "🧠 Support Services:\n"
+                                         "- Identity Development Programs: [Information]\n"
+                                         "- Peer Support Networks: [Information]\n"
+                                         "- Community Building Events: [Schedule]")
+    
+    def _provide_financial_resources(self, dispatcher: CollectingDispatcher, intent: str):
+        # Extract the financial aspect from the intent name (after "financial_")
+        financial_aspect = intent.replace("financial_", "")
+        
+        if financial_aspect in ["loans", "scholarships", "aid"]:
+            dispatcher.utter_message(text="Here are financial aid resources:\n\n"
+                                         "💰 Campus Resources:\n"
+                                         "- Financial Aid Office: [Contact details]\n"
+                                         "- Scholarship Office: [Contact details]\n"
+                                         "- Student Loan Services: [Contact details]\n\n"
+                                         "📝 Application Support:\n"
+                                         "- FAFSA Assistance: [Information]\n"
+                                         "- Scholarship Application Help: [Schedule]\n"
+                                         "- Loan Counseling: [Resources]")
+        elif financial_aspect in ["budgeting", "planning", "savings"]:
+            dispatcher.utter_message(text="Here are financial planning resources:\n\n"
+                                         "💰 Campus Resources:\n"
+                                         "- Financial Wellness Center: [Contact details]\n"
+                                         "- Money Management Workshops: [Schedule]\n"
+                                         "- Personal Finance Coaching: [Information]\n\n"
+                                         "📊 Budgeting Tools:\n"
+                                         "- Student Budget Templates: [Download]\n"
+                                         "- Financial Planning Tools: [Resources]\n"
+                                         "- Expense Tracking Apps: [Recommendations]")
+        elif financial_aspect in ["emergency", "crisis"]:
+            dispatcher.utter_message(text="Here are emergency financial resources:\n\n"
+                                         "💰 Campus Resources:\n"
+                                         "- Emergency Aid Fund: [Contact details]\n"
+                                         "- Crisis Support Services: [Contact details]\n"
+                                         "- Food Pantry: [Location and hours]\n\n"
+                                         "🆘 Immediate Assistance:\n"
+                                         "- Emergency Loans: [Application process]\n"
+                                         "- Hardship Funding: [Information]\n"
+                                         "- Basic Needs Support: [Resources]")
+        else:
+            dispatcher.utter_message(text="Here are general financial resources:\n\n"
+                                         "💰 Campus Resources:\n"
+                                         "- Financial Services Office: [Contact details]\n"
+                                         "- Student Money Management: [Contact details]\n"
+                                         "- Financial Counseling: [Appointment scheduling]\n\n"
+                                         "💼 Financial Education:\n"
+                                         "- Financial Literacy Workshops: [Schedule]\n"
+                                         "- Money Management Resources: [Website]\n"
+                                         "- Student Discounts Program: [Information]")
+    
+    def _provide_emergency_resources(self, dispatcher: CollectingDispatcher, intent: str):
+        # Extract the emergency type from the intent name (after "emergency_")
+        emergency_type = intent.replace("emergency_", "")
+        
+        # Critical emergency resources should be provided for all emergency types
+        dispatcher.utter_message(text="⚠️ EMERGENCY RESOURCES ⚠️\n\n"
+                                     "🚨 Immediate Help:\n"
+                                     "- Emergency Services: 911\n"
+                                     "- Campus Police: [Emergency number]\n"
+                                     "- Crisis Text Line: Text HOME to 741741\n\n"
+                                     "🏥 24/7 Support:\n"
+                                     "- National Suicide Prevention Lifeline: 988\n"
+                                     "- Campus Crisis Line: [Phone number]\n"
+                                     "- Emergency Mental Health Services: [Contact details]\n\n"
+                                     "🆘 Additional Resources:\n"
+                                     "- Student Emergency Services: [Contact details]\n"
+                                     "- After-hours Health Services: [Contact details]\n"
+                                     "- Emergency Notification System: [Website]")
+        
+        # Add more specific resources based on emergency type
+        if emergency_type == "mental_health" or emergency_type == "suicide":
+            dispatcher.utter_message(text="🧠 Mental Health Crisis Resources:\n"
+                                         "- Campus Counseling Center (24/7): [Phone number]\n"
+                                         "- Mental Health Crisis Team: [Contact details]\n"
+                                         "- Suicide Prevention Resources: [Website]\n"
+                                         "- Crisis Stabilization Services: [Information]")
+    
+    def _provide_general_resources(self, dispatcher: CollectingDispatcher):
+        dispatcher.utter_message(text="Here are general campus resources:\n\n"
+                                     "🏥 Student Services:\n"
+                                     "- Student Services Hub: [Contact details]\n"
+                                     "- Academic Advising: [Contact details]\n"
+                                     "- Counseling Center: [Contact details]\n\n"
+                                     "🛠️ Support Options:\n"
+                                     "- Dean of Students Office: [Contact details]\n"
+                                     "- Financial Aid: [Contact details]\n"
+                                     "- Student Health Center: [Contact details]\n\n"
+                                     "🌐 Online Resources:\n"
+                                     "- Student Portal: [Website]\n"
+                                     "- Campus App: [Download information]\n"
+                                     "- Student Success Resources: [Website]")
+
+class ActionEmergencyResources(Action):
+    def name(self) -> Text:
+        return "action_emergency_resources"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Critical emergency resources should be provided
+        dispatcher.utter_message(text="⚠️ EMERGENCY RESOURCES ⚠️\n\n"
+                                 "🚨 Immediate Help:\n"
+                                 "- Emergency Services: 911\n"
+                                 "- Campus Police: [Emergency number]\n"
+                                 "- Crisis Text Line: Text HOME to 741741\n\n"
+                                 "🏥 24/7 Support:\n"
+                                 "- National Suicide Prevention Lifeline: 988\n"
+                                 "- Campus Crisis Line: [Phone number]\n"
+                                 "- Emergency Mental Health Services: [Contact details]\n\n"
+                                 "🆘 Additional Resources:\n"
+                                 "- Student Emergency Services: [Contact details]\n"
+                                 "- After-hours Health Services: [Contact details]\n"
+                                 "- Emergency Notification System: [Website]")
+        
+        # Get the intent to check for specific emergency types
+        intent = tracker.latest_message.get("intent", {}).get("name", "")
+        
+        # Add more specific resources based on emergency type
+        if "suicide" in intent or "mental_health" in intent:
+            dispatcher.utter_message(text="🧠 Mental Health Crisis Resources:\n"
+                                     "- Campus Counseling Center (24/7): [Phone number]\n"
+                                     "- Mental Health Crisis Team: [Contact details]\n"
+                                     "- Suicide Prevention Resources: [Website]\n"
+                                     "- Crisis Stabilization Services: [Information]")
+        elif "physical" in intent or "medical" in intent:
+            dispatcher.utter_message(text="🏥 Medical Emergency Resources:\n"
+                                     "- Campus Health Center: [Phone number]\n"
+                                     "- Nearest Hospital: [Address and directions]\n"
+                                     "- Urgent Care Centers: [Locations]\n"
+                                     "- Transportation to Medical Facilities: [Information]")
+        elif "safety" in intent or "violence" in intent:
+            dispatcher.utter_message(text="🛡️ Safety Emergency Resources:\n"
+                                     "- Campus Safety Escort: [Phone number]\n"
+                                     "- Safe Zones on Campus: [Locations]\n"
+                                     "- Violence Prevention Office: [Contact details]\n"
+                                     "- Restraining Order Information: [Resources]")
+        elif "sexual_assault" in intent:
+            dispatcher.utter_message(text="🛡️ Sexual Assault Resources:\n"
+                                     "- Sexual Assault Response Team: [Phone number]\n"
+                                     "- Confidential Advocacy: [Contact details]\n"
+                                     "- Medical Forensic Exams: [Information]\n"
+                                     "- Reporting Options: [Resources]")
+        
+        return []

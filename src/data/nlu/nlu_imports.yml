@@ -1,0 +1,118 @@
+version: "3.1"
+
+nlu:
+  # Import mental health hierarchy
+  - nlu: mental_health.yml
+
+  # Import mental health sub-categories
+  - nlu: mental_health/mood/positive.yml
+  - nlu: mental_health/mood/negative.yml
+  - nlu: mental_health/mood/neutral.yml
+  - nlu: mental_health/academic/stress.yml
+  - nlu: mental_health/academic/performance.yml
+  - nlu: mental_health/academic/accommodations.yml
+  - nlu: mental_health/crisis/suicide.yml
+  - nlu: mental_health/crisis/self_harm.yml
+  - nlu: mental_health/crisis/panic.yml
+  - nlu: mental_health/resources/campus.yml
+  - nlu: mental_health/resources/online.yml
+  - nlu: mental_health/resources/emergency.yml
+  - nlu: mental_health/resources/general_info.yml
+  # Add relationship imports
+  - nlu: mental_health/relationships/general.yml
+  - nlu: mental_health/relationships/romantic.yml
+  - nlu: mental_health/relationships/friendship.yml
+  - nlu: mental_health/relationships/family.yml
+  - nlu: mental_health/relationships/boundaries.yml
+  - nlu: mental_health/relationships/issues.yml # Legacy merge
+  - nlu: mental_health/relationships/support.yml
+  # Add identity imports (once created)
+  - nlu: mental_health/identity/general.yml
+  - nlu: mental_health/identity/gender.yml
+  - nlu: mental_health/identity/sexual_orientation.yml
+  - nlu: mental_health/identity/racial_cultural.yml
+  - nlu: mental_health/identity/disability.yml
+  - nlu: mental_health/identity/first_generation.yml
+  - nlu: mental_health/identity/international.yml
+  - nlu: mental_health/identity/academic_status.yml
+  # Add special conditions imports (once created)
+  - nlu: mental_health/special_conditions/general.yml
+  - nlu: mental_health/special_conditions/anxiety.yml
+  - nlu: mental_health/special_conditions/depression.yml
+  - nlu: mental_health/special_conditions/adhd.yml
+
+  # Import basic hierarchy
+  - nlu: basic/greet/greet.yml
+  - nlu: basic/goodbye/goodbye.yml
+  - nlu: basic/affirm/affirm.yml
+  - nlu: basic/deny/deny.yml
+  - nlu: basic/thank/thank.yml
+  - nlu: basic/bot_challenge/bot_challenge.yml
+  - nlu: basic/ask_for_help/ask_for_help.yml
+
+  # Import social hierarchy
+  - nlu: social/general/general.yml
+  - nlu: social/clubs/clubs.yml
+  - nlu: social/sports/sports.yml
+  - nlu: social/events/events.yml
+  - nlu: social/networking/networking.yml
+  - nlu: social/mentorship/mentorship.yml
+  - nlu: social/volunteering/volunteering.yml
+  - nlu: social/workshops/workshops.yml
+  - nlu: social/peer_groups/peer_groups.yml
+  - nlu: social/cultural/cultural.yml
+
+  # Import academic hierarchy
+  - nlu: academic/stress/stress.yml
+  - nlu: academic/exam_anxiety/exam_anxiety.yml
+  - nlu: academic/coursework_falling_behind/coursework_falling_behind.yml
+  - nlu: academic/assignment_deadlines/assignment_deadlines.yml
+  - nlu: academic/submission_deadline_miss/submission_deadline_miss.yml
+  - nlu: academic/study_concentration/study_concentration.yml
+  - nlu: academic/course_failure_worry/course_failure_worry.yml
+  - nlu: academic/support_resources/support_resources.yml
+  - nlu: academic/multiple_assignments_balance/multiple_assignments_balance.yml
+  - nlu: academic/plagiarism/plagiarism.yml
+  - nlu: academic/accidental_plagiarism/accidental_plagiarism.yml
+  - nlu: academic/misconduct/misconduct.yml
+  - nlu: academic/proper_citation/proper_citation.yml
+  - nlu: academic/cheating_accusation/cheating_accusation.yml
+  - nlu: academic/group_work_policy/group_work_policy.yml
+
+  # Financial Hierarchy Imports
+  - nlu: financial/budgeting/budgeting.yml
+  - nlu: financial/campus_part_time_jobs/campus_part_time_jobs.yml
+  - nlu: financial/emergency_funds/emergency_funds.yml
+  - nlu: financial/loan_management/loan_management.yml
+  - nlu: financial/struggle/struggle.yml
+  - nlu: financial/support_options/support_options.yml
+
+  # Career Hierarchy Imports
+  - nlu: career/guidance/guidance.yml
+  - nlu: career/cv_review/cv_review.yml
+  - nlu: career/interview_prep/interview_prep.yml
+  - nlu: career/job_search/job_search.yml
+  - nlu: career/placement_prep/placement_prep.yml
+  - nlu: career/graduation_anxiety/graduation_anxiety.yml
+  - nlu: career/dropping_out/dropping_out.yml
+
+  # Services Hierarchy Imports
+  - nlu: services/admissions/admissions.yml
+  - nlu: services/registration/registration.yml
+  - nlu: services/accommodation/accommodation.yml
+  
+  # Refined Social Imports
+  - nlu: social/societies_union/societies_union.yml
+  - nlu: social/sports_teams/sports_teams.yml
+  
+  # Added Academic Imports
+  - nlu: academic/assignment_extensions/assignment_extensions.yml
+  - nlu: academic/mitigating_circumstances/mitigating_circumstances.yml
+
+  # Substance Hierarchy Imports
+  - nlu: substance/concern/concern.yml
+  - nlu: substance/friend_concern/friend_concern.yml
+  - nlu: substance/resources/resources.yml
+  - nlu: substance/socializing_sober/socializing_sober.yml
+
+  # Add imports for other categories (attendance, personality, etc.) here as they are created 

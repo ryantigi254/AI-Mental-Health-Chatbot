@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/events
+  examples: |
+    - What events are happening on campus?
+    - I want to attend university events
+    - Tell me about student events
+    - How do I find out about events?
+    - What social events are coming up?
+    - I'm interested in campus events
+    - Where can I find event information?
+    - How do I get involved in events?
+    - What types of events are there?
+    - I want to go to student events
+    - Is there a calendar for campus events?
+    - Any concerts or performances soon?
+    - Information about the upcoming career fair?
+    - What's happening this weekend on campus?
+    - Are there any free events for students? 

@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/crisis/self_harm
+  examples: |
+    - I've been cutting myself
+    - I want to hurt myself
+    - I'm having urges to harm myself
+    - I've been self-harming
+    - I can't stop hurting myself
+    - I want to feel pain
+    - I'm thinking about cutting myself
+    - I've been burning myself
+    - I hurt myself to feel better
+    - I use self-harm to cope
+    - I've been hitting myself
+    - I've started self-harming again
+    - I'm addicted to hurting myself
+    - I have scars from self-harm
+    - I hide my self-harm wounds
+    - I feel the need to punish myself
+    - I've been self-injuring
+    - I can't control my self-harm urges
+    - I want to cause myself physical pain
+    - I'm hurting myself and can't stop 

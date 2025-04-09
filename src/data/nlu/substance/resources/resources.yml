@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: substance/resources
+  examples: |
+    - Where can I find resources for addiction?
+    - What help is available for substance abuse?
+    - Information about addiction support services
+    - University resources for substance use issues?
+    - Are there support groups for addiction?
+    - Counseling for substance abuse?
+    - How to access addiction treatment?
+    - Confidential help for drug/alcohol problems?
+    - Local addiction support services
+    - Online resources for substance abuse? 

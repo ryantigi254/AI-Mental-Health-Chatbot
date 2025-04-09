@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/academic/performance
+  examples: |
+    - I'm worried about my [grades](performance_aspect)
+    - My [GPA](performance_aspect) is dropping
+    - I failed my [exam](performance_aspect)
+    - I'm not performing well in my [classes](performance_aspect)
+    - My [academic performance](performance_aspect) is suffering
+    - I can't focus on my [studies](performance_aspect)
+    - I'm falling behind in [coursework](performance_aspect)
+    - My [test scores](performance_aspect) are terrible
+    - I'm struggling to keep up with [lectures](performance_aspect)
+    - I can't understand the [course material](performance_aspect)
+    - I'm worried I might fail this [semester](performance_aspect)
+    - My [academic standing](performance_aspect) is at risk
+    - I'm on [academic probation](performance_aspect)
+    - I'm not retaining any [information](performance_aspect) from class
+    - My [concentration](performance_aspect) is terrible lately
+    - I'm having trouble with my [assignments](performance_aspect)
+    - I'm behind on all my [readings](performance_aspect)
+    - My [participation grade](performance_aspect) is suffering
+    - I'm failing [multiple courses](performance_aspect)
+    - I can't seem to improve my [academic results](performance_aspect) 

@@ -1,0 +1,244 @@
+[
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "Counsellors' Corner",
+        "type": "Document",
+        "properties": {
+          "date": "2024-11"
+        }
+      },
+      {
+        "id": "Storm Bert",
+        "type": "Event",
+        "properties": {}
+      },
+      {
+        "id": "Uk",
+        "type": "Location",
+        "properties": {}
+      },
+      {
+        "id": "Mindfulness",
+        "type": "Concept",
+        "properties": {
+          "website": "https://franticworld.com/free-meditations-from-mindfulness/"
+        }
+      },
+      {
+        "id": "Self-Compassion",
+        "type": "Concept",
+        "properties": {
+          "website": "https://self-compassion.org/"
+        }
+      },
+      {
+        "id": "Uon Counsellor",
+        "type": "Person",
+        "properties": {
+          "name": "Sarah Kinchin"
+        }
+      },
+      {
+        "id": "Uon Counsellor",
+        "type": "Person",
+        "properties": {
+          "name": "Danny Davidson"
+        }
+      },
+      {
+        "id": "Uon Counsellor",
+        "type": "Person",
+        "properties": {
+          "name": "Annalisa Fraddosio"
+        }
+      },
+      {
+        "id": "Uon Counsellor",
+        "type": "Person",
+        "properties": {
+          "name": "Mehtab Culling"
+        }
+      },
+      {
+        "id": "Uon Student Hub Support & Wellbeing",
+        "type": "Service",
+        "properties": {
+          "website": "https://mynorthamptonac.sharepoint.com/sites/student/support-and-wellbeing"
+        }
+      },
+      {
+        "id": "Spectrum Life",
+        "type": "Service",
+        "properties": {
+          "website": "https://universityofnorthampton.spectrum.life/login",
+          "phone_number": "0800 031 8227"
+        }
+      },
+      {
+        "id": "Nhs",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.nhs.uk/every-mind-matters/lifes-challenges/loneliness/"
+        }
+      },
+      {
+        "id": "Mind",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.mind.org.uk/information-support/tips-for-everyday-living/loneliness/about-loneliness/"
+        }
+      },
+      {
+        "id": "Podcast On Loneliness & Connection",
+        "type": "Document",
+        "properties": {
+          "website": "https://brenebrown.com/podcast/dr-vivek-murthy-and-brene-on-loneliness-and-connection"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Storm Bert",
+          "type": "Event",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Uk",
+          "type": "Location",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Mindfulness",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Self-Compassion",
+          "type": "Concept",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Uon Counsellor",
+          "type": "Person",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Uon Student Hub Support & Wellbeing",
+          "type": "Service",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Spectrum Life",
+          "type": "Service",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Nhs",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Mind",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Counsellors' Corner",
+          "type": "Document",
+          "properties": {}
+        },
+        "target": {
+          "id": "Podcast On Loneliness & Connection",
+          "type": "Document",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      }
+    ]
+  }
+]

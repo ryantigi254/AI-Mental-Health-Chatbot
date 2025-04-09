@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/special_conditions/general
+  examples: |
+    - I have a special condition
+    - I need help with my condition
+    - I'm dealing with a special condition
+    - I need support for my condition
+    - I want to talk about my condition
+    - I need help understanding my condition
+    - I'm struggling with my condition
+    - I need advice about my condition
+    - I want to discuss my condition
+    - I need help managing my condition
+    - I was diagnosed with a mental health condition
+    - I'm trying to understand my diagnosis
+    - I need resources for my condition
+    - I want to learn more about mental health conditions
+    - I need strategies for living with my condition
+    - I'm looking for support groups for my condition
+    - I'm not sure how to handle my mental health condition
+    - My mental health condition is affecting my studies
+    - I need help explaining my condition to others
+    - I want to know what treatments are available for my condition 

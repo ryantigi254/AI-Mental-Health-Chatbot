@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/wellbeing/seasonal
+  examples: |
+    - I have seasonal mental health issues
+    - How do I handle seasonal mental health?
+    - I experience seasonal mental health problems
+    - I need help with seasonal mental health
+    - How does season affect mental health?
+    - I want to manage seasonal mental health
+    - I get seasonal mental health changes
+    - How can I cope with seasonal mental health?
+    - I need support for seasonal mental health
+    - I want to understand seasonal mental health 

@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/mitigating_circumstances
+  examples: |
+    - What are mitigating circumstances?
+    - How do I apply for mitigating circumstances?
+    - Need information about the mitigating circumstances process
+    - My circumstances affected my studies, what can I do?
+    - Submitting a mitigating circumstances form
+    - What evidence do I need for mitigating circumstances?
+    - Who can help with mitigating circumstances applications?
+    - Deadlines for mitigating circumstances?
+    - Understanding the impact of mitigating circumstances
+    - Help with unforeseen issues affecting assignments/exams 

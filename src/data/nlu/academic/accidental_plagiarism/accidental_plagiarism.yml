@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/accidental_plagiarism
+  examples: |
+    - Worried I might have accidentally plagiarized
+    - How to avoid accidental plagiarism?
+    - Unintentionally copied something without citation
+    - Is it possible to plagiarize by mistake?
+    - How to ensure my paraphrasing isn't plagiarism?
+    - Scared I didn't cite sources correctly
+    - Tips to prevent accidental academic dishonesty?
+    - What if I forgot to add quotation marks?
+    - How common is accidental plagiarism?
+    - Need help checking my work for accidental plagiarism 

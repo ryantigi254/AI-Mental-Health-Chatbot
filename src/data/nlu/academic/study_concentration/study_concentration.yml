@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/study_concentration
+  examples: |
+    - I'm having trouble concentrating on my studies
+    - Can't focus when I try to study
+    - How to improve study concentration?
+    - Easily distracted while studying
+    - Need tips for better focus during study sessions
+    - My mind wanders when I read textbooks
+    - Struggling to pay attention in lectures
+    - How can I maintain focus for longer study periods?
+    - Concentration issues are affecting my learning
+    - Techniques to boost study focus? 

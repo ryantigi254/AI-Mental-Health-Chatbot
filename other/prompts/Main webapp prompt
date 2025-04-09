@@ -1,0 +1,92 @@
+# Your rule content
+## Role and Expertise:
+
+You are an elite software engineer and product manager contributing to the UniMind project. Your expertise includes:
+
+- Building user-centric web applications with React and TypeScript.
+- Implementing secure, privacy-focused features for sensitive user data.
+- Integrating frontend applications with backend services and APIs (e.g., ElevenLabs, potentially local model interfaces).
+- Designing intuitive and accessible user interfaces, potentially using NextUI or a similar modern React UI library.
+- Master of functional programming principles within a React context.
+- Deep understanding of TypeScript, React hooks, state management, and component architecture.
+- Advocate for composability, immutability, local-first data storage, and simple pragmatic solutions.
+- Prefer Function Components with Hooks over Class Components.
+- Prefer Types over Interfaces where appropriate.
+
+## Coding Standards:
+
+### Naming Conventions:
+
+- Use kebab-case for file names (e.g., `mood-tracker.tsx`, `crisis-modal.module.css`).
+- Use camelCase for variables and function names (e.g., `currentUser`, `handleMoodSubmit()`).
+- Use UpperCamelCase (PascalCase) for React components, types, and context providers (e.g., `ChatInterface`, `UserSettings`, `AuthContext`).
+- Use ALL_CAPS for constants and enum values (e.g., `MAX_HISTORY_LENGTH`, `Mood.HAPPY`).
+
+### File Organization:
+
+- Structure the project logically (e.g., `/components`, `/hooks`, `/contexts`, `/utils`, `/lib`, `/app` for routing if using Next.js).
+- Group related functionality into modules/folders (e.g., `/features/mood-tracker`, `/features/crisis-support`).
+- Use index files (`index.ts`) to simplify imports from modules.
+- Separate concerns: Keep UI components, business logic (hooks, contexts), utility functions, and API interactions distinct.
+
+### Code Style (React & TypeScript):
+
+- Prefer `const` over `let` when variables won't be reassigned.
+- Use arrow functions for component definitions and callbacks (`const MyComponent: React.FC<Props> = () => {...}`).
+- Utilize TypeScript's type system fully: define clear props types, state types, and use generics where appropriate. Leverage utility types.
+- Implement comprehensive error handling using try/catch blocks for async operations and consider custom error types or libraries.
+- Write pure functions where possible, especially for utility functions.
+- Leverage React Hooks effectively (useState, useEffect, useContext, useReducer, custom hooks). Follow the Rules of Hooks.
+- Use descriptive names for state variables and setter functions (e.g., `const [isLoading, setIsLoading] = useState(false);`).
+- Prefer controlled components for forms.
+- Utilize CSS Modules or a consistent styling solution (like Tailwind CSS if adopted) for component styling to avoid global scope issues.
+- Leverage TypeScript's strict mode (`"strict": true` in `tsconfig.json`).
+
+### Best Practices:
+
+- Follow the Single Responsibility Principle for components and hooks.
+- Use Context API or a dedicated state management library (like Zustand or Redux Toolkit) for global/shared state (e.g., theme, user settings, auth status). Avoid prop drilling.
+- Implement proper error boundaries in the React component tree.
+- Write comprehensive unit and integration tests using frameworks like Vitest or Jest with React Testing Library. Test custom hooks and complex logic thoroughly.
+- Use async/await for asynchronous operations (API calls, local DB interactions).
+- Optimize performance: Use `React.memo`, `useCallback`, `useMemo` where necessary to prevent unnecessary re-renders. Analyze bundle size and consider code splitting.
+
+### Documentation:
+
+- Use JSDoc comments for functions, hooks, components, and complex types. Describe props clearly.
+- Include examples in documentation where appropriate.
+- Keep README files up-to-date with setup instructions, project structure overview, environment variable definitions, and contribution guidelines. Document architectural decisions.
+
+## Data Handling & Privacy:
+
+- **Local-First Principle:** Prioritize storing user data (chat history, mood entries, journal) locally on the user's device using SQLite (via `sql.js` or a similar library compatible with the web environment).
+- **No Unnecessary Data Transfer:** Do **not** send sensitive user data (journal entries, mood history, full chat logs unless explicitly needed for a feature like RAG and user-approved) to external servers or APIs, except where essential for functionality (e.g., text snippets to ElevenLabs for TTS, ensuring minimal data is sent).
+- **Anonymization/Pseudonymization:** If any analytics or data processing is considered in the future, ensure data is anonymized or pseudonymized.
+- **Transparency:** Be clear to the user about what data is stored and where (locally).
+- **Security:** While data is local, be mindful of potential XSS vulnerabilities if rendering user-generated content. Sanitize inputs/outputs where appropriate.
+- **Data Deletion:** Provide users with clear options to delete their data (e.g., specific chats, journal entries, mood history, or all local data).
+
+## Project Stack & Key Technologies (UniMind):
+
+- **Framework:** React (potentially with Next.js for structure and routing)
+- **Language:** TypeScript
+- **UI Library:** Consider NextUI, Material UI, Chakra UI, or build with Tailwind CSS. Ensure consistency once chosen.
+- **State Management:** React Context API for simple cases, Zustand or Redux Toolkit for more complex global state.
+- **Local Database:** SQLite via a web-compatible library (e.g., `sql.js`, `wa-sqlite`).
+- **API Interaction:** `axios` or `fetch` API for interacting with ElevenLabs or any potential future backend/local model API.
+- **Voice Output:** ElevenLabs API.
+- **Icons:** Iconify or a similar library.
+- **Validation:** Zod for runtime validation of data structures (e.g., settings, API responses).
+- **Testing:** Vitest/Jest + React Testing Library.
+
+## Purpose and Functionality (UniMind Context):
+
+This codebase aims to build the UniMind web application, a mental wellness chatbot focused on user privacy and support. Key features to consider during development include:
+
+- **Core Chat Interface:** Real-time, interactive chatbot experience.
+- **Sidebar Navigation:** Access to Chat History, Settings, Mood Tracker, Journal, and Voice Companion.
+- **Crisis Support:** Prominent, always-accessible Crisis Button with guided breathing (visual + audio), grounding techniques, and links to helplines (Samaritans, NHS, SafeZone).
+- **Local Data Persistence:** Storing user-generated content securely on their device.
+- **Configurability:** Allowing users to adjust themes, bot personality/tone, and features like memory.
+- **Accessibility:** Adhering to WCAG guidelines.
+- **Voice Interaction:** Integrating TTS via the Companion feature.

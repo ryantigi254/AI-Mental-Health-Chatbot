@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: basic/ask_for_help
+  examples: |
+    - I need help
+    - can you help me?
+    - I'm looking for assistance
+    - I need support
+    - I need someone to talk to
+    - can you provide guidance?
+    - I'm looking for help
+    - I need advice
+    - can you assist me?
+    - I want some help
+    - is there someone I can talk to?
+    - I need professional help
+    - where can I get help?
+    - who can help me?
+    - what resources are available? 

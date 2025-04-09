@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/family
+  examples: |
+    - I'm having family relationship problems
+    - I need help with my family relationships
+    - I'm struggling with my family
+    - I want to improve my family relationships
+    - I need advice about my family
+    - I'm having issues with my family
+    - I want to talk about my family relationships
+    - I need help understanding my family dynamics
+    - I'm confused about my family relationships
+    - I want to discuss my family issues
+    - My parents and I are having problems
+    - I'm having conflicts with my siblings
+    - I don't know how to communicate with my family
+    - My family doesn't understand me
+    - I'm having trouble with my relationship with my parents
+    - My family is putting pressure on me
+    - I need help dealing with family expectations
+    - I feel disconnected from my family
+    - I'm struggling with family conflicts
+    - I need strategies for handling difficult family situations 

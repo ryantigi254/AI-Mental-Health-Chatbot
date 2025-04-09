@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: substance/concern
+  examples: |
+    - I'm worried about my drinking habits
+    - I think I might be drinking too much
+    - Concerned about my own substance use
+    - How much drinking is too much for a student?
+    - Need help managing my alcohol intake
+    - Worried my drug use is getting out of hand
+    - How to cut down on drinking/drugs?
+    - Am I developing an addiction?
+    - Questioning my relationship with substances
+    - Need advice about my substance use patterns 

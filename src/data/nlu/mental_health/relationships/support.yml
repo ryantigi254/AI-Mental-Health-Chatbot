@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/support
+  examples: |
+    - Need support for relationship problems
+    - Where can I get help with relationships?
+    - Relationship counseling or advice
+    - Support for dealing with relationship stress
+    - Who can I talk to about relationship issues? 

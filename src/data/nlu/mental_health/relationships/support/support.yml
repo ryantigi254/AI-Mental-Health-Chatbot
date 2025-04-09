@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/support
+  examples: |
+    - I need relationship support
+    - I'm looking for relationship help
+    - I need support in my relationship
+    - I want to find relationship support
+    - I need advice about getting support
+    - I'm having trouble finding support
+    - I want to talk about relationship support
+    - I need help finding support
+    - I'm confused about getting support
+    - I want to discuss support options
+    - I don't know where to get relationship support
+    - I need resources for relationship issues
+    - I'm looking for counseling for my relationship
+    - Where can I find relationship counseling
+    - I want to join a relationship support group
+    - Are there campus resources for relationship issues
+    - I need professional help with my relationship
+    - What support services are available for relationships
+    - I'm looking for a therapist who specializes in relationships
+    - How can I support my partner through their mental health issues 

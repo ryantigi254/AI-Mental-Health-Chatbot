@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: services/admissions
+  examples: |
+    - How do I apply to the University of Northampton?
+    - What are the admission requirements?
+    - Can you tell me about the application process?
+    - When is the application deadline?
+    - I need help with my university application
+    - What documents do I need to apply?
+    - Information about undergraduate admissions?
+    - Information about postgraduate admissions?
+    - Who can I talk to about admissions?
+    - Where is the admissions office? 

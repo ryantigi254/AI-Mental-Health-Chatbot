@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/special_conditions/adhd
+  examples: |
+    - I have ADHD and need study support
+    - Managing ADHD at university
+    - Support for students with ADHD
+    - ADHD focus and organization help
+    - University accommodations for ADHD 

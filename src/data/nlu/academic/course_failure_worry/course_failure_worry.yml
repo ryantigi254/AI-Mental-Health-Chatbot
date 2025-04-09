@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/course_failure_worry
+  examples: |
+    - I'm worried about failing a course
+    - What happens if I fail a class?
+    - Scared I might not pass my module
+    - How to avoid failing a course?
+    - Consequences of failing a university course?
+    - Can I retake a course if I fail?
+    - Feeling anxious about my grades and potential failure
+    - Need advice because I think I might fail
+    - What support is available if I'm at risk of failing?
+    - Panicking about the possibility of failing 

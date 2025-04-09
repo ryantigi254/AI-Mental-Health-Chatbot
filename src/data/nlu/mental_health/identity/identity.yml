@@ -1,0 +1,12 @@
+version: "3.1"
+
+nlu:
+  # This file imports the hierarchical identity intents
+  
+  # Import the identity category intents
+  - import: mental_health/identity/general/general.yml
+  - import: mental_health/identity/sexual_orientation/sexual_orientation.yml
+  - import: mental_health/identity/gender/gender.yml
+  - import: mental_health/identity/racial_cultural/racial_cultural.yml
+  - import: mental_health/identity/disability/disability.yml
+  - import: mental_health/identity/academic_status/academic_status.yml 

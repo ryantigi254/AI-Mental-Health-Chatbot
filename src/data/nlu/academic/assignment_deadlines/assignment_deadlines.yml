@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/assignment_deadlines
+  examples: |
+    - I'm stressed about assignment deadlines
+    - Too many deadlines approaching
+    - How to manage multiple assignment deadlines?
+    - Feeling pressured by upcoming due dates
+    - Need help prioritizing assignments
+    - Worried I won't meet my deadlines
+    - Strategies for handling tight assignment schedules?
+    - My deadlines are all clustered together
+    - How to avoid last-minute rushes for assignments?
+    - Feeling overwhelmed by deadline pressure 

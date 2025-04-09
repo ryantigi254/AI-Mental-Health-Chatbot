@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: career/interview_prep
+  examples: |
+    - Help preparing for an interview
+    - Does Student Futures offer interview practice?
+    - Tips for job interviews
+    - How to answer common interview questions?
+    - Mock interview sessions?
+    - I have an interview coming up, need help
+    - Preparing for assessment centres
+    - Interview skills workshop?
+    - What to wear for an interview?
+    - Assistance with interview techniques 

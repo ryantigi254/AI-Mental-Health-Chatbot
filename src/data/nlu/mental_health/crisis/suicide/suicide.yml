@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/crisis/suicide
+  examples: |
+    - I'm having thoughts of suicide
+    - I want to kill myself
+    - I don't want to live anymore
+    - I'm thinking about ending my life
+    - I've been considering suicide
+    - I just want to die
+    - I can't go on living
+    - Life isn't worth living anymore
+    - I have a plan to end my life
+    - I'm planning to commit suicide
+    - I want to end it all
+    - I've been thinking about how to kill myself
+    - I'm ready to end my suffering
+    - I don't see any reason to continue living
+    - I've been researching ways to die
+    - I feel like death is the only option
+    - I'm writing my suicide note
+    - Everyone would be better off if I was dead
+    - I won't be around much longer
+    - I can't take it anymore, I want to die 

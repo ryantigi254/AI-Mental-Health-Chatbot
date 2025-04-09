@@ -1,0 +1,320 @@
+[
+  {
+    "metadata": {},
+    "nodes": [
+      {
+        "id": "University Of Northampton",
+        "type": "Organization",
+        "properties": {
+          "address": "University Drive, Northampton, NN1 5PH"
+        }
+      },
+      {
+        "id": "Beat Eating Disorders",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.beateatingdisorders.org.uk/"
+        }
+      },
+      {
+        "id": "Space2Talk",
+        "type": "Service",
+        "properties": {
+          "email": "info@space-wellbeing.co.uk"
+        }
+      },
+      {
+        "id": "Action For Happiness",
+        "type": "Organization",
+        "properties": {
+          "website": "https://actionforhappiness.org/"
+        }
+      },
+      {
+        "id": "Nathan Ghann",
+        "type": "Person",
+        "properties": {}
+      },
+      {
+        "id": "Spectrum Life",
+        "type": "Service",
+        "properties": {
+          "phone_number": "0800 031 8227"
+        }
+      },
+      {
+        "id": "Lowdown",
+        "type": "Organization",
+        "properties": {
+          "website": "https://thelowdown.info/"
+        }
+      },
+      {
+        "id": "Shout",
+        "type": "Service",
+        "properties": {
+          "text_number": "85258"
+        }
+      },
+      {
+        "id": "Papyrus",
+        "type": "Organization",
+        "properties": {
+          "helpline": "0800 068 41 41"
+        }
+      },
+      {
+        "id": "Mind Northamptonshire",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.northamptonshiremind.org.uk/"
+        }
+      },
+      {
+        "id": "Student Minds",
+        "type": "Organization",
+        "properties": {
+          "website": "https://www.studentminds.org.uk/"
+        }
+      },
+      {
+        "id": "University Mental Health Day",
+        "type": "Event",
+        "properties": {
+          "date": "2025-03-13"
+        }
+      },
+      {
+        "id": "Eating Disorder Awareness Week",
+        "type": "Event",
+        "properties": {
+          "date": "2025-02-24 to 2025-03-02"
+        }
+      },
+      {
+        "id": "Mental Health Awareness Week",
+        "type": "Event",
+        "properties": {
+          "date": "2024-05-13 to 2024-05-19"
+        }
+      },
+      {
+        "id": "Neurodiversity Celebration Week",
+        "type": "Event",
+        "properties": {
+          "date": "2024-03-18 to 2024-03-24"
+        }
+      },
+      {
+        "id": "R;Pple",
+        "type": "Service",
+        "properties": {
+          "website": "https://www.ripplesuicideprevention.com/"
+        }
+      },
+      {
+        "id": "Amelie",
+        "type": "Person",
+        "properties": {}
+      }
+    ],
+    "relationships": [
+      {
+        "source": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Mental Health Day",
+          "type": "Event",
+          "properties": {}
+        },
+        "type": "PART_OF",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Beat Eating Disorders",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Eating Disorder Awareness Week",
+          "type": "Event",
+          "properties": {}
+        },
+        "type": "PART_OF",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Space2Talk",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Action For Happiness",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Nathan Ghann",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Achieve Your Best Webinars",
+          "type": "Event",
+          "properties": {}
+        },
+        "type": "AUTHOR_OF",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Spectrum Life",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Lowdown",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Shout",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Papyrus",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Mind Northamptonshire",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Student Minds",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "target": {
+          "id": "Neurodiversity Celebration Week",
+          "type": "Event",
+          "properties": {}
+        },
+        "type": "PART_OF",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "R;Pple",
+          "type": "Service",
+          "properties": {}
+        },
+        "target": {
+          "id": "University Of Northampton",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "PROVIDES",
+        "properties": {}
+      },
+      {
+        "source": {
+          "id": "Amelie",
+          "type": "Person",
+          "properties": {}
+        },
+        "target": {
+          "id": "Beat Eating Disorders",
+          "type": "Organization",
+          "properties": {}
+        },
+        "type": "MENTIONS",
+        "properties": {}
+      }
+    ]
+  }
+]

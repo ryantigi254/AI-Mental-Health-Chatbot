@@ -1,0 +1,2651 @@
+version: "3.1"
+
+intents:
+  # Basic intents
+  - basic/greet
+  - basic/goodbye
+  - basic/affirm
+  - basic/deny
+  - basic/thank
+  - basic/bot_challenge
+  - basic/ask_for_help
+  - ask_coping_strategies
+  
+  # Personality intents
+  - select_personality
+  - empathetic
+  - direct
+  - motivational
+  - analytical
+  - balanced
+  - personality_preference
+  - change_personality
+  
+  # Mental Health Hierarchical Intents
+  # Mood category
+  - mental_health/mood/positive
+  - mental_health/mood/negative
+  - mental_health/mood/neutral
+  
+  # Academic category
+  - mental_health/academic/stress
+  - mental_health/academic/performance
+  - mental_health/academic/accommodations
+  - mental_health/academic/group_work_policy
+  - mental_health/academic/assignment_extensions
+  - mental_health/academic/mitigating_circumstances
+  
+  # Crisis category
+  - mental_health/crisis/suicide
+  - mental_health/crisis/self_harm
+  - mental_health/crisis/panic
+  
+  # Resources category
+  - mental_health/resources/campus
+  - mental_health/resources/online
+  - mental_health/resources/emergency
+  
+  # Relationships category (New Hierarchical)
+  - mental_health/relationships/general
+  - mental_health/relationships/romantic
+  - mental_health/relationships/friendship
+  - mental_health/relationships/family
+  # - mental_health/relationships/roommate # Assuming intent exists or will be created
+  - mental_health/relationships/boundaries
+  # - mental_health/relationships/conflict # Assuming intent exists or will be created
+  # - mental_health/relationships/breakup # Assuming intent exists or will be created
+  - mental_health/relationships/issues # Merged legacy intent - keep or refactor?
+  - mental_health/relationships/support
+  # - mental_health/relationships/communication # Assuming intent exists or will be created
+  # - mental_health/relationships/trust # Assuming intent exists or will be created
+  # - mental_health/relationships/jealousy # Assuming intent exists or will be created
+  # - mental_health/relationships/commitment # Assuming intent exists or will be created
+  # - mental_health/relationships/culture # Assuming intent exists or will be created
+  # - mental_health/relationships/online # Assuming intent exists or will be created
+  # - mental_health/relationships/long_distance # Assuming intent exists or will be created
+  # - mental_health/relationships/work_study # Assuming intent exists or will be created
+  # - mental_health/relationships/balance # Assuming intent exists or will be created
+
+  # Identity category (New Hierarchical)
+  - mental_health/identity/general
+  - mental_health/identity/gender
+  - mental_health/identity/sexual_orientation
+  - mental_health/identity/racial_cultural # Combined from racial_cultural.yml
+  # - mental_health/identity/religion # Assuming intent exists or will be created
+  - mental_health/identity/disability
+  # - mental_health/identity/age # Assuming intent exists or will be created
+  # - mental_health/identity/socioeconomic # Assuming intent exists or will be created
+  - mental_health/identity/first_generation
+  - mental_health/identity/international
+  # - mental_health/identity/transfer # Assuming intent exists or will be created
+  # - mental_health/identity/non_traditional # Assuming intent exists or will be created
+  # - mental_health/identity/veteran # Assuming intent exists or will be created
+  # - mental_health/identity/parent # Assuming intent exists or will be created
+  # - mental_health/identity/caregiver # Assuming intent exists or will be created
+  # - mental_health/identity/immigrant # Assuming intent exists or will be created
+  # - mental_health/identity/refugee # Assuming intent exists or will be created
+  # - mental_health/identity/intersectional # Assuming intent exists or will be created
+  # - mental_health/identity/expression # Assuming intent exists or will be created
+  - mental_health/identity/academic_status
+  
+  # Social category (New Hierarchical)
+  - social/general
+  - social/clubs
+  - social/sports
+  - social/events
+  - social/networking
+  - social/mentorship
+  - social/volunteering
+  - social/workshops
+  - social/peer_groups
+  - social/cultural
+  - social/cultural/inclusion_support
+  - social/societies_union  # Added
+  - social/sports_teams     # Refined from social/sports
+  
+  # Substance category (New Hierarchical)
+  - substance/concern
+  - substance/friend_concern
+  - substance/resources
+  - substance/socializing_sober
+  
+  # Academic category (New Hierarchical)
+  - academic/stress
+  - academic/exam_anxiety
+  - academic/coursework_falling_behind
+  - academic/assignment_deadlines
+  - academic/submission_deadline_miss
+  - academic/study_concentration
+  - academic/course_failure_worry
+  - academic/support_resources
+  - academic/multiple_assignments_balance
+  - academic/plagiarism
+  - academic/accidental_plagiarism
+  - academic/misconduct
+  - academic/proper_citation
+  - academic/cheating_accusation
+  - academic/group_work_policy
+  - academic/assignment_extensions
+  - academic/mitigating_circumstances
+  
+  # Special Conditions category (New Hierarchical)
+  - mental_health/special_conditions/general
+  - mental_health/special_conditions/anxiety
+  - mental_health/special_conditions/depression
+  - mental_health/special_conditions/adhd
+  # Add other special conditions here as needed (e.g., ocd, eating, bipolar, ptsd, autism, dyslexia, etc.)
+  
+  # Financial category (New Hierarchical) - VERIFY/ADD ALL
+  - financial/budgeting
+  - financial/campus_part_time_jobs
+  - financial/emergency_funds
+  - financial/loan_management
+  - financial/struggle
+  - financial/support_options
+  
+  # Career category (New Hierarchical) - VERIFY/ADD ALL
+  - career/guidance
+  - career/cv_review
+  - career/interview_prep
+  - career/job_search
+  - career/placement_prep
+  - career/graduation_anxiety
+  - career/dropping_out
+  
+  # Services category (New Hierarchical) - VERIFY/ADD ALL
+  - services/admissions
+  - services/registration
+  - services/accommodation
+  
+  # Emergency category (New Hierarchical)
+  - mental_health/emergency/mental_health
+  - mental_health/emergency/physical_health
+  - mental_health/emergency/safety
+  # Add other emergency subcategories here as needed (e.g., sexual_assault, substance_abuse, suicide, etc.)
+
+  # Reported Emergency category (Renamed from 'Emergency')
+  - mental_health/report_emergency/mental_health
+  - mental_health/report_emergency/physical_health
+  - mental_health/report_emergency/safety
+  # Add other reported emergency subcategories here as needed
+  
+  # Mood Intents (Legacy)
+  - mood_positive
+  - mood_negative
+  - mood_neutral
+  - express_emotion
+  
+  # Academic-related
+  - academic_stress
+  - exam_anxiety
+  - coursework_falling_behind
+  - assignment_deadlines
+  - submission_deadline_miss
+  - study_concentration
+  - course_failure_worry
+  - academic_support_resources
+  - multiple_assignments_balance
+  - plagiarism
+  - accidental_plagiarism
+  - academic_misconduct
+  - proper_citation
+  - cheating_accusation
+  - group_work_policy
+  
+  # Financial-related
+  - student_loan_management
+  - emergency_funds
+  - student_budgeting
+  - financial_support_options
+  - financial_struggle
+  - campus_part_time_jobs
+  - hardship_funds_application
+  - student_debt
+  
+  # Social-related
+  - making_friends_difficulty
+  - roommate_conflicts
+  - loneliness
+  - support_network_building
+  - homesickness
+  - socializing_balance
+  
+  # Relationship Intents (Consolidated)
+  - relationship_general
+  - relationship_romantic
+  - relationship_friendship
+  - relationship_family
+  - relationship_roommate
+  - relationship_boundaries
+  - relationship_conflict
+  - relationship_breakup
+  - relationship_issues    # Merged from relationship_identity and relationship_abuse
+  - relationship_support
+  - relationship_communication
+  - relationship_trust
+  - relationship_jealousy
+  - relationship_commitment
+  - relationship_culture
+  - relationship_online
+  - relationship_long_distance
+  - relationship_work_study
+  - relationship_balance
+  
+  # Mental Health-related
+  - depression_suspicion
+  - anxiety_normality
+  - stress_sleep_problems
+  - campus_mental_health_services
+  - tutor_mental_health_discussion
+  - panic_attacks
+  - self_esteem_improvement
+  - student_self_care
+  
+  # Special Conditions
+  - adhd_management
+  - anxiety_accommodations
+  - ocd_coping
+  - eating_disorder_help
+  - attendance_issues
+  
+  # University Services
+  - mental_health_registration
+  - assignment_extensions
+  - mitigating_circumstances
+  - immediate_mental_health_support
+  - counseling_services
+  - peer_support_groups
+  
+  # Identity and Diversity
+  - identity_questioning
+  - campus_discrimination
+  - international_student_support
+  - confidence_building
+  - impostor_syndrome
+  
+  # Substance Use
+  - drinking_habits_concern
+  - friend_substance_use_help
+  - addiction_resources
+  - socializing_without_drinking
+  
+  # Career and Future
+  - graduation_anxiety
+  - future_decision_pressure
+  - dropping_out_consideration
+  - academic_transition
+  - placement_preparation
+  
+  # Emergency Situations
+  - suicidal_thoughts
+  - self_harm_concern
+  - grief_coping
+  - sexual_harassment
+  - healthy_routine_maintenance
+  - burnout_management
+  - perfectionism_coping
+  - student_parent_balance
+  - test_anxiety_management
+  - affordable_therapy
+  - mindfulness_techniques
+  - homesickness_adjustment
+  - work_life_balance
+  - mental_health_crisis_help
+  - student_comparison
+  - culture_shock
+  - seasonal_affective_disorder
+  
+  # Attendance-related
+  - morning_lecture_attendance
+  - lecture_absence_impact
+  - large_lecture_anxiety
+  - missed_classes_catchup
+  - absence_explanation
+  - attendance_accommodations
+  - depression_class_attendance
+  - absence_reporting
+  - panic_attack_seminar
+  - medical_appointments_balance
+  - chronic_conditions_policy
+  
+  # Mental Health Intents (Consolidated)
+  - mental_health_concern
+  - sleep_issues
+  - panic_attack
+  - self_care
+  - mental_health_services
+  - mental_health_crisis
+  - mental_health_accommodations
+  - mental_health_attendance
+  - mental_health_medication
+  - mental_health_diagnosis
+  - mental_health_professional_help
+  - mental_health_peer_support
+  - mental_health_emergency
+  - mental_health_wellness
+  - mental_health_stigma
+  - mental_health_identity
+  - mental_health_culture
+  - mental_health_seasonal
+  - mental_health_work_life
+  - mental_health_comparison
+  
+  # Support Service Intents (Consolidated)
+  - support_services_general
+  - support_services_academic
+  - support_services_mental_health
+  - support_services_financial
+  - support_services_disability
+  - support_services_international
+  - support_services_career
+  - support_services_housing
+  - support_services_wellness
+  - support_services_emergency
+  - support_services_peer
+  - support_services_professional
+  - support_services_community
+  - support_services_identity
+  - support_services_culture
+  - support_services_technology
+  - support_services_library
+  - support_services_student_life
+  - support_services_social_connection
+  - support_services_orientation
+  
+  # Social Connection Intents
+  - social_connection_general
+  - social_connection_clubs
+  - social_connection_sports
+  - social_connection_events
+  - social_connection_networking
+  - social_connection_mentorship
+  - social_connection_volunteering
+  - social_connection_workshops
+  - social_connection_peer_groups
+  - social_connection_cultural
+  
+  # Special Conditions Intents (Consolidated)
+  - special_conditions_general
+  - special_conditions_adhd
+  - special_conditions_anxiety
+  - special_conditions_ocd
+  - special_conditions_eating
+  - special_conditions_depression
+  - special_conditions_bipolar
+  - special_conditions_ptsd
+  - special_conditions_autism
+  - special_conditions_dyslexia
+  - special_conditions_chronic_pain
+  - special_conditions_physical_disability
+  - special_conditions_visual_impairment
+  - special_conditions_hearing_impairment
+  - special_conditions_mobility
+  - special_conditions_medical
+  - special_conditions_learning
+  - special_conditions_sensory
+  - special_conditions_developmental
+  - special_conditions_mental_health
+  
+  # Identity and Diversity Intents (Consolidated)
+  - identity_general
+  - identity_sexual_orientation
+  - identity_gender
+  - identity_race_ethnicity
+  - identity_culture
+  - identity_religion
+  - identity_disability
+  - identity_age
+  - identity_socioeconomic
+  - identity_first_generation
+  - identity_international
+  - identity_transfer
+  - identity_non_traditional
+  - identity_veteran
+  - identity_parent
+  - identity_caregiver
+  - identity_immigrant
+  - identity_refugee
+  - identity_intersectional
+  - identity_expression
+  
+  # Financial Intents (Consolidated)
+  - financial_general
+  - financial_budgeting
+  - financial_loans
+  - financial_emergency
+  - financial_employment
+  - financial_scholarships
+  - financial_housing
+  - financial_utilities
+  - financial_healthcare
+  - financial_transportation
+  - financial_books_supplies
+  - financial_technology
+  - financial_food
+  - financial_entertainment
+  - financial_insurance
+  - financial_debt
+  - financial_savings
+  - financial_investment
+  - financial_tax
+  - financial_planning
+  
+  # Emergency Situation Intents (Consolidated)
+  - emergency_general
+  - emergency_mental_health
+  - emergency_physical_health
+  - emergency_safety
+  - emergency_sexual_assault
+  - emergency_substance_abuse
+  - emergency_suicide
+  - emergency_violence
+  - emergency_natural_disaster
+  - emergency_medical
+  - emergency_accident
+  - emergency_crime
+  - emergency_fire
+  - emergency_weather
+  - emergency_evacuation
+  - emergency_communication
+  - emergency_contact
+  - emergency_location
+  - emergency_procedure
+  - emergency_follow_up
+
+entities:
+  - mood
+  - emotion_type
+  - severity
+  - duration
+  - trigger
+  - symptom
+  - academic_subject
+  - time_frame
+  - financial_amount
+  - personality_type
+  - university_resource
+  - lecture_type
+  - health_condition
+  - support_type
+  - assignment_type
+  - deadline_type
+  - accommodation_type
+  - support_service
+  - campus_location
+  - mental_health_condition
+  - academic_level
+  - study_habit
+  - social_situation
+  - relationship_type
+  - support_preference
+  - crisis_type
+  - attendance_reason
+  - accommodation_need
+  - mental_health_severity
+  - mental_health_duration
+  - mental_health_symptom
+  - mental_health_service
+  - mental_health_professional
+  - mental_health_accommodation
+  - mental_health_medication
+  - mental_health_diagnosis
+  - mental_health_culture
+  - mental_health_identity
+  - mental_health_season
+  - mental_health_workload
+  - mental_health_comparison
+  - relationship_status
+  - relationship_issue
+  - relationship_emotion
+  - relationship_trigger
+  - relationship_boundary
+  - relationship_conflict_type
+  - relationship_abuse_type
+  - relationship_support_type
+  - relationship_communication_style
+  - relationship_trust_issue
+  - relationship_jealousy_trigger
+  - relationship_commitment_level
+  - relationship_identity_type
+  - relationship_culture_type
+  - relationship_online_platform
+  - relationship_distance
+  - relationship_workload
+  - relationship_balance_issue
+  - support_service_type
+  - support_service_location
+  - support_service_availability
+  - support_service_eligibility
+  - support_service_contact
+  - social_connection_type
+  - social_connection_interest
+  - social_connection_schedule
+  - social_connection_location
+  - social_connection_commitment
+  - special_condition_type
+  - special_condition_severity
+  - special_condition_duration
+  - special_condition_impact
+  - special_condition_accommodation
+  - special_condition_treatment
+  - special_condition_support
+  - special_condition_diagnosis
+  - special_condition_medication
+  - special_condition_management
+  - identity_type
+  - identity_challenge
+  - identity_support
+  - identity_discrimination
+  - identity_accommodation
+  - identity_community
+  - identity_resource
+  - identity_advocacy
+  - identity_expression_type
+  - identity_intersection_type
+  - financial_type
+  - financial_duration
+  - financial_priority
+  - financial_source
+  - financial_status
+  - financial_goal
+  - financial_obstacle
+  - financial_plan
+  - emergency_type
+  - emergency_severity
+  - emergency_status
+  - emergency_priority
+  - emergency_response
+  - emergency_follow_up
+  - emergency_procedure
+  - emergency_resource
+
+slots:
+  mood:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mood
+
+  emotion_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emotion_type
+
+  severity:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: severity
+
+  duration:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: duration
+
+  trigger:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: trigger
+
+  symptom:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: symptom
+
+  academic_subject:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: academic_subject
+
+  time_frame:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: time_frame
+
+  financial_amount:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_amount
+
+  personality_type:
+    type: categorical
+    values:
+      - empathetic
+      - direct
+      - motivational
+      - analytical
+      - balanced
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        intent: select_personality
+      - type: from_text
+        intent: change_personality
+      - type: from_text
+        intent: personality_preference
+
+  mental_health_condition:
+    type: categorical
+    values:
+      - anxiety
+      - depression
+      - stress
+      - ptsd
+      - ocd
+      - eating_disorder
+      - adhd
+      - bipolar
+      - schizophrenia
+      - other
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mental_health_condition
+
+  mental_health_severity:
+    type: categorical
+    values:
+      - mild
+      - moderate
+      - severe
+      - crisis
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mental_health_severity
+
+  mental_health_duration:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mental_health_duration
+
+  mental_health_trigger:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mental_health_trigger
+
+  mental_health_symptom:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mental_health_symptom
+
+  mental_health_service:
+    type: categorical
+    values:
+      - counseling
+      - therapy
+      - medication
+      - peer_support
+      - emergency
+      - accommodation
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mental_health_service
+
+  relationship_type:
+    type: categorical
+    values:
+      - romantic
+      - friendship
+      - family
+      - roommate
+      - professional
+      - online
+      - long_distance
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: relationship_type
+
+  relationship_status:
+    type: categorical
+    values:
+      - single
+      - dating
+      - committed
+      - married
+      - separated
+      - divorced
+      - complicated
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: relationship_status
+
+  relationship_issue:
+    type: categorical
+    values:
+      - communication
+      - trust
+      - boundaries
+      - conflict
+      - abuse
+      - commitment
+      - jealousy
+      - distance
+      - culture
+      - identity
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: relationship_issue
+
+  relationship_emotion:
+    type: categorical
+    values:
+      - happy
+      - sad
+      - angry
+      - anxious
+      - jealous
+      - hurt
+      - confused
+      - overwhelmed
+      - lonely
+      - betrayed
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: relationship_emotion
+
+  support_service_type:
+    type: categorical
+    values:
+      - academic
+      - mental_health
+      - financial
+      - disability
+      - international
+      - career
+      - housing
+      - wellness
+      - emergency
+      - peer
+      - professional
+      - community
+      - identity
+      - culture
+      - technology
+      - library
+      - student_life
+      - social_connection
+      - orientation
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: support_service_type
+
+  social_connection_type:
+    type: categorical
+    values:
+      - clubs
+      - sports
+      - events
+      - networking
+      - mentorship
+      - volunteering
+      - workshops
+      - peer_groups
+      - cultural
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: social_connection_type
+
+  special_condition_type:
+    type: categorical
+    values:
+      - adhd
+      - anxiety
+      - ocd
+      - eating_disorder
+      - depression
+      - bipolar
+      - ptsd
+      - autism
+      - dyslexia
+      - chronic_pain
+      - physical_disability
+      - visual_impairment
+      - hearing_impairment
+      - mobility
+      - medical
+      - learning
+      - sensory
+      - developmental
+      - mental_health
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: special_condition_type
+
+  special_condition_severity:
+    type: categorical
+    values:
+      - mild
+      - moderate
+      - severe
+      - fluctuating
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: special_condition_severity
+
+  special_condition_impact:
+    type: categorical
+    values:
+      - academic
+      - social
+      - daily_life
+      - emotional
+      - physical
+      - multiple
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: special_condition_impact
+
+  special_condition_accommodation:
+    type: categorical
+    values:
+      - academic
+      - physical
+      - technological
+      - scheduling
+      - environmental
+      - support_services
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: special_condition_accommodation
+
+  identity_type:
+    type: categorical
+    values:
+      - sexual_orientation
+      - gender
+      - race_ethnicity
+      - culture
+      - religion
+      - disability
+      - age
+      - socioeconomic
+      - first_generation
+      - international
+      - transfer
+      - non_traditional
+      - veteran
+      - parent
+      - caregiver
+      - immigrant
+      - refugee
+      - intersectional
+      - expression
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_type
+
+  identity_challenge:
+    type: categorical
+    values:
+      - discrimination
+      - bias
+      - microaggressions
+      - exclusion
+      - stereotyping
+      - harassment
+      - isolation
+      - marginalization
+      - invisibility
+      - tokenism
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_challenge
+
+  identity_support:
+    type: categorical
+    values:
+      - counseling
+      - peer_groups
+      - advocacy
+      - resources
+      - accommodations
+      - community
+      - mentorship
+      - workshops
+      - events
+      - networks
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_support
+
+  identity_discrimination:
+    type: categorical
+    values:
+      - direct
+      - indirect
+      - systemic
+      - institutional
+      - interpersonal
+      - internalized
+      - subtle
+      - overt
+      - harassment
+      - exclusion
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_discrimination
+
+  identity_accommodation:
+    type: categorical
+    values:
+      - academic
+      - housing
+      - religious
+      - cultural
+      - physical
+      - emotional
+      - social
+      - financial
+      - scheduling
+      - accessibility
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_accommodation
+
+  identity_community:
+    type: categorical
+    values:
+      - cultural
+      - religious
+      - ethnic
+      - LGBTQ+
+      - disability
+      - international
+      - first_generation
+      - veteran
+      - parent
+      - intersectional
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_community
+
+  identity_resource:
+    type: categorical
+    values:
+      - counseling
+      - support_groups
+      - cultural_centers
+      - religious_services
+      - advocacy_offices
+      - community_organizations
+      - peer_mentoring
+      - workshops
+      - events
+      - networks
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_resource
+
+  identity_advocacy:
+    type: categorical
+    values:
+      - self_advocacy
+      - peer_advocacy
+      - institutional
+      - community
+      - policy
+      - awareness
+      - education
+      - support
+      - representation
+      - empowerment
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_advocacy
+
+  identity_expression_type:
+    type: categorical
+    values:
+      - gender
+      - cultural
+      - religious
+      - personal
+      - artistic
+      - social
+      - political
+      - academic
+      - professional
+      - community
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_expression_type
+
+  identity_intersection_type:
+    type: categorical
+    values:
+      - race_gender
+      - sexuality_gender
+      - disability_race
+      - religion_culture
+      - class_race
+      - age_disability
+      - immigration_status_race
+      - gender_sexuality
+      - religion_ethnicity
+      - multiple_identities
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: identity_intersection_type
+
+  financial_type:
+    type: categorical
+    values:
+      - general
+      - budgeting
+      - loans
+      - emergency
+      - employment
+      - scholarships
+      - housing
+      - utilities
+      - healthcare
+      - transportation
+      - books_supplies
+      - technology
+      - food
+      - entertainment
+      - insurance
+      - debt
+      - savings
+      - investment
+      - tax
+      - planning
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_type
+
+  financial_duration:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_duration
+
+  financial_priority:
+    type: categorical
+    values:
+      - high
+      - medium
+      - low
+      - urgent
+      - flexible
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_priority
+
+  financial_source:
+    type: categorical
+    values:
+      - personal
+      - family
+      - loans
+      - employment
+      - scholarships
+      - savings
+      - emergency_fund
+      - grants
+      - other
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_source
+
+  financial_status:
+    type: categorical
+    values:
+      - stable
+      - struggling
+      - crisis
+      - improving
+      - uncertain
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_status
+
+  financial_goal:
+    type: categorical
+    values:
+      - short_term
+      - long_term
+      - emergency
+      - savings
+      - debt_reduction
+      - investment
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_goal
+
+  financial_obstacle:
+    type: categorical
+    values:
+      - income
+      - expenses
+      - debt
+      - emergencies
+      - planning
+      - knowledge
+      - access
+      - time
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_obstacle
+
+  financial_plan:
+    type: categorical
+    values:
+      - budget
+      - savings
+      - debt_repayment
+      - investment
+      - emergency
+      - retirement
+      - education
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: financial_plan
+
+  emergency_type:
+    type: categorical
+    values:
+      - mental_health
+      - physical_health
+      - safety
+      - sexual_assault
+      - substance_abuse
+      - suicide
+      - violence
+      - natural_disaster
+      - medical
+      - accident
+      - crime
+      - fire
+      - weather
+      - evacuation
+      - communication
+      - other
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_type
+
+  emergency_severity:
+    type: categorical
+    values:
+      - critical
+      - high
+      - moderate
+      - low
+      - unknown
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_severity
+
+  emergency_status:
+    type: categorical
+    values:
+      - active
+      - resolved
+      - ongoing
+      - pending
+      - unknown
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_status
+
+  emergency_priority:
+    type: categorical
+    values:
+      - immediate
+      - urgent
+      - high
+      - medium
+      - low
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_priority
+
+  emergency_response:
+    type: categorical
+    values:
+      - police
+      - ambulance
+      - fire
+      - mental_health
+      - campus_security
+      - emergency_services
+      - counseling
+      - medical
+      - evacuation
+      - shelter
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_response
+
+  emergency_follow_up:
+    type: categorical
+    values:
+      - counseling
+      - medical_follow_up
+      - other
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_follow_up
+
+  emergency_procedure:
+    type: categorical
+    values:
+      - evacuation
+      - shelter
+      - other
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_procedure
+
+  emergency_resource:
+    type: categorical
+    values:
+      - counseling
+      - medical_follow_up
+      - other
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: emergency_resource
+
+  # Substance category (New Hierarchical)
+  - substance/concern
+  - substance/friend_concern
+  - substance/resources
+  - substance/socializing_sober
+
+responses:
+  utter_greet:
+    - text: "Hi there! I'm here to help with any mental health concerns. How can I assist you today?"
+  utter_goodbye:
+    - text: "Take care! Remember, you're not alone in this journey."
+  utter_iamabot:
+    - text: "I'm an AI assistant created to provide support and information about mental health resources."
+  utter_thanks:
+    - text: "You're welcome! I'm here to help."
+  utter_professional_help:
+    - text: "I recommend speaking with a professional who can provide proper guidance and support for your situation."
+  utter_emergency_resources:
+    - text: "Here are some emergency resources: National Suicide Prevention Lifeline: 988, Crisis Text Line: Text HOME to 741741, or call your local emergency services at 911."
+  utter_happy:
+    - text: "I'm glad you're feeling positive. That's wonderful to hear!"
+  utter_cheer_up:
+    - text: "I'm sorry to hear that you're feeling down. Remember that you're not alone, and there are resources to help."
+  utter_relationship_resources:
+    - text: "Here are some relationship resources that might help you navigate this situation better."
+  utter_support_services_resources:
+    - text: "Here are some support services that can assist you with your needs."
+  utter_social_connection_resources:
+    - text: "Here are some ways to connect with others and build your social network."
+  utter_financial_resources:
+    - text: "Here are some financial resources and assistance programs that might be helpful to you."
+  utter_identity_resources:
+    - text: "Here are some resources that support identity-related concerns and provide community connections."
+  utter_ask_personality:
+    - text: "I can adapt my responses to your preferred style. Would you like me to be empathetic, direct, motivational, analytical, or balanced?"
+  utter_select_empathetic:
+    - text: "I'll respond with warmth and understanding. How can I help you today?"
+  utter_select_direct:
+    - text: "I'll give you straightforward, practical advice. What's on your mind?"
+  utter_select_motivational:
+    - text: "I'll help you find the motivation to overcome challenges. What's holding you back?"
+  utter_select_analytical:
+    - text: "I'll provide structured, logical responses. What would you like to explore?"
+  utter_select_balanced:
+    - text: "I'll balance empathy with practical advice. What's troubling you?"
+  utter_mood_positive:
+    - text: "I'm glad you're feeling good! Would you like to discuss what's contributing to your positive mood?"
+    - text: "That's wonderful to hear! What's helping you maintain this positive state?"
+  utter_mood_negative:
+    - text: "I'm here to listen. Would you like to talk about what's making you feel this way?"
+    - text: "I understand this is difficult. What's been going on?"
+  utter_mood_neutral:
+    - text: "I understand. Would you like to explore what might help improve your mood?"
+    - text: "I'm here if you want to discuss anything that's on your mind."
+  utter_express_emotion:
+    - text: "I hear you. It sounds like you're feeling {emotion_type} about {trigger}. Would you like to talk more about this?"
+    - text: "I understand you're feeling {emotion_type}. How long have you been feeling this way?"
+    - text: "That sounds really challenging. How severe would you say these feelings are?"
+  utter_academic_stress:
+    - text: "Academic stress is common. The university offers workshops on stress management and time organization. Would info on those be helpful?"
+  utter_exam_anxiety:
+    - text: "Exam anxiety can be tough. There are resources like counseling services and study skills workshops that can help manage it. Interested?"
+  utter_coursework_falling_behind:
+    - text: "Feeling behind is stressful. Talking to your tutor or academic advisor could be a good first step. They can help you create a plan to catch up."
+  utter_assignment_deadlines:
+    - text: "Juggling deadlines is tricky. Have you tried using a planner or calendar? Student services might also have workshops on time management."
+  utter_submission_deadline_miss:
+    - text: "Missing a deadline can happen. It's important to contact your module convenor or department office as soon as possible to explain the situation and see what options are available (like applying for mitigating circumstances)."
+  utter_study_concentration:
+    - text: "Difficulty concentrating is a common challenge. Have you tried techniques like the Pomodoro method or finding a quiet study space? The library or student skills centre might offer workshops too."
+  utter_course_failure_worry:
+    - text: "Worrying about failing is understandable. Your personal tutor or academic advisor can discuss your progress and support options with you. Reaching out early is key."
+  utter_academic_support_resources:
+    - text: "The university offers various academic support resources, like tutoring, writing centers, study skills workshops, and academic advisors. What kind of support are you looking for?"
+  utter_multiple_assignments_balance:
+    - text: "Balancing multiple assignments requires good planning. Breaking tasks down, setting mini-deadlines, and prioritizing can help. Would you like some tips on how to do this?"
+  utter_plagiarism:
+    - text: "Understanding plagiarism is crucial. The university library usually offers resources and workshops on academic integrity and proper citation. It's important to cite all your sources correctly."
+  utter_mental_health_registration:
+    - text: "I can guide you through registering with mental health services. Would you like information on the process?"
+    - text: "I can help you understand the registration process for mental health services. What's your main concern?"
+    - text: "I can help you access mental health support. Would you like to know about the registration process?"
+  utter_counseling_services:
+    - text: "I can help you access counseling services. Would you like information on how to make an appointment?"
+    - text: "I can help you understand the counseling services available. What's your main concern?"
+    - text: "I can help you access mental health support. Would you like information about counseling options?"
+  utter_impostor_syndrome:
+    - text: "I can help you understand and cope with impostor syndrome. Would you like some strategies to build confidence?"
+    - text: "Impostor syndrome is common. Would you like to explore strategies to overcome these feelings?"
+    - text: "I can help you understand impostor syndrome. Would you like to discuss ways to build confidence?"
+  utter_student_parent_balance:
+    - text: "I can help you balance childcare and studies. Would you like some time management tips?"
+    - text: "Balancing parenting and education can be challenging. Would you like to discuss strategies?"
+    - text: "I can help you create a schedule that works for both your studies and parenting."
+  utter_test_anxiety_management:
+    - text: "I can help you manage test anxiety. Would you like some relaxation techniques?"
+    - text: "Test anxiety can be overwhelming. Would you like to explore coping strategies?"
+    - text: "I can help you manage test day anxiety. What aspect worries you most?"
+  utter_depression_class_attendance:
+    - text: "I understand depression can affect attendance. Let's explore your options for support and accommodations."
+    - text: "Missing classes due to depression is common. Would you like to discuss support options?"
+    - text: "I can help you understand your options for academic accommodations due to depression."
+  utter_chronic_conditions_policy:
+    - text: "I can help you understand the university's policy on chronic conditions. Would you like information on accommodations?"
+    - text: "I can help you understand your rights and support options for chronic conditions."
+    - text: "I can help you access support for your chronic condition. What's your main concern?"
+  utter_mental_health_concern:
+    - text: "I understand you're concerned about your mental health. Would you like to talk about what's troubling you?"
+    - text: "I'm here to listen about your mental health concerns. What's been going on?"
+    - text: "I can help you explore your mental health concerns. Would you like to discuss what you're experiencing?"
+  utter_sleep_issues:
+    - text: "Sleep problems can be challenging. Would you like to discuss strategies for better sleep?"
+    - text: "I can help you with sleep issues. Would you like to explore some sleep hygiene techniques?"
+    - text: "Let's look at ways to improve your sleep. What's your biggest challenge with sleep?"
+  utter_panic_attack:
+    - text: "Panic attacks can be frightening. Would you like to learn some grounding techniques?"
+    - text: "I can help you manage panic attacks. Would you like to discuss coping strategies?"
+    - text: "Let's explore ways to handle panic attacks. What triggers them for you?"
+  utter_self_care:
+    - text: "Self-care is important for mental health. Would you like to discuss self-care strategies?"
+    - text: "I can help you develop a self-care routine. What areas would you like to focus on?"
+    - text: "Let's explore self-care practices. What works best for you?"
+  utter_mental_health_services:
+    - text: "I can help you access mental health services. What type of support are you looking for?"
+    - text: "There are various mental health services available. Would you like information about specific options?"
+    - text: "I can guide you to appropriate mental health services. What's your main concern?"
+  utter_mental_health_crisis:
+    - text: "I understand you're in crisis. Would you like me to connect you with emergency mental health services?"
+    - text: "I'm here to help in this crisis. Would you like information about immediate support options?"
+    - text: "Let's get you the help you need. Would you like to discuss crisis support services?"
+  utter_mental_health_accommodations:
+    - text: "I can help you understand mental health accommodations. What type of support do you need?"
+    - text: "There are various accommodations available. Would you like information about specific options?"
+    - text: "I can guide you through the accommodation process. What's your main concern?"
+  utter_mental_health_attendance:
+    - text: "I understand mental health can affect attendance. Would you like to discuss support options?"
+    - text: "I can help you manage attendance with mental health challenges. What's your main concern?"
+    - text: "Let's explore ways to handle attendance with mental health considerations."
+  utter_mental_health_medication:
+    - text: "I can help you understand medication options. Would you like to discuss this with a healthcare provider?"
+    - text: "Medication can be part of mental health treatment. Would you like information about options?"
+    - text: "Let's discuss medication considerations. What questions do you have?"
+  utter_mental_health_diagnosis:
+    - text: "I can help you understand mental health diagnoses. Would you like to discuss this with a professional?"
+    - text: "Understanding diagnoses is important. Would you like information about assessment options?"
+    - text: "Let's explore diagnosis options. What concerns do you have?"
+  utter_mental_health_professional_help:
+    - text: "I can help you find professional mental health support. What type of help are you looking for?"
+    - text: "Professional help can be valuable. Would you like information about finding a provider?"
+    - text: "Let's explore professional support options. What's your main concern?"
+  utter_mental_health_peer_support:
+    - text: "Peer support can be helpful. Would you like information about peer support groups?"
+    - text: "I can help you find peer support options. What type of support interests you?"
+    - text: "Let's explore peer support opportunities. What would be most helpful?"
+  utter_mental_health_emergency:
+    - text: "I understand this is an emergency. Would you like me to connect you with crisis services?"
+    - text: "I'm here to help in this emergency. Would you like information about immediate support?"
+    - text: "Let's get you emergency help. Would you like to discuss crisis support options?"
+  utter_mental_health_wellness:
+    - text: "I can help you maintain mental wellness. What areas would you like to focus on?"
+    - text: "Mental wellness is important. Would you like to discuss wellness strategies?"
+    - text: "Let's explore ways to maintain mental wellness. What works best for you?"
+  utter_mental_health_stigma:
+    - text: "I understand concerns about stigma. Would you like to discuss ways to handle this?"
+    - text: "Stigma can be challenging. Would you like to explore coping strategies?"
+    - text: "Let's discuss ways to address stigma. What's your main concern?"
+  utter_mental_health_identity:
+    - text: "I can help you explore mental health and identity. What aspects would you like to discuss?"
+    - text: "Identity and mental health are connected. Would you like to explore this?"
+    - text: "Let's discuss how identity affects mental health. What's important to you?"
+  utter_mental_health_culture:
+    - text: "I understand cultural aspects of mental health. Would you like to discuss this?"
+    - text: "Cultural considerations are important. Would you like to explore this?"
+    - text: "Let's discuss cultural aspects of mental health. What's relevant to you?"
+  utter_mental_health_seasonal:
+    - text: "I can help you manage seasonal mental health changes. What patterns do you notice?"
+    - text: "Seasonal changes can affect mental health. Would you like to discuss this?"
+    - text: "Let's explore seasonal mental health patterns. What's your experience?"
+  utter_mental_health_work_life:
+    - text: "I can help you balance work and mental health. What's your main challenge?"
+    - text: "Work-life balance is important for mental health. Would you like to discuss this?"
+    - text: "Let's explore work-life balance strategies. What's your priority?"
+  utter_mental_health_comparison:
+    - text: "I understand concerns about comparing yourself to others. Would you like to discuss this?"
+    - text: "Comparison can affect mental health. Would you like to explore coping strategies?"
+    - text: "Let's discuss ways to handle comparison. What's your main concern?"
+  utter_relationship_general:
+    - text: "I understand you're having relationship concerns. Would you like to talk about what's troubling you?"
+    - text: "I'm here to listen about your relationship. What's been going on?"
+    - text: "I can help you explore your relationship concerns. Would you like to discuss what you're experiencing?"
+  utter_relationship_romantic:
+    - text: "I can help you with romantic relationship concerns. What's your main issue?"
+    - text: "Romantic relationships can be challenging. Would you like to discuss your situation?"
+    - text: "Let's explore your romantic relationship concerns. What's troubling you?"
+  utter_relationship_friendship:
+    - text: "I can help you with friendship issues. What's your main concern?"
+    - text: "Friendship challenges can be difficult. Would you like to discuss your situation?"
+    - text: "Let's explore your friendship concerns. What's troubling you?"
+  utter_relationship_family:
+    - text: "I can help you with family relationship issues. What's your main concern?"
+    - text: "Family relationships can be complex. Would you like to discuss your situation?"
+    - text: "Let's explore your family relationship concerns. What's troubling you?"
+  utter_relationship_roommate:
+    - text: "I can help you with roommate relationship issues. What's your main concern?"
+    - text: "Roommate relationships can be challenging. Would you like to discuss your situation?"
+    - text: "Let's explore your roommate relationship concerns. What's troubling you?"
+  utter_relationship_boundaries:
+    - text: "I can help you establish healthy boundaries. What type of boundaries are you concerned about?"
+    - text: "Setting boundaries is important. Would you like to discuss your boundary concerns?"
+    - text: "Let's explore your boundary issues. What's troubling you?"
+  utter_relationship_conflict:
+    - text: "I can help you resolve relationship conflicts. What's the nature of the conflict?"
+    - text: "Relationship conflicts can be challenging. Would you like to discuss your situation?"
+    - text: "Let's explore your conflict resolution options. What's the main issue?"
+  utter_relationship_breakup:
+    - text: "I understand you're going through a breakup. Would you like to talk about your feelings?"
+    - text: "Breakups can be difficult. Would you like to discuss coping strategies?"
+    - text: "Let's explore ways to handle the breakup. What's your main concern?"
+  utter_relationship_abuse:
+    - text: "I understand you're experiencing relationship abuse. Would you like to discuss safety options?"
+    - text: "Relationship abuse is serious. Would you like information about support services?"
+    - text: "Let's focus on your safety. What type of support do you need?"
+  utter_relationship_support:
+    - text: "I can help you find relationship support. What type of support are you looking for?"
+    - text: "There are various support options available. Would you like information about specific services?"
+    - text: "Let's explore support options. What would be most helpful?"
+  utter_relationship_communication:
+    - text: "I can help you improve relationship communication. What's your main concern?"
+    - text: "Communication challenges can be addressed. Would you like to discuss strategies?"
+    - text: "Let's explore communication techniques. What's troubling you?"
+  utter_relationship_trust:
+    - text: "I can help you address trust issues. What's your main concern?"
+    - text: "Trust issues can be challenging. Would you like to discuss rebuilding trust?"
+    - text: "Let's explore trust-building strategies. What's troubling you?"
+  utter_relationship_jealousy:
+    - text: "I can help you manage jealousy. What triggers your jealousy?"
+    - text: "Jealousy can be difficult to handle. Would you like to discuss coping strategies?"
+    - text: "Let's explore ways to manage jealousy. What's your main concern?"
+  utter_relationship_commitment:
+    - text: "I can help you with commitment concerns. What's your main issue?"
+    - text: "Commitment can be challenging. Would you like to discuss your situation?"
+    - text: "Let's explore your commitment concerns. What's troubling you?"
+  utter_relationship_identity:
+    - text: "I can help you with relationship identity concerns. What's your main issue?"
+    - text: "Identity in relationships can be complex. Would you like to discuss your situation?"
+    - text: "Let's explore your identity concerns. What's troubling you?"
+  utter_relationship_culture:
+    - text: "I can help you with cultural relationship issues. What's your main concern?"
+    - text: "Cultural differences can impact relationships. Would you like to discuss your situation?"
+    - text: "Let's explore your cultural concerns. What's troubling you?"
+  utter_relationship_online:
+    - text: "I can help you with online relationship concerns. What's your main issue?"
+    - text: "Online relationships can be challenging. Would you like to discuss your situation?"
+    - text: "Let's explore your online relationship concerns. What's troubling you?"
+  utter_relationship_long_distance:
+    - text: "I can help you with long-distance relationship issues. What's your main concern?"
+    - text: "Long-distance relationships can be difficult. Would you like to discuss your situation?"
+    - text: "Let's explore your long-distance relationship concerns. What's troubling you?"
+  utter_relationship_work_study:
+    - text: "I can help you balance relationships with work/study. What's your main concern?"
+    - text: "Balancing relationships with work/study can be challenging. Would you like to discuss strategies?"
+    - text: "Let's explore ways to maintain balance. What's troubling you?"
+  utter_relationship_balance:
+    - text: "I can help you maintain relationship balance. What's your main concern?"
+    - text: "Relationship balance is important. Would you like to discuss your situation?"
+    - text: "Let's explore ways to maintain balance. What's troubling you?"
+  utter_support_services_general:
+    - text: "I can help you find the right support services. What type of support are you looking for?"
+    - text: "There are many support services available. What would be most helpful for you?"
+    - text: "I can guide you to appropriate support services. What's your main concern?"
+  utter_support_services_academic:
+    - text: "I can help you access academic support services. What specific area do you need help with?"
+    - text: "There are various academic support options. Would you like information about tutoring or study groups?"
+    - text: "I can help you find academic resources. What's your main concern?"
+  utter_support_services_mental_health:
+    - text: "I can help you access mental health support services. What type of support are you looking for?"
+    - text: "There are various mental health services available. Would you like information about counseling or peer support?"
+    - text: "I can guide you to mental health resources. What's your main concern?"
+  utter_support_services_financial:
+    - text: "I can help you find financial support services. What type of assistance do you need?"
+    - text: "There are various financial support options. Would you like information about scholarships or emergency funds?"
+    - text: "I can help you access financial resources. What's your main concern?"
+  utter_support_services_disability:
+    - text: "I can help you access disability support services. What accommodations do you need?"
+    - text: "There are various disability support options. Would you like information about accommodations or assistive technology?"
+    - text: "I can help you find disability resources. What's your main concern?"
+  utter_support_services_international:
+    - text: "I can help you access international student support services. What type of support do you need?"
+    - text: "There are various international student support options. Would you like information about cultural adjustment or visa support?"
+    - text: "I can help you find international student resources. What's your main concern?"
+  utter_support_services_career:
+    - text: "I can help you access career support services. What type of career guidance do you need?"
+    - text: "There are various career support options. Would you like information about internships or job search?"
+    - text: "I can help you find career resources. What's your main concern?"
+  utter_support_services_housing:
+    - text: "I can help you access housing support services. What type of housing assistance do you need?"
+    - text: "There are various housing support options. Would you like information about accommodation or maintenance?"
+    - text: "I can help you find housing resources. What's your main concern?"
+  utter_support_services_wellness:
+    - text: "I can help you access wellness support services. What type of wellness support do you need?"
+    - text: "There are various wellness support options. Would you like information about fitness or nutrition?"
+    - text: "I can help you find wellness resources. What's your main concern?"
+  utter_support_services_emergency:
+    - text: "I can help you access emergency support services. What type of emergency assistance do you need?"
+    - text: "There are various emergency support options. Would you like information about crisis services or emergency contacts?"
+    - text: "I can help you find emergency resources. What's your main concern?"
+  utter_support_services_peer:
+    - text: "I can help you access peer support services. What type of peer support do you need?"
+    - text: "There are various peer support options. Would you like information about peer mentoring or support groups?"
+    - text: "I can help you find peer support resources. What's your main concern?"
+  utter_support_services_professional:
+    - text: "I can help you access professional support services. What type of professional support do you need?"
+    - text: "There are various professional support options. Would you like information about counseling or career guidance?"
+    - text: "I can help you find professional resources. What's your main concern?"
+  utter_support_services_community:
+    - text: "I can help you access community support services. What type of community support do you need?"
+    - text: "There are various community support options. Would you like information about clubs or volunteering?"
+    - text: "I can help you find community resources. What's your main concern?"
+  utter_support_services_identity:
+    - text: "I can help you access identity support services. What type of identity support do you need?"
+    - text: "There are various identity support options. Would you like information about cultural groups or LGBTQ+ support?"
+    - text: "I can help you find identity resources. What's your main concern?"
+  utter_support_services_culture:
+    - text: "I can help you access cultural support services. What type of cultural support do you need?"
+    - text: "There are various cultural support options. Would you like information about cultural events or language support?"
+    - text: "I can help you find cultural resources. What's your main concern?"
+  utter_support_services_technology:
+    - text: "I can help you access technology support services. What type of technology support do you need?"
+    - text: "There are various technology support options. Would you like information about IT help or digital resources?"
+    - text: "I can help you find technology resources. What's your main concern?"
+  utter_support_services_library:
+    - text: "I can help you access library support services. What type of library support do you need?"
+    - text: "There are various library support options. Would you like information about research help or study spaces?"
+    - text: "I can help you find library resources. What's your main concern?"
+  utter_support_services_student_life:
+    - text: "I can help you access student life support services. What type of student life support do you need?"
+    - text: "There are various student life support options. Would you like information about activities or campus events?"
+    - text: "I can help you find student life resources. What's your main concern?"
+  utter_support_services_social_connection:
+    - text: "I can help you access social connection support services. What type of social support do you need?"
+    - text: "There are various social connection options. Would you like information about clubs, sports, or events?"
+    - text: "I can help you find social connection resources. What's your main concern?"
+  utter_support_services_orientation:
+    - text: "I can help you access orientation support services. What type of orientation support do you need?"
+    - text: "There are various orientation support options. Would you like information about campus tours or welcome events?"
+    - text: "I can help you find orientation resources. What's your main concern?"
+  utter_social_connection_general:
+    - text: "I can help you make connections at university. What type of social activities interest you?"
+    - text: "There are many ways to meet people at university. Would you like information about clubs, sports, or events?"
+    - text: "I can help you find social opportunities. What interests you?"
+  utter_social_connection_clubs:
+    - text: "I can help you find clubs that match your interests. What type of activities do you enjoy?"
+    - text: "There are many student clubs available. Would you like information about academic, cultural, or recreational clubs?"
+    - text: "I can help you find the right club. What are your interests?"
+  utter_social_connection_sports:
+    - text: "I can help you find sports activities. What type of sports interest you?"
+    - text: "There are various sports options available. Would you like information about team sports or fitness activities?"
+    - text: "I can help you find sports opportunities. What activities interest you?"
+  utter_social_connection_events:
+    - text: "I can help you find campus events. What type of events interest you?"
+    - text: "There are many events happening on campus, from talks and workshops to social gatherings and cultural celebrations. Check the university events calendar or student union pages. Is there a particular type of event you're looking for?"
+  utter_social_connection_networking:
+    - text: "Networking can be valuable for your future career and personal growth. The careers service often runs networking events, or you could connect with people in your course or societies."
+  utter_social_connection_mentorship:
+    - text: "Mentorship programs can offer great guidance and support. Check if your department or the careers service offers formal mentoring schemes."
+  utter_social_connection_volunteering:
+    - text: "Volunteering is a rewarding way to meet people and contribute to the community. The student volunteering service or local charities often have opportunities."
+  utter_social_connection_workshops:
+    - text: "Workshops, whether academic or skill-based, are good places to learn and meet others. Look out for offerings from your department, the library, or student services."
+  utter_social_peer_groups:
+    - text: "Peer support groups can provide a sense of community and understanding. Check with student support services or specific societies if they run relevant groups."
+  utter_social_cultural:
+    - text: "Exploring different cultures can enrich your university experience. There might be cultural societies or events celebrating diversity on campus. Would you like help finding them?"
+  utter_social_societies_union:
+    - text: "The Students' Union is the hub for most societies and clubs. You can usually find a directory on their website or visit their office for more information."
+  utter_social_sports_teams:
+    - text: "The university likely has a range of sports teams you can join, from competitive BUCS teams to more casual intramural leagues. Check the Athletic Union or sports department website for details and trials."
+  utter_special_conditions_general:
+    - text: "I can help you with special conditions support. What type of condition are you dealing with?"
+    - text: "There are various support options for special conditions. What would be most helpful for you?"
+    - text: "I can guide you to appropriate special conditions support. What's your main concern?"
+  utter_special_conditions_adhd:
+    - text: "I can help you with ADHD support. What specific challenges are you facing?"
+    - text: "There are various ADHD support options. Would you like information about accommodations or management strategies?"
+    - text: "I can help you find ADHD resources. What's your main concern?"
+  utter_special_conditions_anxiety:
+    - text: "I can help you with anxiety support. What type of anxiety are you experiencing?"
+    - text: "There are various anxiety support options. Would you like information about coping strategies or accommodations?"
+    - text: "I can help you find anxiety resources. What's your main concern?"
+  utter_special_conditions_ocd:
+    - text: "I can help you with OCD support. What specific challenges are you facing?"
+    - text: "There are various OCD support options. Would you like information about management strategies or accommodations?"
+    - text: "I can help you find OCD resources. What's your main concern?"
+  utter_special_conditions_eating:
+    - text: "I can help you with eating disorder support. What type of support are you looking for?"
+    - text: "There are various eating disorder support options. Would you like information about treatment or recovery resources?"
+    - text: "I can help you find eating disorder resources. What's your main concern?"
+  utter_special_conditions_depression:
+    - text: "I can help you with depression support. What specific challenges are you facing?"
+    - text: "There are various depression support options. Would you like information about treatment or accommodations?"
+    - text: "I can help you find depression resources. What's your main concern?"
+  utter_special_conditions_bipolar:
+    - text: "I can help you with bipolar disorder support. What type of support are you looking for?"
+    - text: "There are various bipolar support options. Would you like information about management or accommodations?"
+    - text: "I can help you find bipolar resources. What's your main concern?"
+  utter_special_conditions_ptsd:
+    - text: "I can help you with PTSD support. What specific challenges are you facing?"
+    - text: "There are various PTSD support options. Would you like information about treatment or accommodations?"
+    - text: "I can help you find PTSD resources. What's your main concern?"
+  utter_special_conditions_autism:
+    - text: "I can help you with autism support. What type of support are you looking for?"
+    - text: "There are various autism support options. Would you like information about accommodations or social support?"
+    - text: "I can help you find autism resources. What's your main concern?"
+  utter_special_conditions_dyslexia:
+    - text: "I can help you with dyslexia support. What specific challenges are you facing?"
+    - text: "There are various dyslexia support options. Would you like information about academic accommodations or learning strategies?"
+    - text: "I can help you find dyslexia resources. What's your main concern?"
+  utter_special_conditions_chronic_pain:
+    - text: "I can help you with chronic pain support. What type of support are you looking for?"
+    - text: "There are various chronic pain support options. Would you like information about accommodations or pain management?"
+    - text: "I can help you find chronic pain resources. What's your main concern?"
+  utter_special_conditions_physical_disability:
+    - text: "I can help you with physical disability support. What specific accommodations do you need?"
+    - text: "There are various physical disability support options. Would you like information about accessibility or accommodations?"
+    - text: "I can help you find physical disability resources. What's your main concern?"
+  utter_special_conditions_visual_impairment:
+    - text: "I can help you with visual impairment support. What type of support are you looking for?"
+    - text: "There are various visual impairment support options. Would you like information about accommodations or assistive technology?"
+    - text: "I can help you find visual impairment resources. What's your main concern?"
+  utter_special_conditions_hearing_impairment:
+    - text: "I can help you with hearing impairment support. What specific accommodations do you need?"
+    - text: "There are various hearing impairment support options. Would you like information about accommodations or assistive technology?"
+    - text: "I can help you find hearing impairment resources. What's your main concern?"
+  utter_special_conditions_mobility:
+    - text: "I can help you with mobility support. What type of support are you looking for?"
+    - text: "There are various mobility support options. Would you like information about accessibility or accommodations?"
+    - text: "I can help you find mobility resources. What's your main concern?"
+  utter_special_conditions_medical:
+    - text: "I can help you with medical condition support. What specific challenges are you facing?"
+    - text: "There are various medical support options. Would you like information about accommodations or medical support?"
+    - text: "I can help you find medical resources. What's your main concern?"
+  utter_special_conditions_learning:
+    - text: "I can help you with learning disability support. What type of support are you looking for?"
+    - text: "There are various learning disability support options. Would you like information about accommodations or learning strategies?"
+    - text: "I can help you find learning disability resources. What's your main concern?"
+  utter_special_conditions_sensory:
+    - text: "I can help you with sensory processing support. What specific challenges are you facing?"
+    - text: "There are various sensory support options. Would you like information about accommodations or sensory strategies?"
+    - text: "I can help you find sensory processing resources. What's your main concern?"
+  utter_special_conditions_developmental:
+    - text: "I can help you with developmental condition support. What type of support are you looking for?"
+    - text: "There are various developmental support options. Would you like information about accommodations or developmental support?"
+    - text: "I can help you find developmental resources. What's your main concern?"
+  utter_special_conditions_mental_health:
+    - text: "I can help you with mental health condition support. What specific challenges are you facing?"
+    - text: "There are various mental health support options. Would you like information about treatment or accommodations?"
+    - text: "I can help you find mental health resources. What's your main concern?"
+  utter_identity_general:
+    - text: "I understand you're exploring your identity. Would you like to discuss your experiences and find support?"
+    - text: "Identity exploration is important. What aspects would you like to discuss?"
+    - text: "I can help you find resources and support for your identity journey. What's your main concern?"
+  utter_identity_sexual_orientation:
+    - text: "I can help you with sexual orientation support. What specific challenges are you facing?"
+    - text: "There are various LGBTQ+ support options. Would you like information about resources or community groups?"
+    - text: "I can help you find sexual orientation resources. What's your main concern?"
+  utter_identity_gender:
+    - text: "I can help you with gender identity support. What specific challenges are you facing?"
+    - text: "There are various gender support options. Would you like information about resources or community groups?"
+    - text: "I can help you find gender identity resources. What's your main concern?"
+  utter_identity_race_ethnicity:
+    - text: "I can help you with race and ethnicity support. What specific challenges are you facing?"
+    - text: "There are various racial and ethnic support options. Would you like information about resources or community groups?"
+    - text: "I can help you find race and ethnicity resources. What's your main concern?"
+  utter_identity_culture:
+    - text: "I can help you with cultural identity support. What specific challenges are you facing?"
+    - text: "There are various cultural support options. Would you like information about resources or community groups?"
+    - text: "I can help you find cultural resources. What's your main concern?"
+  utter_identity_religion:
+    - text: "I can help you with religious identity support. What specific challenges are you facing?"
+    - text: "There are various religious support options. Would you like information about resources or community groups?"
+    - text: "I can help you find religious resources. What's your main concern?"
+  utter_identity_disability:
+    - text: "I can help you with disability identity support. What specific challenges are you facing?"
+    - text: "There are various disability support options. Would you like information about resources or community groups?"
+    - text: "I can help you find disability resources. What's your main concern?"
+  utter_identity_age:
+    - text: "I can help you with age-related identity support. What specific challenges are you facing?"
+    - text: "There are various age-related support options. Would you like information about resources or community groups?"
+    - text: "I can help you find age-related resources. What's your main concern?"
+  utter_identity_socioeconomic:
+    - text: "I can help you with socioeconomic identity support. What specific challenges are you facing?"
+    - text: "There are various socioeconomic support options. Would you like information about resources or community groups?"
+    - text: "I can help you find socioeconomic resources. What's your main concern?"
+  utter_identity_first_generation:
+    - text: "I can help you with first-generation student support. What specific challenges are you facing?"
+    - text: "There are various first-generation support options. Would you like information about resources or community groups?"
+    - text: "I can help you find first-generation resources. What's your main concern?"
+  utter_identity_international:
+    - text: "I can help you with international student identity support. What specific challenges are you facing?"
+    - text: "There are various international student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find international student resources. What's your main concern?"
+  utter_identity_transfer:
+    - text: "I can help you with transfer student identity support. What specific challenges are you facing?"
+    - text: "There are various transfer student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find transfer student resources. What's your main concern?"
+  utter_identity_non_traditional:
+    - text: "I can help you with non-traditional student identity support. What specific challenges are you facing?"
+    - text: "There are various non-traditional student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find non-traditional student resources. What's your main concern?"
+  utter_identity_veteran:
+    - text: "I can help you with veteran student identity support. What specific challenges are you facing?"
+    - text: "There are various veteran student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find veteran student resources. What's your main concern?"
+  utter_identity_parent:
+    - text: "I can help you with parent student identity support. What specific challenges are you facing?"
+    - text: "There are various parent student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find parent student resources. What's your main concern?"
+  utter_identity_caregiver:
+    - text: "I can help you with caregiver student identity support. What specific challenges are you facing?"
+    - text: "There are various caregiver student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find caregiver student resources. What's your main concern?"
+  utter_identity_immigrant:
+    - text: "I can help you with immigrant student identity support. What specific challenges are you facing?"
+    - text: "There are various immigrant student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find immigrant student resources. What's your main concern?"
+  utter_identity_refugee:
+    - text: "I can help you with refugee student identity support. What specific challenges are you facing?"
+    - text: "There are various refugee student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find refugee student resources. What's your main concern?"
+  utter_identity_intersectional:
+    - text: "I can help you with intersectional identity support. What specific challenges are you facing?"
+    - text: "There are various intersectional support options. Would you like information about resources or community groups?"
+    - text: "I can help you find intersectional resources. What's your main concern?"
+  utter_identity_expression:
+    - text: "I can help you with identity expression support. What specific challenges are you facing?"
+    - text: "There are various identity expression support options. Would you like information about resources or community groups?"
+    - text: "I can help you find identity expression resources. What's your main concern?"
+  utter_financial_general:
+    - text: "I can help you with financial concerns. What specific financial issue would you like to discuss?"
+    - text: "I understand you're having financial concerns. What would you like to talk about?"
+    - text: "I can help you explore financial options. What's your main concern?"
+  utter_financial_budgeting:
+    - text: "Budgeting is key to managing your finances at university. The student money advice service often has resources, workshops, or advisors who can help you create a budget."
+  utter_financial_campus_part_time_jobs:
+    - text: "Looking for part-time work? The university careers service usually advertises campus jobs and other local opportunities suitable for students."
+  utter_financial_emergency_funds:
+    - text: "If you're facing unexpected financial hardship, the university might have emergency hardship funds you can apply for. Check with student support or the money advice service for details on eligibility and how to apply."
+  utter_financial_loan_management:
+    - text: "Managing student loans can be complex. The student money advice service can help you understand your loan terms, repayment options, and budgeting around your loan."
+  utter_financial_struggle:
+    - text: "I hear that you're struggling financially. It's important to seek support. The student money advice service can provide confidential advice on managing debt, budgeting, and accessing support funds."
+  utter_financial_support_options:
+    - text: "There are various financial support options available, including university bursaries, scholarships, hardship funds, and external grants. The student money advice service is the best place to explore what you might be eligible for."
+  utter_emergency_general:
+    - text: "I understand this is an emergency situation. I'm here to help. Please stay calm and let me guide you through this. What type of emergency are you experiencing?"
+      buttons:
+        - title: "Mental Health Emergency"
+          payload: "/emergency_mental_health"
+        - title: "Physical Health Emergency"
+          payload: "/emergency_physical_health"
+        - title: "Safety Emergency"
+          payload: "/emergency_safety"
+        - title: "Other Emergency"
+          payload: "/emergency_other"
+  utter_emergency_mental_health:
+    - text: "I understand you're experiencing a mental health emergency. This is serious and we need to get you immediate help. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_physical_health:
+    - text: "I understand you're experiencing a physical health emergency. This is serious and we need to get you immediate medical attention. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_safety:
+    - text: "I understand you're experiencing a safety emergency. This is serious and we need to ensure your immediate safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_sexual_assault:
+    - text: "I understand you're reporting a sexual assault. This is a serious situation and we need to ensure your safety and well-being. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_substance_abuse:
+    - text: "I understand you're experiencing a substance abuse emergency. This is serious and we need to get you immediate help. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_suicide:
+    - text: "I understand you're experiencing thoughts of suicide. This is extremely serious and we need to get you immediate help. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_violence:
+    - text: "I understand you're experiencing violence. This is serious and we need to ensure your immediate safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_natural_disaster:
+    - text: "I understand you're experiencing a natural disaster. This is serious and we need to ensure your safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_medical:
+    - text: "I understand you're experiencing a medical emergency. This is serious and we need to get you immediate medical attention. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_accident:
+    - text: "I understand you're reporting an accident. This is serious and we need to ensure everyone's safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_crime:
+    - text: "I understand you're reporting a crime. This is serious and we need to ensure your safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_fire:
+    - text: "I understand you're reporting a fire. This is serious and we need to ensure everyone's safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_weather:
+    - text: "I understand you're experiencing a weather emergency. This is serious and we need to ensure your safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_evacuation:
+    - text: "I understand you need evacuation assistance. This is serious and we need to ensure your safety. Are you currently in a safe location?"
+      buttons:
+        - title: "Yes, I'm Safe"
+          payload: "/affirm"
+        - title: "No, I Need Help"
+          payload: "/deny"
+  utter_emergency_communication:
+    - text: "I understand you need emergency communication assistance. This is important and we need to ensure you can reach help. What type of communication assistance do you need?"
+      buttons:
+        - title: "Emergency Contacts"
+          payload: "/emergency_contact"
+        - title: "Emergency Services"
+          payload: "/emergency_services"
+        - title: "Other Communication"
+          payload: "/emergency_other"
+  utter_emergency_contact:
+    - text: "I understand you need emergency contact information. Here are the important emergency contacts you may need. Would you like me to provide specific contact information?"
+      buttons:
+        - title: "Yes, Please"
+          payload: "/affirm"
+        - title: "No, Thanks"
+          payload: "/deny"
+  utter_emergency_location:
+    - text: "I understand you need to report your location for emergency assistance. Can you tell me where you are currently located?"
+      buttons:
+        - title: "Share Location"
+          payload: "/share_location"
+        - title: "Describe Location"
+          payload: "/describe_location"
+  utter_emergency_procedure:
+    - text: "I understand you need information about emergency procedures. What specific procedure would you like to know about?"
+      buttons:
+        - title: "Evacuation"
+          payload: "/emergency_evacuation"
+        - title: "Shelter in Place"
+          payload: "/emergency_shelter"
+        - title: "Other Procedures"
+          payload: "/emergency_other"
+  utter_emergency_follow_up:
+    - text: "I understand you need follow-up assistance after an emergency. What type of follow-up support do you need?"
+      buttons:
+        - title: "Counseling"
+          payload: "/emergency_counseling"
+        - title: "Medical Follow-up"
+          payload: "/emergency_medical_follow_up"
+        - title: "Other Support"
+          payload: "/emergency_other"
+
+  utter_please_rephrase:
+    - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+    - text: "I'm not sure I understood correctly. Could you try saying that differently?"
+    - text: "I didn't catch that. Can you express it another way?"
+
+  utter_default_fallback:
+    - text: "I'm sorry, but I'm having trouble understanding. Let me know if you'd like to ask about something else or need help with a specific topic."
+    - text: "Sorry, I'm not sure how to respond to that. I can help with mental health concerns, student support services, or academic issues."
+
+  utter_express_emotion_response:
+    - text: "I can understand that feeling {emotion_type} because of {trigger} is difficult. How long have you been feeling this way?"
+    - text: "I'm sorry to hear you're feeling {emotion_type}. That sounds challenging. Would you like to talk more about it?"
+    - text: "Thank you for sharing how you're feeling. Many students experience {emotion_type} feelings. What kind of support would be most helpful right now?"
+
+  utter_emergency_mental_health_response:
+    - text: "I understand you're going through a mental health emergency. Your wellbeing is important. Please contact the campus crisis line immediately at 555-HELP (4357) which is available 24/7, or go to the nearest emergency room. If you are in immediate danger, please call emergency services at 911."
+    - text: "I'm concerned about what you're sharing. Please call the university counseling center crisis line at 555-HELP (4357) right away. They have trained counselors available 24/7. If you're in immediate danger, call 911 or go to the nearest emergency room."
+    - text: "This sounds serious. Please reach out to professional help immediately by calling the campus crisis line at 555-HELP (4357). They're available 24/7 and have counselors ready to support you. If you're in immediate danger, please call 911."
+
+  utter_substance_concern:
+  - text: "It's good you're reflecting on your habits. Many students find university life changes their relationship with substances. Would you like to explore resources or talk more about what's concerning you?"
+
+  utter_substance_friend_concern:
+  - text: "It shows you care that you're worried about your friend. Supporting someone can be challenging. There are resources available for both you and your friend. Would you like me to share some information on how to approach this or where to find help?"
+
+  utter_substance_resources:
+  - text: "There are several resources available for students regarding substance use. These range from confidential counseling to support groups and online information. Would you like me to provide links to university services or external organizations?"
+
+  utter_substance_socializing_sober:
+  - text: "Navigating social situations sober can definitely be a focus for students. There are many ways to connect and have fun without substances. Would you like tips on socializing sober, finding alternative events, or dealing with peer pressure?"
+
+  utter_social_general:
+  - text: "Connecting with others is a big part of university life! Are you looking for ways to meet new people, find events, or join groups?"
+
+  utter_social_clubs:
+  - text: "Joining clubs and societies is a fantastic way to meet people with shared interests! The Students' Union website usually has a full list. What kind of clubs are you interested in?"
+
+  utter_social_sports:
+  - text: "Getting involved in sports, whether competitively or casually, is great for socializing and staying active. Are you interested in specific sports teams, gym facilities, or fitness classes?"
+
+  utter_social_events:
+  - text: "There are often many events happening on campus, from talks and workshops to social gatherings and cultural celebrations. Check the university events calendar or student union pages. Is there a particular type of event you're looking for?"
+
+  utter_social_networking:
+  - text: "Networking can be valuable for your future career and personal growth. The careers service often runs networking events, or you could connect with people in your course or societies."
+
+  utter_social_mentorship:
+  - text: "Mentorship programs can offer great guidance and support. Check if your department or the careers service offers formal mentoring schemes."
+
+  utter_social_volunteering:
+  - text: "Volunteering is a rewarding way to meet people and contribute to the community. The student volunteering service or local charities often have opportunities."
+
+  utter_social_workshops:
+  - text: "Workshops, whether academic or skill-based, are good places to learn and meet others. Look out for offerings from your department, the library, or student services."
+
+  utter_social_peer_groups:
+  - text: "Peer support groups can provide a sense of community and understanding. Check with student support services or specific societies if they run relevant groups."
+
+  utter_social_cultural:
+  - text: "Exploring different cultures can enrich your university experience. There might be cultural societies or events celebrating diversity on campus. Would you like help finding them?"
+
+  utter_social_societies_union:
+  - text: "The Students' Union is the hub for most societies and clubs. You can usually find a directory on their website or visit their office for more information."
+
+  utter_social_sports_teams:
+  - text: "The university likely has a range of sports teams you can join, from competitive BUCS teams to more casual intramural leagues. Check the Athletic Union or sports department website for details and trials."
+
+  utter_special_conditions_general:
+    - text: "I can help you with special conditions support. What type of condition are you dealing with?"
+    - text: "There are various support options for special conditions. What would be most helpful for you?"
+    - text: "I can guide you to appropriate special conditions support. What's your main concern?"
+
+  utter_special_conditions_adhd:
+    - text: "I can help you with ADHD support. What specific challenges are you facing?"
+    - text: "There are various ADHD support options. Would you like information about accommodations or management strategies?"
+    - text: "I can help you find ADHD resources. What's your main concern?"
+
+  utter_special_conditions_anxiety:
+    - text: "I can help you with anxiety support. What type of anxiety are you experiencing?"
+    - text: "There are various anxiety support options. Would you like information about coping strategies or accommodations?"
+    - text: "I can help you find anxiety resources. What's your main concern?"
+
+  utter_special_conditions_ocd:
+    - text: "I can help you with OCD support. What specific challenges are you facing?"
+    - text: "There are various OCD support options. Would you like information about management strategies or accommodations?"
+    - text: "I can help you find OCD resources. What's your main concern?"
+
+  utter_special_conditions_eating:
+    - text: "I can help you with eating disorder support. What type of support are you looking for?"
+    - text: "There are various eating disorder support options. Would you like information about treatment or recovery resources?"
+    - text: "I can help you find eating disorder resources. What's your main concern?"
+
+  utter_special_conditions_depression:
+    - text: "I can help you with depression support. What specific challenges are you facing?"
+    - text: "There are various depression support options. Would you like information about treatment or accommodations?"
+    - text: "I can help you find depression resources. What's your main concern?"
+
+  utter_special_conditions_bipolar:
+    - text: "I can help you with bipolar disorder support. What type of support are you looking for?"
+    - text: "There are various bipolar support options. Would you like information about management or accommodations?"
+    - text: "I can help you find bipolar resources. What's your main concern?"
+
+  utter_special_conditions_ptsd:
+    - text: "I can help you with PTSD support. What specific challenges are you facing?"
+    - text: "There are various PTSD support options. Would you like information about treatment or accommodations?"
+    - text: "I can help you find PTSD resources. What's your main concern?"
+
+  utter_special_conditions_autism:
+    - text: "I can help you with autism support. What type of support are you looking for?"
+    - text: "There are various autism support options. Would you like information about accommodations or social support?"
+    - text: "I can help you find autism resources. What's your main concern?"
+
+  utter_special_conditions_dyslexia:
+    - text: "I can help you with dyslexia support. What specific challenges are you facing?"
+    - text: "There are various dyslexia support options. Would you like information about academic accommodations or learning strategies?"
+    - text: "I can help you find dyslexia resources. What's your main concern?"
+
+  utter_special_conditions_chronic_pain:
+    - text: "I can help you with chronic pain support. What type of support are you looking for?"
+    - text: "There are various chronic pain support options. Would you like information about accommodations or pain management?"
+    - text: "I can help you find chronic pain resources. What's your main concern?"
+
+  utter_special_conditions_physical_disability:
+    - text: "I can help you with physical disability support. What specific accommodations do you need?"
+    - text: "There are various physical disability support options. Would you like information about accessibility or accommodations?"
+    - text: "I can help you find physical disability resources. What's your main concern?"
+
+  utter_special_conditions_visual_impairment:
+    - text: "I can help you with visual impairment support. What type of support are you looking for?"
+    - text: "There are various visual impairment support options. Would you like information about accommodations or assistive technology?"
+    - text: "I can help you find visual impairment resources. What's your main concern?"
+
+  utter_special_conditions_hearing_impairment:
+    - text: "I can help you with hearing impairment support. What specific accommodations do you need?"
+    - text: "There are various hearing impairment support options. Would you like information about accommodations or assistive technology?"
+    - text: "I can help you find hearing impairment resources. What's your main concern?"
+
+  utter_special_conditions_mobility:
+    - text: "I can help you with mobility support. What type of support are you looking for?"
+    - text: "There are various mobility support options. Would you like information about accessibility or accommodations?"
+    - text: "I can help you find mobility resources. What's your main concern?"
+
+  utter_special_conditions_medical:
+    - text: "I can help you with medical condition support. What specific challenges are you facing?"
+    - text: "There are various medical support options. Would you like information about accommodations or medical support?"
+    - text: "I can help you find medical resources. What's your main concern?"
+
+  utter_special_conditions_learning:
+    - text: "I can help you with learning disability support. What type of support are you looking for?"
+    - text: "There are various learning disability support options. Would you like information about accommodations or learning strategies?"
+    - text: "I can help you find learning disability resources. What's your main concern?"
+
+  utter_special_conditions_sensory:
+    - text: "I can help you with sensory processing support. What specific challenges are you facing?"
+    - text: "There are various sensory support options. Would you like information about accommodations or sensory strategies?"
+    - text: "I can help you find sensory processing resources. What's your main concern?"
+
+  utter_special_conditions_developmental:
+    - text: "I can help you with developmental condition support. What type of support are you looking for?"
+    - text: "There are various developmental support options. Would you like information about accommodations or developmental support?"
+    - text: "I can help you find developmental resources. What's your main concern?"
+
+  utter_special_conditions_mental_health:
+    - text: "I can help you with mental health condition support. What specific challenges are you facing?"
+    - text: "There are various mental health support options. Would you like information about treatment or accommodations?"
+    - text: "I can help you find mental health resources. What's your main concern?"
+
+  utter_identity_general:
+    - text: "I understand you're exploring your identity. Would you like to discuss your experiences and find support?"
+    - text: "Identity exploration is important. What aspects would you like to discuss?"
+    - text: "I can help you find resources and support for your identity journey. What's your main concern?"
+
+  utter_identity_sexual_orientation:
+    - text: "I can help you with sexual orientation support. What specific challenges are you facing?"
+    - text: "There are various LGBTQ+ support options. Would you like information about resources or community groups?"
+    - text: "I can help you find sexual orientation resources. What's your main concern?"
+
+  utter_identity_gender:
+    - text: "I can help you with gender identity support. What specific challenges are you facing?"
+    - text: "There are various gender support options. Would you like information about resources or community groups?"
+    - text: "I can help you find gender identity resources. What's your main concern?"
+
+  utter_identity_race_ethnicity:
+    - text: "I can help you with race and ethnicity support. What specific challenges are you facing?"
+    - text: "There are various racial and ethnic support options. Would you like information about resources or community groups?"
+    - text: "I can help you find race and ethnicity resources. What's your main concern?"
+
+  utter_identity_culture:
+    - text: "I can help you with cultural identity support. What specific challenges are you facing?"
+    - text: "There are various cultural support options. Would you like information about resources or community groups?"
+    - text: "I can help you find cultural resources. What's your main concern?"
+
+  utter_identity_religion:
+    - text: "I can help you with religious identity support. What specific challenges are you facing?"
+    - text: "There are various religious support options. Would you like information about resources or community groups?"
+    - text: "I can help you find religious resources. What's your main concern?"
+
+  utter_identity_disability:
+    - text: "I can help you with disability identity support. What specific challenges are you facing?"
+    - text: "There are various disability support options. Would you like information about resources or community groups?"
+    - text: "I can help you find disability resources. What's your main concern?"
+
+  utter_identity_age:
+    - text: "I can help you with age-related identity support. What specific challenges are you facing?"
+    - text: "There are various age-related support options. Would you like information about resources or community groups?"
+    - text: "I can help you find age-related resources. What's your main concern?"
+
+  utter_identity_socioeconomic:
+    - text: "I can help you with socioeconomic identity support. What specific challenges are you facing?"
+    - text: "There are various socioeconomic support options. Would you like information about resources or community groups?"
+    - text: "I can help you find socioeconomic resources. What's your main concern?"
+
+  utter_identity_first_generation:
+    - text: "I can help you with first-generation student support. What specific challenges are you facing?"
+    - text: "There are various first-generation support options. Would you like information about resources or community groups?"
+    - text: "I can help you find first-generation resources. What's your main concern?"
+
+  utter_identity_international:
+    - text: "I can help you with international student identity support. What specific challenges are you facing?"
+    - text: "There are various international student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find international student resources. What's your main concern?"
+
+  utter_identity_transfer:
+    - text: "I can help you with transfer student identity support. What specific challenges are you facing?"
+    - text: "There are various transfer student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find transfer student resources. What's your main concern?"
+
+  utter_identity_non_traditional:
+    - text: "I can help you with non-traditional student identity support. What specific challenges are you facing?"
+    - text: "There are various non-traditional student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find non-traditional student resources. What's your main concern?"
+
+  utter_identity_veteran:
+    - text: "I can help you with veteran student identity support. What specific challenges are you facing?"
+    - text: "There are various veteran student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find veteran student resources. What's your main concern?"
+
+  utter_identity_parent:
+    - text: "I can help you with parent student identity support. What specific challenges are you facing?"
+    - text: "There are various parent student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find parent student resources. What's your main concern?"
+
+  utter_identity_caregiver:
+    - text: "I can help you with caregiver student identity support. What specific challenges are you facing?"
+    - text: "There are various caregiver student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find caregiver student resources. What's your main concern?"
+
+  utter_identity_immigrant:
+    - text: "I can help you with immigrant student identity support. What specific challenges are you facing?"
+    - text: "There are various immigrant student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find immigrant student resources. What's your main concern?"
+
+  utter_identity_refugee:
+    - text: "I can help you with refugee student identity support. What specific challenges are you facing?"
+    - text: "There are various refugee student support options. Would you like information about resources or community groups?"
+    - text: "I can help you find refugee student resources. What's your main concern?"
+
+  utter_identity_intersectional:
+    - text: "I can help you with intersectional identity support. What specific challenges are you facing?"
+    - text: "There are various intersectional support options. Would you like information about resources or community groups?"
+    - text: "I can help you find intersectional resources. What's your main concern?"
+
+  utter_identity_expression:
+    - text: "I can help you with identity expression support. What specific challenges are you facing?"
+    - text: "There are various identity expression support options. Would you like information about resources or community groups?"
+    - text: "I can help you find identity expression resources. What's your main concern?"
+
+  utter_financial_general:
+    - text: "I can help you with financial concerns. What specific financial issue would you like to discuss?"
+    - text: "I understand you're having financial concerns. What would you like to talk about?"
+    - text: "I can help you explore financial options. What's your main concern?"
+
+  utter_financial_budgeting:
+    - text: "Budgeting is key to managing your finances at university. The student money advice service often has resources, workshops, or advisors who can help you create a budget."
+
+  utter_financial_campus_part_time_jobs:
+    - text: "Looking for part-time work? The university careers service usually advertises campus jobs and other local opportunities suitable for students."
+
+  utter_financial_emergency_funds:
+    - text: "If you're facing unexpected financial hardship, the university might have emergency hardship funds you can apply for. Check with student support or the money advice service for details on eligibility and how to apply."
+
+  utter_financial_loan_management:
+    - text: "Managing student loans can be complex. The student money advice service can help you understand your loan terms, repayment options, and budgeting around your loan."
+
+  utter_financial_struggle:
+    - text: "I hear that you're struggling financially. It's important to seek support. The student money advice service can provide confidential advice on managing debt, budgeting, and accessing support funds."
+
+  utter_financial_support_options:
+    - text: "There are various financial support options available, including university bursaries, scholarships, hardship funds, and external grants. The student money advice service is the best place to explore what you might be eligible for."
+
+  utter_career_guidance:
+  - text: "Thinking about your career is important. The university careers service offers guidance appointments, workshops, and resources to help you explore options and plan your path."
+
+  utter_career_cv_review:
+  - text: "A strong CV is essential. The careers service often provides CV review appointments or workshops to help you tailor it effectively for applications."
+
+  utter_career_interview_prep:
+  - text: "Interview preparation can boost your confidence. The careers service likely offers practice interviews, workshops on interview techniques, and online resources like STAR method guides."
+
+  utter_career_job_search:
+  - text: "The careers service is the best place to start your job search. They usually have job boards with graduate roles, internships, and part-time work, as well as advice on applications."
+
+  utter_career_placement_prep:
+  - text: "Preparing for a placement year? The careers service or your department might offer specific workshops, advice on finding placements, and support during your placement."
+
+  utter_career_graduation_anxiety:
+  - text: "It's completely normal to feel anxious about graduating and what comes next. Talking to a careers advisor can help you clarify your goals and make a plan, reducing uncertainty."
+
+  utter_career_dropping_out:
+  - text: "Thinking about dropping out is a big decision with significant implications. Before deciding, it's really important to talk it through with your personal tutor, student support services, or a careers advisor to understand all your options and the potential consequences."
+
+  utter_services_admissions:
+  - text: "For questions about admissions, applications, or entry requirements, the university admissions office is the best point of contact. You can usually find their details on the main university website."
+
+  utter_services_registration:
+  - text: "Need help with course registration, module changes, or confirming your student status? The student registry or your department office handles these processes. Check the student portal or website for guides."
+
+  utter_services_accommodation:
+  - text: "Looking for information on university halls, private housing, or accommodation contracts? The university accommodation office provides advice and support for student housing needs."
+
+  # Relationship Responses
+  utter_mental_health_relationships_general:
+  - text: "Relationships can be complex. Are you experiencing issues with family, friends, romantic partners, or something else? Knowing a bit more helps me guide you."
+
+  utter_mental_health_relationships_romantic:
+  - text: "Romantic relationships bring unique joys and challenges. Communication issues, conflict, or other difficulties? There are resources that might help."
+
+  utter_mental_health_relationships_friendship:
+  - text: "Friendships are important. Are you dealing with conflict, feeling distant, or finding it hard to make friends? Let's explore that."
+
+  utter_mental_health_relationships_family:
+  - text: "Family dynamics can be stressful, especially during university. Are you dealing with conflict, expectations, or communication problems?"
+
+  utter_mental_health_relationships_boundaries:
+  - text: "Setting and maintaining healthy boundaries is key in all relationships. Is this something you're struggling with specifically?"
+
+  utter_mental_health_relationships_issues:
+  - text: "It sounds like you're facing some relationship difficulties. Could you tell me a bit more about the type of relationship or the specific issue?"
+
+  utter_mental_health_relationships_support:
+  - text: "There are support options available for relationship issues, like counseling services or workshops on communication skills. Would you like me to point you towards those?"
+
+  # Identity Responses
+  utter_mental_health_identity_general:
+  - text: "Exploring identity is a significant part of life. Are you questioning aspects like gender, sexuality, culture, or something else? Understanding more helps me provide relevant support."
+
+  utter_mental_health_identity_gender:
+  - text: "Navigating gender identity can bring up many questions and feelings. The university often has LGBTQ+ support services or societies that offer community and resources. Would you like help finding them?"
+
+  utter_mental_health_identity_sexual_orientation:
+  - text: "Understanding your sexual orientation is personal. There are resources and support groups available, like the LGBTQ+ society, if you'd like to connect with others or find information."
+
+  utter_mental_health_identity_racial_cultural:
+  - text: "Exploring your racial or cultural identity, especially in a new environment, can be complex. There might be cultural societies or university support services that focus on diversity and inclusion."
+
+  utter_mental_health_identity_disability:
+  - text: "Your identity in relation to disability is important. The university's disability services can provide support and accommodations, and there may also be student groups for peer connection."
+
+  utter_mental_health_identity_first_generation:
+  - text: "Being a first-generation student comes with unique experiences and pressures. The university often has specific support programs or advisors for first-gen students to help navigate university life."
+
+  utter_mental_health_identity_international:
+  - text: "Adjusting as an international student involves navigating cultural differences and finding your place. The international student office is a key resource for support, advice, and connecting with others."
+
+  utter_mental_health_identity_academic_status:
+  - text: "Your identity as a student is significant. If you're feeling pressure related to academic performance or your role as a student, talking to an advisor or counselor might be helpful."
+
+  # Special Conditions Responses
+  utter_mental_health_special_conditions_general:
+  - text: "Managing a special condition alongside studies can be challenging. The university's disability or student support services can discuss specific accommodations and support available. What condition are you seeking support for?"
+
+  utter_mental_health_special_conditions_anxiety:
+  - text: "Anxiety can significantly impact university life. Support is available, including counseling, workshops on anxiety management, and potentially academic accommodations like extra time in exams. Would you like more details?"
+
+  utter_mental_health_special_conditions_depression:
+  - text: "Depression can make studying feel overwhelming. The university offers support like counseling and mental health advisors. It might also be possible to get academic adjustments. Talking to student support services is a good step."
+
+  utter_mental_health_special_conditions_adhd:
+  - text: "Support is available for students with ADHD, such as study skills support focusing on organization and focus, mentoring, and potentially exam accommodations. Disability services can provide specific advice."
+
+  utter_academic_resources:
+  - text: "For academic support, you can reach out to your personal tutor or the university's Learning Development team. They offer workshops and one-on-one sessions. More info: [Link to Academic Support]"
+  - text: "Feeling overwhelmed with studies? The Learning Development team provides resources for time management, essay writing, and exam preparation. Check them out here: [Link]"
+
+  # <<< START OF NEW RESOURCE RESPONSES >>>
+  utter_resource_introduction:
+  - text: "The University of Northampton offers several resources for mental health and wellbeing. You can find general information here: https://mynorthamptonac.sharepoint.com/sites/student/Pages/counselling-and-mental-health.aspx"
+
+  utter_urgent_help_resources:
+  - text: "If you need urgent help, please know the Counselling & Mental Health Team doesn't offer crisis intervention. Contact NHS Urgent Help at https://www.nhft.nhs.uk/help or call 111. For immediate risk or medical emergencies on campus, call Security at 01604 892269. The Samaritans are also available 24/7 at 116-123."
+
+  utter_counselling_and_mental_health_team:
+  - text: "The University's Counselling and Mental Health Team offers confidential support. You can reach the Mental Health Advisers at mha@northampton.ac.uk and the Counsellors at counsellors@northampton.ac.uk. Remember to include your name and student number."
+
+  utter_drop_in_info:
+  - text: "The Counselling and Mental Health Team offers 20-minute telephone drop-in sessions during term time. You can book a slot here: https://www.eventbrite.co.uk/e/counselling-and-mental-health-team-drop-in-tickets-101727260976. Face-to-face drop-ins might be available; email mha@northampton.ac.uk to inquire."
+
+  utter_counselling_service_info:
+  - text: "The Counselling Service offers 50-minute assessment appointments and ongoing sessions. You can apply via their online form, usually found on the Counselling Service page: https://mynorthamptonac.sharepoint.com/sites/student/Pages/counselling-service.aspx"
+
+  utter_mental_health_service_info:
+  - text: "Mental Health Practitioners can help if difficulties affect your studies. They offer advice, support with coping strategies, and DSA guidance. Book an appointment by emailing mha@northampton.ac.uk. More info: https://mynorthamptonac.sharepoint.com/sites/student/Pages/mental-health-service.aspx"
+
+  utter_self_help_resources:
+  - text: "The university provides various self-help resources online. You can explore them here: https://mynorthamptonac.sharepoint.com/sites/student/Pages/self-help-resources.aspx. They also have a Mental Health and Wellbeing Blog with useful posts."
+
+  utter_external_resources_summary:
+  - text: "There are also external resources like NHS Northamptonshire Talking Therapies (https://www.nhft.nhs.uk/iapt), Silvercloud online therapy (https://changingminds.silvercloudhealth.com/signup/), Relate Northants (01604 634400), and The Lowdown (01604 622223 for ages 12-25)."
+  # <<< END OF NEW RESOURCE RESPONSES >>>
+
+  utter_provide_emergency_resources_template:
+  - text: "If you're in immediate danger or distress, please reach out to emergency services right away. You can call 999 in the UK or use the campus emergency number if available. The Samaritans are also available 24/7 at 116 123."
+
+session_config:
+  - session_expiration_time: 60
+  - carry_over_slots_to_new_session: true
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_iamabot
+  - utter_ask_personality
+  - utter_select_empathetic
+  - utter_select_direct
+  - utter_select_motivational
+  - utter_select_analytical
+  - utter_select_balanced
+  - utter_mood_positive
+  - utter_mood_negative
+  - utter_mood_neutral
+  - utter_express_emotion
+  - utter_academic_stress
+  - utter_exam_anxiety
+  - utter_coursework_falling_behind
+  - utter_assignment_deadlines
+  - utter_submission_deadline_miss
+  - utter_study_concentration
+  - utter_course_failure_worry
+  - utter_academic_support_resources
+  - utter_multiple_assignments_balance
+  - utter_plagiarism
+  - utter_mental_health_registration
+  - utter_counseling_services
+  - utter_impostor_syndrome
+  - utter_student_parent_balance
+  - utter_test_anxiety_management
+  - utter_depression_class_attendance
+  - utter_chronic_conditions_policy
+  - utter_mental_health_concern
+  - utter_sleep_issues
+  - utter_panic_attack
+  - utter_self_care
+  - utter_mental_health_services
+  - utter_mental_health_crisis
+  - utter_mental_health_accommodations
+  - utter_mental_health_attendance
+  - utter_mental_health_medication
+  - utter_mental_health_diagnosis
+  - utter_mental_health_professional_help
+  - utter_mental_health_peer_support
+  - utter_mental_health_emergency
+  - utter_mental_health_wellness
+  - utter_mental_health_stigma
+  - utter_mental_health_identity
+  - utter_mental_health_culture
+  - utter_mental_health_seasonal
+  - utter_mental_health_work_life
+  - utter_mental_health_comparison
+  - utter_relationship_general
+  - utter_relationship_romantic
+  - utter_relationship_friendship
+  - utter_relationship_family
+  - utter_relationship_roommate
+  - utter_relationship_boundaries
+  - utter_relationship_conflict
+  - utter_relationship_breakup
+  - utter_relationship_abuse
+  - utter_relationship_support
+  - utter_relationship_communication
+  - utter_relationship_trust
+  - utter_relationship_jealousy
+  - utter_relationship_commitment
+  - utter_relationship_identity
+  - utter_relationship_culture
+  - utter_relationship_online
+  - utter_relationship_long_distance
+  - utter_relationship_work_study
+  - utter_relationship_balance
+  - utter_support_services_general
+  - utter_support_services_academic
+  - utter_support_services_mental_health
+  - utter_support_services_financial
+  - utter_support_services_disability
+  - utter_support_services_international
+  - utter_support_services_career
+  - utter_support_services_housing
+  - utter_support_services_wellness
+  - utter_support_services_emergency
+  - utter_support_services_peer
+  - utter_support_services_professional
+  - utter_support_services_community
+  - utter_support_services_identity
+  - utter_support_services_culture
+  - utter_support_services_technology
+  - utter_support_services_library
+  - utter_support_services_student_life
+  - utter_support_services_social_connection
+  - utter_support_services_orientation
+  - utter_social_connection_general
+  - utter_social_connection_clubs
+  - utter_social_connection_sports
+  - utter_social_connection_events
+  - utter_social_connection_networking
+  - utter_social_connection_mentorship
+  - utter_social_connection_volunteering
+  - utter_social_connection_workshops
+  - utter_social_connection_peer_groups
+  - utter_social_connection_cultural
+  - utter_special_conditions_general
+  - utter_special_conditions_adhd
+  - utter_special_conditions_anxiety
+  - utter_special_conditions_ocd
+  - utter_special_conditions_eating
+  - utter_special_conditions_depression
+  - utter_special_conditions_bipolar
+  - utter_special_conditions_ptsd
+  - utter_special_conditions_autism
+  - utter_special_conditions_dyslexia
+  - utter_special_conditions_chronic_pain
+  - utter_special_conditions_physical_disability
+  - utter_special_conditions_visual_impairment
+  - utter_special_conditions_hearing_impairment
+  - utter_special_conditions_mobility
+  - utter_special_conditions_medical
+  - utter_special_conditions_learning
+  - utter_special_conditions_sensory
+  - utter_special_conditions_developmental
+  - utter_special_conditions_mental_health
+  - utter_identity_general
+  - utter_identity_sexual_orientation
+  - utter_identity_gender
+  - utter_identity_race_ethnicity
+  - utter_identity_culture
+  - utter_identity_religion
+  - utter_identity_disability
+  - utter_identity_age
+  - utter_identity_socioeconomic
+  - utter_identity_first_generation
+  - utter_identity_international
+  - utter_identity_transfer
+  - utter_identity_non_traditional
+  - utter_identity_veteran
+  - utter_identity_parent
+  - utter_identity_caregiver
+  - utter_identity_immigrant
+  - utter_identity_refugee
+  - utter_identity_intersectional
+  - utter_identity_expression
+  - utter_financial_general
+  - utter_financial_budgeting
+  - utter_financial_loans
+  - utter_financial_emergency
+  - utter_financial_employment
+  - utter_financial_scholarships
+  - utter_financial_housing
+  - utter_financial_utilities
+  - utter_financial_healthcare
+  - utter_financial_transportation
+  - utter_financial_books_supplies
+  - utter_financial_technology
+  - utter_financial_food
+  - utter_financial_entertainment
+  - utter_financial_insurance
+  - utter_financial_debt
+  - utter_financial_savings
+  - utter_financial_investment
+  - utter_financial_tax
+  - utter_financial_planning
+  - utter_financial_savings
+  - utter_financial_investment
+  - utter_financial_tax
+  - utter_financial_planning
+  - utter_express_emotion_response
+  - utter_emergency_mental_health_response
+  - utter_please_rephrase
+  - utter_default_fallback
+  - utter_substance_concern
+  - utter_substance_friend_concern
+  - utter_substance_resources
+  - utter_substance_socializing_sober
+  - utter_social_general
+  - utter_social_clubs
+  - utter_social_sports
+  - utter_social_events
+  - utter_social_networking
+  - utter_social_mentorship
+  - utter_social_volunteering
+  - utter_social_workshops
+  - utter_social_peer_groups
+  - utter_social_cultural
+  - utter_social_societies_union
+  - utter_social_sports_teams
+  - utter_financial_budgeting
+  - utter_financial_campus_part_time_jobs
+  - utter_financial_emergency_funds
+  - utter_financial_loan_management
+  - utter_financial_struggle
+  - utter_financial_support_options
+  - utter_career_guidance
+  - utter_career_cv_review
+  - utter_career_interview_prep
+  - utter_career_job_search
+  - utter_career_placement_prep
+  - utter_career_graduation_anxiety
+  - utter_career_dropping_out
+  - utter_services_admissions
+  - utter_services_registration
+  - utter_services_accommodation
+  - utter_mental_health_relationships_general
+  - utter_mental_health_relationships_romantic
+  - utter_mental_health_relationships_friendship
+  - utter_mental_health_relationships_family
+  - utter_mental_health_relationships_boundaries
+  - utter_mental_health_relationships_issues
+  - utter_mental_health_relationships_support
+  - utter_mental_health_identity_general
+  - utter_mental_health_identity_gender
+  - utter_mental_health_identity_sexual_orientation
+  - utter_mental_health_identity_racial_cultural
+  - utter_mental_health_identity_disability
+  - utter_mental_health_identity_first_generation
+  - utter_mental_health_identity_international
+  - utter_mental_health_identity_academic_status
+  - utter_mental_health_special_conditions_general
+  - utter_mental_health_special_conditions_anxiety
+  - utter_mental_health_special_conditions_depression
+  - utter_mental_health_special_conditions_adhd

@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/first_generation
+  examples: |
+    - Challenges as a first-generation student
+    - Feeling pressure as a first-gen student
+    - Need support navigating university as first-generation
+    - First-generation student identity issues
+    - Balancing family expectations as first-gen 

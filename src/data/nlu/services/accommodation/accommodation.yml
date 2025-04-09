@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: services/accommodation
+  examples: |
+    - Tell me about university accommodation
+    - How do I apply for student housing?
+    - What are the accommodation options?
+    - Information about Res Life?
+    - I have a problem with my university room
+    - Where can I find information about halls of residence?
+    - What's the cost of university accommodation?
+    - Help with accommodation contracts
+    - Moving into university accommodation
+    - Who manages student housing? 

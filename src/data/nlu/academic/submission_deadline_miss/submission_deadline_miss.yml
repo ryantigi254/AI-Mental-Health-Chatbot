@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/submission_deadline_miss
+  examples: |
+    - I missed an assignment deadline
+    - What happens if I miss a submission deadline?
+    - Submitted my assignment late
+    - Consequences of missing a deadline?
+    - Can I get an extension after missing the deadline?
+    - Need advice on what to do after missing a deadline
+    - I couldn't submit my work on time
+    - How does missing a deadline affect my grade?
+    - Procedure for late submissions?
+    - Panicking because I missed a deadline 

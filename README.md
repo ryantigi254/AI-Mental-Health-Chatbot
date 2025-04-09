@@ -1,8 +1,5 @@
 # AI Group Project - Mental Health Chatbot
 
-<!-- Optional Badges: e.g., Build Status, Coverage, License -->
-<!-- [![Build Status](https://travis-ci.com/your_username/your_repo.svg?branch=main)](https://travis-ci.com/your_username/your_repo) -->
-
 This project is a Rasa-based conversational AI designed to provide mental health support and resource information, initially tailored for students at the University of Northampton. It is developed as part of the CSY2088 Group Project module.
 
 ## :bookmark_tabs: Table of Contents

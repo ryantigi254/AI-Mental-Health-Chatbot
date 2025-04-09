@@ -14,7 +14,6 @@ This project is a Rasa-based conversational AI designed to provide mental health
 *   [Training and Running](#robot-training-and-running)
 *   [Hierarchical Intents](#books-hierarchical-intents)
 *   [Development Status & Next Steps](#construction-development-status--next-steps)
-*   [Contributing](#wrench-contributing)
 *   [Resources](#scroll-resources)
 *   [License](#memo-license)
 

@@ -1,6 +1,5 @@
 # AI Group Project - Mental Health Chatbot
 
-<<<<<<< HEAD
 This project is a Rasa-based conversational AI designed to provide mental health support and resource information, initially tailored for students at the University of Northampton. It is developed as part of the CSY2088 Group Project module.
 
 ## :bookmark_tabs: Table of Contents
@@ -315,7 +314,5 @@ Please follow the commit message guidelines outlined in `git-conventional-commit
     *   NHS Urgent Mental Health Help: [NHFT Urgent Help](https://www.nhft.nhs.uk/help) or call 111.
     *   Samaritans: Call 116 123 (UK, free, 24/7)
 
-## :memo: License
 
-*(To be determined - Consider adding an open-source license like MIT or Apache 2.0 if applicable)*
 >>>>>>> 6c3d7180 (Update mental health chatbot with hierarchical intent structure and reorganize project files)

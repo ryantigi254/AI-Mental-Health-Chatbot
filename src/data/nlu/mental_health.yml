@@ -1,0 +1,64 @@
+version: "3.2"
+
+nlu:
+  # Import mood intents
+  - nlu: mood/positive.yml
+  - nlu: mood/negative.yml
+  - nlu: mood/neutral.yml
+
+  # Import academic intents
+  - nlu: academic/stress.yml
+  - nlu: academic/performance.yml
+  - nlu: academic/accommodations.yml
+
+  # Import crisis intents
+  - nlu: crisis/suicide.yml
+  - nlu: crisis/self_harm.yml
+  - nlu: crisis/panic.yml
+
+  # Import resources intents
+  - nlu: resources/campus.yml
+  - nlu: resources/online.yml
+  - nlu: resources/emergency.yml
+
+  # Import special conditions intents
+  - nlu: special_conditions/general.yml
+  - nlu: special_conditions/anxiety.yml
+  - nlu: special_conditions/depression.yml
+  - nlu: special_conditions/adhd.yml
+  # Add other special conditions imports as they are created
+
+  # Import financial intents
+  - nlu: financial/general.yml
+  - nlu: financial/budgeting.yml
+  - nlu: financial/emergency.yml
+  # Add other financial imports as they are created
+
+  # Import reported emergency intents (Renamed from 'emergency')
+  - nlu: report_emergency/mental_health.yml
+  - nlu: report_emergency/physical_health.yml
+  - nlu: report_emergency/safety.yml
+  # Add other reported emergency imports as they are created
+
+  # Import relationship intents 
+  - nlu: relationships/general/general.yml
+  - nlu: relationships/romantic/romantic.yml
+  - nlu: relationships/friendship/friendship.yml
+  - nlu: relationships/family/family.yml
+  - nlu: relationships/boundaries/boundaries.yml
+  - nlu: relationships/support/support.yml
+  # Add other relationship imports here as files are created (e.g., roommate, conflict, etc.)
+
+  # Import identity intents
+  - nlu: identity/general/general.yml
+  - nlu: identity/gender/gender.yml
+  - nlu: identity/sexual_orientation/sexual_orientation.yml
+  - nlu: identity/racial_cultural/racial_cultural.yml
+  - nlu: identity/disability/disability.yml
+  - nlu: identity/first_generation/first_generation.yml
+  - nlu: identity/international/international.yml
+  - nlu: identity/academic_status/academic_status.yml
+  # Add other identity imports here as files are created (e.g., religion, age, socioeconomic, etc.)
+
+  # Note: Keep the original flat nlu.yml or simple_nlu.yml referenced in config.yml for now during migration.
+  # This file acts as the central import point for the *hierarchical* structure. 

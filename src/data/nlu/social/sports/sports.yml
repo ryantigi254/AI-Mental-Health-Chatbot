@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/sports
+  examples: |
+    - How can I join sports teams?
+    - What sports activities are available?
+    - I want to play university sports
+    - Tell me about sports clubs
+    - How do I get involved in sports?
+    - What recreational sports are there?
+    - I'm interested in joining a sports team
+    - Where can I find sports information?
+    - What types of sports can I play?
+    - I want to do sports activities
+    - Are there tryouts for the basketball team?
+    - Can I join intramural sports?
+    - What fitness classes are offered?
+    - Where is the university gym?
+    - Info on the rowing club? 

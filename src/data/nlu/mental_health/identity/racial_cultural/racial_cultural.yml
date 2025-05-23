@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/racial_cultural
+  examples: |
+    - I'm exploring my racial identity
+    - I need help with my racial identity
+    - I want to talk about my cultural identity
+    - I need support with my ethnic identity
+    - I'm struggling with my cultural background
+    - I want to understand my racial and cultural identity
+    - I need help understanding my heritage
+    - I want to discuss my cultural identity
+    - I need guidance with my ethnic background
+    - I'm questioning my cultural identity
+    - I don't know how to connect with my culture
+    - I'm experiencing racism on campus
+    - I feel disconnected from my cultural heritage
+    - I'm dealing with cultural expectations
+    - I struggle with being multicultural
+    - I experience discrimination based on my race
+    - I feel caught between two cultures
+    - I'm trying to learn more about my ancestry
+    - I experience microaggressions because of my race
+    - I want to embrace my cultural identity more 

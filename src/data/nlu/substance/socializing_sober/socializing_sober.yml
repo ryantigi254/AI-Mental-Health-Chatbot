@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: substance/socializing_sober
+  examples: |
+    - How to socialize without drinking?
+    - Tips for having fun sober at university
+    - Alternatives to drinking at social events
+    - Feeling pressured to drink socially
+    - How to decline alcohol politely?
+    - Sober activities on campus?
+    - Meeting people without going to bars/parties?
+    - Navigating social life sober
+    - Dealing with peer pressure around alcohol
+    - Enjoying university life without substances? 

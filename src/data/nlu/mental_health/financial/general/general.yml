@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/financial/general
+  examples: |
+    - I need help with my finances
+    - I'm having financial problems
+    - I need financial advice
+    - I want to talk about my finances
+    - I need help managing my money
+    - I'm struggling financially
+    - I need financial guidance
+    - I want to discuss my financial situation
+    - I need help with money management
+    - I'm concerned about my finances
+    - I'm worried about money
+    - I can't afford my expenses
+    - I don't know how to manage my finances
+    - My financial situation is stressing me out
+    - I need advice on financial planning
+    - I'm having trouble making ends meet
+    - I don't have enough money for basic needs
+    - I'm anxious about my financial future
+    - I need resources for financial support
+    - I want to improve my financial literacy 

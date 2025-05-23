@@ -5,8 +5,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: mood_positive
+  - action: utter_mood_positive
   - intent: goodbye
   - action: utter_goodbye
 
@@ -14,10 +14,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - intent: affirm
-  - action: utter_happy
+  - intent: mood_negative
+  - action: utter_mood_negative
   - intent: goodbye
   - action: utter_goodbye
 
@@ -25,47 +23,134 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - intent: deny
+  - intent: mood_negative
+  - action: utter_mood_negative
+  - intent: ask_for_help
+  - action: utter_professional_help
+  - intent: goodbye
   - action: utter_goodbye
 
-- story: anxiety help
+# Academic-themed stories
+- story: Academic stress help
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: feeling_anxious
-  - action: utter_anxiety_help
-  - intent: affirm
+  - intent: academic_stress
+  - action: utter_academic_stress
+  - intent: ask_for_help
   - action: utter_professional_help
-  - intent: thank
-  - action: utter_thanks
 
-- story: depression help
+# Mental Health stories
+- story: Mental health resources
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: feeling_depressed
-  - action: utter_depression_help
-  - intent: affirm
-  - action: utter_professional_help
+  - intent: mental_health_services
+  - action: utter_mental_health_services
   - intent: thank
   - action: utter_thanks
 
-- story: stress management
+- story: Mental health crisis
+  steps:
+  - intent: mental_health_crisis
+  - action: utter_mental_health_crisis
+  - action: utter_emergency_resources
+
+- story: Emergency mental health
+  steps:
+  - intent: emergency_mental_health
+  - action: utter_emergency_mental_health
+  - action: utter_emergency_resources
+
+# Emergency stories with highest priority
+- story: General emergency
+  steps:
+  - intent: emergency_general
+  - action: utter_emergency_general
+  - action: utter_emergency_resources
+
+- story: Suicide emergency
+  steps:
+  - intent: emergency_suicide
+  - action: utter_emergency_suicide
+  - action: utter_emergency_resources
+
+# Peer support stories
+- story: Student seeking peer support
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: feeling_stressed
-  - action: utter_stress_management
-  - intent: affirm
-  - action: utter_professional_help
+  - intent: social_connection_peer_groups
+  - action: utter_social_connection_peer_groups
   - intent: thank
   - action: utter_thanks
 
-- story: direct ask for coping strategies
+# Time management stories
+- story: Student needing time management help
   steps:
-  - intent: ask_coping_strategies
-  - action: utter_anxiety_help
+  - intent: greet
+  - action: utter_greet
+  - intent: multiple_assignments_balance
+  - action: utter_multiple_assignments_balance
   - intent: thank
   - action: utter_thanks
+
+# Financial aid stories
+- story: Student needing financial aid
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: financial_general
+  - action: utter_financial_general
+  - intent: goodbye
+  - action: utter_goodbye
+  
+# Support service stories
+- story: Student seeking support services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: support_services_general
+  - action: utter_support_services_general
+  - intent: goodbye
+  - action: utter_goodbye
+
+# Housing stories
+- story: Student needing housing support
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: support_services_housing
+  - action: utter_support_services_housing
+  - intent: thank
+  - action: utter_thanks
+
+# Career support stories
+- story: Student seeking career advice
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: support_services_career
+  - action: utter_support_services_career
+  - intent: thank
+  - action: utter_thanks
+
+# Wellness stories
+- story: Student seeking wellness advice
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: support_services_wellness
+  - action: utter_support_services_wellness
+  - intent: thank
+  - action: utter_thanks
+
+# Emotional expression
+- story: Student expressing emotions
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: express_emotion
+  - action: utter_express_emotion
+  - intent: goodbye
+  - action: utter_goodbye

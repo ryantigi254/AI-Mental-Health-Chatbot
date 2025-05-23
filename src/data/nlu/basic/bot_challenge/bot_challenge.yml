@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: basic/bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who are you?
+    - what are you?
+    - are you real?
+    - are you a person?
+    - are you AI?
+    - what kind of bot are you?
+    - are you automated?
+    - are you a chatbot?
+    - is this a bot?
+    - are you actually a person?
+    - tell me about yourself 

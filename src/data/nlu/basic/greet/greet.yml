@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: basic/greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - greetings
+    - hi there
+    - howdy
+    - good day
+    - how are you
+    - hello bot
+    - hi bot
+    - hey bot 

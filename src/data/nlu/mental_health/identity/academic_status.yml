@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/academic_status
+  examples: |
+    - How my student status affects my identity
+    - Feeling defined by my academic performance
+    - Identity issues related to being a student
+    - Stress about academic identity
+    - Pressure related to academic achievements 

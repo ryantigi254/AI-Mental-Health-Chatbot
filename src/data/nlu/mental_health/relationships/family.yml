@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/family
+  examples: |
+    - Issues with my family
+    - Problems at home
+    - Family relationship stress
+    - Conflict with parents/siblings
+    - Family expectations are causing stress 

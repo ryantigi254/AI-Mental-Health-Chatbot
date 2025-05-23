@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/friendship
+  examples: |
+    - Having trouble with my friends
+    - Friendship problems
+    - Issues with my social circle
+    - Arguments with friends
+    - Feeling lonely despite having friends 

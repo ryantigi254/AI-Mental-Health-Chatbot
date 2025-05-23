@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/cheating_accusation
+  examples: |
+    - I've been accused of cheating
+    - Professor thinks I cheated on a test
+    - What should I do if accused of cheating?
+    - How to defend against a cheating accusation?
+    - Need help responding to an accusation of academic dishonesty
+    - What is the process for handling cheating accusations?
+    - Can I appeal a cheating charge?
+    - Panicking because I was accused of cheating
+    - What evidence is needed for a cheating accusation?
+    - Resources for students accused of cheating? 

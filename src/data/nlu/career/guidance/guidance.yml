@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: career/guidance
+  examples: |
+    - I need career advice
+    - Can Student Futures help me with career planning?
+    - What career support does the university offer?
+    - I'm unsure about my future career path
+    - Help with choosing a career
+    - Need guidance on career options after graduation
+    - Talk to a careers counsellor
+    - Resources for career exploration?
+    - Feeling pressured about future decisions
+    - Where can I get career guidance? 

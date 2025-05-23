@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/sexual_orientation
+  examples: |
+    - I'm questioning my sexual orientation
+    - I need help with my sexual orientation
+    - I want to talk about my sexual orientation
+    - I need support with my sexual orientation
+    - I'm struggling with my sexual orientation
+    - I want to understand my sexual orientation
+    - I need help understanding my sexual orientation
+    - I want to discuss my sexual orientation
+    - I need guidance with my sexual orientation
+    - I'm exploring my sexual orientation
+    - I think I might be gay
+    - I'm not sure if I'm straight
+    - I might be bisexual but I'm confused
+    - I'm questioning if I'm asexual
+    - I don't know how to tell others about my sexuality
+    - I'm afraid of coming out
+    - I recently realized I might be pansexual
+    - I'm having trouble accepting my sexual orientation
+    - I need resources about sexual orientation
+    - I want to understand different sexual orientations 

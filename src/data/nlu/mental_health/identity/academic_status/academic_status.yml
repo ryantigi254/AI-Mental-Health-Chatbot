@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/academic_status
+  examples: |
+    - I'm a first-generation student
+    - I need help as a first-generation student
+    - I want to talk about being first-generation
+    - I'm an international student
+    - I need support as an international student
+    - I'm a transfer student
+    - I need help as a transfer student
+    - I'm a non-traditional student
+    - I need support as a non-traditional student
+    - I'm a student parent
+    - I need resources as a student with children
+    - I'm a student caregiver
+    - I'm a veteran student
+    - I need help as a student veteran
+    - I'm an immigrant student
+    - I need support as an immigrant
+    - I'm a refugee student
+    - I need help adjusting as a refugee
+    - I'm struggling with balancing my student status and my other identities
+    - I need resources specific to my student situation 

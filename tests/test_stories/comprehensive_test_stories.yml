@@ -1,0 +1,63 @@
+version: "3.1"
+
+stories:
+- story: greet and ask for mental health services
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      What mental health services are available?
+    intent: mental_health_services
+  - action: utter_mental_health_services
+
+- story: express negative emotion
+  steps:
+  - user: |
+      I feel sad because of my grades
+    intent: express_emotion
+    entities:
+    - emotion_type: sad
+    - trigger: grades
+  - action: utter_express_emotion_response
+
+- story: emergency mental health response
+  steps:
+  - user: |
+      I need emergency mental health support
+    intent: emergency_mental_health
+  - action: utter_emergency_mental_health
+  - action: utter_emergency_resources
+
+- story: relationship and study balance
+  steps:
+  - user: |
+      I can't balance my relationship with my studies
+    intent: relationship_work_study
+  - action: utter_relationship_work_study
+
+- story: ask for help
+  steps:
+  - user: |
+      I need help with my mental health
+    intent: ask_for_help
+  - action: utter_professional_help
+
+- story: greet and goodbye
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      bye
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - user: |
+      are you a bot?
+    intent: bot_challenge
+  - action: utter_iamabot 

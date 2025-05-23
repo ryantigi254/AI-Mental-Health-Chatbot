@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: substance/friend_concern
+  examples: |
+    - I'm worried about my friend's drinking
+    - How can I help a friend with substance abuse?
+    - My friend might have a drug problem
+    - What to do if I think my friend is using too much?
+    - Supporting a friend with addiction issues
+    - How to talk to a friend about their substance use?
+    - Resources for helping a friend with addiction
+    - Concerned about a roommate's drinking/drug use
+    - My friend's substance use is affecting their studies
+    - Where can my friend get help for addiction? 

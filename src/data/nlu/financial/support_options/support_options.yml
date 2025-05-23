@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: financial/support_options
+  examples: |
+    - What financial support options are available?
+    - Looking for financial aid information
+    - Types of financial assistance for students?
+    - Grants, scholarships, bursaries explained
+    - How to apply for financial support?
+    - Deadlines for financial aid applications?
+    - Who can I talk to about financial support?
+    - Understanding the difference between types of aid
+    - Financial support for international/graduate students?
+    - Where to find the financial aid office? 

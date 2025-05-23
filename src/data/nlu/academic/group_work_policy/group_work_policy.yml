@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/group_work_policy
+  examples: |
+    - What are the rules for group work?
+    - Need clarification on group assignment policies
+    - How is contribution assessed in group projects?
+    - What if a group member isn't contributing?
+    - University policy on collaboration vs cheating?
+    - Can we divide work in group assignments?
+    - How to handle conflicts within a study group?
+    - Expectations for group work submissions?
+    - Are there guidelines for group presentations?
+    - Where can I find the policy on group assignments? 

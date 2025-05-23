@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/general
+  examples: |
+    - I'm exploring my identity
+    - I need help with my identity
+    - I'm questioning my identity
+    - I want to talk about my identity
+    - I need support with my identity
+    - I'm struggling with my identity
+    - I want to understand my identity
+    - I need help understanding my identity
+    - I want to discuss my identity
+    - I need guidance with my identity
+    - I don't know who I really am
+    - I'm trying to figure out my identity
+    - I feel lost about my identity
+    - I'm having an identity crisis
+    - I'm confused about who I am
+    - My identity is changing and I need help
+    - I need to talk to someone about my identity
+    - I'm having trouble with self-identification
+    - I want to explore different aspects of my identity
+    - My sense of self is unclear to me 

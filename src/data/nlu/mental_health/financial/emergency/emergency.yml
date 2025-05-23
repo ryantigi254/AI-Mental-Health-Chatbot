@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/financial/emergency
+  examples: |
+    - I'm having a financial emergency
+    - I need emergency financial help
+    - I'm in a financial crisis
+    - I need emergency funds
+    - I'm facing financial hardship
+    - I need emergency financial support
+    - I'm experiencing financial difficulties
+    - I need help with financial emergencies
+    - I want to discuss my financial emergency
+    - I need emergency financial assistance
+    - I don't have money for rent this month
+    - I can't afford my textbooks
+    - I need emergency help to pay for food
+    - I'm at risk of being evicted
+    - I have an unexpected medical expense
+    - My laptop broke and I need it for class
+    - I lost my job and can't pay my bills
+    - I need emergency funding for basic necessities
+    - I'm out of money and have no food
+    - I need resources for immediate financial assistance 

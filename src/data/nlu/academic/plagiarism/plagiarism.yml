@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/plagiarism
+  examples: |
+    - What counts as plagiarism?
+    - Need clarification on plagiarism rules
+    - How to avoid plagiarism in my work?
+    - Unsure about what constitutes academic dishonesty
+    - Can you explain the university's plagiarism policy?
+    - Difference between plagiarism and paraphrasing?
+    - Consequences of plagiarism?
+    - How is plagiarism detected?
+    - Resources to understand plagiarism better?
+    - Is self-plagiarism a thing? 

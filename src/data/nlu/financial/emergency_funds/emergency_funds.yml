@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: financial/emergency_funds
+  examples: |
+    - I need emergency financial assistance
+    - Are there emergency funds available for students?
+    - How to apply for emergency financial aid?
+    - Facing an unexpected financial crisis
+    - Need help covering an urgent expense
+    - What support is there for sudden financial hardship?
+    - Emergency grants or loans for students?
+    - My situation changed, need emergency funding
+    - Where to go for immediate financial help on campus?
+    - Process for requesting emergency funds? 

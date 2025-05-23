@@ -1,0 +1,531 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+# Rasa Project Structure and Guidelines
+
+## Project Structure Overview
+
+A standard Rasa project typically includes the following directory structure:
+
+```
+project/
+├── actions/
+│   └── actions.py          # Custom actions for complex behaviors
+├── data/
+│   ├── nlu/                # Natural Language Understanding training data
+│   │   └── nlu.yml         # Intent and entity examples
+│   ├── rules/              # Rule-based conversation patterns
+│   │   └── rules.yml       # Definitive conversation flows
+│   └── stories/            # Example conversation paths
+│       └── stories.yml     # Training data for the dialogue model
+├── models/                 # Trained model files
+├── tests/                  # Test conversations
+├── config.yml              # Pipeline and policy configuration
+├── credentials.yml         # Channel connection credentials
+├── domain.yml              # Bot's domain configuration
+├── endpoints.yml           # Service connection endpoints
+└── README.md               # Project documentation
+```
+
+## Assistant Types: CALM vs NLU-based
+
+Rasa supports two distinct approaches to building conversational AI:
+
+### CALM-based Assistants
+- **Description**: Conversational AI with Language Models (CALM) leverages large language models
+- **Benefits**:
+  - More natural conversations with less training data
+  - Better handling of complex language understanding
+  - Less need for explicit intent/entity examples
+- **Key Components**:
+  - `FlowPolicy`: Manages dialogue based on predefined flows
+  - `flows/`: Directory containing YAML flow definitions
+  - Relies on language model capabilities for understanding
+- **Configuration**:
+  ```yaml
+  recipe: default.v1
+  assistant_type: calm
+  language: en
+  calm:
+    model: base
+  ```
+
+### NLU-based Assistants
+- **Description**: Traditional approach using explicit intent recognition and entity extraction
+- **Benefits**:
+  - More predictable behavior
+  - Better for task-oriented assistants
+  - Greater control over exact conversation flows
+- **Key Components**:
+  - NLU pipeline for intent/entity recognition
+  - Policies for dialogue management
+  - Stories and rules for training
+- **Configuration**:
+  ```yaml
+  recipe: default.v1
+  language: en
+  pipeline:
+    - name: WhitespaceTokenizer
+    # More pipeline components...
+  policies:
+    - name: MemoizationPolicy
+    # More policies...
+  ```
+
+## Key Files and Their Purposes
+
+### Configuration Files
+
+#### `config.yml`
+- **Purpose**: Defines the NLU pipeline and dialogue policies
+- **Contains**:
+  - `language`: The primary language of the assistant
+  - `pipeline`: Components for processing and understanding user messages
+  - `policies`: Components for deciding what actions to take next
+
+```yaml
+language: en
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  # More pipeline components...
+policies:
+  - name: MemoizationPolicy
+  - name: TEDPolicy
+  - name: RulePolicy
+  # More policies...
+```
+
+#### `domain.yml`
+- **Purpose**: Defines everything the assistant knows
+- **Contains**:
+  - `intents`: User intentions the bot can understand
+  - `entities`: Data that can be extracted from user messages
+  - `slots`: The bot's memory (persisted information)
+  - `responses`: Templates for bot messages
+  - `actions`: Custom actions the bot can take
+  - `forms`: For collecting structured information
+
+```yaml
+intents:
+  - greet
+  - goodbye
+  - ask_for_help
+entities:
+  - emotion_type
+  - severity
+slots:
+  emotion_type:
+    type: text
+    influence_conversation: true
+responses:
+  utter_greet:
+    - text: "Hello! How are you feeling today?"
+actions:
+  - utter_greet
+  - action_check_mental_state
+```
+
+#### `credentials.yml`
+- **Purpose**: Contains authentication for external services
+- **Contains**: Credentials for messaging channels (Slack, Facebook, etc.)
+
+#### `endpoints.yml`
+- **Purpose**: Specifies the URLs for various services
+- **Contains**: 
+  - Action server URL
+  - Tracker store configuration
+  - Event broker settings
+
+### Training Data
+
+#### `data/nlu/*.yml`
+- **Purpose**: Training examples for intent recognition and entity extraction
+- **Format**: YAML with examples of user utterances
+
+```yaml
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - Hello
+    - Hi there
+    - Hey
+- intent: express_emotion
+  examples: |
+    - I feel @sad
+    - I'm @anxious about my exams
+```
+
+#### `data/stories/*.yml`
+- **Purpose**: Example conversation flows for training the dialogue model
+- **Format**: Sequences of intents and actions
+
+```yaml
+version: "3.1"
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_positive
+  - action: utter_happy
+```
+
+#### `data/rules/*.yml`
+- **Purpose**: Definitive patterns that should always be followed
+- **Format**: Simple mappings from conditions to actions
+
+```yaml
+version: "3.1"
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+```
+
+### Custom Code
+
+#### `actions/actions.py`
+- **Purpose**: Custom logic for complex assistant behaviors
+- **Contains**: Python classes that implement custom actions
+
+```python
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
+class ActionCheckMentalState(Action):
+    def name(self) -> str:
+        return "action_check_mental_state"
+        
+    def run(self, dispatcher, tracker, domain):
+        # Custom logic here
+        return []
+```
+
+## Advanced Custom Actions by Example
+
+Rasa's power comes from its ability to execute custom Python code through the action server. Below are examples of advanced custom actions that demonstrate common patterns and best practices.
+
+### 1. Context-Sensitive Responses
+
+This action provides different coping strategies based on a slot value:
+
+```python
+class ActionSuggestCopingStrategy(Action):
+    def name(self) -> Text:
+        return "action_suggest_coping_strategy"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get the symptom slot value
+        symptom = tracker.get_slot("symptom")
+        
+        # Suggest specific coping strategies based on the symptom
+        if symptom == "anxiety":
+            dispatcher.utter_message(text="Here are some anxiety coping strategies:\n"
+                                         "1. Deep breathing: Inhale for 4 counts, hold for 4, exhale for 6\n"
+                                         "2. Progressive muscle relaxation: Tense and release each muscle group\n"
+                                         "3. Grounding techniques: Focus on your 5 senses")
+        
+        elif symptom == "depression":
+            dispatcher.utter_message(text="Here are some depression coping strategies:\n"
+                                         "1. Set small, achievable daily goals\n"
+                                         "2. Practice self-compassion and challenge negative self-talk\n"
+                                         "3. Maintain social connections, even when it's difficult")
+        
+        else:
+            dispatcher.utter_message(text="Here are some general mental wellness strategies:\n"
+                                         "1. Maintain a regular sleep schedule\n"
+                                         "2. Eat nutritious foods and stay hydrated\n"
+                                         "3. Exercise regularly")
+        
+        return []
+```
+
+### 2. Semantic Analysis and Safety Monitoring
+
+This action checks for concerning keywords and provides emergency resources when detected:
+
+```python
+class ActionCheckSeverity(Action):
+    def name(self) -> Text:
+        return "action_check_severity"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Check for severe symptoms in the conversation history
+        severe_keywords = [
+            "suicide", "kill myself", "end my life", "hurt myself", 
+            "self-harm", "cutting", "harming myself", "die"
+        ]
+        
+        # Get the user's last message
+        last_message = tracker.latest_message.get("text", "")
+        
+        # Check if any severe keywords are in the message
+        for keyword in severe_keywords:
+            if keyword in last_message.lower():
+                dispatcher.utter_message(text="I've noticed you mentioned something concerning. "
+                                             "If you're having thoughts of harming yourself, please reach out for immediate help:\n\n"
+                                             "- National Suicide Prevention Lifeline: 1-800-273-8255\n"
+                                             "- Crisis Text Line: Text HOME to 741741")
+                return [SlotSet("severity", "high")]
+        
+        return [SlotSet("severity", "normal")]
+```
+
+### 3. Personality-Based Response Generation
+
+This action demonstrates adapting responses based on a user preference slot:
+
+```python
+class ActionGenerateResponse(Action):
+    def name(self) -> Text:
+        return "action_generate_response"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get the current personality
+        personality = tracker.get_slot("personality_type")
+        
+        # Get the intent of the latest message
+        intent = tracker.latest_message.get("intent", {}).get("name")
+        
+        # Generate response based on personality
+        if personality == "empathetic":
+            response = self._generate_empathetic_response(intent)
+        elif personality == "direct":
+            response = self._generate_direct_response(intent)
+        else:  # balanced
+            response = self._generate_balanced_response(intent)
+        
+        dispatcher.utter_message(text=response)
+        return []
+    
+    def _generate_empathetic_response(self, intent: str) -> str:
+        """Generate an empathetic response."""
+        responses = {
+            "academic_stress": "I understand how overwhelming academic stress can be. It's completely normal to feel this way.",
+            "social_isolation": "I hear you're feeling isolated. It's okay to feel this way, and you're not alone.",
+            "default": "I'm here to listen and support you. How can I help you today?"
+        }
+        
+        return responses.get(intent, responses["default"])
+    
+    def _generate_direct_response(self, intent: str) -> str:
+        """Generate a direct, practical response."""
+        responses = {
+            "academic_stress": "Here are three practical steps: 1) Prioritize assignments, 2) Create a study schedule, 3) Break tasks into smaller chunks.",
+            "social_isolation": "Try these steps: 1) Join a student club, 2) Attend campus events, 3) Use the buddy system for classes.",
+            "default": "What specific issue would you like to address? I can provide practical solutions."
+        }
+        
+        return responses.get(intent, responses["default"])
+```
+
+### 4. Category-Based Resource Provider
+
+This action demonstrates complex branching logic based on intent categories:
+
+```python
+class ActionProvideResourcesByCategory(Action):
+    def name(self) -> Text:
+        return "action_provide_resources_by_category"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Get the latest intent
+        intent = tracker.latest_message.get("intent", {}).get("name", "")
+        
+        # Provide resources based on intent category
+        if intent.startswith("mental_health_"):
+            self._provide_mental_health_resources(dispatcher)
+        elif intent.startswith("relationship_"):
+            self._provide_relationship_resources(dispatcher)
+        elif intent.startswith("emergency_"):
+            self._provide_emergency_resources(dispatcher, intent)
+        else:
+            self._provide_general_resources(dispatcher)
+        
+        return []
+    
+    def _provide_mental_health_resources(self, dispatcher: CollectingDispatcher):
+        dispatcher.utter_message(text="Here are mental health resources:\n"
+                                     "- University Counseling Center: (555) 123-4567\n"
+                                     "- Mental Health Hotline: (800) 123-4567\n"
+                                     "- Student Wellness App: wellness.university.edu")
+    
+    def _provide_emergency_resources(self, dispatcher: CollectingDispatcher, intent: str):
+        # Extract the emergency type from the intent name
+        emergency_type = intent.split("emergency_")[1]
+        
+        if emergency_type == "mental_health":
+            dispatcher.utter_message(text="For mental health emergencies:\n"
+                                         "- University Crisis Line: (555) 911-4567 (24/7)\n"
+                                         "- National Suicide Prevention Lifeline: 988\n"
+                                         "- Crisis Text Line: Text HOME to 741741")
+        elif emergency_type == "physical_health":
+            dispatcher.utter_message(text="For physical health emergencies:\n"
+                                         "- Call 911 immediately\n"
+                                         "- Campus Emergency Services: (555) 911-9999\n"
+                                         "- Nearest Hospital: University Medical Center")
+```
+
+## Common Components
+
+### NLU Pipeline Components
+- **Tokenizers**: Split text into tokens (WhitespaceTokenizer, SpacyTokenizer)
+- **Featurizers**: Convert tokens into features (RegexFeaturizer, CountVectorsFeaturizer)
+- **Entity Extractors**: Extract structured data (DIETClassifier, RegexEntityExtractor)
+- **Intent Classifiers**: Determine user intention (DIETClassifier, FallbackClassifier)
+
+### Policies
+- **MemoizationPolicy**: Memorizes and repeats previous conversations
+- **TEDPolicy**: ML-based policy that generalizes to new conversations
+- **RulePolicy**: Enforces rule-based behavior
+- **FormPolicy**: Handles form filling interactions
+- **FallbackPolicy**: Handles cases when the bot is unsure
+
+## Deployment Options
+
+### Local Deployment
+- **Development**: `rasa run` and `rasa run actions` for testing
+- **Docker**: Use Docker Compose for containerized deployment
+  ```yaml
+  version: '3.0'
+  services:
+    rasa:
+      image: rasa/rasa:latest
+      ports:
+        - "5005:5005"
+      volumes:
+        - ./:/app
+    action_server:
+      image: rasa/rasa-sdk:latest
+      ports:
+        - "5055:5055"
+      volumes:
+        - ./actions:/app/actions
+  ```
+
+### Cloud Deployment
+- **Rasa X/Enterprise**: Platform for team collaboration and deployment
+- **Kubernetes**: For scalable production deployment
+  - Use Helm charts for Kubernetes deployment
+  - Set up autoscaling for handling varying loads
+- **Serverless**: Deploy action server as serverless functions
+
+### Production Architecture Components
+- **Model Storage**: For versioned model storage
+- **Tracker Store**: Database for conversation history (MongoDB, PostgreSQL, Redis)
+- **Lock Store**: Ensures conversation consistency in distributed setups
+- **Event Broker**: For handling events across services (Kafka, RabbitMQ)
+- **NLG Server**: For dynamic response generation
+
+### Messaging Channels
+- **Web Chat**: JavaScript widget for websites
+- **Messaging Platforms**: Facebook Messenger, Slack, Telegram, etc.
+- **Voice Platforms**: Integration with telephony services
+- **Custom Channels**: Build your own channel connector
+
+## Best Practices
+
+### Project Organization
+1. **Split NLU data** by domain or functionality
+2. **Organize stories** into logical conversation flows
+3. **Use descriptive names** for intents, entities, and actions
+4. **Document custom actions** thoroughly
+
+### Training Data
+1. **Provide diverse examples** for each intent (10-15 minimum)
+2. **Use entity annotations** consistently
+3. **Create comprehensive stories** covering common paths
+4. **Define specific rules** for predictable patterns
+
+### Conversation Design
+1. **Use clear, concise bot responses**
+2. **Implement proper error handling** with fallbacks
+3. **Design clear conversation paths** with appropriate branching
+4. **Consider user context** when designing flows
+
+### Custom Actions
+1. **Keep actions focused** on a single responsibility
+2. **Implement proper error handling**
+3. **Use slots** for storing conversation context
+4. **Leverage external APIs** when needed
+
+### Testing
+1. **Create test stories** for critical conversation paths
+2. **Test NLU model** with `rasa test nlu`
+3. **Test dialogue model** with `rasa test core`
+4. **Use interactive learning** to improve models
+
+## Common Commands
+
+```bash
+# Initialize a new project
+rasa init
+
+# Train models
+rasa train
+
+# Test the assistant in command line
+rasa shell
+
+# Run the action server
+rasa run actions
+
+# Start the server with API
+rasa run --enable-api
+
+# Run interactive learning
+rasa interactive
+
+# Test NLU and dialogue models
+rasa test
+```
+
+## Integration Patterns
+
+### RAG (Retrieval Augmented Generation)
+For implementing RAG with Rasa:
+1. Create a knowledge base with relevant documents
+2. Implement a custom action to query the knowledge base
+3. Use vector embeddings to find the most relevant content
+4. Format and return relevant information to the user
+
+### Forms and Slots
+For collecting structured information:
+1. Define forms in `domain.yml`
+2. Specify required slots and their mappings
+3. Implement validation actions if needed
+4. Design appropriate responses for slot filling
+
+### Connecting External Systems
+1. Use custom actions to integrate with APIs
+2. Implement proper authentication in `credentials.yml`
+3. Define appropriate tracker stores for persistence
+4. Use event brokers for publishing conversation events
+
+## Migrating Between Versions
+1. Always check release notes for breaking changes
+2. Update training data format when required
+3. Test thoroughly after migration
+4. Consider using CI/CD pipelines for automated testing

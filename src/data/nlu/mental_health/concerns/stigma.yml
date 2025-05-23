@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/concerns/stigma
+  examples: |
+    - I'm worried about mental health stigma
+    - How do I deal with mental health stigma?
+    - I feel stigmatized for my mental health
+    - I'm concerned about mental health stigma
+    - How can I handle mental health stigma?
+    - I experience mental health stigma
+    - I want to overcome mental health stigma
+    - How do I address mental health stigma?
+    - I'm afraid of mental health stigma
+    - I need help with mental health stigma 

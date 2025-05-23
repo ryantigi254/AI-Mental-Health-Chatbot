@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/workshops
+  examples: |
+    - What workshops are available?
+    - I want to attend student workshops
+    - Tell me about workshop opportunities
+    - How do I find workshops?
+    - What skill-building workshops exist?
+    - I'm interested in workshops
+    - Where can I find workshop information?
+    - How do I get involved in workshops?
+    - What types of workshops are there?
+    - I want to develop new skills
+    - Are there any free workshops?
+    - Workshops on study skills?
+    - Career development workshops?
+    - How to register for a workshop?
+    - Creative writing workshops available? 

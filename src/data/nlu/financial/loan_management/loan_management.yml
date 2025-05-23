@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: financial/loan_management
+  examples: |
+    - How do I manage my student loans?
+    - Need help understanding my loan repayment options
+    - What are the interest rates on my student loans?
+    - Can I defer my student loan payments?
+    - Information about consolidating student loans?
+    - Where can I see my total student loan debt?
+    - Tips for paying off student loans faster?
+    - Understanding federal vs private student loans
+    - What happens if I default on my student loans?
+    - Resources for student loan borrowers? 

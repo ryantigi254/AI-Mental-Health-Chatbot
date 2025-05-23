@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: social/sports_teams
+  examples: |
+    - How can I join a university sports team?
+    - What sports teams does the uni have?
+    - Information about competitive sports
+    - Tryouts for sports teams
+    - Joining the [football] team
+    - University sports clubs
+    - Competing for the university in sports
+    - Where can I find out about sports teams?
+    - Representing the uni in [netball]
+    - Details about university sports 

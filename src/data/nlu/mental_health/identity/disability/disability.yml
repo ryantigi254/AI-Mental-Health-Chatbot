@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/disability
+  examples: |
+    - I'm exploring my disability identity
+    - I need help with my disability identity
+    - I want to talk about my disability
+    - I need support with my disability identity
+    - I'm struggling with my disability
+    - I want to understand my disability identity
+    - I need help understanding my disability
+    - I want to discuss my disability identity
+    - I need guidance with my disability identity
+    - I'm questioning my disability identity
+    - I recently got diagnosed with a disability
+    - I'm trying to accept my disability
+    - I don't know how to tell others about my disability
+    - I'm learning to navigate life with a disability
+    - I experience discrimination because of my disability
+    - I need resources for students with disabilities
+    - I'm dealing with others' perceptions of my disability
+    - I want to connect with other students with disabilities
+    - I feel isolated because of my disability
+    - I need to understand my rights as a student with a disability 

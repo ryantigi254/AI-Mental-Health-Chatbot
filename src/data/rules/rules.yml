@@ -11,7 +11,7 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Respond to bot challenge
+- rule: Say 'I am a bot' anytime the user challenges the bot identity
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
@@ -25,3 +25,204 @@ rules:
   steps:
   - intent: ask_for_help
   - action: utter_professional_help
+
+# Emergency Rules - These take highest priority
+- rule: Immediate response to emergency general
+  steps:
+  - intent: emergency_general
+  - action: utter_emergency_general
+  - action: utter_emergency_resources
+
+- rule: Immediate response to emergency mental health
+  steps:
+  - intent: emergency_mental_health
+  - action: utter_emergency_mental_health
+  - action: utter_emergency_resources
+
+- rule: Immediate response to emergency suicide
+  steps:
+  - intent: emergency_suicide
+  - action: utter_emergency_suicide
+  - action: utter_emergency_resources
+
+- rule: Immediate response to mental health crisis
+  steps:
+  - intent: mental_health_crisis
+  - action: utter_mental_health_crisis
+  - action: utter_emergency_resources
+
+# Request for information rules
+- rule: Respond to request for mental health resources
+  steps:
+  - intent: mental_health_services
+  - action: utter_mental_health_services
+
+- rule: Respond to request for support services
+  steps:
+  - intent: support_services_general
+  - action: utter_support_services_general
+
+- rule: Respond to request for financial resources
+  steps:
+  - intent: financial_general
+  - action: utter_financial_general
+
+# Emergency rules
+- rule: Respond to emergency accident
+  steps:
+  - intent: emergency_accident
+  - action: utter_emergency_accident
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency fire
+  steps:
+  - intent: emergency_fire
+  - action: utter_emergency_fire
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency weather
+  steps:
+  - intent: emergency_weather
+  - action: utter_emergency_weather
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency location
+  steps:
+  - intent: emergency_location
+  - action: utter_emergency_location
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency procedure
+  steps:
+  - intent: emergency_procedure
+  - action: utter_emergency_procedure
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency communication
+  steps:
+  - intent: emergency_communication
+  - action: utter_emergency_communication
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency contact
+  steps:
+  - intent: emergency_contact
+  - action: utter_emergency_contact
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency evacuation
+  steps:
+  - intent: emergency_evacuation
+  - action: utter_emergency_evacuation
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency crime
+  steps:
+  - intent: emergency_crime
+  - action: utter_emergency_crime
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency follow up
+  steps:
+  - intent: emergency_follow_up
+  - action: utter_emergency_follow_up
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency physical health
+  steps:
+  - intent: emergency_physical_health
+  - action: utter_emergency_physical_health
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency medical
+  steps:
+  - intent: emergency_medical
+  - action: utter_emergency_medical
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency safety
+  steps:
+  - intent: emergency_safety
+  - action: utter_emergency_safety
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency sexual assault
+  steps:
+  - intent: emergency_sexual_assault
+  - action: utter_emergency_sexual_assault
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency substance abuse
+  steps:
+  - intent: emergency_substance_abuse
+  - action: utter_emergency_substance_abuse
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency violence
+  steps:
+  - intent: emergency_violence
+  - action: utter_emergency_violence
+  - action: utter_emergency_resources
+
+- rule: Respond to emergency natural disaster
+  steps:
+  - intent: emergency_natural_disaster
+  - action: utter_emergency_natural_disaster
+  - action: utter_emergency_resources
+
+- rule: Respond to express emotion
+  steps:
+  - intent: express_emotion
+  - action: utter_express_emotion_response
+
+# Relationship rules
+- rule: Respond to relationship_work_study
+  steps:
+  - intent: relationship_work_study
+  - action: utter_relationship_work_study
+
+- rule: Respond to relationship_balance
+  steps:
+  - intent: relationship_balance
+  - action: utter_relationship_balance
+
+# Personality Rules
+- rule: Respond to select personality
+  steps:
+  - intent: select_personality
+  - action: utter_ask_personality
+
+- rule: Respond to empathetic personality preference
+  steps:
+  - intent: empathetic
+  - action: utter_select_empathetic
+
+- rule: Respond to direct personality preference
+  steps:
+  - intent: direct
+  - action: utter_select_direct
+
+- rule: Respond to motivational personality preference
+  steps:
+  - intent: motivational
+  - action: utter_select_motivational
+
+- rule: Respond to analytical personality preference
+  steps:
+  - intent: analytical
+  - action: utter_select_analytical
+
+- rule: Respond to balanced personality preference
+  steps:
+  - intent: balanced
+  - action: utter_select_balanced
+
+# Fallback rules
+- rule: Ask the user to rephrase when NLU is uncertain
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: Default fallback behavior
+  steps:
+  - action: action_default_fallback

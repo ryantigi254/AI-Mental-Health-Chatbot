@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/exam_anxiety
+  examples: |
+    - I have bad exam anxiety
+    - Feeling very anxious about upcoming tests
+    - How to deal with test anxiety?
+    - My anxiety spikes during exams
+    - Panicking about my final exams
+    - Exam season is making me extremely anxious
+    - I get so nervous before tests
+    - Need strategies for managing exam nerves
+    - The thought of exams makes me anxious
+    - How can I calm down before an exam? 

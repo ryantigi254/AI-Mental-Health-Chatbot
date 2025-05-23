@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: career/dropping_out
+  examples: |
+    - I'm thinking about dropping out of university
+    - Considering leaving my course
+    - What happens if I drop out?
+    - Is dropping out the right decision?
+    - Alternatives to dropping out?
+    - Need advice about leaving university
+    - Consequences of withdrawing from studies
+    - Who can I talk to about dropping out?
+    - Feeling like I want to quit university
+    - Support for students considering leaving 

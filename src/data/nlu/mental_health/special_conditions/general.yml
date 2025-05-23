@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/special_conditions/general
+  examples: |
+    - I have a special condition affecting my studies
+    - Need support for a specific condition
+    - Managing university with a condition
+    - How does the uni support special conditions?
+    - General query about condition support 

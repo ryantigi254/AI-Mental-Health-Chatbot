@@ -1,0 +1,45 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/resources/emergency
+  examples: |
+    - I need immediate help for a mental health crisis
+    - What's the suicide hotline number
+    - How do I contact a crisis line
+    - Where can I get emergency mental health support
+    - I need to talk to someone right now
+    - What should I do in a mental health emergency
+    - How can I get urgent help for suicidal thoughts
+    - Are there 24/7 mental health services
+    - What emergency resources exist for mental health
+    - Who should I call if I'm in crisis
+    - I need urgent psychiatric care
+    - What's the crisis text line
+    - How do I access emergency mental health services
+    - Where is the nearest psychiatric emergency room
+    - What to do if someone is threatening suicide
+    - How can I get immediate help for a panic attack
+    - What are the emergency mental health services on campus
+    - How do I report someone in mental health crisis
+    - What resources exist for someone in immediate danger
+    - How to get urgent help outside of business hours
+    - I'm in a mental health crisis
+    - I need immediate mental health help
+    - I'm having a mental health emergency
+    - I need urgent mental health support
+    - I'm in crisis
+    - I need crisis support
+    - I'm having a mental health breakdown
+    - I need emergency mental health help
+    - I'm experiencing a mental health crisis
+    - I need immediate support
+    - I need emergency mental health help
+    - This is a mental health emergency
+    - I'm having a mental health emergency
+    - I need immediate mental health assistance
+    - This is an urgent mental health situation
+    - I need emergency support for mental health
+    - I'm experiencing a mental health emergency
+    - I need urgent mental health intervention
+    - This is a critical mental health situation
+    - I need immediate mental health help 

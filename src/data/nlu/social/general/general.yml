@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/general
+  examples: |
+    - How can I make friends at university?
+    - I want to meet new people
+    - I need help making connections
+    - How do I socialize at university?
+    - I want to build my social network
+    - Where can I meet other students?
+    - I'm looking to make new friends
+    - How can I be more social?
+    - I want to connect with other students
+    - What social opportunities are there?
+    - Finding people with similar interests?
+    - I feel a bit isolated, how can I meet people?
+    - Ways to get involved socially on campus?
+    - Tips for making friends in a large university?
+    - Overcoming shyness to meet new students? 

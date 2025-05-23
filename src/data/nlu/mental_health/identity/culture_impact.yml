@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/culture_impact
+  examples: |
+    - How does culture affect mental health?
+    - I want to discuss cultural aspects of mental health
+    - How does my culture influence mental health?
+    - I need help with cultural mental health issues
+    - How do cultural factors impact mental health?
+    - I want to explore cultural mental health
+    - How does culture shape mental health?
+    - I need support with cultural mental health
+    - How do I handle cultural mental health?
+    - I want to understand cultural mental health 

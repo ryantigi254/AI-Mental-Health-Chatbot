@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/assignment_extensions
+  examples: |
+    - Can I get an extension on my assignment?
+    - How do I request an assignment extension?
+    - What is the policy for extensions?
+    - Need more time for my essay
+    - Process for applying for an extension?
+    - Who do I ask for an assignment extension?
+    - Valid reasons for an extension?
+    - What happens if I need an extension?
+    - Deadline extension request
+    - Help with getting more time on an assignment 

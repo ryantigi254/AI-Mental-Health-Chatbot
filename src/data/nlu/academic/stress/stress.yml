@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/stress
+  examples: |
+    - I'm so stressed about my classes
+    - University stress is getting to me
+    - Feeling overwhelmed by academic pressure
+    - My course load is too stressful
+    - How to cope with academic stress?
+    - The stress from my studies is unbearable
+    - I'm struggling with the academic demands
+    - Need help managing school stress
+    - Academic life is causing me a lot of stress
+    - It's hard to balance everything with this stress 

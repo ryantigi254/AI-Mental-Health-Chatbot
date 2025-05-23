@@ -1,0 +1,13 @@
+version: "3.1"
+
+nlu:
+  # This file imports the hierarchical special conditions intents
+  
+  # Import the special conditions category intents
+  - import: mental_health/special_conditions/general/general.yml
+  - import: mental_health/special_conditions/anxiety/anxiety.yml
+  - import: mental_health/special_conditions/depression/depression.yml
+  - import: mental_health/special_conditions/adhd/adhd.yml
+  - import: mental_health/special_conditions/ocd/ocd.yml
+  - import: mental_health/special_conditions/eating/eating.yml
+  - import: mental_health/special_conditions/ptsd/ptsd.yml 

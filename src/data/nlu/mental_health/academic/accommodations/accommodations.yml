@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/academic/accommodations
+  examples: |
+    - I need [extra time](accommodation_type) for my exams
+    - How do I get [academic accommodations](accommodation_type)
+    - I need [extensions](accommodation_type) on my assignments
+    - Can I get [special arrangements](accommodation_type) due to my anxiety
+    - How to request [disability services](accommodation_type)
+    - I need [alternative assessment](accommodation_type) due to my condition
+    - How can I get [deadline extensions](accommodation_type)
+    - I need [note-taking assistance](accommodation_type)
+    - Can I get [reduced course load](accommodation_type) due to my mental health
+    - I need [exam accommodations](accommodation_type)
+    - How to register for [disability support](accommodation_type)
+    - I need [attendance flexibility](accommodation_type) due to my condition
+    - What [mental health accommodations](accommodation_type) are available
+    - I need [learning support](accommodation_type) for my ADHD
+    - How to get [excused absences](accommodation_type) for mental health
+    - I need [assistive technology](accommodation_type) for my classes
+    - Can I get a [private room](accommodation_type) for exams due to my anxiety
+    - I need [recorded lectures](accommodation_type) as an accommodation
+    - How to arrange for [alternative formats](accommodation_type) for course materials
+    - What [documentation](accommodation_type) do I need for accommodations 

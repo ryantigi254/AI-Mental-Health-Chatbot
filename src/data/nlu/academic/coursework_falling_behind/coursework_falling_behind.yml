@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: academic/coursework_falling_behind
+  examples: |
+    - I'm falling behind in my coursework
+    - Can't keep up with the assignments
+    - Struggling to stay on track with my studies
+    - How can I catch up on missed work?
+    - Feeling overwhelmed and behind in class
+    - Need advice on getting back on track academically
+    - I've missed a lot of lectures, how do I catch up?
+    - Worried I won't be able to complete my coursework
+    - Tips for managing a heavy course load when behind?
+    - I feel lost in my classes 

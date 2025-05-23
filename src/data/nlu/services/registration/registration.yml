@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: services/registration
+  examples: |
+    - How do I register for classes?
+    - What's the process for course registration?
+    - When does registration open?
+    - I need help registering for the semester
+    - Where do I go to register?
+    - Problems with online registration
+    - Information about module registration
+    - How do I change my registration?
+    - What are the registration deadlines?
+    - Who can help me with registration issues? 

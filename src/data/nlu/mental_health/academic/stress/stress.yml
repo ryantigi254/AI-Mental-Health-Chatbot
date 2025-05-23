@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/academic/stress
+  examples: |
+    - I'm stressed about [exams](academic_trigger)
+    - My [coursework](academic_trigger) is overwhelming me
+    - I can't handle the [deadlines](academic_trigger)
+    - I'm anxious about my upcoming [finals](academic_trigger)
+    - My [homework](academic_trigger) is causing me stress
+    - I have too many [assignments](academic_trigger) due at once
+    - I'm worried about my [project](academic_trigger)
+    - The [semester](academic_trigger) is too demanding
+    - I'm not coping well with [academic pressure](academic_trigger)
+    - My [research paper](academic_trigger) is stressing me out
+    - I'm losing sleep over [midterms](academic_trigger)
+    - I can't keep up with the [coursework](academic_trigger)
+    - The [academic workload](academic_trigger) is too much
+    - I'm stressed at a [high](severity) level about [exams](academic_trigger)
+    - My [thesis](academic_trigger) is causing me [severe](severity) stress
+    - I've been stressed about [assignments](academic_trigger) for [weeks](duration)
+    - The pressure from my [classes](academic_trigger) is unbearable
+    - I'm having panic attacks because of [exams](academic_trigger)
+    - I might fail my [course](academic_trigger) and I'm freaking out
+    - My [GPA](academic_trigger) is causing me so much anxiety 

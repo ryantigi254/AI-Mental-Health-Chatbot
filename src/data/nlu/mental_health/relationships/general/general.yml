@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/general
+  examples: |
+    - I'm having relationship problems
+    - I need help with my relationship
+    - I'm struggling in my relationship
+    - I want to talk about my relationship
+    - I need relationship advice
+    - I'm having issues in my relationship
+    - I want to improve my relationship
+    - I need help understanding my relationship
+    - I'm confused about my relationship
+    - I want to discuss my relationship
+    - My relationship has been difficult lately
+    - I need guidance with my relationship
+    - I don't know where my relationship is going
+    - I'm not sure about my relationship
+    - My relationship is causing me stress
+    - I need help resolving relationship issues
+    - I'm unhappy in my relationship
+    - I want to make my relationship better
+    - My relationship isn't working well
+    - I'm having doubts about my relationship 

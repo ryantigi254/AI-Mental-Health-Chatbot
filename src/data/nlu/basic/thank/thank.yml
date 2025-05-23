@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: basic/thank
+  examples: |
+    - thanks
+    - thank you
+    - appreciate it
+    - thanks a lot
+    - thank you so much
+    - thanks for your help
+    - I appreciate that
+    - that's helpful
+    - you've been a big help
+    - thanks for the information
+    - that's great, thank you
+    - thank you for your assistance
+    - I'm grateful for your help
+    - thanks, that's all I needed
+    - thank you for your time 

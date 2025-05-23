@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: career/job_search
+  examples: |
+    - Where can I find part-time jobs?
+    - Help finding a job after graduation
+    - Information about Unitemps?
+    - Looking for job vacancies
+    - How to search for jobs effectively?
+    - Resources for finding work experience?
+    - Does the university help with job searching?
+    - Tips for applying for jobs
+    - Finding graduate schemes
+    - Where are job listings posted? 

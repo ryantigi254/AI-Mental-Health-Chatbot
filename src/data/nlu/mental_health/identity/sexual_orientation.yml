@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/sexual_orientation
+  examples: |
+    - Questioning my sexual orientation
+    - Issues related to being gay/lesbian/bisexual/etc.
+    - Need support regarding sexuality
+    - Confused about my sexual orientation
+    - Sexuality identity concerns 

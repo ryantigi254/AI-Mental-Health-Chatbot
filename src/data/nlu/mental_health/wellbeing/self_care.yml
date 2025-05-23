@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/wellbeing/self_care
+  examples: |
+    - How can I take better care of myself?
+    - I need help with self-care
+    - What are some self-care strategies?
+    - How do I practice self-care?
+    - I want to improve my self-care routine
+    - I need self-care tips
+    - How can I look after myself better?
+    - What self-care activities would help?
+    - I want to learn about self-care
+    - How do I maintain good self-care? 

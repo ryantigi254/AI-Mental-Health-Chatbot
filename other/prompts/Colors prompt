@@ -1,0 +1,49 @@
+**Design Prompt: UniMind Web Application UI/UX**
+
+**Overall Aesthetic:**
+
+*   **Modern & Clean:** Emphasize simplicity, clarity, and a contemporary look and feel. Utilize ample whitespace, clean lines, and intuitive layouts.
+*   **Calming & Trustworthy:** The design should evoke a sense of calm, safety, and professionalism, appropriate for a mental wellness application. Use colors and typography that support this.
+*   **Accessible:** Adhere to WCAG 2.1 AA guidelines, particularly regarding color contrast for text and interactive elements in both light and dark modes. Ensure legible typography and clear focus states.
+*   **Friendly & Engaging:** While calming, the design should not feel sterile. Incorporate the brand's primary color (pink) thoughtfully to add personality and guide user interaction.
+
+**Color Palette:**
+
+*   **Primary Accent (Brand Color):** Vibrant Pink (e.g., #FF007A, or a similar shade matching the UniMind logo). Use this for primary calls-to-action (buttons), active states, key highlights, and branding elements. Use sparingly but effectively.
+*   **Secondary Accent (Optional):** Consider a calming Teal or Soft Blue (e.g., #4FD1C5 or #A0AEC0) for secondary actions, informational icons, or subtle highlights, complementing the pink.
+*   **Neutrals:** A range of grays for backgrounds, borders, secondary text, and disabled states.
+
+*   **Light Mode:**
+    *   **Background:** White or a very light, slightly warm off-white (e.g., #FFFFFF or #F9F9F9).
+    *   **Surface/Cards:** White (#FFFFFF).
+    *   **Primary Text:** Dark Gray or near-black (e.g., #1A202C).
+    *   **Secondary Text:** Medium Gray (e.g., #718096).
+    *   **Borders/Dividers:** Light Gray (e.g., #E2E8F0).
+    *   **Accents:** Use the Primary Pink and optional Secondary Teal/Blue. Ensure sufficient contrast against light backgrounds.
+
+*   **Dark Mode:**
+    *   **Background:** Dark Blue-Gray or Charcoal (e.g., #1A202C or #2D3748). Avoid pure black.
+    *   **Surface/Cards:** Slightly lighter dark gray (e.g., #2D3748 or #4A5568).
+    *   **Primary Text:** Light Gray or off-white (e.g., #E2E8F0 or #F7FAFC).
+    *   **Secondary Text:** Medium Gray (e.g., #A0AEC0).
+    *   **Borders/Dividers:** Darker Gray (e.g., #4A5568).
+    *   **Accents:** Use the Primary Pink (ensure it has good contrast on dark backgrounds, potentially slightly desaturated if needed but still vibrant) and optional Secondary Teal/Blue (perhaps slightly brighter than in light mode).
+
+*   **Crisis Button:** Use the distinct Primary Pink (#FF007A or similar) consistently for the background of the crisis button in both light and dark modes, ensuring the icon/text on it has high contrast (likely white).
+
+**Typography:**
+
+*   Choose a clean, modern, and highly readable sans-serif font (e.g., Inter, Nunito, Lato, Manrope).
+*   Establish a clear type scale for headings, body text, labels, etc., ensuring good hierarchy and readability.
+
+**Layout & Components:**
+
+*   Maintain consistent padding and margin throughout the application.
+*   Design components (buttons, inputs, modals, cards, sidebar, chat bubbles) with the defined color palette and modern aesthetic in mind.
+*   Ensure responsiveness across different screen sizes.
+*   Use subtle transitions or animations where appropriate to enhance the user experience without being distracting.
+
+**References & Inspiration:**
+
+*   Consider principles from modern web design trends and UI libraries (like NextUI, Material UI, Chakra UI).
+*   Draw inspiration from calming and trustworthy color palettes often used in health and wellness applications, while integrating the unique pink brand color effectively. (Ref: visme.co - Calming/Trustworthy colors like blues, greens, neutrals).

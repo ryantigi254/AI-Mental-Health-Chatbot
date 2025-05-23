@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/resources/general_info
+  examples: |
+    - Where can I get mental health help?
+    - I need mental health services
+    - What mental health services are available?
+    - How do I access mental health support?
+    - I want to find mental health services
+    - What mental health resources are there?
+    - How can I get mental health help?
+    - I need to find mental health support
+    - What mental health options do I have?
+    - Where can I get mental health treatment? 

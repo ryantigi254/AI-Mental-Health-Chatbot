@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/romantic
+  examples: |
+    - I'm having issues with my romantic relationship
+    - I need help with my dating life
+    - I'm struggling in my romantic relationship
+    - I want to improve my romantic relationship
+    - I need advice about my romantic relationship
+    - I'm having problems with my partner
+    - I want to talk about my romantic relationship
+    - I need help understanding my romantic relationship
+    - I'm confused about my romantic relationship
+    - I want to discuss my romantic relationship
+    - My boyfriend and I are having problems
+    - My girlfriend and I are struggling
+    - I don't know how to fix my romantic relationship
+    - I'm having doubts about my partner
+    - My relationship with my significant other is difficult
+    - I think my partner might break up with me
+    - I don't know if I want to stay in my relationship
+    - My romantic relationship is causing me anxiety
+    - I need help communicating with my partner
+    - I'm not sure if my partner is right for me 

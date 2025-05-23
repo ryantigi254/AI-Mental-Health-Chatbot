@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/relationships/boundaries
+  examples: |
+    - I need help setting boundaries
+    - I'm having trouble with relationship boundaries
+    - I want to establish better boundaries
+    - I need advice about setting boundaries
+    - I'm struggling with boundary issues
+    - I want to talk about relationship boundaries
+    - I need help understanding boundaries
+    - I'm confused about setting boundaries
+    - I want to discuss boundary issues
+    - I need help maintaining boundaries
+    - People keep crossing my boundaries
+    - I don't know how to say no to people
+    - I have trouble enforcing my boundaries
+    - I feel like I'm always available to others
+    - I need help establishing personal space
+    - I can't set limits with my family
+    - I'm afraid to establish boundaries with my friends
+    - My roommate doesn't respect my boundaries
+    - I need help with boundaries in my relationship
+    - I don't know when I should set boundaries 

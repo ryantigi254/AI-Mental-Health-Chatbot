@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/mentorship
+  examples: |
+    - How can I find a mentor?
+    - I want to join a mentorship program
+    - Tell me about mentoring opportunities
+    - How do I get a student mentor?
+    - What mentorship programs exist?
+    - I'm interested in being mentored
+    - Where can I find mentorship information?
+    - How do I get involved in mentoring?
+    - What types of mentorship are available?
+    - I want to connect with a mentor
+    - Can upperclassmen mentor freshmen?
+    - Is there a faculty mentorship program?
+    - How to apply for mentorship?
+    - Peer mentoring options?
+    - Benefits of having a mentor? 

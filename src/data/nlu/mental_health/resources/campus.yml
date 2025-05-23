@@ -1,0 +1,35 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/resources/campus
+  examples: |
+    - What mental health resources are available on campus
+    - How can I access the counseling center
+    - Where is the student health center
+    - Does the university offer therapy
+    - Are there support groups on campus
+    - How do I make an appointment with a campus counselor
+    - What mental health services does the university provide
+    - Tell me about campus mental health resources
+    - How can I see a therapist at school
+    - Are there peer support resources on campus
+    - Who can I talk to about mental health at the university
+    - Does the campus have a crisis hotline
+    - Where can I find the wellness center
+    - What psychological services are offered on campus
+    - How can I access disability services for mental health
+    - Are there drop-in counseling hours
+    - Is there a psychiatrist on campus
+    - What mental health workshops are available
+    - How do I access academic accommodations for mental health
+    - Can I get mental health support without insurance
+    - I want to find peer support for mental health
+    - Are there mental health peer support groups?
+    - I need peer support for mental health
+    - How can I find mental health peer support?
+    - I want to join a mental health support group
+    - I need peer mental health support
+    - Are there mental health peer groups?
+    - I want to connect with mental health peers
+    - How do I find mental health peer support?
+    - I need to talk to peers about mental health 

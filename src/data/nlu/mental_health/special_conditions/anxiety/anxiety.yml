@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/special_conditions/anxiety
+  examples: |
+    - I have anxiety
+    - I need help with anxiety
+    - I'm struggling with anxiety
+    - I need anxiety support
+    - I want to talk about my anxiety
+    - I need help managing anxiety
+    - I'm having trouble with anxiety
+    - I need anxiety accommodations
+    - I want to discuss anxiety
+    - I need help understanding anxiety
+    - I'm experiencing severe anxiety
+    - My anxiety is affecting my studies
+    - I have test anxiety
+    - I experience social anxiety
+    - I get anxiety attacks regularly
+    - I need coping strategies for anxiety
+    - My anxiety prevents me from attending class
+    - I'm looking for anxiety treatment options
+    - I need to know if I have generalized anxiety disorder
+    - I want to learn techniques to manage my anxiety 

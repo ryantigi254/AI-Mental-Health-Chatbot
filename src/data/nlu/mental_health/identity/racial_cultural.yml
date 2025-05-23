@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/racial_cultural
+  examples: |
+    - Dealing with issues related to my race/ethnicity/culture
+    - Cultural identity stress
+    - Need support related to my cultural background
+    - Feeling like an outsider due to my race/culture
+    - Racial or cultural identity concerns 

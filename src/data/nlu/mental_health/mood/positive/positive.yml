@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/mood/positive
+  examples: |
+    - I feel great today
+    - I am happy
+    - I feel happy
+    - I'm good
+    - I'm feeling cheerful
+    - I'm fine
+    - I feel ok
+    - I'm doing well
+    - I feel positive
+    - I'm in a good mood
+    - I feel wonderful
+    - I'm feeling fantastic
+    - I'm on top of the world
+    - I feel delighted
+    - I'm really happy today
+    - Today is a good day
+    - I'm feeling optimistic
+    - I've been feeling better lately
+    - My mood has improved
+    - I'm feeling upbeat 

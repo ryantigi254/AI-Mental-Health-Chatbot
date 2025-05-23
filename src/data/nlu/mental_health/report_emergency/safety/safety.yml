@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/emergency/safety
+  examples: |
+    - I'm in an unsafe situation
+    - I need immediate safety assistance
+    - This is a safety emergency
+    - I need urgent safety support
+    - I'm experiencing a safety crisis
+    - I need emergency safety help
+    - This is a critical safety situation
+    - I need immediate safety intervention
+    - I'm in a safety emergency
+    - I need emergency safety assistance
+    - I don't feel safe where I am
+    - Someone is threatening me
+    - I need to report a dangerous situation
+    - I'm in immediate danger
+    - I need to contact campus security
+    - I'm being followed or stalked
+    - I need to know about safety protocols
+    - I need emergency shelter or safe housing
+    - I'm afraid for my physical safety
+    - I need safety resources immediately 

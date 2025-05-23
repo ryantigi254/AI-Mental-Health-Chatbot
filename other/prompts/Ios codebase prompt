@@ -1,0 +1,44 @@
+**Objective:** Generate a comprehensive Markdown documentation file detailing the user flow, visual appearance, and functionality of the UniMind iOS application based *solely* on the current codebase.
+
+**Instructions:**
+
+Analyze the provided iOS application codebase (Swift/Objective-C, SwiftUI/UIKit) and produce a Markdown (`.md`) file describing the user's journey from the very first launch through all available screens and features.
+
+For each significant screen or step in the user flow, include the following details:
+
+1.  **Screen Title/Identifier:** Use a clear heading for each screen (e.g., `## Initial Launch & Terms Acceptance`, `## Main Chat Interface`, `## Settings Screen`, `## Crisis Support Modal`).
+2.  **Visual Description:**
+    *   Describe the layout and key UI elements visible on the screen (e.g., buttons, text fields, lists, navigation bars, tab bars, icons, background elements like the UniMind logo if present).
+    *   Mention the general color scheme observed on this screen, noting differences between light and dark modes if applicable.
+3.  **Functionality & Interaction:**
+    *   Explain what the user can *do* on this screen.
+    *   Describe the behavior of interactive elements (e.g., "Tapping the 'Send' button sends the message", "Scrolling the list loads more history", "The 'Dark Mode' toggle switches the theme").
+    *   Detail the navigation flow: Where does the user go when they interact with specific elements (e.g., "Tapping the 'Settings' icon navigates to the Settings Screen")?
+4.  **Features Present:**
+    *   List the specific UniMind features accessible or controlled from this screen (e.g., Chat input, Mood entry, View Journal, Access Crisis Resources, Change Theme, Toggle Memory).
+5.  **Data Flow (Briefly):**
+    *   Mention any significant data being displayed (e.g., "Displays chat history") or captured (e.g., "Captures user text input").
+
+**Specific Areas to Detail:**
+
+*   **Complete Flow:** Start the documentation from the absolute first screen the user sees upon launching the app post-installation (likely including any permission requests or terms acceptance) and continue sequentially through *all* implemented screens and features.
+*   **Theming (Light/Dark Mode Implementation):**
+    *   Explicitly describe how the visual switch between light and dark modes is handled across different screens (e.g., background colors, text colors, card/surface colors change).
+    *   Crucially, explain how the primary **pink accent color** (similar to #FF007A) is *consistently* applied to specific designated elements (like primary buttons, active state indicators, crisis button, potentially highlights) in **both light and dark modes**, maintaining brand identity while the neutral colors adapt to the theme.
+*   **Crisis Button & Flow:**
+    *   Describe its appearance (pink color, icon) and persistent location (e.g., top-right corner of relevant screens).
+    *   Detail the flow when the button is tapped: What modal or view appears?
+    *   Describe the content within the crisis view: Sections for Guided Breathing, Grounding Techniques (like 5-4-3-2-1 method if implemented), and links/buttons for Helplines (Samaritans, NHS, SafeZone app).
+    *   If the Guided Breathing Exercise is implemented, describe its visual animation (e.g., expanding/contracting circle), any sound options, and controls for timing/technique selection.
+*   **Navigation Structure:** Explain the main navigation method (e.g., Tab Bar, Sidebar/Hamburger Menu) and list the main sections accessible (Chat, History, Settings, Mood Tracker, Journal, Companion).
+*   **Chat Interface:** Describe how messages are displayed (user vs. bot styling), if response streaming is visible, the input field's behavior, and the functionality of the copy button per message.
+*   **Settings Screen:** Detail all the settings options currently available in the code and how they function (e.g., toggles, selectors for Tones/Personalities).
+*   **Local Data:** If the code indicates storage mechanisms (e.g., CoreData, SQLite, UserDefaults for storing chats, mood, journal), briefly mention that data is intended to be stored locally. Avoid deep implementation details unless explaining user-visible functionality (like viewing history or deleting data).
+
+**Output Format:**
+
+*   Produce the output as a single, well-structured Markdown (`.md`) file.
+*   Use Markdown headings (`##`, `###`), lists (`-`, `*`, `1.`), and inline code formatting (backticks `` ` ``) for clarity and readability.
+*   Ensure the description flows logically, following the user's likely path through the app.
+
+**Constraint:** Base the entire description *only* on the provided codebase. Do not infer features or functionality not present in the code.

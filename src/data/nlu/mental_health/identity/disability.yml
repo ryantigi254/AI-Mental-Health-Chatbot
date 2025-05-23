@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/disability
+  examples: |
+    - How my disability affects my identity
+    - Issues related to disability identity
+    - Need support connecting with disability identity
+    - Feeling different because of my disability
+    - Disability identity concerns 

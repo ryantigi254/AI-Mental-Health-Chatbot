@@ -1,0 +1,10 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/identity/gender
+  examples: |
+    - Questioning my gender identity
+    - Issues related to being transgender/non-binary/etc.
+    - Need support regarding gender
+    - Confused about my gender
+    - Gender identity concerns 

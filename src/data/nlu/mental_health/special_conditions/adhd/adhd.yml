@@ -1,0 +1,25 @@
+version: "3.1"
+
+nlu:
+- intent: mental_health/special_conditions/adhd
+  examples: |
+    - I have ADHD
+    - I need help with ADHD
+    - I'm struggling with ADHD
+    - I need ADHD support
+    - I want to talk about my ADHD
+    - I need help managing ADHD
+    - I'm having trouble with ADHD
+    - I need ADHD accommodations
+    - I want to discuss ADHD
+    - I need help understanding ADHD
+    - I was recently diagnosed with ADHD
+    - I'm having trouble focusing in class
+    - I need strategies for studying with ADHD
+    - I want to know about ADHD medication options
+    - I'm struggling with time management due to ADHD
+    - I need academic accommodations for my ADHD
+    - I have trouble with executive functioning
+    - I'm easily distracted and can't complete assignments
+    - I need help explaining my ADHD to my professors
+    - I want to connect with other students who have ADHD 

@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: financial/budgeting
+  examples: |
+    - I need help making a student budget
+    - How to budget effectively as a student?
+    - Tips for managing money on a student income
+    - Creating a budget for university life
+    - Need advice on tracking expenses
+    - How much should I budget for food/rent/etc.?
+    - Tools or apps for student budgeting?
+    - Strategies for sticking to a budget?
+    - Budgeting workshops or resources on campus?
+    - How to save money while studying? 

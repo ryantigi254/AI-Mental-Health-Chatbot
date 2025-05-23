@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: social/peer_groups
+  examples: |
+    - How can I join peer groups?
+    - I want to find study groups
+    - Tell me about peer support groups
+    - How do I find peer groups?
+    - What peer groups are available?
+    - I'm interested in group activities
+    - Where can I find peer group information?
+    - How do I get involved in peer groups?
+    - What types of peer groups exist?
+    - I want to join student groups
+    - Are there study groups for my course?
+    - How to form a study group?
+    - Peer groups for specific majors?
+    - Mental health peer support groups?
+    - Where do peer groups usually meet? 
